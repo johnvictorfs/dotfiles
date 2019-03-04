@@ -52,6 +52,8 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'Raimondi/delimitMate'
 
+Plug 'christoomey/vim-tmux-navigator'
+
 " Initialize plugin system "
 call plug#end()
 
@@ -99,10 +101,10 @@ nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 nnoremap <c-p> :Files<cr>
 
 " Remap Ctrl + W + Key to Ctrl + Key to move between windows "
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
 " ------ "
 
 " Open nerdtree with C + O "
