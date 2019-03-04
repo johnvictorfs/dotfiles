@@ -8,6 +8,10 @@ Plug 'morhetz/gruvbox'
 
 Plug 'andreyorst/SimpleSnippets.vim'
 
+Plug 'itchyny/lightline.vim'
+
+Plug 'scrooloose/nerdtree'
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -25,6 +29,10 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Linting "
 Plug 'w0rp/ale'
+
+Plug 'mattn/emmet-vim'
+
+Plug 'airblade/vim-gitgutter'
 
 " Multiple Cursors "
 Plug 'terryma/vim-multiple-cursors/'
@@ -91,11 +99,14 @@ nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 nnoremap <c-p> :Files<cr>
 
 " Remap Ctrl + W + Key to Ctrl + Key to move between windows "
-nnoremap <C-Up> <C-W><C-UP>
-nnoremap <C-Down> <C-W><C-Down>
-nnoremap <C-Left> <C-W><C-Left>
-nnoremap <C-Right> <C-W><C-Right>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 " ------ "
+
+" Open nerdtree with C + O "
+nnoremap <C-o> :NERDTreeToggle<CR>
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
