@@ -100,7 +100,9 @@ source $OSH/oh-my-bash.sh
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
 
-source ~/.aliases
+[ -f ~/.aliases ] && source ~/.aliases
+
+[ -f ~/.env_vars ] && source ~/.env_vars
 
 source ~/.env_vars
 
@@ -120,6 +122,6 @@ eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # added by travis gem
-[ -f /home/john/.travis/travis.sh ] && source /home/john/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
