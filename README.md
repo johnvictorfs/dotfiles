@@ -1,17 +1,13 @@
 # My Dotfiles
 
-Configuration files for zsh (.zshrc) and Noevim (init.vim)
+Configuration files for bash (.bashrc and .aliases) and Noevim (init.vim)
 
-## Bootstrap Installation (for Elementary OS)
-
-```bash
-curl https://gist.github.com/johnvictorfs/e38caaeeef9c4eb3b297bdeb62d715b9/raw/ -L | bash
-```
-
-### Switch to ZSH
+## Bootstrap Installation
 
 ```bash
-chsh -s $(which zsh) 
+git clone https://github.com/johnvictorfs/dotfiles.git
+cd dotfiles
+chmod a+x install.sh && ./install.sh
 ```
 
 ### Change Plank theme

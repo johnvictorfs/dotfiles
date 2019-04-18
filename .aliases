@@ -1,3 +1,5 @@
+alias hg='history | grep'
+
 alias notebook="python3.7 -m notebook"
 
 # Django Aliases # # # # # # # # # # # #
@@ -13,11 +15,8 @@ alias serve="npm run serve"
 # # # # # # # # # # # # # # # # # # # #
 
 # Cd aliases # # # # # # # # # # # # # #
-alias dev="cd /home/john/JohnSamsung/projects"
+alias dev="cd ~/projects"
 alias projects="dev"
-
-alias rsatl="ssh john@157.230.167.150"
-alias rsatlantis="rsatl"
 
 alias apps="cd /usr/share/applications"
 
