@@ -1,8 +1,17 @@
+#!/usr/bin/env bash
+
 ORANGE=$'\e[33m'
 GREEN=$'\e[32m'
 NC=$'\e[0m'
 
-# Installing and setting up my most used packages
+read -p "${ORANGE}Do you want to run ${GREEN}'sudo apt update'${ORANGE}? (Y/n)${NC} " -n 1 -r
+echo
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    sudo apt update
+fi
+
+# Installing apt packages
 declare -a apt_packages=(
     "git"
     "fonts-powerline"
@@ -17,12 +26,11 @@ declare -a apt_packages=(
     "sqlite3"
 )
 
-sudo apt update
 for package in "${apt_packages[@]}"; do
     read -p "${ORANGE}Do you want to install ${package}? (Y/n)${NC} " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]] ; then
-        sudo apt install -y ${package}
+        sudo apt install -y "${package}"
     fi
 done;
 
@@ -48,7 +56,7 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 fi
 
 # Installing py n vim
-read -p "${ORANGE}Do you want to install and setup py-n-vim? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install py-n-vim? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
     pip3 install --user pynvim
@@ -85,7 +93,7 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
     gsettings set org.gnome.desktop.interface gtk-theme Sierra-dark
 fi
 
-read -p $"${ORANGE}Do you wish to set the icons theme to Flat-remix icons? (Y/n)${NC} " -n 1 -r
+read -p $"${ORANGE}Do you wish to install and set the icons theme to Flat-remix icons? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
     # Flat-remix Icons: https://github.com/daniruiz/flat-remix
@@ -95,15 +103,26 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
     gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Red-Dark"
 fi
 
-read -p $"${ORANGE}Do you wish the install the plank dock? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you wish the install the Plank dock? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
     sudo apt install -y plank
-    read -p $"${ORANGE}Do you wish to install the paperterial theme for the plank dock? (It has to be turned on manually) (Y/n)${NC} " -n 1 -r 
+    read -p "${ORANGE}Do you wish to install the paperterial theme for the plank dock? (It has to be turned on manually) (Y/n)${NC} " -n 1 -r 
     echo
     if [[ $REPLY =~ ^[Yy]$ ]] ; then
         mkdir ~/.local/share/plank/themes/paperterial &&
         wget -O ~/.local/share/plank/themes/paperterial/dock.theme "https://raw.githubusercontent.com/KenHarkey/plank-themes/master/paperterial/dock.theme"
+    fi
+    read -p "${ORANGE}Do you wish to replace the Gnome Dock with the Plank dock? (Y/n)${NC} " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]] ; then
+        echo -e "${GREEN}Setting plank to load on start up...${NC}"
+        cp plank.desktop ~/.config/autostart/
+        plank
+        echo -e "${GREEN}Disabling Gnome Dock...${NC}"
+        gsettings set org.gnome.shell.extensions.dash-to-dock autohide false
+        gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+        gsettings set org.gnome.shell.extensions.dash-to-dock intellihide false
     fi
 fi
 

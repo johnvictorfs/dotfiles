@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ORANGE=$'\e[33m'
 RED=$'\e[31m'
 GREEN=$'\e[32m'
@@ -28,7 +30,7 @@ for package in "${snap_packages[@]}"; do
 	read -p "${ORANGE}Do you want to install ${package}? (Y/n)${NC} " -n 1 -r
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]] ; then
-		snap install ${package}
+		snap install "${package}"
 	fi
 done;
 
