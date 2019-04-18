@@ -1,0 +1,24 @@
+alias notebook="python3.7 -m notebook"
+
+# Django Aliases # # # # # # # # # # # #
+alias runserver="python manage.py runserver"
+alias makemigrations="python manage.py makemigrations"
+alias migrate="python manage.py migrate"
+alias migrations="python manage.py makemigrations && python manage.py migrate"
+alias mtest="python manage.py test"
+# # # # # # # # # # # # # # # # # # # #
+
+# Npm aliases # # # # # # # # # # # # #
+alias serve="npm run serve"
+# # # # # # # # # # # # # # # # # # # #
+
+# Cd aliases # # # # # # # # # # # # # #
+alias dev="cd /home/john/JohnSamsung/projects"
+alias projects="dev"
+
+alias rsatl="ssh john@157.230.167.150"
+alias rsatlantis="rsatl"
+
+alias apps="cd /usr/share/applications"
+
+alias src="source ~/.bashrc"

@@ -8,7 +8,9 @@ Plug 'morhetz/gruvbox'
 
 Plug 'andreyorst/SimpleSnippets.vim'
 
-Plug 'itchyny/lightline.vim'
+" Status Line "
+Plug 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = 1
 
 Plug 'scrooloose/nerdtree'
 
@@ -120,4 +122,3 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 let g:SimpleSnippetsExpandOrJumpTrigger = "<Tab>"
 let g:SimpleSnippetsJumpBackwardTrigger = "<S-Tab>"
 let g:SimpleSnippetsJumpToLastTrigger = "<C-j>"
-
