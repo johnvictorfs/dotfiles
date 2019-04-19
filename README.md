@@ -17,7 +17,7 @@ chmod a+x install.sh && ./install.sh
 plank --preferences
 ```
 
-### My Bash Prompt
+### Bash Prompt
 
 ![image](https://user-images.githubusercontent.com/37747572/56436771-5e2a2880-62b3-11e9-8e60-763832b5a559.png)
 
