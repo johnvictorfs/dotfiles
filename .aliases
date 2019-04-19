@@ -1,23 +1,21 @@
+# Misc aliases
 alias hg='history | grep'
+alias src="source ~/.bashrc"
 
+# Python aliases
 alias notebook="python3.7 -m notebook"
 
-# Django Aliases # # # # # # # # # # # #
+# Django Aliases
 alias runserver="python manage.py runserver"
 alias makemigrations="python manage.py makemigrations"
 alias migrate="python manage.py migrate"
 alias migrations="python manage.py makemigrations && python manage.py migrate"
 alias mtest="python manage.py test"
-# # # # # # # # # # # # # # # # # # # #
 
-# Npm aliases # # # # # # # # # # # # #
+# Npm aliases
 alias serve="npm run serve"
-# # # # # # # # # # # # # # # # # # # #
 
-# Cd aliases # # # # # # # # # # # # # #
+# Cd aliases
 alias dev="cd ~/projects"
 alias projects="dev"
-
 alias apps="cd /usr/share/applications"
-
-alias src="source ~/.bashrc"

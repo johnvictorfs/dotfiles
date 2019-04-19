@@ -35,14 +35,30 @@ if [ ! -x "$(command -v subl)" ] ; then
 fi
 
 # Install Package Control
+echo -e "${GREEN}Installing Package Control...${NC}"
+echo
 cd $HOME/.config/sublime-text-3/Installed\ Packages
 curl -O "https://packagecontrol.io/Package%20Control.sublime-package"
 mv Package%20Control.sublime-package "Package Control.sublime-package"
 
 # Setup configs
-cd $HOME/dotfiles
-cp -r sublime/Package\ Control.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
-cp -r sublime/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
+echo
+read -p "${ORANGE}Do you want your Sublime 3 settings to be replaced? Backups will be made (Y/n) " -n 1 -r
+echo
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+	if [ -f $HOME/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings ] ; then
+        mv $HOME/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings $HOME/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings.backup
+        echo -e "${ORANGE}Renamed current ${RED}~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings${NC} ${ORANGE}to ${GREEN}~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings.backup${NC}"
+    fi
+    if [ -f $HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings ] ; then
+        mv $HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings.backup
+        echo -e "${ORANGE}Renamed current ${RED}~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings${NC} ${ORANGE}to ${GREEN}~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings.backup${NC}"
+    fi
+
+    ln -sv $HOME/dotfiles/sublime/Package\ Control.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
+    ln -sv $HOME/dotfiles/sublime/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
+fi
 
 echo
 echo "${GREEN}Finished setting up Sublime 3 Settings.${NC}"
