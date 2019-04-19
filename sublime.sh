@@ -5,6 +5,12 @@ RED=$'\e[31m'
 GREEN=$'\e[32m'
 NC=$'\e[0m'
 
+read -p "${ORANGE}Do you wish to setup the Sublime 3 Configs? (Y/n)${NC} " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]] ; then
+    exit 1
+fi
+
 if [ ! -x "$(command -v subl)" ] ; then
 	read -p "${RED}You do not have Sublime Text 3 installed. Do you want to install it now? (Y/n)${NC} " -n 1 -r
 	echo

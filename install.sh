@@ -143,6 +143,12 @@ ln -sv ~/dotfiles/init.vim ~/.config/nvim
 
 source ~/.bashrc
 
+read -p "${ORANGE}Do you wish to change the Desktop Wallpaper to the Kali Linux image? (Y/n)${NC} " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    gsettings set org.gnome.desktop.background picture-uri file:///${HOME}/dotfiles/images/kali-linux-wallpaper.png
+fi
+
 echo
 echo "${GREEN}Finished symlinking dotfiles.${NC}"
 echo

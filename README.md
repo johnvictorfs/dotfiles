@@ -5,6 +5,7 @@ Configuration files for bash (.bashrc and .aliases) and Noevim (init.vim)
 ## Bootstrap Installation
 
 ```bash
+cd $HOME
 git clone https://github.com/johnvictorfs/dotfiles.git
 cd dotfiles
 chmod a+x install.sh && ./install.sh
