@@ -147,3 +147,4 @@ echo "${GREEN}Finished symlinking dotfiles.${NC}"
 echo
 
 chmod a+x snap_packages.sh && ./snap_packages.sh
+chmod a+x sublime.sh && ./sublime.sh

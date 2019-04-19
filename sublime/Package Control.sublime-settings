@@ -1,0 +1,21 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Angular CLI",
+		"AngularJS",
+		"Emmet",
+		"Emmet Style Reflector",
+		"JSX",
+		"Material Theme",
+		"Package Control",
+		"React IDE",
+		"React Native Autocomplete",
+		"react-native-snippets",
+		"SideBarEnhancements",
+		"TypeScript"
+	]
+}
