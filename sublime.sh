@@ -5,6 +5,7 @@ GREEN=$'\e[32m'
 RED=$'\e[31m'
 NC=$'\e[0m'
 
+echo
 read -p "${ORANGE}Do you wish to setup the Sublime 3 Configs? (Y/n)${NC} " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]] ; then
