@@ -131,17 +131,32 @@ fi
 read -p "${ORANGE}Do you want to replace your current dotfiles with the new ones? Backups will be made (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
+	echo
     echo -e "${ORANGE}Backing up current dotfiles...${NC}"
-	mkdir ~/.config/nvim
-	mv ~/.env_vars ~/.env_vars.backup # Backing up current .env_vars file
-	echo -e "${ORANGE}Backed up ${RED}.bashrc${NC} ${ORANGE}to ${GREEN}.bashrc.backup${NC}"
-	mv ~/.bashrc ~/.bashrc.backup # Backing up current .bashrc file
-	echo -e "${ORANGE}Backed up ${RED}.aliases${NC} ${ORANGE}to ${GREEN}.aliases.backup${NC}"
-	mv ~/.aliases ~/.aliases.backup # Backing up current .aliases files
-	echo -e "${ORANGE}Backed up ${RED}init.vim${NC} ${ORANGE}to ${GREEN}init.vim.backup${NC}"
-	mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.backup # Backing up current init.vim directory
 
-	touch ~/.env_vars # Creating .env_vars files, not in repo because it's to be used for secret env vars
+    if [ ! -d ~/.config/nvim ] ; then
+		mkdir ~/.config/nvim
+	fi
+
+	if [ -f ~/.env_vars ] ; then
+		mv ~/.env_vars ~/.env_vars.backup # Backing up current .env_vars file
+		echo -e "${ORANGE}Backed up ${RED}.env_vars${NC} ${ORANGE}to ${GREEN}.env_vars.backup${NC}"
+	fi
+
+	if [ -f ~/.bashrc ] ; then
+		mv ~/.bashrc ~/.bashrc.backup # Backing up current .bashrc file
+		echo -e "${ORANGE}Backed up ${RED}.bashrc${NC} ${ORANGE}to ${GREEN}.bashrc.backup${NC}"
+	fi
+
+	if [ -f ~/.aliases ] ; then
+		mv ~/.aliases ~/.aliases.backup # Backing up current .aliases files
+		echo -e "${ORANGE}Backed up ${RED}.aliases${NC} ${ORANGE}to ${GREEN}.aliases.backup${NC}"
+	fi
+
+	if [ -f ~/.config/nvim/init.vim ] ; then
+		mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.backup # Backing up current init.vim directory
+		echo -e "${ORANGE}Backed up ${RED}init.vim${NC} ${ORANGE}to ${GREEN}init.vim.backup${NC}"
+	fi
 
 	echo -e "${ORANGE}Symlinking dotfiles...${NC}"
 	ln -sv ~/dotfiles/.bashrc ~
