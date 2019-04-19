@@ -1,6 +1,6 @@
 # My Dotfiles
 
-Configuration files for bash (.bashrc and .aliases) and Noevim (init.vim)
+Configuration files for bash (`.bashrc`, `.aliases` and `.bash_prompt`) and Noevim (`init.vim`)
 
 ## Installation
 
