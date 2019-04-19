@@ -34,14 +34,14 @@ if [ ! -x "$(command -v subl)" ] ; then
 fi
 
 # Install Package Control
-cd ~/.config/sublime-text-3/Installed\ Packages
+cd $HOME/.config/sublime-text-3/Installed\ Packages
 curl -O "https://packagecontrol.io/Package%20Control.sublime-package"
 mv Package%20Control.sublime-package "Package Control.sublime-package"
 
 # Setup configs
-cd ~/dotfiles
-cp -r sublime/Package\ Control.sublime-settings ~/.config/sublime-text-3/Packages/User/
-cp -r sublime/Preferences.sublime-settings ~/.config/sublime-text-3/Packages/User/
+cd $HOME/dotfiles
+cp -r sublime/Package\ Control.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
+cp -r sublime/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
 
 echo
 echo "${GREEN}Finished setting up Sublime 3 Settings.${NC}"

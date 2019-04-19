@@ -76,12 +76,12 @@ fi
 read -p "${ORANGE}Do you want to install Neovim 0.3.4? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    mkdir ~/snap
-    wget -O ~/snap/nvim.appimage "https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage"
-    chmod a+x ~/snap/nvim.appimage
+    mkdir $HOME/snap
+    wget -O $HOME/snap/nvim.appimage "https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage"
+    chmod a+x $HOME/snap/nvim.appimage
 
     # Plug package manager for Neovim/Vim: https://github.com/junegunn/vim-plug
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # Mac-OS Sierra gtk Theme: https://github.com/vinceliuice/Sierra-gtk-theme
@@ -101,7 +101,7 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
     # Flat-remix Icons: https://github.com/daniruiz/flat-remix
     cd /tmp && rm -rf flat-remix &&
     git clone https://github.com/daniruiz/flat-remix &&
-    mkdir -p ~/.icons && cp -r flat-remix/Flat-Remix* ~/.icons/ &&
+    mkdir -p $HOME/.icons && cp -r flat-remix/Flat-Remix* $HOME/.icons/ &&
     gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Red-Dark"
 fi
 
@@ -112,14 +112,14 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
     read -p "${ORANGE}Do you wish to install the paperterial theme for the plank dock? (It has to be turned on manually) (Y/n)${NC} " -n 1 -r 
     echo
     if [[ $REPLY =~ ^[Yy]$ ]] ; then
-        mkdir ~/.local/share/plank/themes/paperterial &&
-        wget -O ~/.local/share/plank/themes/paperterial/dock.theme "https://raw.githubusercontent.com/KenHarkey/plank-themes/master/paperterial/dock.theme"
+        mkdir $HOME/.local/share/plank/themes/paperterial &&
+        wget -O $HOME/.local/share/plank/themes/paperterial/dock.theme "https://raw.githubusercontent.com/KenHarkey/plank-themes/master/paperterial/dock.theme"
     fi
     read -p "${ORANGE}Do you wish to replace the Gnome Dock with the Plank dock? (Y/n)${NC} " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]] ; then
         echo -e "${GREEN}Setting plank to load on start up...${NC}"
-        cp plank.desktop ~/.config/autostart/
+        cp plank.desktop $HOME/.config/autostart/
         plank
         echo -e "${GREEN}Disabling Gnome Dock...${NC}"
         gsettings set org.gnome.shell.extensions.dash-to-dock autohide false
@@ -134,39 +134,39 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 	echo
     echo -e "${ORANGE}Backing up current dotfiles...${NC}"
 
-    if [ ! -d ~/.config/nvim ] ; then
-		mkdir ~/.config/nvim
+    if [ ! -d $HOME/.config/nvim ] ; then
+		mkdir $HOME/.config/nvim
 	fi
 
-	if [ -f ~/.env_vars ] ; then
-		mv ~/.env_vars ~/.env_vars.backup # Backing up current .env_vars file
+	if [ -f $HOME/.env_vars ] ; then
+		mv $HOME/.env_vars $HOME/.env_vars.backup # Backing up current .env_vars file
 		echo -e "${ORANGE}Backed up ${RED}.env_vars${NC} ${ORANGE}to ${GREEN}.env_vars.backup${NC}"
 	fi
 
-	if [ -f ~/.bashrc ] ; then
-		mv ~/.bashrc ~/.bashrc.backup # Backing up current .bashrc file
+	if [ -f $HOME/.bashrc ] ; then
+		mv $HOME/.bashrc $HOME/.bashrc.backup # Backing up current .bashrc file
 		echo -e "${ORANGE}Backed up ${RED}.bashrc${NC} ${ORANGE}to ${GREEN}.bashrc.backup${NC}"
 	fi
 
-	if [ -f ~/.aliases ] ; then
-		mv ~/.aliases ~/.aliases.backup # Backing up current .aliases files
+	if [ -f $HOME/.aliases ] ; then
+		mv $HOME/.aliases $HOME/.aliases.backup # Backing up current .aliases files
 		echo -e "${ORANGE}Backed up ${RED}.aliases${NC} ${ORANGE}to ${GREEN}.aliases.backup${NC}"
 	fi
 
-	if [ -f ~/.config/nvim/init.vim ] ; then
-		mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.backup # Backing up current init.vim directory
+	if [ -f $HOME/.config/nvim/init.vim ] ; then
+		mv $HOME/.config/nvim/init.vim $HOME/.config/nvim/init.vim.backup # Backing up current init.vim directory
 		echo -e "${ORANGE}Backed up ${RED}init.vim${NC} ${ORANGE}to ${GREEN}init.vim.backup${NC}"
 	fi
 
 	echo -e "${ORANGE}Symlinking dotfiles...${NC}"
-	ln -sv ~/dotfiles/.bashrc ~
-	ln -sv ~/dotfiles/.aliases ~
-	ln -sv ~/dotfiles/init.vim ~/.config/nvim
+	ln -sv $HOME/dotfiles/.bashrc ~
+	ln -sv $HOME/dotfiles/.aliases ~
+	ln -sv $HOME/dotfiles/init.vim $HOME/.config/nvim
 	echo
 	echo -e "${RED}If you haven't yet, you will probably need to change your terminal font to a powerline-compatible font like 'hack'.${NC}"
 	echo
 
-	source ~/.bashrc
+	source $HOME/.bashrc
 fi
 
 read -p "${ORANGE}Do you wish to change the Desktop Wallpaper to the Kali Linux image? (Y/n)${NC} " -n 1 -r
