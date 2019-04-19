@@ -13,6 +13,7 @@ fi
 
 # Installing apt packages
 declare -a apt_packages=(
+	"gnome-tweak-tool"
     "git"
     "fonts-powerline"
     "fonts-firacode"
