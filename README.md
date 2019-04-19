@@ -23,4 +23,4 @@ plank --preferences
 
 ### Neovim setup
 
-![image](https://user-images.githubusercontent.com/37747572/56436857-b3663a00-62b3-11e9-9e8d-304df44de165.png)
+![image](https://user-images.githubusercontent.com/37747572/56437051-633ba780-62b4-11e9-8a93-ce7420a5243e.png)
