@@ -2,6 +2,7 @@
 
 ORANGE=$'\e[33m'
 GREEN=$'\e[32m'
+RED=$'\e[31m'
 NC=$'\e[0m'
 
 read -p "${ORANGE}Do you want to run ${GREEN}'sudo apt update'${ORANGE}? (Y/n)${NC} " -n 1 -r
@@ -127,21 +128,31 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
     fi
 fi
 
-echo -e "${ORANGE}Backing up current dotfiles...${NC}"
-mkdir ~/.config/nvim
-mv ~/.env_vars ~/.env_vars.backup # Backing up current .env_vars file
-mv ~/.bashrc ~/.bashrc.backup # Backing up current .bashrc file
-mv ~/.aliases ~/.aliases.backup # Backing up current .aliases files
-mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.backup # Backing up current init.vim directory
+read -p "${ORANGE}Do you want to replace your current dotfiles with the new ones? Backups will be made (Y/n)${NC} " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    echo -e "${ORANGE}Backing up current dotfiles...${NC}"
+	mkdir ~/.config/nvim
+	mv ~/.env_vars ~/.env_vars.backup # Backing up current .env_vars file
+	echo -e "${ORANGE}Backed up ${RED}.bashrc${NC} ${ORANGE}to ${GREEN}.bashrc.backup${NC}"
+	mv ~/.bashrc ~/.bashrc.backup # Backing up current .bashrc file
+	echo -e "${ORANGE}Backed up ${RED}.aliases${NC} ${ORANGE}to ${GREEN}.aliases.backup${NC}"
+	mv ~/.aliases ~/.aliases.backup # Backing up current .aliases files
+	echo -e "${ORANGE}Backed up ${RED}init.vim${NC} ${ORANGE}to ${GREEN}init.vim.backup${NC}"
+	mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.backup # Backing up current init.vim directory
 
-touch ~/.env_vars # Creating .env_vars files, not in repo because it's to be used for secret env vars
+	touch ~/.env_vars # Creating .env_vars files, not in repo because it's to be used for secret env vars
 
-echo -e "${ORANGE}Symlinking dotfiles...${NC}"
-ln -sv ~/dotfiles/.bashrc ~
-ln -sv ~/dotfiles/.aliases ~
-ln -sv ~/dotfiles/init.vim ~/.config/nvim
+	echo -e "${ORANGE}Symlinking dotfiles...${NC}"
+	ln -sv ~/dotfiles/.bashrc ~
+	ln -sv ~/dotfiles/.aliases ~
+	ln -sv ~/dotfiles/init.vim ~/.config/nvim
+	echo
+	echo -e "${RED}If you haven't yet, you will probably need to change your terminal font to a powerline-compatible font like 'hack'.${NC}"
+	echo
 
-source ~/.bashrc
+	source ~/.bashrc
+fi
 
 read -p "${ORANGE}Do you wish to change the Desktop Wallpaper to the Kali Linux image? (Y/n)${NC} " -n 1 -r
 echo
