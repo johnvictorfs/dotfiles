@@ -26,6 +26,7 @@ declare -a apt_packages=(
     "python3-pip"
     "python3-tk"
     "sqlite3"
+    "tlp tlp-rdw"
 )
 
 for package in "${apt_packages[@]}"; do
@@ -35,6 +36,10 @@ for package in "${apt_packages[@]}"; do
         sudo apt install -y "${package}"
     fi
 done;
+
+if [ -x "$(command -v tlp)" ] ; then
+    sudo tlp start
+fi
 
 # Installing pyenv
 read -p "${ORANGE}Do you want to install pyenv? (Y/n)${NC} " -n 1 -r
