@@ -21,7 +21,7 @@ declare -a snap_packages=(
     "discord"
     "pycharm-professional"
     "webstorm"
-    "code"
+    "code --classic"
     "sublime-text"
     "heroku"
 )

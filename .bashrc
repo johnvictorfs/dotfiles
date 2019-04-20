@@ -118,7 +118,11 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export JAVA_HOME="/snap/android-studio/73/android-studio/jre"
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+if [ -x "$(command -v rbenv)" ] ; then
+    eval "$(rbenv init -)"
+fi
+
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # added by travis gem
