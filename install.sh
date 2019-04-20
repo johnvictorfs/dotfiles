@@ -41,6 +41,19 @@ if [ -x "$(command -v tlp)" ] ; then
     sudo tlp start
 fi
 
+# Installing brew
+read -p "${ORANGE}Do you want to install the brew package manager? (Y/n)${NC} " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    
+    # Adding brew to PATH
+    test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+    test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+    echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+fi
+
 # Installing pyenv
 read -p "${ORANGE}Do you want to install pyenv? (Y/n)${NC} " -n 1 -r
 echo
