@@ -1,7 +1,15 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
-    {
-        "key": "ctrl+'",
-        "command": "workbench.action.terminal.new"
-    }
+  {
+    "key": "ctrl+'",
+    "command": "workbench.action.terminal.new"
+  },
+  {
+    "key": "ctrl+alt+z",
+    "command": "workbench.action.toggleZenMode"
+  },
+  {
+    "key": "ctrl+k z",
+    "command": "-workbench.action.toggleZenMode"
+  }
 ]

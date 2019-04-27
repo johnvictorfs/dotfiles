@@ -1,10 +1,22 @@
 {
     "terminal.integrated.fontFamily": "hack",
     "emmet.triggerExpansionOnTab": true,
-    "workbench.colorTheme": "Material Theme Palenight",
+    "workbench.colorTheme": "Atom One Dark",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorCustomizations": {},
     "editor.fontLigatures": true,
     "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.eslintIntegration": true,
+    "files.autoSave": "onWindowChange",
+    "editor.formatOnSave": true,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.fontSize": 17,
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.tips.enabled": false,
+    "editor.minimap.enabled": false
 }
