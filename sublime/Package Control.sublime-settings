@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Anaconda",
 		"Angular CLI",
 		"AngularJS",
 		"Emmet",

@@ -1,7 +1,7 @@
 {
     "terminal.integrated.fontFamily": "hack",
     "emmet.triggerExpansionOnTab": true,
-    "workbench.colorTheme": "Atom One Dark",
+    "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorCustomizations": {},
     "editor.fontLigatures": true,
