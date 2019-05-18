@@ -5,19 +5,24 @@ GREEN=$'\e[32m'
 RED=$'\e[31m'
 NC=$'\e[0m'
 
+# Oh-my-zsh
 sudo apt install curl -y
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh/zsh-syntax-highlighting
-
+# Dracular gnome terminal color
 sudo apt install dconf-cli -y
 git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
 cd gnome-terminal-colors-dracula
 ./install.sh
+
+# Spaceship theme
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
+# ZPlugin
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 
+zplugin light zdharma/fast-syntax-highlighting
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-completions
 
