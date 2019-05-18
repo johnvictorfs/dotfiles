@@ -15,6 +15,7 @@ fi
 # Installing apt packages
 declare -a apt_packages=(
     "curl"
+    "nodejs"
     "gnome-tweak-tool"
     "git"
     "fonts-powerline"
@@ -89,14 +90,6 @@ read -p "${ORANGE}Do you want to install ${GREEN}py-n-vim${ORANGE}? (Y/n)${NC} "
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
     pip3 install --user pynvim
-fi
-
-# Installing Nodejs 11.X (comes with npm)
-read -p "${ORANGE}Do you want to install ${GREEN}Node.js 11.X + Npm${ORANGE}? (Y/n)${NC} " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    sudo apt install -y curl
-    curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 fi
 
 # Neovim: https://neovim.io
