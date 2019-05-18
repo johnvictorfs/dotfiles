@@ -106,7 +106,7 @@ alias src="source $HOME/.zshrc"
 
 [ -f $HOME/.env_vars ] && source $HOME/.env_vars
 
-export PATH="$PATH:/.local/bin"
+export PATH=$PATH:$HOME/.local/bin
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
