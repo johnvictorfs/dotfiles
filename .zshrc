@@ -158,6 +158,8 @@ source '/home/john/.zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
+ZPLGM[MUTE_WARNINGS]=1
+
 ### End of Zplugin's installer chunk
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
