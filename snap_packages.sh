@@ -21,16 +21,16 @@ declare -a snap_packages=(
     "discord"
     "pycharm-professional"
     "webstorm"
-    "code --classic"
+    "code"
     "sublime-text"
     "heroku"
 )
 
 for package in "${snap_packages[@]}"; do
-    read -p "${ORANGE}Do you want to install ${package}? (Y/n)${NC} " -n 1 -r
+    read -p "${ORANGE}Do you want to install ${GREEN}${package}${ORANGE}? (Y/n)${NC} " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]] ; then
-        snap install "${package}"
+        snap install "${package}" --classic
     fi
 done;
 

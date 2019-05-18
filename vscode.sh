@@ -44,13 +44,14 @@ declare -a extensions=(
 )
 
 echo
-for extension in "${extensions[@]}"; do
-    read -p "${ORANGE}Do you want to install ${extension}? (Y/n)${NC} " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]] ; then
-        code --install-extension "${extension}"
-    fi
-done;
+read -p "${ORANGE}Do you want to install all vscode extensions? (Y/n)${NC} " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    for extension in "${extensions[@]}"; do
+        code --install-extension "${extension}"    
+    done;
+fi
+
 
 echo
 read -p "${ORANGE}Do you want your Vscode settings to be replaced? Backups will be made (Y/n) " -n 1 -r

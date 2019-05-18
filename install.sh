@@ -14,6 +14,7 @@ fi
 
 # Installing apt packages
 declare -a apt_packages=(
+    "curl"
     "gnome-tweak-tool"
     "git"
     "fonts-powerline"
@@ -29,22 +30,27 @@ declare -a apt_packages=(
     "tlp tlp-rdw"
 )
 
-for package in "${apt_packages[@]}"; do
-    read -p "${ORANGE}Do you want to install ${package}? (Y/n)${NC} " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]] ; then
+read -p "${ORANGE}Do you want to install apt packages? (Y/n)${NC} " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    for package in "${apt_packages[@]}"; do
+        echo
+        echo "${ORANGE}Installing package ${GREEN}'${package}'${NC}"
+        echo
         sudo apt install -y "${package}"
-    fi
-done;
+    done;
+fi
+
 
 if [ -x "$(command -v tlp)" ] ; then
     sudo tlp start
 fi
 
 # Installing brew
-read -p "${ORANGE}Do you want to install the brew package manager? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install ${GREEN}the brew package manager${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    sudo apt install -y curl
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     
     # Adding brew to PATH
@@ -55,43 +61,46 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 fi
 
 # Installing pyenv
-read -p "${ORANGE}Do you want to install pyenv? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install ${GREEN}pyenv${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    sudo apt install -y curl
     curl https://pyenv.run | bash
 fi
 
 # Installing poetry
-read -p "${ORANGE}Do you want to install poetry? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install ${GREEN}poetry${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+    sudo apt install -y curl
+    curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
 fi
 
 # Installing oh-my-bash
-read -p "${ORANGE}Do you want to install and setup oh-my-bash? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install and setup ${GREEN}oh-my-bash${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    sudo apt install -y curl
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 fi
 
 # Installing py n vim
-read -p "${ORANGE}Do you want to install py-n-vim? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install ${GREEN}py-n-vim${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
     pip3 install --user pynvim
 fi
 
 # Installing Nodejs 11.X (comes with npm)
-read -p "${ORANGE}Do you want to install Node.js 11.X + Npm? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install ${GREEN}Node.js 11.X + Npm${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    sudo apt install -y curl python-software-properties
+    sudo apt install -y curl
     curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 fi
 
 # Neovim: https://neovim.io
-read -p "${ORANGE}Do you want to install Neovim 0.3.4? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install ${GREEN}Neovim 0.3.4${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
     mkdir $HOME/snap
@@ -103,40 +112,48 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 fi
 
 # Mac-OS Sierra gtk Theme: https://github.com/vinceliuice/Sierra-gtk-theme
-read -p $"${ORANGE}Do you wish to install and set the theme to Sierra-dark gtk theme? (Y/n)${NC}${NC} " -n 1 -r
+read -p $"${ORANGE}Do you wish to ${GREEN}install and set the theme to MacOS Dark Mojave gtk theme${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    echo "Installing Sierra-dark gtk theme..."
-    sudo add-apt-repository ppa:dyatlov-igor/sierra-theme -y
-    sudo apt update
-    sudo apt install -y sierra-gtk-theme
-    gsettings set org.gnome.desktop.interface gtk-theme Sierra-dark
+    echo "Installing MacOS Dark Mojave gtk theme..."
+    cd /tmp
+    if [ -d /tmp/Mc-OS-themes ] ; then
+        rm -rf /tmp/Mc-OS-themes
+    fi
+    git clone https://github.com/paullinuxthemer/Mc-OS-themes.git
+    cd Mc-OS-themes
+    if [ ! -d $HOME/.themes ] ; then
+        mkdir $HOME/.themes
+    fi
+    mv McOS-MJV-Dark-mode-Gnome-3.30 $HOME/.themes
+    rm -rf /tmp/Mc-OS-themes
+    gsettings set org.gnome.desktop.interface gtk-theme McOS-MJV-Dark-mode-Gnome-3.30
+    gsettings set  org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
 fi
 
-read -p $"${ORANGE}Do you wish to install and set the icons theme to Flat-remix icons? (Y/n)${NC} " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    # Flat-remix Icons: https://github.com/daniruiz/flat-remix
-    cd /tmp && rm -rf flat-remix &&
-    git clone https://github.com/daniruiz/flat-remix &&
-    mkdir -p $HOME/.icons && cp -r flat-remix/Flat-Remix* $HOME/.icons/ &&
-    gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix-Red-Dark"
-fi
-
-read -p "${ORANGE}Do you wish the install the Plank dock? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you wish the install the ${GREEN}Plank dock${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
     sudo apt install -y plank
     read -p "${ORANGE}Do you wish to install the paperterial theme for the plank dock? (It has to be turned on manually) (Y/n)${NC} " -n 1 -r 
     echo
     if [[ $REPLY =~ ^[Yy]$ ]] ; then
-        mkdir $HOME/.local/share/plank/themes/paperterial &&
+        if [ ! -d $HOME/.local/share/plank/ ] ; then
+            mkdir $HOME/.local/share/plank/
+        fi
+        if [ ! -d $HOME/.local/share/plank/themes ] ; then
+            mkdir $HOME/.local/share/plank/themes
+        fi
+        if [ ! -d $HOME/.local/share/plank/themes/paperterial ] ; then
+            mkdir $HOME/.local/share/plank/themes/paperterial
+        fi
         wget -O $HOME/.local/share/plank/themes/paperterial/dock.theme "https://raw.githubusercontent.com/KenHarkey/plank-themes/master/paperterial/dock.theme"
     fi
     read -p "${ORANGE}Do you wish to replace the Gnome Dock with the Plank dock? (Y/n)${NC} " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]] ; then
         echo -e "${GREEN}Setting plank to load on start up...${NC}"
+        mkdir $HOME/.config/autostart
         cp plank.desktop $HOME/.config/autostart/
         plank
         echo -e "${GREEN}Disabling Gnome Dock...${NC}"
@@ -163,17 +180,12 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 
     if [ -f $HOME/.bashrc ] ; then
         mv $HOME/.bashrc $HOME/.bashrc.backup # Backing up current .bashrc file
-        echo -e "${ORANGE}Renamed current ${RED}~/.bashrc${NC} ${ORANGE}to ${GREEN}~/.bashrc.backup${NC}"
+        echo -e "${ORANGE}Renamed current ${RED}~/.zshrc${NC} ${ORANGE}to ${GREEN}~/.zshrc.backup${NC}"
     fi
 
     if [ -f $HOME/.aliases ] ; then
         mv $HOME/.aliases $HOME/.aliases.backup # Backing up current .aliases files
         echo -e "${ORANGE}Renamed current ${RED}~/.aliases${NC} ${ORANGE}to ${GREEN}~/.aliases.backup${NC}"
-    fi
-
-    if [ -f $HOME/.bash_prompt ] ; then
-        mv $HOME/.bash_prompt $HOME/.bash_prompt.backup # Backing up current .bash_prompt files
-        echo -e "${ORANGE}Renamed current ${RED}~/.bash_prompt${NC} ${ORANGE}to ${GREEN}~/.bash_prompt.backup${NC}"
     fi
 
     if [ -f $HOME/.config/nvim/init.vim ] ; then
@@ -182,20 +194,18 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
     fi
 
     echo -e "${ORANGE}Symlinking dotfiles...${NC}"
-    ln -sv $HOME/dotfiles/.bashrc $HOME
+    ln -sv $HOME/dotfiles/.zshrc $HOME
     ln -sv $HOME/dotfiles/.aliases $HOME
-    ln -sv $HOME/dotfiles/.bash_prompt $HOME
     ln -sv $HOME/dotfiles/init.vim $HOME/.config/nvim
-    # echo
-    # echo -e "${RED}If you haven't yet, you will probably need to change your terminal font to a powerline-compatible font like 'hack'.${NC}"
-    # echo
 
-    source $HOME/.bashrc
+    source $HOME/.zshrc
+
+    echo
+    echo "${GREEN}Finished symlinking dotfiles.${NC}"
+    echo
 fi
 
-echo
-echo "${GREEN}Finished symlinking dotfiles.${NC}"
-echo
+
 
 read -p "${ORANGE}Do you wish to change the Desktop Wallpaper to the Kali Linux image? (Y/n)${NC} " -n 1 -r
 echo
@@ -203,6 +213,7 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
     gsettings set org.gnome.desktop.background picture-uri file:///${HOME}/dotfiles/images/kali-linux-wallpaper.png
 fi
 
-chmod a+x snap_packages.sh && ./snap_packages.sh
-chmod a+x sublime.sh && ./sublime.sh
-chmod a+x vscode.sh && ./vscode.sh
+chmod +x chrome.sh && ./chrome.sh
+chmod +x snap_packages.sh && ./snap_packages.sh
+chmod +x sublime.sh && ./sublime.sh
+chmod +x vscode.sh && ./vscode.sh
