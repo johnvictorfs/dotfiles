@@ -1,6 +1,6 @@
 # Misc aliases
 alias hg='history | grep'
-alias src="source ~/.bashrc"
+alias src="source ~/.zshrc"
 
 # Python aliases
 alias notebook="python3.7 -m notebook"

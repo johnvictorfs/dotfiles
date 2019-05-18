@@ -1,9 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/john/.oh-my-zsh"
+export ZSH="/home/${USER}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -140,6 +139,7 @@ SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   host          # Hostname section
   git           # Git section (git_branch + git_status)
+  venv          # Python virtual environment
   hg            # Mercurial section (hg_branch  + hg_status)
   exec_time     # Execution time
   line_sep      # Line break
@@ -152,3 +152,13 @@ SPACESHIP_USER_SHOW=always
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
+
+### Added by Zplugin's installer
+source '/home/john/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+### End of Zplugin's installer chunk
+zplugin light zdharma/fast-syntax-highlighting
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-completions

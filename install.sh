@@ -166,6 +166,14 @@ fi
 read -p "${ORANGE}Do you want to replace your current dotfiles with the new ones? Backups will be made (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    if [ !-n "$ZSH_VERSION" ]; then
+        chmod +x install-zsh.sh && ./install-zsh.sh
+        echo "${RED}Re-run this script after you've done so${NC}"
+        exit 0
+    fi
+
+    chmod +x install-oh-my-zsh.sh && ./install-oh-my-zsh.sh
+
     echo
     echo -e "${ORANGE}Backing up current dotfiles...${NC}"
 
@@ -178,8 +186,8 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
         echo -e "${ORANGE}Renamed current ${RED}~/.env_vars${NC} ${ORANGE}to ${GREEN}~/.env_vars.backup${NC}"
     fi
 
-    if [ -f $HOME/.bashrc ] ; then
-        mv $HOME/.bashrc $HOME/.bashrc.backup # Backing up current .bashrc file
+    if [ -f $HOME/.zshrc ] ; then
+        mv $HOME/.zshrc $HOME/.zshrc.backup # Backing up current .zshrc file
         echo -e "${ORANGE}Renamed current ${RED}~/.zshrc${NC} ${ORANGE}to ${GREEN}~/.zshrc.backup${NC}"
     fi
 
