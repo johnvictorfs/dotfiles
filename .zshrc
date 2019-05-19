@@ -119,7 +119,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-export JAVA_HOME="/snap/android-studio/75/android-studio/jre "
+export JAVA_HOME="/snap/android-studio/75/android-studio/jre"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 if [ -x "$(command -v rbenv)" ] ; then
