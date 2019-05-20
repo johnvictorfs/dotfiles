@@ -19,3 +19,6 @@ alias serve="npm run serve"
 alias dev="cd ~/projects"
 alias projects="dev"
 alias apps="cd /usr/share/applications"
+
+# Alias vi and vim to neovim
+[ -x "$(command -v nvim)" ] && alias vi=nvim && alias vim=nvim

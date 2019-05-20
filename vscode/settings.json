@@ -4,7 +4,6 @@
     "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorCustomizations": {},
-    "editor.fontLigatures": true,
     "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "explorer.confirmDragAndDrop": false,
     "[javascript]": {
@@ -18,5 +17,6 @@
     "editor.fontSize": 17,
     "workbench.statusBar.feedback.visible": false,
     "workbench.tips.enabled": false,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "editor.fontLigatures": true
 }

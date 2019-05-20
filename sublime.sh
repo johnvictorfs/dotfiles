@@ -1,37 +1,33 @@
 #!/usr/bin/env bash
-
-ORANGE=$'\e[33m'
-GREEN=$'\e[32m'
-RED=$'\e[31m'
-NC=$'\e[0m'
+source $HOME/dotfiles/helper.sh
 
 echo
 read -p "${ORANGE}Do you wish to setup the Sublime 3 Configs? (Y/n)${NC} " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]] ; then
-    exit 1
+  exit 1
 fi
 
 if [ ! -x "$(command -v subl)" ] ; then
 	read -p "${RED}You do not have Sublime Text 3 installed. Do you want to install it now? (Y/n)${NC} " -n 1 -r
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    	if [ -x "$(command -v snap)" ] ; then
-    		snap install sublime-text
-    	else
-		    read -p "${RED}Snap is not installed. Do you want to install it now? (Y/n)${NC} " -n 1 -r
-		    echo
-		    if [[ $REPLY =~ ^[Yy]$ ]] ; then
-		    	sudo apt update -y
-		    	sudo apt install snapd -y
-		    	snap install sublime-text
-		    else
-		    	exit 1
-		    fi
-    	fi
+    if [ -x "$(command -v snap)" ] ; then
+      snap install sublime-text
     else
-    	exit 1
+      read -p "${RED}Snap is not installed. Do you want to install it now? (Y/n)${NC} " -n 1 -r
+      echo
+      if [[ $REPLY =~ ^[Yy]$ ]] ; then
+        sudo apt update -y
+        sudo apt install snapd -y
+        snap install sublime-text
+      else
+        exit 1
+      fi
     fi
+  else
+    exit 1
+  fi
 fi
 
 # Install Package Control
@@ -48,16 +44,16 @@ echo
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
 	if [ -f $HOME/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings ] ; then
-        mv $HOME/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings $HOME/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings.backup
-        echo -e "${ORANGE}Renamed current ${RED}~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings${NC} ${ORANGE}to ${GREEN}~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings.backup${NC}"
+      mv $HOME/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings $HOME/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings.backup
+      echo -e "${ORANGE}Renamed current ${RED}~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings${NC} ${ORANGE}to ${GREEN}~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings.backup${NC}"
     fi
     if [ -f $HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings ] ; then
-        mv $HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings.backup
-        echo -e "${ORANGE}Renamed current ${RED}~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings${NC} ${ORANGE}to ${GREEN}~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings.backup${NC}"
+      mv $HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User/Preferences.sublime-settings.backup
+      echo -e "${ORANGE}Renamed current ${RED}~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings${NC} ${ORANGE}to ${GREEN}~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings.backup${NC}"
     fi
 
-    ln -sv $HOME/dotfiles/sublime/Package\ Control.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
-    ln -sv $HOME/dotfiles/sublime/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
+  ln -sv $HOME/dotfiles/sublime/Package\ Control.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
+  ln -sv $HOME/dotfiles/sublime/Preferences.sublime-settings $HOME/.config/sublime-text-3/Packages/User/
 fi
 
 echo

@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-
-ORANGE=$'\e[33m'
-GREEN=$'\e[32m'
-RED=$'\e[31m'
-NC=$'\e[0m'
+source $HOME/dotfiles/helper.sh
 
 sudo apt install zsh -y
 chsh -s $(which zsh)
