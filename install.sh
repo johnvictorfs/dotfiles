@@ -98,10 +98,11 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
   fi
 fi
 
-read -p "${ORANGE}Do you want to replace your current dotfiles with the new ones? Backups will be made (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to replace your current dotfiles with the new ones? (.aliases and .zshrc) Backups will be made (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  if [ !-n "$ZSH_VERSION" ]; then
+  cd $HOME/dotfiles
+  if [ ! -x "$(command -v zsh)" ]; then
     chmod +x install-zsh.sh && ./install-zsh.sh
     echo "${RED}Re-run this script after you've done so${NC}"
     exit 0
