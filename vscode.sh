@@ -28,16 +28,21 @@ fi
 
 declare -a extensions=(
   "abusaidm.html-snippets"
+  "dbaeumer.vscode-eslint"
   "dracula-theme.theme-dracula"
   "dsznajder.es7-react-js-snippets"
   "Equinusocio.vsc-material-theme"
+  "esbenp.prettier-vscode"
   "johnpapa.Angular2"
+  "jpoissonnier.vscode-styled-components"
   "k--kato.intellij-idea-keybindings"
   "ms-python.python"
   "necinc.elmmet"
   "octref.vetur"
+  "OfHumanBondage.react-proptypes-intellisense"
   "PKief.material-icon-theme"
   "pushqrdx.inline-html"
+  "suming.react-proptypes-generate"
   "visioncan.vscode-jss-snippets"
   "vuetifyjs.vuetify-vscode"
 )
