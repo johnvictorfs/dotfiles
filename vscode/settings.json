@@ -5,9 +5,18 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.fontSize": 17,
+  "editor.minimap.enabled": false,
+  "editor.fontLigatures": true,
+  "editor.renderLineHighlight": "none",
+  "editor.formatOnSave": true,
   "explorer.confirmDragAndDrop": false,
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[typescript]": {
     "editor.tabSize": 2
   },
   "[json]": {
@@ -24,15 +33,24 @@
     "editor.quickSuggestions": false,
     "editor.tabSize": 2
   },
-  "prettier.eslintIntegration": true,
   "files.autoSave": "onWindowChange",
-  "editor.formatOnSave": true,
-  "editor.cursorBlinking": "phase",
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.fontSize": 17,
   "workbench.statusBar.feedback.visible": false,
   "workbench.tips.enabled": false,
-  "editor.minimap.enabled": false,
-  "editor.fontLigatures": true,
-  "editor.renderLineHighlight": "none"
+  "prettier.stylelintIntegration": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    { "language": "vue", "autoFix": true },
+    { "language": "html", "autoFix": true },
+    { "language": "javascript", "autoFix": true },
+    { "language": "typescript", "autoFix": true },
+    { "language": "javascriptreact", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+  ],
+  "vetur.format.defaultFormatter.ts": "vscode-typescript",
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "auto"
+    }
+  }
 }

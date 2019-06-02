@@ -1,6 +1,7 @@
 # Misc aliases
-alias hg='history | grep'
+alias hg='history | grep' && alias gh=hg
 alias src="source ~/.zshrc"
+alias cronlog="grep CRON /var/log/syslog"
 
 # Python aliases
 alias notebook="python3.7 -m notebook"
@@ -12,8 +13,11 @@ alias migrate="python manage.py migrate"
 alias migrations="python manage.py makemigrations && python manage.py migrate"
 alias mtest="python manage.py test"
 
-# Npm aliases
-alias serve="npm run serve"
+# Yarn aliases
+alias serve="yarn serve"
+alias ystart="yarn start"
+alias ybuild="yarn build"
+alias ydev="yarn dev"
 
 # Cd aliases
 alias dev="cd ~/projects"

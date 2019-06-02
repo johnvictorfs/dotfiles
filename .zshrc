@@ -100,6 +100,9 @@ source $ZSH/oh-my-zsh.sh
 
 alias src="source $HOME/.zshrc"
 
+export VISUAL="nvim"
+export EDITOR="vim"
+
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
 
 [ -f $HOME/.aliases ] && source $HOME/.aliases
