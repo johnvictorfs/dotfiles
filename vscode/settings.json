@@ -11,7 +11,7 @@
   "editor.minimap.enabled": false,
   "editor.fontLigatures": true,
   "editor.renderLineHighlight": "none",
-  "editor.formatOnSave": true,
+  // "editor.formatOnSave": true,
   "explorer.confirmDragAndDrop": false,
   "[javascript]": {
     "editor.tabSize": 2
