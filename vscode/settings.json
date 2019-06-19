@@ -1,7 +1,7 @@
 {
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "emmet.triggerExpansionOnTab": true,
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Material Theme Palenight",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
@@ -23,15 +23,20 @@
     "editor.quickSuggestions": {
       "strings": true
     },
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true
   },
   "[markdown]": {
     "editor.wordWrap": "on",
     "editor.quickSuggestions": false,
     "editor.tabSize": 2
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "files.autoSave": "onWindowChange",
   "workbench.statusBar.feedback.visible": false,
@@ -47,10 +52,11 @@
     { "language": "typescriptreact", "autoFix": true }
   ],
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
-  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  // "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.html": "prettyhtml",
   "vetur.format.defaultFormatterOptions": {
     "js-beautify-html": {
       "wrap_attributes": "auto"
     }
-  }
+  },
 }
