@@ -1,7 +1,6 @@
 {
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Palenight.tmTheme",
-	"font_face": "Fira Code",
-	"font_size": 14,
+	"font_size": 13,
 	"ignored_packages":
 	[
 		"Git",
