@@ -166,3 +166,8 @@ ZPLGM[MUTE_WARNINGS]=1
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
+
+# Load pyenv
+export PATH="/home/john/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
