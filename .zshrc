@@ -171,3 +171,47 @@ zplugin light zsh-users/zsh-completions
 export PATH="/home/john/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# Load poetry
+source $HOME/.poetry/env
+
+# Activate python virtual envs in .venv when cd'ing
+function cd() {
+  builtin cd "$@"
+
+  ## Default path to virtualenv in your projects
+  DEFAULT_ENV_PATH="./.venv"
+
+  ## If env folder is found then activate the vitualenv
+  function activate_venv() {
+    if [[ -f "${DEFAULT_ENV_PATH}/bin/activate" ]] ; then 
+      source "${DEFAULT_ENV_PATH}/bin/activate"
+      echo "Activating ${VIRTUAL_ENV}"
+    fi
+  }
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    activate_venv
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate then run a new env folder check
+      parentdir="$(dirname ${VIRTUAL_ENV})"
+      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        echo "Deactivating ${VIRTUAL_ENV}"
+        deactivate
+        activate_venv
+      fi
+  fi
+}
+
+function killport() {
+  sudo kill $(lsof -t -i:"$1")
+  echo "Killed proccess running at port $1"
+}
+
+# h for howdoi
+alias howdoi='python -m howdoi.howdoi'
+alias hdi='function hdi(){ howdoi $* -c -n 3; }; hdi'
+
+WINEARCH=win32

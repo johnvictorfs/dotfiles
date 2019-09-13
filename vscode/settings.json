@@ -14,12 +14,20 @@
   // "editor.formatOnSave": true,
   "explorer.confirmDragAndDrop": false,
   "[javascript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.tabSize": 2
   },
   "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
     "editor.quickSuggestions": {
       "strings": true
     },
@@ -41,7 +49,6 @@
   "files.autoSave": "onWindowChange",
   "workbench.statusBar.feedback.visible": false,
   "workbench.tips.enabled": false,
-  "prettier.stylelintIntegration": true,
   "eslint.autoFixOnSave": true,
   "eslint.validate": [
     { "language": "vue", "autoFix": true },
@@ -60,4 +67,7 @@
     }
   },
   "window.zoomLevel": 0,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  }
 }
