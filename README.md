@@ -2,7 +2,9 @@
 
 Configuration files for zshrc (`.zshrc` and `.aliases`) and Noevim (`init.vim`)
 
-## Installation
+> Note: Those dotfiles mostly assume you're using Gnome as your DE
+
+## Usage
 
 ```bash
 cd $HOME
