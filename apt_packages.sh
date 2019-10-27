@@ -5,6 +5,7 @@ sudo apt -qq update
 
 declare -a apt_packages=(
   "curl"
+  "neofetch"
   "nodejs"
   "gnome-tweak-tool"
   "git"
@@ -19,7 +20,8 @@ declare -a apt_packages=(
   "python3-pip"
   "python3-tk"
   "sqlite3"
-  "tlp tlp-rdw"
+  "tlp"
+  "tlp-rdw"
 )
 
 for package in "${apt_packages[@]}"; do
