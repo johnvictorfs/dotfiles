@@ -8,6 +8,13 @@ Plug 'morhetz/gruvbox'
 
 Plug 'andreyorst/SimpleSnippets.vim'
 
+" Markdown Preview "
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+" ALE "
+Plug 'dense-analysis/ale'
+let b:ale_linters = ['mypy', 'flake8']
+
 " Status Line "
 Plug 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
@@ -26,6 +33,13 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+let g:indentLine_setConceal = 2
+" default ''.
+" n for Normal mode
+" v for Visual mode
+" i for Insert mode
+" c for Command line editing, for 'incsearch'
+let g:indentLine_concealcursor = ""
 
 " Intellisense "
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
@@ -79,6 +93,8 @@ set inccommand=split
 
 " Set spacebar as leader key "
 let mapleader="\<space>"
+
+set conceallevel=2
 
 " Spaces & Tabs {{{
 set tabstop=4       " number of visual spaces per TAB

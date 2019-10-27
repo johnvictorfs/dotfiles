@@ -13,6 +13,7 @@
   "editor.renderLineHighlight": "none",
   // "editor.formatOnSave": true,
   "explorer.confirmDragAndDrop": false,
+  "jest.runAllTestsFirst": false,
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -69,5 +70,13 @@
   "window.zoomLevel": 0,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
-  }
+  },
+  "gitlens.mode.active": "zen",
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.views.repositories.location": "scm",
+  "gitlens.views.fileHistory.location": "scm",
+  "gitlens.views.lineHistory.location": "scm",
+  "gitlens.views.compare.location": "scm",
+  "gitlens.views.search.location": "scm",
+  "javascript.updateImportsOnFileMove.enabled": "always",
 }

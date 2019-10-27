@@ -26,3 +26,5 @@ alias apps="cd /usr/share/applications"
 
 # Alias vi and vim to neovim
 [ -x "$(command -v nvim)" ] && alias vi=nvim && alias vim=nvim
+
+alias aoemaps="cd /home/john/.steam/steam/steamapps/common/Age2HD/resources_common/drs/gamedata_x2"
