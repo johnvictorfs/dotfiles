@@ -8,7 +8,7 @@ Configuration files for zshrc (`.zshrc` and `.aliases`) and Noevim (`init.vim`)
 cd $HOME
 git clone --single-branch --branch zsh https://github.com/johnvictorfs/dotfiles.git
 cd dotfiles
-chmod +x install.sh && ./install.sh
+./install.sh
 ```
 
 ### Change Plank theme

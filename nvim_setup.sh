@@ -29,6 +29,9 @@ fi
 [ -d $HOME/.config/nvim ] || mkdir -p $HOME/.config/nvim && echo "Created dir"
 ln -sf $HOME/dotfiles/init.vim $HOME/.config/nvim
 
+# Open Vim, run 'PlugInstall --sync' and quit
+vim +'PlugInstall --sync' +qa
+
 # Py-n-vim
 python3 -m pip install -q --user pynvim
 

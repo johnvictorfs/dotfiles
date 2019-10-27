@@ -13,7 +13,18 @@ if [ -x "$(command -v tlp)" ] ; then
   sudo tlp start
 fi
 
+# Installing Yarn
+echo
+read -p "${ORANGE}Do you want to install ${GREEN}Yarn${ORANGE}? (Y/n)${NC} " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+	sudo apt update && sudo apt install yarn
+fi
+
 # Installing pyenv
+echo
 read -p "${ORANGE}Do you want to install ${GREEN}pyenv${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
@@ -88,8 +99,9 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 
     cd $HOME/dotfiles
     cp plank.desktop $HOME/.config/autostart/
-
-    plank
+    
+    # Start plank
+    nohup plank &
 
     echo -e "${GREEN}Disabling Gnome Dock...${NC}"
     gsettings set org.gnome.shell.extensions.dash-to-dock autohide false

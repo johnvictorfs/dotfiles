@@ -156,24 +156,24 @@ SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 
 ### Added by Zplugin's installer
-source '/home/john/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+#source '/home/john/.zplugin/bin/zplugin.zsh'
+#autoload -Uz _zplugin
+#(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-ZPLGM[MUTE_WARNINGS]=1
+#ZPLGM[MUTE_WARNINGS]=1
 
 ### End of Zplugin's installer chunk
-zplugin light zdharma/fast-syntax-highlighting
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zsh-users/zsh-completions
+#zplugin light zdharma/fast-syntax-highlighting
+#zplugin light zsh-users/zsh-autosuggestions
+#zplugin light zsh-users/zsh-completions
 
 # Load pyenv
-export PATH="/home/john/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#export PATH="/home/john/.pyenv/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 # Load poetry
-source $HOME/.poetry/env
+#source $HOME/.poetry/env
 
 # Activate python virtual envs in .venv when cd'ing
 function cd() {
