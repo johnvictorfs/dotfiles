@@ -219,7 +219,7 @@ function killport() {
 }
 
 # h for howdoi
-alias howdoi='python -m howdoi.howdoi'
+alias howdoi='python3 -m howdoi.howdoi'
 alias hdi='function hdi(){ howdoi $* -c -n 3; }; hdi'
 
 WINEARCH=win32
