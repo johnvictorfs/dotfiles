@@ -24,6 +24,9 @@ alias dev="cd ~/projects"
 alias projects="dev"
 alias apps="cd /usr/share/applications"
 
+# Robo3T alias
+alias robo3t='/usr/local/bin/robomongo/bin/robo3t'
+
 # Alias vi and vim to neovim
 [ -x "$(command -v nvim)" ] && alias vi=nvim && alias vim=nvim
 
