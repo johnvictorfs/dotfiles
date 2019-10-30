@@ -94,6 +94,9 @@ set inccommand=split
 " Set spacebar as leader key "
 let mapleader="\<space>"
 
+" Run current buffer with 'python' when F9 is pressed "
+nnoremap <F9> <Esc>:w<CR>:! clear; python %<CR>
+
 set conceallevel=2
 
 " Spaces & Tabs {{{
