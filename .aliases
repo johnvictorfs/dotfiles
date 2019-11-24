@@ -3,6 +3,9 @@ alias hg='history | grep' && alias gh=hg
 alias src="source ~/.zshrc"
 alias cronlog="grep CRON /var/log/syslog"
 
+# Open ranger with xterm for pdf/img preview support
+alias ra="xterm -fa 'Fira Code Medium' -fs 14 -bg gray15 -e ranger"
+
 # Python aliases
 alias notebook="python3.7 -m notebook"
 

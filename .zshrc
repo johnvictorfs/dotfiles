@@ -223,3 +223,9 @@ alias howdoi='python3 -m howdoi.howdoi'
 alias hdi='function hdi(){ howdoi $* -c -n 3; }; hdi'
 
 WINEARCH=win32
+fpath=($fpath "/home/john/.zfunctions")
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship
+fpath=($fpath "/home/john/.zfunctions")

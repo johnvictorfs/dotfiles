@@ -4,6 +4,8 @@ source $HOME/dotfiles/helper.sh
 sudo apt -qq update
 
 declare -a apt_packages=(
+  "ranger"
+  "xterm"
   "curl"
   "neofetch"
   "nodejs"

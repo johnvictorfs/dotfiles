@@ -47,7 +47,7 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "files.autoSave": "onWindowChange",
+  "files.autoSave": "off",
   "workbench.statusBar.feedback.visible": false,
   "workbench.tips.enabled": false,
   "eslint.autoFixOnSave": true,
@@ -79,4 +79,7 @@
   "gitlens.views.compare.location": "scm",
   "gitlens.views.search.location": "scm",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.enabled": true,
 }
