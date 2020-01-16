@@ -214,9 +214,16 @@ function cd() {
 }
 
 function killport() {
-  sudo kill $(lsof -t -i:"$1")
-  echo "Killed proccess running at port $1"
+  if lsof -Pi ":$1" -sTCP:LISTEN -t >/dev/null; then
+    echo "Killing process at port '$1'"
+    sudo kill $(lsof -t -i:"$1")
+    echo "Killed process at port '$1' successfully"
+  else
+    echo "There is nothing listening at port '$1'"
+  fi
 }
+
+
 
 # h for howdoi
 alias howdoi='python3 -m howdoi.howdoi'
@@ -226,6 +233,6 @@ WINEARCH=win32
 fpath=($fpath "/home/john/.zfunctions")
 
   # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
-fpath=($fpath "/home/john/.zfunctions")
+#  autoload -U promptinit; promptinit
+#  prompt spaceship
+#fpath=($fpath "/home/john/.zfunctions")

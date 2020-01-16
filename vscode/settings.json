@@ -4,7 +4,7 @@
   "workbench.colorTheme": "Material Theme Palenight",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
-  "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.fontSize": 17,
@@ -69,7 +69,8 @@
   },
   "window.zoomLevel": 0,
   "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
+    "source.fixAll.tslint": true,
+    "source.fixAll.eslint": true
   },
   "gitlens.mode.active": "zen",
   "gitlens.hovers.currentLine.over": "line",

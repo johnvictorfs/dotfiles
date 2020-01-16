@@ -20,7 +20,7 @@ if [ ! -x "$(command -v code)" ] ; then
   fi
 
   if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    snap install code
+    snap install code --classic
   else
     exit 1
   fi
