@@ -4,11 +4,25 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/${USER}/.oh-my-zsh"
 
+# Load Zgen Plugin Manager for ZSH
+if [[ -f "${HOME}/.zgen/zgen.zsh" ]] ; then
+  source "${HOME}/.zgen/zgen.zsh"
+fi
+
+fpath=($fpath "/home/john/.zfunctions")
+
+# Install and use oh-my-zsh
+zgen oh-my-zsh
+
+# Install and load Pure zsh theme
+# https://github.com/sindresorhus/pure
+zgen load sindresorhus/pure
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -223,16 +237,5 @@ function killport() {
   fi
 }
 
-
-
-# h for howdoi
-alias howdoi='python3 -m howdoi.howdoi'
-alias hdi='function hdi(){ howdoi $* -c -n 3; }; hdi'
-
 WINEARCH=win32
-fpath=($fpath "/home/john/.zfunctions")
 
-  # Set Spaceship ZSH as a prompt
-#  autoload -U promptinit; promptinit
-#  prompt spaceship
-#fpath=($fpath "/home/john/.zfunctions")

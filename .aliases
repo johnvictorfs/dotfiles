@@ -6,6 +6,10 @@ alias cronlog="grep CRON /var/log/syslog"
 # Open ranger with xterm for pdf/img preview support
 alias ra="xterm -fa 'Fira Code Medium' -fs 14 -bg gray15 -e ranger"
 
+# Shortcuts for howdoi
+alias howdoi='python3 -m howdoi.howdoi'
+alias hdi='function hdi(){ howdoi $* -c -n 3; }; hdi'
+
 # Python aliases
 alias notebook="python3.7 -m notebook"
 

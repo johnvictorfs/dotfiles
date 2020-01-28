@@ -1,7 +1,7 @@
 {
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "emmet.triggerExpansionOnTab": true,
-  "workbench.colorTheme": "Material Theme Palenight",
+  "workbench.colorTheme": "Bluloco Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
@@ -83,4 +83,6 @@
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.enabled": true,
+  "C_Cpp.updateChannel": "Insiders",
+  "code-runner.runInTerminal": true
 }
