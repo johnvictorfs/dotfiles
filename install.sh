@@ -3,7 +3,7 @@ source $HOME/dotfiles/helper.sh
 
 read -p "${ORANGE}Do you want to install ${GREEN}apt packages${ORANGE}? (Y/n)${NC} " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  cd $HOME/dotfiles
+ cd $HOME/dotfiles
   chmod +x apt_packages.sh
   ./apt_packages.sh
 fi
@@ -50,26 +50,14 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 fi
 
 # Mac-OS Sierra gtk Theme: https://github.com/vinceliuice/Sierra-gtk-theme
-read -p $"${ORANGE}Do you wish to ${GREEN}install and set the theme to MacOS Dark Mojave gtk theme${ORANGE}? (Y/n)${NC} " -n 1 -r
+# Nordic gtk Theme: https://github.com/EliverLara/Nordic
+read -p $"${ORANGE}Do you wish to ${GREEN}install all Gnome Themes?${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  echo "Installing MacOS Mojave gtk theme..."
-
-  cd /tmp
-
-  [ -d /tmp/Mojave-gtk-theme ] && rm -rf /tmp/Mojave-gtk-theme
-
-  git clone https://github.com/vinceliuice/Mojave-gtk-theme.git --quiet
-
-  cd Mojave-gtk-theme
-  ./install.sh
-
-  rm -rf /tmp/Mojave-gtk-theme
-
-  gsettings set org.gnome.desktop.interface gtk-theme Mojave-dark
-
-  # Set close/minimize/maximize buttons to the left
+   # Set close/minimize/maximize buttons to the left
   gsettings set  org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
+
+  ./gtk_themes.sh
 
   cd $HOME/dotfiles
 fi

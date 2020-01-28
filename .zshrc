@@ -1,37 +1,18 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/${USER}/.oh-my-zsh"
-
 # Load Zgen Plugin Manager for ZSH
 if [[ -f "${HOME}/.zgen/zgen.zsh" ]] ; then
   source "${HOME}/.zgen/zgen.zsh"
 fi
 
-fpath=($fpath "/home/john/.zfunctions")
-
 # Install and use oh-my-zsh
 zgen oh-my-zsh
 
-# Install and load Pure zsh theme
-# https://github.com/sindresorhus/pure
-zgen load sindresorhus/pure
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME=""
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# Path to oh-my-zsh installation.
+export ZSH="/home/${USER}/.oh-my-zsh"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -61,57 +42,9 @@ ZSH_THEME=""
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 alias src="source $HOME/.zshrc"
 
 export VISUAL="nvim"
@@ -151,34 +84,17 @@ export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
  # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
-SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  venv          # Python virtual environment
-  hg            # Mercurial section (hg_branch  + hg_status)
-  line_sep      # Line break
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
-SPACESHIP_USER_SHOW=always
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_CHAR_SYMBOL="❯"
-SPACESHIP_CHAR_SUFFIX=" "
 
-### Added by Zplugin's installer
+# Zplugin installer
 if [[ -f "${HOME}/.zplugin/bin/zplugin.zsh" ]] ; then
-  source '/home/john/.zplugin/bin/zplugin.zsh'
+  source "/home/${USER}/.zplugin/bin/zplugin.zsh"
   autoload -Uz _zplugin
   (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
   ZPLGM[MUTE_WARNINGS]=1
 fi
 
-### End of Zplugin's installer chunk
+# End of Zplugin's installer chunk
 if [[ "$(command -v zplugin)" ]] ; then
   zplugin light zdharma/fast-syntax-highlighting
   zplugin light zsh-users/zsh-autosuggestions
@@ -237,5 +153,12 @@ function killport() {
   fi
 }
 
-WINEARCH=win32
+# Oh-my-zsh plugins
+zgen oh-my-zsh plugins/git
+zgen oh-my-zsh plugins/command-not-found
+
+# Install and load Pure zsh theme
+# https://github.com/sindresorhus/pure
+zgen load mafredri/zsh-async
+zgen load sindresorhus/pure
 
