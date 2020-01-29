@@ -1,15 +1,14 @@
 # My Dotfiles
 
-Configuration files for zshrc (`.zshrc` and `.aliases`) and Noevim (`init.vim`)
+Configuration files for zshrc (`.zshrc` and `.aliases`), Neovim (`init.vim`), Vscode, Sublime and others
 
 > Note: Those dotfiles mostly assume you're using Gnome as your DE
 
 ## Usage
 
 ```bash
-cd $HOME
-git clone --single-branch --branch zsh https://github.com/johnvictorfs/dotfiles.git
-cd dotfiles
+git clone --single-branch --branch zsh https://github.com/johnvictorfs/dotfiles.git $HOME/dotfiles
+cd $HOME/dotfiles
 ./install.sh
 ```
 
@@ -21,7 +20,7 @@ plank --preferences
 
 ### Zsh Prompt
 
-![image](https://user-images.githubusercontent.com/37747572/57965529-c5bbae00-791b-11e9-8847-f1e18ce6ea32.png)
+![image](https://user-images.githubusercontent.com/37747572/73324759-dbaf9b80-422a-11ea-89bf-ba7633fb4310.png)
 
 ### Neovim setup
 
