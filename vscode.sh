@@ -1,26 +1,28 @@
 #!/usr/bin/env bash
 source $HOME/dotfiles/helper.sh
 
-if [ ! -x "$(command -v code)" ] ; then
+
+if [ ! -x "$(command -v flatpak)" ] ; then
+  echo "${RED}Flatpak is not installed${NC}"
+  read -p "${ORANGE}Do you want to install it? (Y/n)${NC} " -n 1 -r
+  echo
+
+  if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    sudo apt update -y
+    sudo apt install flatpak -y
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  else
+    exit 1
+  fi
+fi
+
+if [ ! "$(flatpak list | grep 'com.visualstudio.code')" ] ; then
   echo "${RED}Vscode is not installed${NC}"
   read -p "${ORANGE}Do you want to install it? (Y/n)${NC} " -n 1 -r
   echo
 
-  if [ ! -x "$(command -v snap)" ] ; then
-    echo "${RED}Snap is not installed${NC}"
-    read -p "${ORANGE}Do you want to install it? (Y/n)${NC} " -n 1 -r
-    echo
-
-    if [[ $REPLY =~ ^[Yy]$ ]] ; then
-      sudo apt update -y
-      sudo apt install snapd -y
-    else
-      exit 1
-    fi
-  fi
-
   if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    snap install code --classic
+    flatpak install flathub com.visualstudio.code
   else
     exit 1
   fi
@@ -53,6 +55,7 @@ declare -a extensions=(
   "uloco.theme-bluloco-dark"
   "visioncan.vscode-jss-snippets"
   "vuetifyjs.vuetify-vscode"
+  "fallenwood.viml"
 )
 
 echo
@@ -60,7 +63,7 @@ read -p "${ORANGE}Do you want to install all vscode extensions? (Y/n)${NC} " -n 
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
   for extension in "${extensions[@]}"; do
-    code --install-extension "${extension}"    
+    com.visualstudio.code --install-extension "${extension}"    
   done;
 fi
 
@@ -68,17 +71,20 @@ echo
 read -p "${ORANGE}Do you want your Vscode settings to be replaced? Backups will be made (Y/n) " -n 1 -r
 echo
 echo
+
+CODE_PATH="$HOME/.var/app/com.visualstudio.code/config/Code"
+
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  if [ -f $HOME/.config/Code/User/keybindings.json ] ; then
-    mv $HOME/.config/Code/User/keybindings.json $HOME/.config/Code/User/keybindings.backup.json
-    echo -e "${ORANGE}Renamed current ${RED}~/.config/Code/User/keybindings.json${NC} ${ORANGE}to ${GREEN}~/.config/Code/User/keybindings.backup.json${NC}"
+  if [ -f $CODE_PATH/User/keybindings.json ] ; then
+    mv $CODE_PATH/User/keybindings.json $CODE_PATH/User/keybindings.backup.json
+    echo -e "${ORANGE}Renamed current ${RED}$CODE_PATH/User/keybindings.json${NC} ${ORANGE}to ${GREEN}$CODE_PATH/User/keybindings.backup.json${NC}"
   fi
-  if [ -f $HOME/.config/Code/User/settings.json ] ; then
-    mv $HOME/.config/Code/User/settings.json $HOME/.config/Code/User/settings.backup.json
-    echo -e "${ORANGE}Renamed current ${RED}~/.config/Code/User/settings.json${NC} ${ORANGE}to ${GREEN}~/.config/Code/User/settings.backup.json${NC}"
+  if [ -f $CODE_PATH/User/settings.json ] ; then
+    mv $CODE_PATH/User/settings.json $CODE_PATH/User/settings.backup.json
+    echo -e "${ORANGE}Renamed current ${RED}$CODE_PATH/User/settings.json${NC} ${ORANGE}to ${GREEN}$CODE_PATH/User/settings.backup.json${NC}"
   fi
-  ln -sv $HOME/dotfiles/vscode/keybindings.json $HOME/.config/Code/User/
-  ln -sv $HOME/dotfiles/vscode/settings.json $HOME/.config/Code/User/
+  ln -sv $HOME/dotfiles/vscode/keybindings.json $CODE_PATH/User/
+  ln -sv $HOME/dotfiles/vscode/settings.json $CODE_PATH/User/
 fi
 
 echo

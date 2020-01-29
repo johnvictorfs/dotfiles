@@ -13,6 +13,11 @@ if [ -x "$(command -v tlp)" ] ; then
   sudo tlp start
 fi
 
+# Add Flathub flatpak repository if flatpak is installed
+if [ -x "$(command -v flatpak)" ] ; then
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+fi
+
 # Installing Yarn
 echo
 read -p "${ORANGE}Do you want to install ${GREEN}Yarn${ORANGE}? (Y/n)${NC} " -n 1 -r
@@ -41,7 +46,7 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 fi
 
 # Neovim: https://neovim.io
-read -p "${ORANGE}Do you want to install and setup ${GREEN}Neovim 0.3.4${ORANGE}? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install and setup ${GREEN}Neovim 0.4.3${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
     cd $HOME/dotfiles
@@ -49,7 +54,6 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
     ./nvim_setup.sh
 fi
 
-# Mac-OS Sierra gtk Theme: https://github.com/vinceliuice/Sierra-gtk-theme
 # Nordic gtk Theme: https://github.com/EliverLara/Nordic
 read -p $"${ORANGE}Do you wish to ${GREEN}install all Gnome Themes?${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
@@ -58,8 +62,6 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
   gsettings set  org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
 
   ./gtk_themes.sh
-
-  cd $HOME/dotfiles
 fi
 
 read -p "${ORANGE}Do you wish the install the ${GREEN}Plank dock${ORANGE}? (Y/n)${NC} " -n 1 -r
@@ -140,6 +142,5 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 fi
 
 chmod +x chrome.sh && ./chrome.sh
-chmod +x snap_packages.sh && ./snap_packages.sh
 chmod +x sublime.sh && ./sublime.sh
 chmod +x vscode.sh && ./vscode.sh

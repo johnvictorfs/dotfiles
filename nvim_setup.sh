@@ -9,7 +9,7 @@ startloading
 
 # Download nvim.appimage
 [ -d $HOME/snap ] || mkdir -p $HOME/snap
-wget --quiet -O $HOME/snap/nvim.appimage "https://github.com/neovim/neovim/releases/download/v0.3.4/nvim.appimage"
+wget --quiet -O $HOME/snap/nvim.appimage "https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage"
 chmod +x $HOME/snap/nvim.appimage
 sudo mv $HOME/snap/nvim.appimage /usr/bin/nvim
 

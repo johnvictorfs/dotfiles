@@ -24,6 +24,7 @@ declare -a apt_packages=(
   "sqlite3"
   "tlp"
   "tlp-rdw"
+  "flatpak"
 )
 
 for package in "${apt_packages[@]}"; do

@@ -1,50 +1,19 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Load Zgen Plugin Manager for ZSH
 if [[ -f "${HOME}/.zgen/zgen.zsh" ]] ; then
   source "${HOME}/.zgen/zgen.zsh"
 fi
 
+# Load Zinit Plugin Manager for ZSH
+if [[ -f "${HOME}/.zinit/bin/zinit.zsh" ]] ; then
+  source "${HOME}/.zinit/bin/zinit.zsh"
+fi
+
 # Install and use oh-my-zsh
 zgen oh-my-zsh
-
-ZSH_THEME=""
 
 # Path to oh-my-zsh installation.
 export ZSH="/home/${USER}/.oh-my-zsh"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-#source $ZSH/oh-my-zsh.sh
-
-# User configuration
 alias src="source $HOME/.zshrc"
 
 export VISUAL="nvim"
@@ -63,6 +32,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
 
+# Android Studio stuff
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -77,13 +47,13 @@ if [ -x "$(command -v rbenv)" ] ; then
 fi
 
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="/var/lib/flatpak/exports/bin:$PATH"
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
  # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
 
 # Zplugin installer
 if [[ -f "${HOME}/.zplugin/bin/zplugin.zsh" ]] ; then
@@ -94,11 +64,11 @@ if [[ -f "${HOME}/.zplugin/bin/zplugin.zsh" ]] ; then
   ZPLGM[MUTE_WARNINGS]=1
 fi
 
-# End of Zplugin's installer chunk
-if [[ "$(command -v zplugin)" ]] ; then
-  zplugin light zdharma/fast-syntax-highlighting
-  zplugin light zsh-users/zsh-autosuggestions
-  zplugin light zsh-users/zsh-completions
+# End of Zinit's installer chunk
+if [[ "$(command -v zinit)" ]] ; then
+  zinit light zdharma/fast-syntax-highlighting
+  zinit light zsh-users/zsh-autosuggestions
+  zinit light zsh-users/zsh-completions
 fi
 
 # Load pyenv
@@ -161,4 +131,3 @@ zgen oh-my-zsh plugins/command-not-found
 # https://github.com/sindresorhus/pure
 zgen load mafredri/zsh-async
 zgen load sindresorhus/pure
-

@@ -3,6 +3,13 @@ alias hg='history | grep' && alias gh=hg
 alias src="source ~/.zshrc"
 alias cronlog="grep CRON /var/log/syslog"
 
+# Flatpak Vscode alias
+if [ -x "$(command -v flatpak)" ] ; then
+  function code() {
+    (flatpak run com.visualstudio.code $*)
+  }
+fi
+
 # Open ranger with xterm for pdf/img preview support
 alias ra="xterm -fa 'Fira Code Medium' -fs 14 -bg gray15 -e ranger"
 

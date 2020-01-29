@@ -9,7 +9,7 @@ if [[ ! $REPLY =~ ^[Yy]$ ]] ; then
 fi
 
 if [ ! -x "$(command -v subl)" ] ; then
-	read -p "${RED}You do not have Sublime Text 3 installed. Do you want to install it now? (Y/n)${NC} " -n 1 -r
+	read -p "${RED}You do not have Sublime Text 3 installed. Do you want to install it now with snap? (Y/n)${NC} " -n 1 -r
 	echo
 	if [[ $REPLY =~ ^[Yy]$ ]] ; then
     if [ -x "$(command -v snap)" ] ; then
