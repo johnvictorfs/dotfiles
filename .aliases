@@ -3,8 +3,8 @@ alias hg='history | grep' && alias gh=hg
 alias src="source ~/.zshrc"
 alias cronlog="grep CRON /var/log/syslog"
 
-# Run Flatpak Vscode with 'code'
-alias code="com.visualstudio.code"
+# github-cli alias to git
+alias git="hub"
 
 # Open ranger with xterm for pdf/img preview support
 alias ra="xterm -fa 'Fira Code Medium' -fs 14 -bg gray15 -e ranger"
@@ -33,9 +33,6 @@ alias ydev="yarn dev"
 alias dev="cd ~/projects"
 alias projects="dev"
 alias apps="cd /usr/share/applications"
-
-# Robo3T alias
-alias robo3t='/usr/local/bin/robomongo/bin/robo3t'
 
 # Alias vi and vim to neovim
 [ -x "$(command -v nvim)" ] && alias vi=nvim && alias vim=nvim

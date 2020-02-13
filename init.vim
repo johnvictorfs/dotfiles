@@ -3,8 +3,8 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
-" gruvbox Color Theme "
-Plug 'morhetz/gruvbox'
+" Color Theme "
+Plug 'ayu-theme/ayu-vim'
 
 Plug 'andreyorst/SimpleSnippets.vim'
 
@@ -74,8 +74,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " Initialize plugin system "
 call plug#end()
 
-colorscheme gruvbox
-set background=dark
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
 
 set hidden
 
@@ -112,6 +113,18 @@ set copyindent      " copy indent from the previous line
 
 " Add ; to end of line with Space + Shift + A"
 nnoremap <leader>; A;<esc>
+
+" leader + q to exit "
+nnoremap <leader>q :q<cr>
+
+" leader + wq to save and exit "
+nnoremap <leader>wq :wq<cr>
+
+" leader + ww to save "
+nnoremap <leader>ww :w<cr>
+
+" F2 to Save "
+nnoremap <f2> :w<cr>
 
 " Open init.vim in split window with Space + ev"
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
