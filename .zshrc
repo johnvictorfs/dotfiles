@@ -39,7 +39,6 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-export JAVA_HOME="/snap/android-studio/75/android-studio/jre"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 if [ -x "$(command -v rbenv)" ] ; then
@@ -87,10 +86,10 @@ fi
 function cd() {
   builtin cd "$@"
 
-  ## Default path to virtualenv in your projects
+  # Default path to virtualenv in your projects
   DEFAULT_ENV_PATH="./.venv"
 
-  ## If env folder is found then activate the vitualenv
+  # If env folder is found then activate the vitualenv
   function activate_venv() {
     if [[ -f "${DEFAULT_ENV_PATH}/bin/activate" ]] ; then 
       source "${DEFAULT_ENV_PATH}/bin/activate"
@@ -101,7 +100,7 @@ function cd() {
   if [[ -z "$VIRTUAL_ENV" ]] ; then
     activate_venv
   else
-    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # check the current folder belong to earlier VIRTUAL_ENV folder
     # if yes then do nothing
     # else deactivate then run a new env folder check
       parentdir="$(dirname ${VIRTUAL_ENV})"
@@ -114,6 +113,7 @@ function cd() {
 }
 
 function killport() {
+  # Check if something is running at the port passed before trying to kill it
   if lsof -Pi ":$1" -sTCP:LISTEN -t >/dev/null; then
     echo "Killing process at port '$1'"
     sudo kill $(lsof -t -i:"$1")
@@ -131,3 +131,4 @@ zgen oh-my-zsh plugins/command-not-found
 # https://github.com/sindresorhus/pure
 zgen load mafredri/zsh-async
 zgen load sindresorhus/pure
+

@@ -31,4 +31,3 @@ for theme in "${!themes[@]}"; do
     fi
   fi
 done
-
