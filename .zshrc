@@ -123,7 +123,10 @@ function killport() {
   fi
 }
 
+export ANDROID_SDK="/home/john/Android/Sdk"
+
 # Oh-my-zsh plugins
+zgen oh-my-zsh plugins/sudo
 zgen oh-my-zsh plugins/git
 zgen oh-my-zsh plugins/command-not-found
 

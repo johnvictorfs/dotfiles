@@ -21,6 +21,9 @@
   "[typescript]": {
     "editor.tabSize": 2
   },
+  "[typescriptreact]": {
+    "editor.tabSize": 2
+  },
   "[json]": {
     "editor.quickSuggestions": {
       "strings": true
@@ -85,5 +88,6 @@
   "python.linting.pylintEnabled": false,
   "python.linting.enabled": true,
   "C_Cpp.updateChannel": "Insiders",
-  "code-runner.runInTerminal": true
+  "code-runner.runInTerminal": true,
+  "emulator.emulatorPath": "~/Android/Sdk/emulator"
 }

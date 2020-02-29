@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 source $HOME/dotfiles/helper.sh
 
-read -p "${ORANGE}Do you want to install ${GREEN}apt packages${ORANGE}? (Y/n)${NC} " -n 1 -r
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
- cd $HOME/dotfiles
-  chmod +x apt_packages.sh
-  ./apt_packages.sh
-fi
-
 # Start tlp if installed
 if [ -x "$(command -v tlp)" ] ; then
   sudo tlp start
@@ -23,78 +16,15 @@ echo
 read -p "${ORANGE}Do you want to install ${GREEN}Yarn${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-	curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-	echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-	sudo apt update && sudo apt install yarn
-fi
-
-# Installing pyenv
-echo
-read -p "${ORANGE}Do you want to install ${GREEN}pyenv${ORANGE}? (Y/n)${NC} " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  sudo apt -qq install -y curl
-  curl https://pyenv.run | bash
-fi
-
-# Installing poetry
-read -p "${ORANGE}Do you want to install ${GREEN}poetry${ORANGE}? (Y/n)${NC} " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  sudo apt -qq install -y curl
-  curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
+  sudo pacman -Syu yarn
 fi
 
 # Neovim: https://neovim.io
-read -p "${ORANGE}Do you want to install and setup ${GREEN}Neovim 0.4.3${ORANGE}? (Y/n)${NC} " -n 1 -r
+read -p "${ORANGE}Do you want to install and setup ${GREEN}Neovim ${ORANGE}? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
     cd $HOME/dotfiles
-    chmod +x nvim_setup.sh
     ./nvim_setup.sh
-fi
-
-# Nordic gtk Theme: https://github.com/EliverLara/Nordic
-read -p $"${ORANGE}Do you wish to ${GREEN}install all Gnome Themes?${ORANGE}? (Y/n)${NC} " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-   # Set close/minimize/maximize buttons to the left
-  gsettings set  org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:'
-
-  ./gtk_themes.sh
-fi
-
-read -p "${ORANGE}Do you wish the install the ${GREEN}Plank dock${ORANGE}? (Y/n)${NC} " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  sudo apt -qq install -y plank
-  read -p "${ORANGE}Do you wish to install the paperterial theme for the plank dock? (It has to be turned on manually) (Y/n)${NC} " -n 1 -r 
-  echo
-
-  if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    [ ! -d $HOME/.local/share/plank/themes/paperterial ] && mkdir -p $HOME/.local/share/plank/themes/paperterial
-
-    wget -O $HOME/.local/share/plank/themes/paperterial/dock.theme "https://raw.githubusercontent.com/KenHarkey/plank-themes/master/paperterial/dock.theme"
-  fi
-
-  read -p "${ORANGE}Do you wish to replace the Gnome Dock with the Plank dock? (Y/n)${NC} " -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    echo -e "${GREEN}Setting plank to load on start up...${NC}"
-
-    [ ! -d $HOME/.config/autostart ] && mkdir -p $HOME/.config/autostart
-
-    cd $HOME/dotfiles
-    cp plank.desktop $HOME/.config/autostart/
-    
-    # Start plank
-    nohup plank &
-
-    echo -e "${GREEN}Disabling Gnome Dock...${NC}"
-    gsettings set org.gnome.shell.extensions.dash-to-dock autohide false
-    gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
-    gsettings set org.gnome.shell.extensions.dash-to-dock intellihide false
-  fi
 fi
 
 read -p "${ORANGE}Do you want to replace your current dotfiles with the new ones? (.aliases and .zshrc) Backups will be made (Y/n)${NC} " -n 1 -r
@@ -133,14 +63,5 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
   echo
 fi
 
-read -p "${ORANGE}Do you wish to change the Desktop and Lock Wallpaper to the Kali Linux image? (Y/n)${NC} " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  URI="file:///${HOME}/dotfiles/images/kali-linux-wallpaper.png"
-  gsettings set org.gnome.desktop.background picture-uri $URI
-  gsettings set org.gnome.desktop.screensaver picture-uri $URI
-fi
-
-chmod +x chrome.sh && ./chrome.sh
-chmod +x sublime.sh && ./sublime.sh
 chmod +x vscode.sh && ./vscode.sh
+

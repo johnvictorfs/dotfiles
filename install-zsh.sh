@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/dotfiles/helper.sh
 
-sudo apt install zsh -y
+sudo pacman -Syu zsh
 chsh -s $(which zsh)
 
 echo

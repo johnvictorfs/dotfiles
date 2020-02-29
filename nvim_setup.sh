@@ -6,13 +6,7 @@ if [ ! -x "$(command -v nvim)" ] ; then
   echo "${GREEN}Installing and setting up neovim...${NC}"
   echo
 
-  startloading
-
-  # Download nvim.appimage
-  [ -d $HOME/snap ] || mkdir -p $HOME/snap
-  wget --quiet -O $HOME/snap/nvim.appimage "https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage"
-  chmod +x $HOME/snap/nvim.appimage
-  sudo mv $HOME/snap/nvim.appimage /usr/bin/nvim
+  sudo pacman -Syu neovim
 fi
 
 # Plug package manager for Neovim/Vim: https://github.com/junegunn/vim-plug
@@ -29,7 +23,7 @@ fi
 
 # Symlink $HOME/dotfiles init.vim
 [ -d $HOME/.config/nvim ] || mkdir -p $HOME/.config/nvim && echo "Created dir"
-ln -sf $HOME/dotfiles/init.vim $HOME/.config/nvim
+ln -sf $HOME/dotfiles/nvim/init.vim $HOME/.config/nvim
 
 # Open Vim, run 'PlugInstall --sync' and quit
 nvim +'PlugInstall --sync' +qa
@@ -41,3 +35,4 @@ endloading
 
 echo "${GREEN}Finished installation and setup of Neovim${NC}"
 echo
+
