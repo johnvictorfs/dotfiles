@@ -64,9 +64,6 @@ bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -348,7 +345,7 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
+  client.focused          #556064 #282a36 #80FFF9 #FDF6E3
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
@@ -419,8 +416,15 @@ bindsym XF86AudioLowerVolume exec "amixer set -q Master 1%-"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # Brightness controls
-bindsym XF86MonBrightnessUp exec brightness --inc 5
-bindsym XF86MonBrightnessDown exec brightness --dec 5
+bindsym XF86MonBrightnessUp exec ~/.bin/brightness --inc 5
+bindsym XF86MonBrightnessDown exec ~/.bin/brightness --dec 5
+
+# Desktop screenshot
+bindsym --release $mod+Print exec "scrot ~/Pictures/Screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"
+# Choose window
+#bindsym --release Mod1+Sys_Req exec "import -window `xwininfo | awk '/.*Window id:.*/ {print $4}'` ~/Pictures/Screenshots/$(date --iso-8601='seconds').png"
+# Selection screenshot
+bindsym --release Print exec "scrot ~/Pictures/Screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"
 
 # compton
 exec --no-startup-id compton --config ~/.config/compton/compton.conf
