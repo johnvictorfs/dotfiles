@@ -44,10 +44,11 @@ font-0 = fixed:pixelsize=10;1
 font-1 = Font Awesome 5 Free Regular:style=Regular:pixelsize=9;
 font-2 = Font Awesome 5 Free Solid:style=Solid:pixelsize=9;
 font-3 = Noto Sans CJK JP:style=Regular:pixelsize=9;
+font-4 = Font Awesome 5 Free Regular:style=Regular;
 
 modules-left = i3 weather spotify
 modules-center = time date
-modules-right = network brightness volume battery
+modules-right = bluetooth network brightness volume battery
 
 wm-restack = i3
 
@@ -57,7 +58,7 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-separator = "  /  "
+separator = "  |  "
 
 [bar/example]
 width = 100%
@@ -111,6 +112,12 @@ type = custom/script
 interval = 1
 format =    <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '%{T4} {artist}: {song}'
+
+[module/bluetooth]
+type = custom/script
+interval = 2
+exec = ~/.config/polybar/scripts/bluetooth.sh
+format = %{T4} <label> %{T-}
 
 [module/network]
 type = custom/script

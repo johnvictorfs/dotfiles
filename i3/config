@@ -436,6 +436,6 @@ exec xset b off
 exec --no-startup-id feh --bg-scale ~/dotfiles/images/dracula.png
 
 # Start polybar
-exec_always --no-startup-id ~/.config/polybar/launch.dash
+exec --no-startup-id ~/.config/polybar/launch.sh
 
 for_window [class=".*"] split toggle
