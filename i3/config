@@ -32,7 +32,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_extended_run
+# bindsym $mod+d exec --no-startup-id dmenu_extended_run
+bindsym $mod+d exec --no-startup-id rofi -show drun -config ~/.config/rofi/default2.rasi
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -180,10 +181,12 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
-assign [class="RuneScape"] $ws5
+assign [class="RuneScape"] $ws3
 assign [class="Discord"] $ws4
 
 # Open specific applications in floating mode
+for_window [title="nmtui"] floating enable resize set 580px 500px;
+for_window [title="nmtui"] move position 1325 40;
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
@@ -270,7 +273,6 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -315,33 +317,33 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-	i3bar_command i3bar
-	status_command i3status 
-	position bottom
+#bar {
+	#i3bar_command i3bar
+	#status_command i3status 
+	#position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
 #	tray_output eDP1
 
-	bindsym button4 nop
-	bindsym button5 nop
+	#bindsym button4 nop
+	#bindsym button5 nop
 #   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+	#strip_workspace_numbers yes
 
-    colors {
-        background #202A2E
-        statusline #F9FAF9
-        separator  #454947
+    #colors {
+    #    background #202A2E
+    #    statusline #F9FAF9
+    #    separator  #454947
 
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #202A2E #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
-    }
-}
+##                      border  backgr. text
+    #    focused_workspace  #F9FAF9 #16a085 #292F34
+    #    active_workspace   #595B5B #353836 #FDF6E3
+    #    inactive_workspace #595B5B #202A2E #EEE8D5
+    #    binding_mode       #16a085 #2C2C2C #F9FAF9
+    #    urgent_workspace   #16a085 #FDF6E3 #E5201D
+    #}
+#}
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
@@ -361,8 +363,10 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+#gaps inner 14
+#gaps outer -2
+gaps inner 10
+gaps outer 5
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -413,8 +417,25 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+# Use amixer to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec "amixer set -q Master 1%+"
+bindsym XF86AudioLowerVolume exec "amixer set -q Master 1%-"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+
+# Brightness controls
+bindsym XF86MonBrightnessUp exec brightness --inc 5
+bindsym XF86MonBrightnessDown exec brightness --dec 5
+
+# compton
+exec --no-startup-id compton --config ~/.config/compton/compton.conf
+
+# beep off
+exec xset b off
+
 # Set wallpaper
-exec --no-startup-id feh --bg-fill ~/dotfiles/images/kali-linux-wallpaper.png
+exec --no-startup-id feh --bg-scale ~/dotfiles/images/dracula.png
 
 # Start polybar
-exec_always --no-startup-id ~/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.dash
+
+for_window [class=".*"] split toggle

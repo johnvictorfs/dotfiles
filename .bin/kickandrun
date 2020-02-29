@@ -1,0 +1,3 @@
+#!/bin/bash
+killall ${1} &
+termite -e "${1}" &
