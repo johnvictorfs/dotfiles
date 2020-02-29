@@ -185,8 +185,6 @@ assign [class="RuneScape"] $ws3
 assign [class="Discord"] $ws4
 
 # Open specific applications in floating mode
-for_window [title="nmtui"] floating enable resize set 580px 500px;
-for_window [title="nmtui"] move position 1325 40;
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
@@ -363,8 +361,6 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-#gaps inner 14
-#gaps outer -2
 gaps inner 10
 gaps outer 5
 
@@ -374,7 +370,7 @@ gaps outer 5
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

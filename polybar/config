@@ -23,9 +23,10 @@ width = 100%
 height = 35
 radius = 0
 
-border-top-size = 15
-border-left-size = 15
-border-right-size = 15
+border-top-size = 10
+border-left-size = 10
+border-right-size = 10
+border-bottom-size = 10
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -43,7 +44,7 @@ font-0 = fixed:pixelsize=10;1
 font-1 = Font Awesome 5 Free Regular:style=Regular:pixelsize=9;
 font-2 = Font Awesome 5 Free Solid:style=Solid:pixelsize=9;
 
-modules-left = weather spotify i3 xwindow
+modules-left = i3 weather spotify
 modules-center = time date
 modules-right = network brightness volume battery
 
@@ -63,7 +64,7 @@ height = 37
 bottom = true
 radius = 0
 
-border-bottom-size = 15
+border-bottom-size = 0
 border-left-size = 15
 border-right-size = 15
 
@@ -170,7 +171,7 @@ label-urgent-padding = 2
 type = internal/date
 interval = 5
 
-date = "%d %h %Y"
+date = "%a, %d %h %Y"
 
 label = %date%
 
