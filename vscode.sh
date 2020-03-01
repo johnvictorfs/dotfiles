@@ -2,12 +2,12 @@
 source $HOME/dotfiles/helper.sh
 
 if [ ! -x "$(command -v code)" ] ; then
-  echo "${RED}Flatpak is not installed${NC}"
-  read -p "${ORANGE}Do you want to install it? (Y/n)${NC} " -n 1 -r
+  echo "${RED}Vscode is not installed${NC}"
+  read -p "${ORANGE}Do you want to install it (with pacman)? (Y/n)${NC} " -n 1 -r
 echo
 
   if [[ $REPLY =~ ^[Yy]$ ]] ; then
-    sudo pacman -S code
+    sudo pacman -Syu code
   else
     exit 1
   fi

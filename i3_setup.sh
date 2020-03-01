@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+source $HOME/dotfiles/helper.sh
+
 # Install needed packages
 sudo pacman -Syu i3-gaps i3status kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd scrot xclip
 
@@ -69,4 +72,14 @@ if [ -d $HOME/.config/compton ] ; then
 fi
 
 ln -sf $HOME/dotfiles/compton $HOME/.config
+
+# Start tlp if installed
+if [ -x "$(command -v tlp)" ] ; then
+  sudo tlp start
+fi
+
+# Add Flathub flatpak repository if flatpak is installed
+if [ -x "$(command -v flatpak)" ] ; then
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+fi
 
