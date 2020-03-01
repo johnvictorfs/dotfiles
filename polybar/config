@@ -21,12 +21,12 @@ alert = #ff5555
 [bar/top]
 width = 100%
 height = 35
-radius = 0
+radius = 6.0
 
 border-top-size = 10
 border-left-size = 10
 border-right-size = 10
-border-bottom-size = 10
+border-bottom-size = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -44,7 +44,7 @@ font-0 = fixed:pixelsize=10;1
 font-1 = Font Awesome 5 Free Regular:style=Regular:pixelsize=9;
 font-2 = Font Awesome 5 Free Solid:style=Solid:pixelsize=9;
 font-3 = Noto Sans CJK JP:style=Regular:pixelsize=9;
-font-4 = Font Awesome 5 Free Regular:style=Regular;
+font-4 = Font Awesome 5 Free Regular:style=Regular:pixelsize=11;
 
 modules-left = i3 weather spotify
 modules-center = time date
@@ -133,14 +133,14 @@ format = <label>
 
 [module/volume]
 type = custom/script
-interval = 1
+interval = 0.1
 exec = ~/.bin/volume --status
 format = <label>
 click-left = kickandrun /usr/bin/pavucontrol
 
 [module/weather]
 type = custom/script
-interval = 86400
+interval = 3600
 exec = python ~/.config/polybar/scripts/getWeather.py
 format =   <label>
 
