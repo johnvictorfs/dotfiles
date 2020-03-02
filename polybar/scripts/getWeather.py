@@ -14,6 +14,8 @@ images = {
         'Light showers. Broken clouds': '',
         'Rain showers. Mostly cloudly': '',
         'Rain showers. Broken clouds': '',
+        'Scattered showers. Broken clouds': '',
+        'Scattered showers. Mostly cloudly': '',
         'Heavy rain. Overcast': '',
         'Strong thunderstorms. Low clouds': '',
         'Sprinkles. Clearing skies': '',

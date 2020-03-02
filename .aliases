@@ -13,9 +13,6 @@ alias ra="xterm -fa 'Fira Code Medium' -fs 14 -bg gray15 -e ranger"
 alias howdoi='python3 -m howdoi.howdoi'
 alias hdi='function hdi(){ howdoi $* -c -n 3; }; hdi'
 
-# Python aliases
-alias notebook="python3.7 -m notebook"
-
 # Django Aliases
 alias runserver="python manage.py runserver"
 alias makemigrations="python manage.py makemigrations"
