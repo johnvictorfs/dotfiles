@@ -66,7 +66,7 @@ Some configs are based on [simrat39/dotfiles](https://github.com/simrat39/dotfil
 | Key | Action |
 |-----|--------|
 | <kbd>$mod</kbd> + <kbd><1-8></kbd> | Switch Workspace |
-| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd><1-8></kbd> | Move active Window to Workspace |
+| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd><1-8></kbd> | Move active Window to Workspace and switch to it |
 | <kbd>$mod</kbd> + <kbd>f</kbd> | Toggle Active Window Full-screen |
 | <kbd>$mod</kbd> + <kbd>Return</kbd> | Open Terminal Window |
 | <kbd>$mod</kbd> + <kbd>&larr;</kbd> / <kbd>&uarr;</kbd> / <kbd>&rarr;</kbd> / <kbd>&darr;</kbd> | Switch Active Window |
@@ -78,6 +78,9 @@ Some configs are based on [simrat39/dotfiles](https://github.com/simrat39/dotfil
 | <kbd>$mod</kbd> + <kbd>PrtScr</kbd> | Monitor Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
 | <kbd>Volume Up/Down</kbd> | Increase/Decrease Volume with Fn keys |
 | <kbd>Volume Mute</kbd> | Mute/Unmute Volume with Fn keys |
+| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | Reload i3 config files |
+| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>r</kbd> | Restart i3 (maintains session) |
+| <kbd>$mod</kbd> + <kbd>0</kbd> | System Mode to lock/suspend/restart/shutdown etc. |
 
 ---
 

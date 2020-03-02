@@ -142,7 +142,7 @@ click-left = kickandrun /usr/bin/pavucontrol
 type = custom/script
 interval = 3600
 exec = python ~/.config/polybar/scripts/getWeather.py
-format =   <label>
+format = <label>
 
 [module/i3]
 type = internal/i3
