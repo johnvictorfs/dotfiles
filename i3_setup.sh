@@ -2,8 +2,9 @@
 source $HOME/dotfiles/helper.sh
 
 # Install needed packages
-sudo pacman -Syu i3-gaps i3status kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd scrot xclip calc
+sudo pacman -Syu i3-gaps i3status kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd scrot xclip calc redshift
 
+# Needed for weather polybar script
 pip install --user bs4 html5lib 
 
 ### i3-gaps
