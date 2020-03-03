@@ -2,7 +2,7 @@
 source $HOME/dotfiles/helper.sh
 
 # Install needed packages
-sudo pacman -Syu i3-gaps i3status kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd scrot xclip calc redshift
+sudo pacman -Syu i3-gaps i3status kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd scrot xclip calc redshift i3exit
 
 # Needed for weather polybar script
 pip install --user bs4 html5lib 
@@ -27,6 +27,9 @@ mkdir -p $HOME/.config/i3
 # Symlink kitty config files from git repo to configs
 ln -sf $HOME/dotfiles/i3/config $HOME/.config/i3
 
+# Symlink .profile
+ln -sf $HOME/dotfiles/.profile $HOME
+
 ### Kitty Terminal
 if [ -f $HOME/.config/kitty/kitty.conf ] ; then
   # Backing up old kitty config file
@@ -45,11 +48,11 @@ ln -sf $HOME/dotfiles/kitty/kitty.conf $HOME/.config/kitty
 if [ -f $HOME/.config/rofi/colors.rasi ] ; then
   rm -rf $HOME/.config/rofi/*.backup
   mv $HOME/.config/rofi/colors.rasi $HOME/.config/rofi/colors.rasi.backup
-  echo -e "${ORANGE}Renamed current ${RED}~/.config/rofi/colors.rasi{NC} ${ORANGE}to ${GREEN}~/.config/rofi/colors.rasi.backup${NC}"
+  echo -e "${ORANGE}Renamed current ${RED}~/.config/rofi/colors.rasi${NC} ${ORANGE}to ${GREEN}~/.config/rofi/colors.rasi.backup${NC}"
 fi
 if [ -f $HOME/.config/rofi/default2.rasi ] ; then
   mv $HOME/.config/rofi/default2.rasi $HOME/.config/rofi/default2.rasi.backup
-  echo -e "${ORANGE}Renamed current ${RED}~/.config/rofi/default2.rasi{NC} ${ORANGE}to ${GREEN}~/.config/rofi/default2.rasi.backup${NC}"
+  echo -e "${ORANGE}Renamed current ${RED}~/.config/rofi/default2.rasi${NC} ${ORANGE}to ${GREEN}~/.config/rofi/default2.rasi.backup${NC}"
 fi
 
 mkdir -p $HOME/.config
@@ -60,7 +63,7 @@ ln -sf $HOME/dotfiles/rofi/default2.rasi $HOME/.config/rofi
 if [ -d $HOME/.config/polybar ] ; then
   rm -rf $HOME/.config/polybar.backup
   mv $HOME/.config/polybar $HOME/.config/polybar.backup
-  echo -e "${ORANGE}Renamed current ${RED}~/.config/polybar{NC} ${ORANGE}to ${GREEN}~/.config/polybar.backup${NC}"
+  echo -e "${ORANGE}Renamed current ${RED}~/.config/polybar${NC} ${ORANGE}to ${GREEN}~/.config/polybar.backup${NC}"
 fi
 
 ln -sf $HOME/dotfiles/polybar $HOME/.config
@@ -69,7 +72,7 @@ ln -sf $HOME/dotfiles/polybar $HOME/.config
 if [ -d $HOME/.config/compton ] ; then
   rm -rf $HOME/.config/compton.backup
   mv $HOME/.config/compton $HOME/.config/compton.backup
-  echo -e "${ORANGE}Renamed current ${RED}~/.config/compton{NC} ${ORANGE}to ${GREEN}~/.config/compton.backup${NC}"
+  echo -e "${ORANGE}Renamed current ${RED}~/.config/compton${NC} ${ORANGE}to ${GREEN}~/.config/compton.backup${NC}"
 fi
 
 ln -sf $HOME/dotfiles/compton $HOME/.config

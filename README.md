@@ -2,7 +2,7 @@
 
 Configuration files for zshrc (`.zshrc` and `.aliases`), Neovim (`init.vim`), Vscode, i3-gaps and others
 
-Some configs are based on [simrat39/dotfiles](https://github.com/simrat39/dotfiles).
+Some configs and scripts are based on [simrat39/dotfiles](https://github.com/simrat39/dotfiles) and [LukeSmithxyz/voidrice](https://github.com/LukeSmithxyz/voidrice).
 
 ---
 
@@ -71,9 +71,10 @@ Some configs are based on [simrat39/dotfiles](https://github.com/simrat39/dotfil
 | <kbd>$mod</kbd> + <kbd>Return</kbd> | Open Terminal Window |
 | <kbd>$mod</kbd> + <kbd>&larr;</kbd> / <kbd>&uarr;</kbd> / <kbd>&rarr;</kbd> / <kbd>&darr;</kbd> | Switch Active Window |
 | <kbd>$mod</kbd> + <kbd>r</kbd> | Toggle resize Mode, resize with <kbd>&larr;</kbd> / <kbd>&uarr;</kbd> / <kbd>&rarr;</kbd> / <kbd>&darr;</kbd> then press <kbd>Return</kbd> to confirm |
+| <kbd>$mod</kbd> + <kbd>Ctrl</kbd> + <kbd>&larr;</kbd> / <kbd>&uarr;</kbd> / <kbd>&rarr;</kbd> | Resize active window without resize mode |
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd> / <kbd>&uarr;</kbd> / <kbd>&rarr;</kbd> / <kbd>&darr;</kbd> | Move Active Window |
 | <kbd>$mod</kbd> + <kbd>d</kbd> | Open Application Launcher |
-| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>q</kbd> | Close active Window |
+| <kbd>$mod</kbd> + <kbd>q</kbd> | Close active Window |
 | <kbd>PrtScr</kbd> | Region selection Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
 | <kbd>$mod</kbd> + <kbd>PrtScr</kbd> | Monitor Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
 | <kbd>Volume Up/Down</kbd> | Increase/Decrease Volume with Fn keys |

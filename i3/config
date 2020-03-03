@@ -4,6 +4,8 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+set $term kitty
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -27,9 +29,10 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty 
+bindsym $mod+Return exec $term 
+
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_extended_run
@@ -97,7 +100,6 @@ bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -127,8 +129,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+#bindsym $mod+Ctrl+Right workspace next
+#bindsym $mod+Ctrl+Left workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -172,6 +174,12 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+
+# Resize with Ctrl + Arrows
+bindsym $mod+Ctrl+Left exec --no-startup-id i3resize left
+bindsym $mod+Ctrl+Down exec --no-startup-id i3resize down
+bindsym $mod+Ctrl+Up exec --no-startup-id i3resize up
+bindsym $mod+Ctrl+Right exec --no-startup-id i3resize right
 
 # Open applications on specific workspaces
 assign [class="RuneScape"] $ws3
@@ -332,8 +340,8 @@ bindsym XF86AudioLowerVolume exec "amixer set -q Master 1%-"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # Brightness controls
-bindsym XF86MonBrightnessUp exec ~/.bin/brightness --inc 5
-bindsym XF86MonBrightnessDown exec ~/.bin/brightness --dec 5
+bindsym XF86MonBrightnessUp exec brightness --inc 5
+bindsym XF86MonBrightnessDown exec brightness --dec 5
 
 # Desktop screenshot
 bindsym --release $mod+Print exec "scrot ~/Pictures/Screenshots/$(date --iso-8601='seconds').png --quality 100 -m -e 'xclip -selection c -t image/png < $f'"
@@ -354,4 +362,7 @@ exec --no-startup-id feh --bg-scale ~/dotfiles/images/dracula.png
 exec --no-startup-id ~/.config/polybar/launch.sh
 
 for_window [class=".*"] split toggle
+
+# Second monitor setup
+exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1
 
