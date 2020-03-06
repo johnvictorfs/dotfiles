@@ -349,8 +349,8 @@ bindsym --release $mod+Print exec "scrot ~/Pictures/Screenshots/$(date --iso-860
 # Selection screenshot
 bindsym --release Print exec "scrot ~/Pictures/Screenshots/$(date --iso-8601='seconds').png --quality 100 -s -e 'xclip -selection c -t image/png < $f'"
 
-# compton
-exec --no-startup-id compton --config ~/.config/compton/compton.conf
+# compton/picom
+exec_always --no-startup-id ~/.config/i3/picom.sh
 
 # beep off
 exec xset b off

@@ -89,5 +89,6 @@
   "python.linting.enabled": true,
   "C_Cpp.updateChannel": "Insiders",
   "code-runner.runInTerminal": true,
-  "emulator.emulatorPath": "~/Android/Sdk/emulator"
+  "emulator.emulatorPath": "~/Android/Sdk/emulator",
+  "files.maxMemoryForLargeFilesMB": 6096
 }

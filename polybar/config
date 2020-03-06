@@ -136,13 +136,11 @@ click-right = redshift -x
 
 [module/volume]
 type = custom/script
-interval = 0.1
+interval = 1
 exec = ~/.bin/volume --status
 format = <label>
 scroll-up = amixer set -q Master 1%+
 scroll-down = amixer set -q Master 1%-
-click-left = amixer set 'Master' unmute
-click-right = amixer set 'Master' mute
 
 [module/weather]
 type = custom/script
