@@ -48,6 +48,9 @@ fi
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 export PATH="/var/lib/flatpak/exports/bin:$PATH"
 
+# Adds `~/.bin` to $PATH
+export PATH="$PATH:$(du "$HOME/.bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 

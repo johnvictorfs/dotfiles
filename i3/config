@@ -6,6 +6,8 @@ set $mod Mod4
 
 set $term kitty
 
+set $i3resize ~/.bin/i3cmds/i3resize 
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -176,10 +178,10 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Resize with Ctrl + Arrows
-bindsym $mod+Ctrl+Left exec --no-startup-id i3resize left
-bindsym $mod+Ctrl+Down exec --no-startup-id i3resize down
-bindsym $mod+Ctrl+Up exec --no-startup-id i3resize up
-bindsym $mod+Ctrl+Right exec --no-startup-id i3resize right
+bindsym $mod+Ctrl+Left exec --no-startup-id $i3resize left
+bindsym $mod+Ctrl+Down exec --no-startup-id $i3resize down
+bindsym $mod+Ctrl+Up exec --no-startup-id $i3resize up
+bindsym $mod+Ctrl+Right exec --no-startup-id $i3resize right
 
 # Open applications on specific workspaces
 assign [class="RuneScape"] $ws3
@@ -340,8 +342,8 @@ bindsym XF86AudioLowerVolume exec "amixer set -q Master 1%-"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # Brightness controls
-bindsym XF86MonBrightnessUp exec brightness --inc 5
-bindsym XF86MonBrightnessDown exec brightness --dec 5
+bindsym XF86MonBrightnessUp exec ~/.bin/brightness --inc 5
+bindsym XF86MonBrightnessDown exec ~/.bin/brightness --dec 5
 
 # Desktop screenshot
 bindsym --release $mod+Print exec "scrot ~/Pictures/Screenshots/$(date --iso-8601='seconds').png --quality 100 -m -e 'xclip -selection c -t image/png < $f'"
