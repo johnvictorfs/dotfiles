@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 source $HOME/dotfiles/helper.sh
 
+# Install yay package manager
+./yay_setup.sh
+
 # Install needed packages
-sudo pacman -Syu i3-gaps i3status kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd scrot xclip calc redshift i3exit
+yay -Syu i3-gaps-rounded-git kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd scrot xclip calc redshift i3exit lxappearance
 
 # Needed for weather polybar script
 pip install --user bs4 html5lib 

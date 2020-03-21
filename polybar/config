@@ -14,7 +14,7 @@
 background = #282a36
 background-alt = #282a36
 foreground = #f8f8f2
-primary = #bd93f9
+primary = #44d1ef
 secondary = #bd93f9
 alert = #ff5555
 
@@ -40,13 +40,9 @@ padding-right = 5
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = fixed:pixelsize=10;1
-font-1 = Font Awesome 5 Free Regular:style=Regular:pixelsize=9;
-font-2 = Font Awesome 5 Free Solid:style=Solid:pixelsize=9;
-font-3 = Noto Sans CJK JP:style=Regular:pixelsize=9;
-font-4 = Font Awesome 5 Free Regular:style=Regular:pixelsize=11;
+inherit = fonts
 
-modules-left = i3 weather spotify
+modules-left = i3 weather spotify covid19
 modules-center = time date
 modules-right = bluetooth network brightness volume battery
 
@@ -58,47 +54,42 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-separator = "  |  "
+separator = " "
 
-[bar/example]	
-width = 100%	
-height = 37	
-bottom = true	
-radius = 0	
+[fonts]
+font-0 = fixed:pixelsize=10;1
+font-1 = Font Awesome 5 Free Regular:style=Regular:pixelsize=9;
+font-2 = Font Awesome 5 Free Solid:style=Solid:pixelsize=9;
+font-3 = Noto Sans CJK JP:style=Regular:pixelsize=9;
+font-4 = Font Awesome 5 Free Regular:style=Regular:pixelsize=11;
 
-border-bottom-size = 0	
-border-left-size = 15	
-border-right-size = 15	
+[bar/base]
+border-top-size = 10
+border-left-size = 10
+border-right-size = 10
+border-bottom-size = 0
+override-redirect = false
+height = 4%
+offset-y = 2%
+underline-size = 5
+background = ${colors.background}
+cursor-click = pointer
+radius = 8
+module-margin = 2
+inherit = fonts
 
-background = ${colors.background}	
-foreground = ${colors.foreground}	
+[bar/workspaces]
+inherit = bar/base
+offset-x = 30
+width = 220
+modules-center = i3
 
-line-size = 3	
-line-color = #f00	
-
-padding-left = 1	
-padding-right = 1	
-
-module-margin-left = 1	
-module-margin-right = 1	
-
-font-0 = fixed:pixelsize=10;1	
-
-modules-left = i3 xwindow	
-modules-center =	
-modules-right =	
-
-tray-position = right	
-tray-padding = 2	
-;tray-background = #0063ff	
-
-wm-restack = i3	
-
-scroll-up = i3wm-wsnext	
-scroll-down = i3wm-wsprev	
-
-cursor-click = pointer	
-cursor-scroll = ns-resize
+[bar/info]
+inherit = bar/base
+offset-x = 1230
+width = 600
+modules-center = time date bluetooth network brightness volume battery
+spacing = 5
 
 [module/xwindow]
 type = internal/xwindow
@@ -109,13 +100,19 @@ format-underline = ${colors.primary}
 [module/spotify]
 type = custom/script
 interval = 1
-format =    <label>
+format =  <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '%{T4} {artist}: {song}'
 
 [module/bluetooth]
 type = custom/script
 interval = 2
 exec = ~/.config/polybar/scripts/bluetooth.sh
+format = <label>
+
+[module/covid19]
+type = custom/script
+interval = 3600
+exec = python ~/.config/polybar/scripts/covid19.py
 format = <label>
 
 [module/network]
@@ -153,7 +150,6 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-
 label-mode-padding = 2
 label-mode-foreground = ${colors.primary}
 label-mode-background = #0000000
@@ -182,16 +178,13 @@ label-urgent-padding = 2
 [module/date]
 type = internal/date
 interval = 5
-
 date = "%a, %d %h %Y"
-
 label = %date%
 
 [module/time]
 type = internal/date
 interval = 1
-time = "%I:%M %p"
-
+time = "%I:%M %p   |"
 label = %time%
 
 [module/battery]

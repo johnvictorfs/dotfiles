@@ -1,8 +1,8 @@
 configuration {
-    display-drun:                   "Apps";
+    display-drun:                   "Search";
     display-window:                 "Window";
     show-icons:true;
-    terminal:"termite";
+    terminal:"kitty";
 }
 
 @import "colors"

@@ -1,5 +1,6 @@
 # Misc aliases
 alias hg='history | grep' && alias gh=hg
+alias lg='ls -la | grep'
 alias src="source ~/.zshrc"
 alias cronlog="grep CRON /var/log/syslog"
 

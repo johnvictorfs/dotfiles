@@ -9,5 +9,5 @@ else
   then 
     echo ""
   fi
-  echo "%{F#2193ff}  $(bluetoothctl paired-devices | awk 'NF{print $NF; exit}')"
+  echo "%{F#44D1EF}  $(bluetoothctl paired-devices | awk 'NF{print $NF; exit}')"
 fi
