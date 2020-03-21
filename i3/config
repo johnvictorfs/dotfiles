@@ -341,10 +341,10 @@ bindsym XF86MonBrightnessUp exec ~/.bin/brightness --inc 5
 bindsym XF86MonBrightnessDown exec ~/.bin/brightness --dec 5
 
 # Desktop screenshot
-bindsym --release $mod+Print exec "scrot ~/Pictures/Screenshots/$(date --iso-8601='seconds').png --quality 100 -m -e 'xclip -selection c -t image/png < $f'"
+bindsym --release $mod+Print exec "maim --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/Screenshots/$(date +%F-%H:%M:%S).png"
 
 # Selection screenshot
-bindsym --release Print exec "scrot ~/Pictures/Screenshots/$(date --iso-8601='seconds').png --quality 100 -s -e 'xclip -selection c -t image/png < $f'"
+bindsym --release Print exec "maim -s --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/Screenshots/$(date +%F-%H:%M:%S).png"
 
 # compton/picom
 exec_always --no-startup-id ~/.config/i3/picom.sh

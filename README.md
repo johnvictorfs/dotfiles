@@ -51,11 +51,11 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
 
 ## i3-gaps (rounded) and Kitty Setup
 
-![image](https://user-images.githubusercontent.com/37747572/75616616-f464e700-5b31-11ea-90ea-5a0bc8199b72.png)
+![image](https://user-images.githubusercontent.com/37747572/77218117-ca865b00-6b06-11ea-809d-6035f8c35ce9.png)
 
-## Neovim setup
+## Neovim setup ([ayu-theme](https://github.com/ayu-theme/ayu-vim))
 
-![image](https://user-images.githubusercontent.com/37747572/75616637-473e9e80-5b32-11ea-989b-75176f07ffeb.png)
+![image](https://user-images.githubusercontent.com/37747572/77218197-821b6d00-6b07-11ea-8c16-2d6dcb1ddae6.png)
 
 ---
 
@@ -91,7 +91,7 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
 ## Packages used
 
 - Terminal Emulator: [Kitty](https://github.com/kovidgoyal/kitty)
-- Window Manager: [i3-gaps](https://github.com/Airblader/i3)
+- Window Manager: [i3 (gaps + rounded fork)](https://github.com/resloved/i3)
 - Application Launcher: [rofi](https://github.com/davatorium/rofi)
 - Status Bar: [polybar](https://github.com/polybar/polybar)
 - Wallpaper config: [feh](https://github.com/derf/feh)
