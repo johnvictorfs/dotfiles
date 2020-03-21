@@ -44,7 +44,7 @@ inherit = fonts
 
 modules-left = i3 weather spotify covid19
 modules-center = time date
-modules-right = bluetooth network brightness volume battery
+modules-right = bluetooth network memory brightness volume battery
 
 wm-restack = i3
 
@@ -90,6 +90,12 @@ offset-x = 1230
 width = 600
 modules-center = time date bluetooth network brightness volume battery
 spacing = 5
+
+[module/memory]
+type = internal/memory
+interval = 3
+format =  <label>% RAM
+label = "%percentage_used%"
 
 [module/xwindow]
 type = internal/xwindow
