@@ -5,10 +5,14 @@ source $HOME/dotfiles/helper.sh
 ./yay_setup.sh
 
 # Install needed packages
-yay -Syu i3-gaps-rounded-git kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd scrot xclip calc redshift i3exit lxappearance
+read -p "${ORANGE}Install/upgrade needed packages with yay and pip? (Y/n)${NC} " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+  yay -Syu i3-gaps-rounded-git kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd scrot xclip calc redshift i3exit lxappearance
 
-# Needed for weather polybar script
-pip install --user bs4 html5lib 
+  # Needed for weather polybar script
+  pip install --user bs4 html5lib 
+fi
 
 ### i3-gaps
 if [ -f $HOME/.config/i3/config ] ; then
@@ -32,6 +36,9 @@ ln -sf $HOME/dotfiles/i3/config $HOME/.config/i3
 
 # Symlink .profile
 ln -sf $HOME/dotfiles/.profile $HOME
+
+# Symlink dunst settings
+ln -sf $HOME/dotfiles/dunst $HOME/.config
 
 ### Kitty Terminal
 if [ -f $HOME/.config/kitty/kitty.conf ] ; then

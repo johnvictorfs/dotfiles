@@ -34,7 +34,7 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
   ```
 
 - **i3-gaps Setup:**
-  > Installation with pacman, config is distro-agnostic
+  > Installation with yay, config is distro-agnostic
 
   ```bash
   ./i3_setup.sh
@@ -49,7 +49,7 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
 
 ---
 
-## i3-gaps and Kitty Setup
+## i3-gaps (rounded) and Kitty Setup
 
 ![image](https://user-images.githubusercontent.com/37747572/75616616-f464e700-5b31-11ea-90ea-5a0bc8199b72.png)
 
@@ -67,6 +67,8 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
 |-----|--------|
 | <kbd>$mod</kbd> + <kbd><1-8></kbd> | Switch Workspace |
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd><1-8></kbd> | Move active Window to Workspace and switch to it |
+| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd> | Toggle floating on active Window |
+| <kbd>$mod</kbd> + <kbd>Ctrl</kbd> + <kbd>m</kbd> | Open audio settings |
 | <kbd>$mod</kbd> + <kbd>f</kbd> | Toggle Active Window Full-screen |
 | <kbd>$mod</kbd> + <kbd>Return</kbd> | Open Terminal Window |
 | <kbd>$mod</kbd> + <kbd>&larr;</kbd> / <kbd>&uarr;</kbd> / <kbd>&rarr;</kbd> / <kbd>&darr;</kbd> | Switch Active Window |
@@ -82,6 +84,7 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | Reload i3 config files |
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>r</kbd> | Restart i3 (maintains session) |
 | <kbd>$mod</kbd> + <kbd>0</kbd> | System Mode to lock/suspend/restart/shutdown etc. |
+| <kbd>$mod</kbd> + Click + Drag Window | Move floating window with the mouse |
 
 ---
 
@@ -95,4 +98,3 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
 - Compositor: [compton](https://github.com/tryone144/compton)
 - Shell: [zsh](https://www.zsh.org/)
 - Shell manager: [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
-

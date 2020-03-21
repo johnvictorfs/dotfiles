@@ -94,7 +94,7 @@ spacing = 5
 [module/memory]
 type = internal/memory
 interval = 3
-format =  <label>% RAM
+format =   <label>% RAM
 label = "%percentage_used%"
 
 [module/xwindow]
@@ -106,7 +106,7 @@ format-underline = ${colors.primary}
 [module/spotify]
 type = custom/script
 interval = 1
-format =  <label>
+format =   <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '%{T4} {artist}: {song}'
 
 [module/bluetooth]
@@ -185,13 +185,13 @@ label-urgent-padding = 2
 type = internal/date
 interval = 5
 date = "%a, %d %h %Y"
-label = %date%
+label =  %date%
 
 [module/time]
 type = internal/date
 interval = 1
 time = "%I:%M %p   |"
-label = %time%
+label =  %time%
 
 [module/battery]
 type = custom/script
