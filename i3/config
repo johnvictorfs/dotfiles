@@ -316,7 +316,7 @@ bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #0b7187 #ffffff #0b7187   #0b7187
+client.focused          #4c7899 #000000 #ffffff #000000   #000000
 client.focused_inactive #333333 #5f676a #ffffff #5f676a   #5f676a
 client.unfocused        #333333 #5f676a #ffffff #5f676a   #5f676a
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -367,4 +367,4 @@ for_window [class=".*"] split toggle
 exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1
 
 # Add borders to all windows
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 4
