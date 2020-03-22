@@ -8,7 +8,7 @@ source $HOME/dotfiles/helper.sh
 read -p "${ORANGE}Install/upgrade needed packages with yay and pip? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  yay -Syu i3-gaps-rounded-git kitty light rofi polybar feh bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd maim xclip calc redshift i3exit lxappearance
+  yay -Syu i3-gaps-rounded-git kitty light rofi polybar nitrogen bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd maim xclip calc redshift i3exit lxappearance
 
   # Needed for weather polybar script
   pip install --user bs4 html5lib 
@@ -23,10 +23,10 @@ if [ -f $HOME/.config/i3/config ] ; then
 fi
 
 # Symlink fonts folder
-ln -s $HOME/dotfiles/.fonts $HOME/.fonts
+ln -s $HOME/dotfiles/fonts $HOME/.local/share
 
 # Symlink binaries
-ln -s $HOME/dotfiles/.bin $HOME/.bin
+ln -s $HOME/dotfiles/.bin $HOME/
 
 # Create kitty config dir if it doesn't exist already
 mkdir -p $HOME/.config/i3
@@ -54,20 +54,8 @@ mkdir -p $HOME/.config/kitty
 # Symlink kitty config files from git repo to configs
 ln -sf $HOME/dotfiles/kitty/kitty.conf $HOME/.config/kitty
 
-### Rofi
-if [ -f $HOME/.config/rofi/colors.rasi ] ; then
-  rm -rf $HOME/.config/rofi/*.backup
-  mv $HOME/.config/rofi/colors.rasi $HOME/.config/rofi/colors.rasi.backup
-  echo -e "${ORANGE}Renamed current ${RED}~/.config/rofi/colors.rasi${NC} ${ORANGE}to ${GREEN}~/.config/rofi/colors.rasi.backup${NC}"
-fi
-if [ -f $HOME/.config/rofi/default2.rasi ] ; then
-  mv $HOME/.config/rofi/default2.rasi $HOME/.config/rofi/default2.rasi.backup
-  echo -e "${ORANGE}Renamed current ${RED}~/.config/rofi/default2.rasi${NC} ${ORANGE}to ${GREEN}~/.config/rofi/default2.rasi.backup${NC}"
-fi
-
 mkdir -p $HOME/.config
-ln -sf $HOME/dotfiles/rofi/colors.rasi $HOME/.config/rofi
-ln -sf $HOME/dotfiles/rofi/default2.rasi $HOME/.config/rofi
+ln -sf $HOME/dotfiles/rofi $HOME/.config
 
 ### Polybar
 if [ -d $HOME/.config/polybar ] ; then
@@ -78,14 +66,14 @@ fi
 
 ln -sf $HOME/dotfiles/polybar $HOME/.config
 
-### Compton
-if [ -d $HOME/.config/compton ] ; then
-  rm -rf $HOME/.config/compton.backup
-  mv $HOME/.config/compton $HOME/.config/compton.backup
-  echo -e "${ORANGE}Renamed current ${RED}~/.config/compton${NC} ${ORANGE}to ${GREEN}~/.config/compton.backup${NC}"
+### picom
+if [ -d $HOME/.config/picom ] ; then
+  rm -rf $HOME/.config/picom.backup
+  mv $HOME/.config/picom $HOME/.config/picom.backup
+  echo -e "${ORANGE}Renamed current ${RED}~/.config/picom${NC} ${ORANGE}to ${GREEN}~/.config/picom.backup${NC}"
 fi
 
-ln -sf $HOME/dotfiles/compton $HOME/.config
+ln -sf $HOME/dotfiles/picom $HOME/.config
 
 # Start tlp if installed
 if [ -x "$(command -v tlp)" ] ; then

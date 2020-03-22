@@ -42,7 +42,7 @@ module-margin-right = 1
 
 inherit = fonts
 
-modules-left = i3 weather spotify covid19
+modules-left = i3 spotify covid19
 modules-center = time date
 modules-right = bluetooth network memory brightness volume battery
 
@@ -96,6 +96,7 @@ type = internal/memory
 interval = 3
 format =   <label>% RAM
 label = "%percentage_used%"
+click-left = kitty -e htop
 
 [module/xwindow]
 type = internal/xwindow
@@ -144,6 +145,7 @@ exec = ~/.bin/volume --status
 format = <label>
 scroll-up = amixer set -q Master 1%+
 scroll-down = amixer set -q Master 1%-
+click-left = pavucontrol
 
 [module/weather]
 type = custom/script
@@ -198,6 +200,7 @@ type = custom/script
 format = <label>
 exec = ~/.config/polybar/scripts/bat.sh
 interval = 2
+click-left = ~/.config/rofi/scripts/power_menu.sh
 
 [settings]
 screenchange-reload = true
