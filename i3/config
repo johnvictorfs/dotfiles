@@ -322,10 +322,10 @@ bindsym XF86MonBrightnessUp exec ~/.bin/brightness --inc 5
 bindsym XF86MonBrightnessDown exec ~/.bin/brightness --dec 5
 
 # Desktop screenshot
-bindsym --release $mod+Print exec "maim --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/Screenshots/$(date +%F-%H:%M:%S).png"
+bindsym --release $mod+Print exec "maim -o --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/Screenshots/$(date +%F-%H:%M:%S).png"
 
 # Selection screenshot
-bindsym --release Print exec "maim -s --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/Screenshots/$(date +%F-%H:%M:%S).png"
+bindsym --release Print exec "maim -o -s --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/Screenshots/$(date +%F-%H:%M:%S).png"
 
 # Restore/start wallpaper manager (nitrogen) and picom
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b --config ~/.config/picom/picom.conf

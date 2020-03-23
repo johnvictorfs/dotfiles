@@ -2,14 +2,13 @@
 
 Configuration files for zshrc (`.zshrc` and `.aliases`), Neovim (`init.vim`), Vscode, i3-gaps and others
 
-Some configs and scripts are based on [simrat39/dotfiles](https://github.com/simrat39/dotfiles) and [LukeSmithxyz/voidrice](https://github.com/LukeSmithxyz/voidrice).
+Some configs and scripts are based on [simrat39/dotfiles](https://github.com/simrat39/dotfiles), [LukeSmithxyz/voidrice](https://github.com/LukeSmithxyz/voidrice) and [adi1090x/rofi](https://github.com/adi1090x/rofi).
 
 ---
 
 ## Installation
 
-- **Before Installing:** Most packages will attempt to be installed with `pacman` (Arch Repository Package Manager) or `yay` (AUR Package Manager), some Python (pip) packages will be installed as well in the i3-setup. Even then most configuration is distro-agnostic, and you can read below what you can and cannot run depending if you're running an Arch-based distro or not.
-
+- **Before Installing:** Most packages will attempt to be installed with `pacman` (Arch Repository Package Manager) or `yay` (AUR Package Manager), some Python (pip) packages will be installed as well in the i3-setup. Even then most configuration is distro-agnostic, and you can read below what you can and cannot run depending if you're running an Arch-based distro or not. You can just answer 'N' to every installation prompt when running the below scripts if you're not using an Arch-based distro, and install the needed packages manually with your preferred package manager if necessary.
 
 - **Clone repository dotfiles to `~/dotfiles`:**
   ```bash
@@ -51,11 +50,15 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
 
 ## i3-gaps (rounded) and Kitty Setup
 
-![image](https://user-images.githubusercontent.com/37747572/77218117-ca865b00-6b06-11ea-809d-6035f8c35ce9.png)
+![image](https://user-images.githubusercontent.com/37747572/77350016-aa2eea00-6d1a-11ea-998d-2601ce02ed8a.png)
+
+![image](https://user-images.githubusercontent.com/37747572/77351467-95535600-6d1c-11ea-99ad-4b4bc4561922.png)
+
+![image](https://user-images.githubusercontent.com/37747572/77351585-bb78f600-6d1c-11ea-9b7e-edbe30eadf9e.png)
 
 ## Neovim setup ([ayu-theme](https://github.com/ayu-theme/ayu-vim))
 
-![image](https://user-images.githubusercontent.com/37747572/77218197-821b6d00-6b07-11ea-8c16-2d6dcb1ddae6.png)
+![image](https://user-images.githubusercontent.com/37747572/77350088-c468c800-6d1a-11ea-833d-44dac60a4d49.png)
 
 ---
 
