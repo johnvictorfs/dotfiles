@@ -18,23 +18,21 @@ logout="   "
 # Variable passed to rofi
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
-chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 2)"
+chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
 case $chosen in
     $shutdown)
-        systemctl poweroff
+        i3exit shutdown
         ;;
     $reboot)
-        systemctl reboot
+        i3exit reboot
         ;;
     $lock)
-        i3lock
+        i3exit lock
         ;;
     $suspend)
-        mpc -q pause
-        amixer set Master mute
-        systemctl suspend
+        i3exit suspend
         ;;
     $logout)
-        openbox --exit
+        i3exit logout
         ;;
 esac

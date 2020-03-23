@@ -42,7 +42,7 @@ module-margin-right = 1
 
 inherit = fonts
 
-modules-left = i3 spotify covid19
+modules-left = i3 covid19
 modules-center = time date
 modules-right = bluetooth network memory brightness volume battery
 
@@ -106,7 +106,7 @@ format-underline = ${colors.primary}
 
 [module/spotify]
 type = custom/script
-interval = 1
+interval = 5
 format =   <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '%{T4} {artist}: {song}'
 
@@ -121,16 +121,18 @@ type = custom/script
 interval = 3600
 exec = python ~/.config/polybar/scripts/covid19.py
 format = <label>
+click-left = xdg-open https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6 &
 
 [module/network]
 type = custom/script
 interval = 2
 exec = ~/.config/polybar/scripts/network.sh
 format = <label>
+click-left = nm-connection-editor
 
 [module/brightness]
 type = custom/script
-interval = 1
+interval = 2
 exec = ~/.bin/brightness --level
 format = <label>
 scroll-up =  ~/.bin/brightness --inc 1
@@ -140,12 +142,12 @@ click-right = redshift -x
 
 [module/volume]
 type = custom/script
-interval = 1
+interval = 2
 exec = ~/.bin/volume --status
 format = <label>
 scroll-up = amixer set -q Master 1%+
 scroll-down = amixer set -q Master 1%-
-click-left = pavucontrol
+click-left = pavucontrol &
 
 [module/weather]
 type = custom/script
