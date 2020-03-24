@@ -56,5 +56,5 @@ if __name__ == '__main__':
                 print(f"{red}{skull_crossbones} {country_data['deaths']:,} (+{country_data['todayDeaths']:,})")
                 break
         except Exception as e:
-            print(e)
             time.sleep(1000)
+

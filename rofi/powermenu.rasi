@@ -28,7 +28,7 @@
 /* ########### */
 
 #window {
-  width: 34%;
+  width: 36%;
   height: 24%;
 }
 
