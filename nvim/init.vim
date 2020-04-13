@@ -3,6 +3,8 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'sbdchd/neoformat'
+
 " Color Theme "
 Plug 'ayu-theme/ayu-vim'
 
@@ -21,14 +23,6 @@ let g:airline_powerline_fonts = 1
 
 Plug 'scrooloose/nerdtree'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 Plug 'Yggdroot/indentLine'
 
 Plug 'Shougo/neosnippet.vim'
@@ -42,7 +36,7 @@ let g:indentLine_setConceal = 2
 let g:indentLine_concealcursor = ""
 
 " Intellisense "
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Linting "
 Plug 'w0rp/ale'
@@ -53,15 +47,6 @@ Plug 'airblade/vim-gitgutter'
 
 " Multiple Cursors "
 Plug 'terryma/vim-multiple-cursors/'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 
 Plug 'alvan/vim-closetag'
 
@@ -79,6 +64,19 @@ let ayucolor="dark"
 colorscheme ayu
 
 set hidden
+
+" autopep8 with neoformat config "
+" https://github.com/sbdchd/neoformat#config-optional "
+let g:neoformat_python_autopep8 = {
+            \ 'exe': 'autopep8',
+            \ 'args': ['-s 4', '-E'],
+            \ 'replace': 1,
+            \ 'stdin': 1,
+            \ 'env': ["DEBUG=1"],
+            \ 'valid_exit_codes': [0, 23],
+            \ 'no_append': 1,
+            \ }
+let g:neoformat_enabled_python = ['autopep8']
 
 " Show line number on the left side "
 set number
@@ -150,6 +148,12 @@ nnoremap <C-o> :NERDTreeToggle<CR>
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 let g:SimpleSnippetsExpandOrJumpTrigger = "<Tab>"
 let g:SimpleSnippetsJumpBackwardTrigger = "<S-Tab>"

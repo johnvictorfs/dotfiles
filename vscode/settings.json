@@ -93,5 +93,18 @@
   "C_Cpp.updateChannel": "Insiders",
   "code-runner.runInTerminal": true,
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
-  "files.maxMemoryForLargeFilesMB": 6096
+  "files.maxMemoryForLargeFilesMB": 6096,
+  "yaml.schemas": {
+    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.4.11/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "atlascode.jira.jqlList": [
+    {
+      "id": "4a466684-675e-4ad3-a8a6-00c8f9859328",
+      "enabled": true,
+      "name": "My fbstudio Issues",
+      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+      "siteId": "f4532be3-450e-43e7-83d3-9cbb5761005b",
+      "monitor": true
+    }
+  ]
 }

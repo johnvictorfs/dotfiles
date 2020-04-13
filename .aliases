@@ -1,8 +1,13 @@
 # Misc aliases
+alias ls='exa'
 alias hg='history | grep' && alias gh=hg
 alias lg='ls -la | grep'
-alias src="source ~/.zshrc"
-alias cronlog="grep CRON /var/log/syslog"
+alias src='source ~/.zshrc'
+alias cronlog='grep CRON /var/log/syslog'
+alias g='git'
+
+# Download music with youtube-dl
+alias music-dl="youtube-dl -f 'bestaudio[ext=m4a]' -o '%(title)s.%(ext)s'"
 
 # Ssh with kitty terminfo available
 alias ssh="kitty +kitten ssh"

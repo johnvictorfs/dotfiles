@@ -42,7 +42,7 @@ module-margin-right = 1
 
 inherit = fonts
 
-modules-left = i3 covid19
+modules-left = i3 player-moc
 modules-center = time date
 modules-right = bluetooth network memory brightness volume battery
 
@@ -91,10 +91,19 @@ width = 600
 modules-center = time date bluetooth network brightness volume battery
 spacing = 5
 
+[module/player-moc]
+type = custom/script
+exec = ~/.config/polybar/scripts/mocstatus.sh
+interval = 1
+format = <label>
+click-left = mocp -G &
+scroll-up = mocp -r &
+scroll-down = mocp -f &
+
 [module/memory]
 type = internal/memory
 interval = 3
-format =   <label>% RAM
+format =   <label>%
 label = "%percentage_used%"
 click-left = kitty -e htop
 
