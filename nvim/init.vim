@@ -5,6 +5,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'sbdchd/neoformat'
 
+" Latex preview " 
+Plug 'lervag/vimtex'
+
 " Color Theme "
 Plug 'ayu-theme/ayu-vim'
 
@@ -34,6 +37,47 @@ let g:indentLine_setConceal = 2
 " i for Insert mode
 " c for Command line editing, for 'incsearch'
 let g:indentLine_concealcursor = ""
+
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_types = {
+      \ 'markers' : {'enabled': 0},
+      \ 'sections' : {'parse_levels': 1},
+      \}
+let g:vimtex_format_enabled = 1
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_automatic = 0
+let g:vimtex_view_forward_search_on_start = 0
+let g:vimtex_toc_config = {
+      \ 'split_pos' : 'full',
+      \ 'mode' : 2,
+      \ 'fold_enable' : 1,
+      \ 'hotkeys_enabled' : 1,
+      \ 'hotkeys_leader' : '',
+      \ 'refresh_always' : 0,
+      \}
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_quickfix_autoclose_after_keystrokes = 3
+let g:vimtex_imaps_enabled = 0
+let g:vimtex_complete_img_use_tail = 1
+let g:vimtex_complete_bib = {
+      \ 'simple' : 1,
+      \ 'menu_fmt' : '@year, @author_short, @title',
+      \}
+let g:vimtex_echo_verbose_input = 0
+
+if has('nvim')
+  let g:vimtex_compiler_progname = 'nvr'
+endif
+let g:vimtex_compiler_latexmk = {
+    \ 'continuous' : 1,
+    \ 'options' : [
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 
 " Intellisense "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

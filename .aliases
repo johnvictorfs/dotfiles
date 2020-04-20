@@ -1,5 +1,6 @@
 # Misc aliases
-alias ls='exa'
+alias ls='exa --icons'
+alias lst='ls -T'
 alias hg='history | grep' && alias gh=hg
 alias lg='ls -la | grep'
 alias src='source ~/.zshrc'

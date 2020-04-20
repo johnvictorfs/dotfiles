@@ -1,13 +1,6 @@
 #!/bin/sh
 
-
 if [ "$(mocp -Q %state)" != "STOP" ]; then
-    if [ "$(mocp -Q %state)" = "PAUSE" ]; then
-        ICON=""
-    else
-        ICON=""
-    fi
-
     SONG=$(mocp -Q %song)
     STATUS=$(mocp -Q "%ct / %tt")
 
@@ -23,9 +16,7 @@ if [ "$(mocp -Q %state)" != "STOP" ]; then
         # Remove extension from filename
         SONG="${SONG%.*}"
 
-        echo "$ICON  $SONG | $STATUS"
+        echo "$SONG  |  $STATUS"
     fi
-else
-    echo ""
 fi
 

@@ -42,7 +42,7 @@ module-margin-right = 1
 
 inherit = fonts
 
-modules-left = i3 player-moc
+modules-left = i3 previous-moc toggle-moc next-moc player-moc
 modules-center = time date
 modules-right = bluetooth network memory brightness volume battery
 
@@ -91,12 +91,30 @@ width = 600
 modules-center = time date bluetooth network brightness volume battery
 spacing = 5
 
+[module/previous-moc]
+type = custom/text
+content = 
+click-left = mocp -r &
+
+[module/toggle-moc]
+type = custom/script
+exec = ~/.config/polybar/scripts/moc_toggle.sh
+interval = 1
+format = <label>
+click-left = mocp -G &
+
+[module/next-moc]
+type = custom/text
+content = 
+click-left = mocp -f &
+
 [module/player-moc]
 type = custom/script
 exec = ~/.config/polybar/scripts/mocstatus.sh
 interval = 1
 format = <label>
 click-left = mocp -G &
+click-right = kitty -e mocp
 scroll-up = mocp -r &
 scroll-down = mocp -f &
 
