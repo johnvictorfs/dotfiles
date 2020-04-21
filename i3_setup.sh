@@ -8,7 +8,7 @@ source $HOME/dotfiles/helper.sh
 read -p "${ORANGE}Install/upgrade needed packages with yay and pip? (Y/n)${NC} " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]] ; then
-  yay -Syu i3-gaps-rounded-git kitty light lightdm rofi polybar nitrogen bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd maim xclip calc redshift i3exit lxappearance lightdm-gtk-greeter lightdm-gtk-greeter-settings pulseaudio
+  yay -Syu i3-gaps-rounded-git kitty light lightdm rofi polybar nitrogen bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd maim xclip calc redshift i3exit lxappearance lightdm-gtk-greeter lightdm-gtk-greeter-settings pulseaudio pdftk texlive-most texlive-lang minted evince
 
   # Needed for weather polybar script
   pip install --user bs4 html5lib 

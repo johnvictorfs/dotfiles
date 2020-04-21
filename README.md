@@ -50,7 +50,7 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
 
 ## i3-gaps (rounded) and Kitty Setup
 
-![image](https://user-images.githubusercontent.com/37747572/77350016-aa2eea00-6d1a-11ea-998d-2601ce02ed8a.png)
+![image](images/setup_i3_term.png)
 
 ![image](https://user-images.githubusercontent.com/37747572/77351467-95535600-6d1c-11ea-99ad-4b4bc4561922.png)
 
@@ -58,7 +58,7 @@ Some configs and scripts are based on [simrat39/dotfiles](https://github.com/sim
 
 ## Neovim setup ([ayu-theme](https://github.com/ayu-theme/ayu-vim))
 
-![image](https://user-images.githubusercontent.com/37747572/77350088-c468c800-6d1a-11ea-833d-44dac60a4d49.png)
+![image](images/setup_nvim.png)
 
 ---
 

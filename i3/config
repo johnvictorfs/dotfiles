@@ -251,7 +251,7 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -333,6 +333,9 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom -b --config ~/.config/pi
 
 # beep off
 exec xset b off
+
+# Disable touchpad
+exec --no-startup-id xinput --disable "DELL0839:00 044E:120A Touchpad"
 
 # Start polybar (Status bar)
 exec --no-startup-id ~/.config/polybar/launch.sh

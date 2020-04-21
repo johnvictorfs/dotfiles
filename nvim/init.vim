@@ -68,16 +68,6 @@ let g:vimtex_echo_verbose_input = 0
 if has('nvim')
   let g:vimtex_compiler_progname = 'nvr'
 endif
-let g:vimtex_compiler_latexmk = {
-    \ 'continuous' : 1,
-    \ 'options' : [
-    \   '-shell-escape',
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
 
 " Intellisense "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

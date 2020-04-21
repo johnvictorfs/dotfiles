@@ -16,12 +16,12 @@ then
 		echo "  $CAPACITY%";
 	elif test "$CAPACITY" -gt "40" && test "$CAPACITY" -lt "60";
 	then
-		echo "  $CAPACITY%";
+		echo "%{Feaff08}  $CAPACITY%";
 	elif test $CAPACITY -gt 20 && test $CAPACITY -lt "40";
 	then
-		echo "  $CAPACITY%";
+		echo "%{Ffc0317}  $CAPACITY%";
 	elif test $CAPACITY -lt 20 ;
 	then
-		echo "  $CAPACITY%";
+		echo "%{Ffc0317}  $CAPACITY%";
 	fi
 fi
