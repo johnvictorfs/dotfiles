@@ -1,6 +1,6 @@
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
+" vim:fileencoding=utf-8:ft=conf:foldmethod=marker
+
+" Plugin Installs {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'sbdchd/neoformat'
@@ -93,11 +93,18 @@ Plug 'christoomey/vim-tmux-navigator'
 " Initialize plugin system "
 call plug#end()
 
+" }}}
+
+" Theme and Visual Settings {{{
 set termguicolors
 let ayucolor="dark"
 colorscheme ayu
 
 set hidden
+set conceallevel=2
+" }}}
+
+" Python Settings {{{
 
 " autopep8 with neoformat config "
 " https://github.com/sbdchd/neoformat#config-optional "
@@ -111,6 +118,9 @@ let g:neoformat_python_autopep8 = {
             \ 'no_append': 1,
             \ }
 let g:neoformat_enabled_python = ['autopep8']
+" }}}
+
+" Editor Settings {{{
 
 " Show line number on the left side "
 set number
@@ -124,13 +134,7 @@ set mouse=a
 " Show preview for commands "
 set inccommand=split
 
-" Set spacebar as leader key "
-let mapleader="\<space>"
-
-" Run current buffer with 'python' when F9 is pressed "
-nnoremap <F9> <Esc>:w<CR>:! clear; python %<CR>
-
-set conceallevel=2
+" }}}
 
 " Spaces & Tabs {{{
 set tabstop=4       " number of visual spaces per TAB
@@ -141,7 +145,13 @@ set autoindent
 set copyindent      " copy indent from the previous line
 " }}} Spaces & Tabs
 
-" Macros "
+" Keybindings {{{
+
+" Set spacebar as leader key "
+let mapleader="\<space>"
+
+" Run current buffer with 'python' when F9 is pressed "
+nnoremap <F9> <Esc>:w<CR>:! clear; python %<CR>
 
 " Add ; to end of line with Space + Shift + A"
 nnoremap <leader>; A;<esc>
@@ -172,16 +182,17 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-" ------ "
 
-" Open nerdtree with C + O "
-nnoremap <C-o> :NERDTreeToggle<CR>
+" }}}
 
-" Plugin key-mappings.
+" Plugin key-mappings {{{
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" Open nerdtree with C + O "
+nnoremap <C-o> :NERDTreeToggle<CR>
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -192,3 +203,6 @@ nmap <silent> gr <Plug>(coc-references)
 let g:SimpleSnippetsExpandOrJumpTrigger = "<Tab>"
 let g:SimpleSnippetsJumpBackwardTrigger = "<S-Tab>"
 let g:SimpleSnippetsJumpToLastTrigger = "<C-j>"
+
+" }}}
+
