@@ -1,3 +1,6 @@
+# vim:fileencoding=utf-8:ft=conf:foldmethod=marker
+
+# Global {{{
 [global]
     monitor = 0
     follow = keyboard
@@ -63,15 +66,22 @@
     class = Dunst
     startup_notification = false
     force_xinerama = false
+# }}}
+
+# Experimental {{{
 [experimental]
     per_monitor_dpi = false
+# }}}
 
+# Shortcuts {{{
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
     history = ctrl+grave
     context = ctrl+shift+period
+# }}}
 
+# Low {{{
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
@@ -80,17 +90,23 @@
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
+# }}}
 
+# Normal {{{
 [urgency_normal]
     background = "#0000000"
     foreground = "#ebdbb2"
     timeout = 5
+# }}}
 
+# Critical {{{
 [urgency_critical]
     background = "#cc2421"
     foreground = "#ebdbb2"
     timeout = 0
+# }}}
 
+# Other {{{
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 # Messages can be matched by "appname", "summary", "body", "icon", "category",
@@ -149,3 +165,4 @@
 #    urgency = normal
 #
 # vim: ft=cfg
+# }}}

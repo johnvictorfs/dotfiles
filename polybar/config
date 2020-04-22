@@ -1,15 +1,6 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;==========================================================
+; vim:fileencoding=utf-8:ft=conf:foldmethod=marker
 
+; Colors {{{
 [colors]
 background = #282a36
 background-alt = #282a36
@@ -17,7 +8,9 @@ foreground = #f8f8f2
 primary = #44d1ef
 secondary = #bd93f9
 alert = #ff5555
+; }}}
 
+; Top Bar {{{
 [bar/top]
 width = 100%
 height = 35
@@ -44,7 +37,7 @@ inherit = fonts
 
 modules-left = i3 previous-moc toggle-moc next-moc player-moc
 modules-center = time date
-modules-right = bluetooth network memory brightness volume battery
+modules-right = bluetooth network memory brightness microphone volume battery
 
 wm-restack = i3
 
@@ -55,14 +48,18 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 separator = " "
+; }}}
 
+; Fonts {{{
 [fonts]
 font-0 = fixed:pixelsize=10;1
 font-1 = Font Awesome 5 Free Regular:style=Regular:pixelsize=9;
 font-2 = Font Awesome 5 Free Solid:style=Solid:pixelsize=9;
 font-3 = Noto Sans CJK JP:style=Regular:pixelsize=9;
 font-4 = Font Awesome 5 Free Regular:style=Regular:pixelsize=11;
+; }}}
 
+; bar/base {{{
 [bar/base]
 border-top-size = 10
 border-left-size = 10
@@ -77,37 +74,49 @@ cursor-click = pointer
 radius = 8
 module-margin = 2
 inherit = fonts
+; }}}
 
+; bar/workspaces {{{
 [bar/workspaces]
 inherit = bar/base
 offset-x = 30
 width = 220
 modules-center = i3
+; }}}
 
+; bar/info {{{
 [bar/info]
 inherit = bar/base
 offset-x = 1230
 width = 600
 modules-center = time date bluetooth network brightness volume battery
 spacing = 5
+; }}}
 
+; module/previous-moc {{{
 [module/previous-moc]
 type = custom/text
 content = 
 click-left = mocp -r &
+; }}}
 
+; module/toggle_moc {{{
 [module/toggle-moc]
 type = custom/script
 exec = ~/.config/polybar/scripts/moc_toggle.sh
 interval = 1
 format = <label>
 click-left = mocp -G || mocp -p &
+; }}}
 
+; module/next-moc {{{
 [module/next-moc]
 type = custom/text
 content = 
 click-left = mocp -f &
+; }}}
 
+; module/player-moc {{{
 [module/player-moc]
 type = custom/script
 exec = ~/.config/polybar/scripts/mocstatus.sh
@@ -117,71 +126,109 @@ click-left = mocp -G &
 click-right = kitty -e mocp
 scroll-up = mocp -r &
 scroll-down = mocp -f &
+; }}}
 
+; module/memory {{{
 [module/memory]
 type = internal/memory
 interval = 3
 format =   <label>%
+format-underline = #9e4ddb
 label = "%percentage_used%"
 click-left = kitty -e htop
+; }}}
 
+; module/xwindow {{{
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:50:...%
 format = <label>
 format-underline = ${colors.primary}
+; }}}
 
+; module/spotify {{{
 [module/spotify]
 type = custom/script
 interval = 5
 format =   <label>
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '%{T4} {artist}: {song}'
+; }}}
 
+; module/bluetooth {{{
 [module/bluetooth]
 type = custom/script
 interval = 2
 exec = ~/.config/polybar/scripts/bluetooth.sh
+click-left = ~/.config/polybar/scripts/connect_bluedio.sh
 format = <label>
+format-underline = #4287f5
+; }}}
 
+; module/covid19 {{{
 [module/covid19]
 type = custom/script
 interval = 3600
 exec = python ~/.config/polybar/scripts/covid19.py
 format = <label>
 click-left = xdg-open https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6 &
+; }}}
 
+; module/network {{{
 [module/network]
 type = custom/script
 interval = 2
 exec = ~/.config/polybar/scripts/network.sh
 format = <label>
+format-underline = #abc73e
 click-left = nm-connection-editor
+; }}}
 
+; module/brightness {{{
 [module/brightness]
 type = custom/script
 interval = 2
 exec = ~/.bin/brightness --level
 format = <label>
+format-underline = #ebd249
 scroll-up =  ~/.bin/brightness --inc 1
 scroll-down =  ~/.bin/brightness --dec 1
 click-left = redshift -o
 click-right = redshift -x
+; }}}
 
+; module/microphone {{{
+[module/microphone]
+type = custom/script
+interval = 1
+exec = ~/.config/polybar/scripts/microphone.sh
+format = <label>
+format-underline = #1db954
+scroll-up = amixer set -q Capture 1%+
+scroll-down = amixer set -q Capture 1%-
+click-left = amixer set Capture toggle
+; }}}
+
+; module/volume {{{
 [module/volume]
 type = custom/script
 interval = 2
 exec = ~/.bin/volume --status
 format = <label>
+format-underline = #f03252
 scroll-up = amixer set -q Master 1%+
 scroll-down = amixer set -q Master 1%-
 click-left = pavucontrol &
+; }}}
 
+; module/weather {{{
 [module/weather]
 type = custom/script
 interval = 3600
 exec = python ~/.config/polybar/scripts/getWeather.py
 format = <label>
+; }}}
 
+; module/i3 {{{
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -211,29 +258,42 @@ label-visible-padding = ${self.label-focused-padding}
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
+; }}}
 
+; module/date {{{
 [module/date]
 type = internal/date
 interval = 5
 date = "%a, %d %h %Y"
 label =  %date%
+; }}}
 
+; module/time {{{
 [module/time]
 type = internal/date
 interval = 1
 time = "%I:%M %p   |"
 label =  %time%
+; }}}
 
+; module/battery {{{
 [module/battery]
 type = custom/script
 format = <label>
+format-underline = #3b6b46
 exec = ~/.config/polybar/scripts/bat.sh
 interval = 2
 click-left = ~/.config/rofi/scripts/power_menu.sh
+; }}}
 
+; Settings {{{
 [settings]
 screenchange-reload = true
+; }}}
 
+; global/wm {{{
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+; }}}
+

@@ -7,6 +7,7 @@ alias src='source ~/.zshrc'
 alias cronlog='grep CRON /var/log/syslog'
 alias g='git'
 alias i3c='vim ~/dotfiles/i3/config'
+alias vimc='vim ~/dotfiles/nvim/init.vim'
 
 # Download music with youtube-dl
 alias music-dl="youtube-dl -f 'bestaudio[ext=m4a]' -o '%(title)s.%(ext)s'"
