@@ -27,7 +27,7 @@ case $chosen in
         i3exit reboot
         ;;
     $lock)
-        i3exit lock
+        screen-lock
         ;;
     $suspend)
         i3exit suspend

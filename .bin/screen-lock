@@ -1,0 +1,22 @@
+#!/bin/bash
+
+command -v mocp && mocp -P
+
+ICON=$HOME/dotfiles/images/lock.png
+
+TMPBG=/tmp/screen.png
+
+rm $TMPBG
+
+maim /tmp/screen.png
+
+convert $TMPBG -blur 0x4 $TMPBG
+
+##Pixellisation alternative
+
+#convert $TMPBG -scale 10% -scale 1000% $TMPBG
+
+convert $TMPBG $ICON -gravity center -composite -matte $TMPBG
+
+i3lock -u -i $TMPBG
+

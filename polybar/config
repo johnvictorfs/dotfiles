@@ -135,7 +135,6 @@ interval = 3
 format =   <label>%
 format-underline = #9e4ddb
 label = "%percentage_used%"
-click-left = kitty -e htop
 ; }}}
 
 ; module/xwindow {{{
@@ -231,7 +230,7 @@ format = <label>
 ; module/i3 {{{
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
+format = <label-state> <label-mode> 
 index-sort = true
 wrapping-scroll = false
 label-mode-padding = 2
