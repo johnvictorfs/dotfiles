@@ -20,6 +20,7 @@
   },
   "[vue]": {
     "editor.tabSize": 2,
+    "editor.defaultFormatter": "octref.vetur",
   },
   "[typescript]": {
     "editor.tabSize": 2

@@ -1,5 +1,5 @@
 # Misc aliases
-alias ls='exa --icons'
+alias ls='exa --icons --group-directories-first'
 alias lst='ls -T'
 alias hg='history | grep' && alias gh=hg
 alias lg='ls -la | grep'
@@ -8,6 +8,13 @@ alias cronlog='grep CRON /var/log/syslog'
 alias g='git'
 alias i3c='vim ~/dotfiles/i3/config'
 alias vimc='vim ~/dotfiles/nvim/init.vim'
+alias p='sudo pacman'
+alias v='vim'
+alias sv='sudo vim'
+alias SS='sudo systemctl'
+
+# cat with syntax highlighting
+alias ccat="highlight --out-format=ansi"
 
 # Download music with youtube-dl
 alias music-dl="youtube-dl -f 'bestaudio[ext=m4a]' -o '%(title)s.%(ext)s'"
