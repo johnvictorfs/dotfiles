@@ -2,9 +2,9 @@
 
 if [ "$(mocp -Q %state || mocp -S)" != "STOP" ]; then
     if [ "$(mocp -Q %state)" = "PAUSE" ]; then
-        ICON=""
+        ICON=""
     else
-        ICON=""
+        ICON=""
     fi
 
     echo "$ICON"

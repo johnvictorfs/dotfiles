@@ -5,23 +5,23 @@ CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity);
 
 if test "$STATUS" = "Charging" || test "$STATUS" = "Unknown" || test "$STATUS" = "Full";
 then
-	echo "  $CAPACITY%";
+	echo "$CAPACITY%";
 elif test "$STATUS" = "Discharging";
 then
 	if test "$CAPACITY" -gt "80";
 	then
-		echo "  $CAPACITY%";
+		echo "$CAPACITY%";
 	elif test "$CAPACITY" -gt "60" && test "$CAPACITY" -lt "80";
 	then
-		echo "  $CAPACITY%";
+		echo "$CAPACITY%";
 	elif test "$CAPACITY" -gt "40" && test "$CAPACITY" -lt "60";
 	then
-		echo "%{Feaff08}  $CAPACITY%";
+		echo "%{Feaff08}$CAPACITY%";
 	elif test $CAPACITY -gt 20 && test $CAPACITY -lt "40";
 	then
-		echo "%{Ffc0317}  $CAPACITY%";
+		echo "%{Ffc0317}$CAPACITY%";
 	elif test $CAPACITY -lt 20 ;
 	then
-		echo "%{Ffc0317}  $CAPACITY%";
+		echo "%{Ffc0317}$CAPACITY%";
 	fi
 fi
