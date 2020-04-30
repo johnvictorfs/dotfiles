@@ -1,0 +1,43 @@
+#!/usr/bin/bash
+
+DATE=$(date +%F_%H:%M:%S)
+FOLDER=~/Pictures/Screenshots
+
+FULL_PATH="$FOLDER/$DATE"
+
+SELECTION="--selection"
+FULL="--full"
+
+START="maim"
+END=""
+FLAG=""
+
+TITLE="Saved Screenshot"
+
+if [ "$1" = "$SELECTION" ]; then
+    FLAG="-s"
+elif [ "$1" = "$FULL" ]; then
+    FLAG=""
+else
+    echo "Missing or incorrect arguments, expected '--selection' or '--full'"
+    exit 1
+fi
+
+maim -o $FLAG --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > $FULL_PATH
+
+if [ -f "$FULL_PATH" ]; then
+    if [ ! $(command -v dunstify) ]; then
+        # Use notify-send to send notification if dunstify is not available
+        notify-send "$TITLE" "$DATE.png" -i $FULL_PATH
+    else
+        ACTION=$(dunstify --action="open,Open Image" -u low -i $FULL_PATH "$TITLE" "$DATE.png")
+
+        # Open image with middle click on notification
+        case "$ACTION" in
+            "open")
+                feh $FULL_PATH &
+                ;;
+        esac
+    fi
+fi
+

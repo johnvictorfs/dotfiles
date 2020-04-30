@@ -6,8 +6,13 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 set $term kitty
+set $browser brave
 set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
+
+# Screenshot commands
+set $screenshot_selection ~/.bin/screenshot --selection
+set $screenshot_fullscreen ~/.bin/screenshot --full
 
 # Workspace names
 set $ws1 1
@@ -140,7 +145,7 @@ gaps inner 10
 gaps outer 5
 
 # rounded borders
-border_radius 4
+border_radius 6
 # }}}
 
 # General Keybindings {{{
@@ -168,11 +173,6 @@ bindsym $mod+v split v;exec notify-send 'tile vertically'
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -191,8 +191,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
-
-
 
 # Go back and forth between workspaces when pressing the same one twice in a row 
 workspace_auto_back_and_forth yes
@@ -239,6 +237,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+# Open browser
+bindsym $mod+w exec --no-startup-id brave &
+
 # Lock screen
 bindsym $mod+l exec --no-startup-id ~/.bin/screen-lock
 
@@ -271,10 +272,10 @@ bindsym XF86MonBrightnessDown exec ~/.bin/brightness --dec 5
 
 # Screenshots {{{
 # Desktop screenshot
-bindsym --release $mod+Print exec "maim -o --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/Screenshots/$(date +%F-%H:%M:%S).png"
+bindsym --release $mod+Print exec --no-startup-id $screenshot_fullscreen
 
 # Selection screenshot
-bindsym --release Print exec "maim -o -s --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > ~/Pictures/Screenshots/$(date +%F-%H:%M:%S).png"
+bindsym --release Print exec --no-startup-id $screenshot_selection
 # }}}
 
 # Startup apps {{{
