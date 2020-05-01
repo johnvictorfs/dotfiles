@@ -32,7 +32,7 @@ if __name__ == '__main__':
             # pass 'global' as arg to show cases and deaths data as 'country/global'
             show_global = 'global' in sys.argv[1].lower() if len(sys.argv) > 1 else False
 
-            country_endpoint = 'https://corona.lmao.ninja/countries/brazil'
+            country_endpoint = 'https://corona.lmao.ninja/v2/countries/brazil'
             total_endpoint = 'https://corona.lmao.ninja/all'
 
             country_r = requests.get(country_endpoint)

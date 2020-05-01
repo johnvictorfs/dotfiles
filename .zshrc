@@ -138,3 +138,5 @@ zgen oh-my-zsh plugins/command-not-found
 zgen load mafredri/zsh-async
 zgen load sindresorhus/pure
 
+PURE_PROMPT_SYMBOL=""
+
