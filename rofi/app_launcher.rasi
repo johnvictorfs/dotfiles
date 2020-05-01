@@ -19,7 +19,7 @@ configuration {
 	bw: 0;
   fullscreen: false;
   show-icons: true;
-	terminal: "termite";
+	terminal: "kitty";
 	sidebar-mode: false;
 }
 
@@ -42,6 +42,7 @@ configuration {
   width: 50%;
   height: 60%;
   padding: 40px 40px;
+  border-radius: 8px;
 }
 
 * {
@@ -55,6 +56,7 @@ prompt,
 textbox-prompt-colon,
 entry {
   background-color: @background-light;
+  border-radius: 8px;
 }
 
 #inputbar {
@@ -85,10 +87,10 @@ entry {
   border: @list-element-border;
   background-color: @background-light;
   border-color: @background-light;
+  border-radius: 8px;
 }
 
 #element.selected {
   background-color: @background-focus;
   text-color: @accent;
-  border-color: @accent;
 }

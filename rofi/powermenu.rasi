@@ -28,7 +28,7 @@
 /* ########### */
 
 #window {
-  width: 36%;
+  width: 29%;
   height: 24%;
 }
 
@@ -63,28 +63,24 @@
 #window {
   padding: @menu-window-padding;
   children: [ inputbar, horibox ];
+  border-radius: 8px;
 }
 #inputbar {
-  children: [ textbox-prompt-colon, prompt ];
+  children: [ prompt ];
   margin: @menu-inputbar-margin;
 }
-prompt,
-textbox-prompt-colon {
+prompt {
   padding: @menu-prompt-padding;
-  border: 2px;
+  border: 0px;
   border-color: @accent;
+  border-radius: 8px;
 }
 #prompt {
   margin: @menu-prompt-margin;
   background-color: @background-light;
   text-color: @accent;
 }
-#textbox-prompt-colon {
-  expand: false;
-  str: "System";
-  background-color: @accent;
-  text-color: @background;
-}
+
 #horibox {
   padding: 0px;
 }
@@ -97,6 +93,7 @@ textbox-prompt-colon {
   border: @menu-element-border;
   padding: @menu-element-padding;
   border-color: @background-light;
+  border-radius: 4px;
 }
 #element.selected {
   border-color: @accent;
