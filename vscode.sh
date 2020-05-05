@@ -50,6 +50,7 @@ declare -a extensions=(
   "uloco.theme-bluloco-dark"
   "visioncan.vscode-jss-snippets"
   "vuetifyjs.vuetify-vscode"
+  "teabyii.ayu"
 )
 
 echo

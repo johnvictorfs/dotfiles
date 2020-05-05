@@ -1,7 +1,7 @@
 {
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "emmet.triggerExpansionOnTab": true,
-  "workbench.colorTheme": "Eva Dark",
+  "workbench.colorTheme": "Ayu Mirage",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
@@ -11,9 +11,7 @@
   "editor.minimap.enabled": false,
   "editor.fontLigatures": true,
   "editor.renderLineHighlight": "none",
-  // "editor.formatOnSave": true,
   "explorer.confirmDragAndDrop": false,
-  "jest.runAllTestsFirst": false,
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -57,14 +55,13 @@
   "files.autoSave": "off",
   "workbench.statusBar.feedback.visible": false,
   "workbench.tips.enabled": false,
-  "eslint.autoFixOnSave": true,
   "eslint.validate": [
-    { "language": "vue", "autoFix": true },
-    { "language": "html", "autoFix": true },
-    { "language": "javascript", "autoFix": true },
-    { "language": "typescript", "autoFix": true },
-    { "language": "javascriptreact", "autoFix": true },
-    { "language": "typescriptreact", "autoFix": true }
+    "vue",
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
   ],
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
   // "vetur.format.defaultFormatter.html": "js-beautify-html",
@@ -101,11 +98,18 @@
     {
       "id": "4a466684-675e-4ad3-a8a6-00c8f9859328",
       "enabled": true,
-      "name": "My fbstudio Issues",
+      "name": "FB",
       "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
       "siteId": "f4532be3-450e-43e7-83d3-9cbb5761005b",
       "monitor": true
     }
   ],
-  "latex-workshop.view.pdf.viewer": "tab"
+  "latex-workshop.view.pdf.viewer": "tab",
+  "files.exclude": {
+    "**/node_modules/": true,
+    "**/.mypy_cache": true,
+    "**/*.egg-info": true,
+    "**/__pycache__": true,
+    "**/.venv/": true
+  }
 }
