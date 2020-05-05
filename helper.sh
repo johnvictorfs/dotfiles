@@ -24,3 +24,19 @@ endloading() {
   kill $! && trap " " EXIT
   endspin
 }
+
+input() {
+    # Usage:
+    # input "${RED}Is your answer yes?"
+    # [ $ANSWER = true ] && echo "yes, it is!"
+    # [ $ANSWER = true ] || echo "no, it is not!"
+
+    read -p "$1 (Y/n)${NC} " -n 1 -r
+    echo
+    # Valid answers: 'Y', 'y', Return 
+
+    # Default to 'Y' if input is nothing
+    REPLY=${REPLY:-Y} 
+    [[ "$REPLY" =~ ^[Yy]$ ]] && ANSWER=true
+}
+

@@ -22,7 +22,7 @@ fi
 
 [ "$archive" = "" ] && printf "Give archive to extract as argument.\\n" && exit
 
-if [ -f "$archive" ] ; then
+if [ -f "$archive" ]; then
 	case "$archive" in
 		*.tar.bz2|*.tar.xz|*.tbz2) tar xvjf "$archive" ;;
 		*.tar.gz|*.tgz) tar xvzf "$archive" ;;

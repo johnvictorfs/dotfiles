@@ -1,10 +1,10 @@
 # Load Zgen Plugin Manager for ZSH
-if [[ -f "${HOME}/.zgen/zgen.zsh" ]] ; then
+if [[ -f "${HOME}/.zgen/zgen.zsh" ]]; then
   source "${HOME}/.zgen/zgen.zsh"
 fi
 
 # Load Zinit Plugin Manager for ZSH
-if [[ -f "${HOME}/.zinit/bin/zinit.zsh" ]] ; then
+if [[ -f "${HOME}/.zinit/bin/zinit.zsh" ]]; then
   source "${HOME}/.zinit/bin/zinit.zsh"
 fi
 
@@ -41,7 +41,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 
-if [ -x "$(command -v rbenv)" ] ; then
+if [ -x "$(command -v rbenv)" ]; then
     eval "$(rbenv init -)"
 fi
 
@@ -58,7 +58,7 @@ export PATH="$PATH:$(du "$HOME/.bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # Zplugin installer
-if [[ -f "${HOME}/.zplugin/bin/zplugin.zsh" ]] ; then
+if [[ -f "${HOME}/.zplugin/bin/zplugin.zsh" ]]; then
   source "/home/${USER}/.zplugin/bin/zplugin.zsh"
   autoload -Uz _zplugin
   (( ${+_comps} )) && _comps[zplugin]=_zplugin
@@ -67,21 +67,21 @@ if [[ -f "${HOME}/.zplugin/bin/zplugin.zsh" ]] ; then
 fi
 
 # End of Zinit's installer chunk
-if [[ "$(command -v zinit)" ]] ; then
+if [[ "$(command -v zinit)" ]]; then
   zinit light zdharma/fast-syntax-highlighting
   zinit light zsh-users/zsh-autosuggestions
   zinit light zsh-users/zsh-completions
 fi
 
 # Load pyenv
-if [[ -d "${HOME}/.pyenv/bin" ]] ; then
+if [[ -d "${HOME}/.pyenv/bin" ]]; then
   export PATH="${HOME}/.pyenv/bin:$PATH"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
 
 # Load poetry
-if [[ -f "${HOME}/.poetry/env" ]] ; then
+if [[ -f "${HOME}/.poetry/env" ]]; then
   source $HOME/.poetry/env
 fi
 
@@ -94,20 +94,20 @@ function cd() {
 
   # If env folder is found then activate the vitualenv
   function activate_venv() {
-    if [[ -f "${DEFAULT_ENV_PATH}/bin/activate" ]] ; then 
+    if [[ -f "${DEFAULT_ENV_PATH}/bin/activate" ]]; then 
       source "${DEFAULT_ENV_PATH}/bin/activate"
       echo "Activating ${VIRTUAL_ENV}"
     fi
   }
 
-  if [[ -z "$VIRTUAL_ENV" ]] ; then
+  if [[ -z "$VIRTUAL_ENV" ]]; then
     activate_venv
   else
     # check the current folder belong to earlier VIRTUAL_ENV folder
     # if yes then do nothing
     # else deactivate then run a new env folder check
       parentdir="$(dirname ${VIRTUAL_ENV})"
-      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+      if [[ "$PWD"/ != "$parentdir"/* ]]; then
         echo "Deactivating ${VIRTUAL_ENV}"
         deactivate
         activate_venv

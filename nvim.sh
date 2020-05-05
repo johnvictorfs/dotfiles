@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/dotfiles/helper.sh
 
-if [ ! -x "$(command -v nvim)" ] ; then
+if [ ! -x "$(command -v nvim)" ]; then
   echo
   echo "${GREEN}Installing and setting up neovim...${NC}"
   echo
@@ -13,7 +13,7 @@ fi
 curl -sfLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Backup current init.vim config if it exists
-if [ -f $HOME/.config/nvim/init.vim ] ; then
+if [ -f $HOME/.config/nvim/init.vim ]; then
   path="$HOME/.config/nvim/init.vim"
   backup_path="$HOME/.config/nvim/init.vim.backup"
 
@@ -35,4 +35,3 @@ endloading
 
 echo "${GREEN}Finished installation and setup of Neovim${NC}"
 echo
-

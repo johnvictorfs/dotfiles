@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Sleep to prevent screenshotting power menu if there is one
+sleep 0.3
+
 command -v mocp && mocp -P
 
 ICON=$HOME/dotfiles/images/lock.png
@@ -13,7 +16,6 @@ maim /tmp/screen.png
 convert $TMPBG -blur 0x4 $TMPBG
 
 ##Pixellisation alternative
-
 #convert $TMPBG -scale 10% -scale 1000% $TMPBG
 
 convert $TMPBG $ICON -gravity center -composite -matte $TMPBG
