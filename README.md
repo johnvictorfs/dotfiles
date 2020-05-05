@@ -8,7 +8,13 @@ Inspiration from [simrat39/dotfiles](https://github.com/simrat39/dotfiles), [Luk
 
 ## Installation
 
+<details>
+<summary>
+Instructions
+</summary>
+
 - **Before Installing:** Most packages will attempt to be installed with `pacman` (Arch Repository Package Manager) or `yay` (AUR Package Manager), some Python (pip) packages will be installed as well in the setup script. Even then most configuration is distro-agnostic, and you can read below what you can and cannot run depending if you're running an Arch-based distro or not. You can just answer 'n' to every installation prompt when running the below scripts if you're not using an Arch-based distro, and install the needed packages manually with your preferred package manager if necessary.
+
 
 - **Clone repository dotfiles to `~/dotfiles`:**
   ```bash
@@ -45,6 +51,7 @@ Inspiration from [simrat39/dotfiles](https://github.com/simrat39/dotfiles), [Luk
   ```bash
   ./vscode.sh
   ```
+</details>
 
 ---
 
@@ -63,6 +70,11 @@ Inspiration from [simrat39/dotfiles](https://github.com/simrat39/dotfiles), [Luk
 ---
 
 ## i3 Keybinds
+
+<details>
+<summary>
+Keybinds
+</summary>
 
 - **Default <kbd>$mod</kbd> key:** <kbd>Super</kbd>
 
@@ -90,6 +102,8 @@ Inspiration from [simrat39/dotfiles](https://github.com/simrat39/dotfiles), [Luk
 | <kbd>$mod</kbd> + <kbd>0</kbd> | System Mode to lock/suspend/restart/shutdown etc. |
 | <kbd>$mod</kbd> + <kbd>l</kbd> | Lock Screen |
 | <kbd>$mod</kbd> + Click + Drag Window | Move floating window with the mouse |
+
+</details>
 
 ---
 
