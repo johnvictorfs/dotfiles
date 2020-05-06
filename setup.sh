@@ -4,10 +4,70 @@ source $HOME/dotfiles/helper.sh
 # Install yay package manager
 ./yay.sh
 
+PACKAGES=(
+  # Fonts
+  adobe-source-han-sans-jp-fonts # Font for kanji/hiragana/katakana
+
+  # i3 setup
+  i3-gaps-rounded-git
+  i3exit
+  polybar # Status bar
+  rofi # Fancier dmenu
+  dunst # Notification daemon
+
+  # Terminal Emulator
+  kitty
+
+  # Display Manager (Login screen)
+  lightdm
+  lightdm-gtk-greeter
+  lightdm-gtk-greeter-settings
+
+  # Night light
+  redshift
+
+  # GTK Theme Settings
+  lxappearence
+
+  # Syntax highlighting for ccat
+  highlight
+
+  # PDF Viewer
+  evince
+
+  # Latex stuff
+  pdftk
+  texlive-most
+  texlive-lang # Other langauges support, accents, symbols etc.
+  minted # Code syntax highlighting
+
+  # Bluetooth
+  bluez
+  bluez-utils
+
+  # Misc. utils
+  light # Brightness commands
+  nitrogen # Wallpaper manager
+  calc # Terminal calculator
+  python-dbus # Python API for dbus
+  xclip # Clipboard utils
+  maim # Screenshots
+
+  # Audio Management
+  pulseaudio
+
+  # Network Management
+  netctl
+  wpa_supplicant
+  dhcpcd
+)
+
 # Install needed packages
 input "${ORANGE}Install/upgrade needed packages with yay and pip?"
 if [[ $ANSWER = true ]]; then
-  yay -Syu i3-gaps-rounded-git kitty light lightdm rofi polybar nitrogen bluez bluez-utils python-dbus netctl wpa_supplicant dhcpcd maim xclip calc redshift i3exit lxappearance lightdm-gtk-greeter lightdm-gtk-greeter-settings pulseaudio pdftk texlive-most texlive-lang minted evince highlight
+  # Package list to space-separated string
+  PACKAGES_STR=( IFS=$' '; echo "${PACKAGES[*]}" )
+  yay -Syu $PACKAGES_STR
 
   # Needed for weather polybar script
   pip install --user bs4 html5lib 
