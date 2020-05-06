@@ -13,7 +13,7 @@
     padding = 5
     horizontal_padding = 8
     frame_width = 3
-    frame_color = "#282828"
+    frame_color = "#0e1419"
 
     # Define a color for the separator.
     # possible values are:
@@ -94,15 +94,16 @@
 
 # Normal {{{
 [urgency_normal]
-    background = "#0000000"
+    background = "#17232e"
     foreground = "#ebdbb2"
     timeout = 5
 # }}}
 
 # Critical {{{
 [urgency_critical]
-    background = "#cc2421"
+    background = "#e53935"
     foreground = "#ebdbb2"
+    frame_color = "#5c2726"
     timeout = 0
 # }}}
 
