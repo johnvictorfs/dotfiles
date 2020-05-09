@@ -8,6 +8,9 @@ if [ "$(mocp -Q %state)" != "STOP" ]; then
     ICON=
     [ "$(mocp -Q %state)" = "PAUSE" ] && ICON="" && STATUS=""
 
+    # Use polybar icon font for the icon
+    ICON="%{T2}$ICON%{T-}"
+
     if [ -n "$SONG" ]; then
         echo "$ICON  $SONG - $STATUS"
     else
