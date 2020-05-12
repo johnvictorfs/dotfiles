@@ -4,6 +4,7 @@
 [global]
     monitor = 0
     follow = keyboard
+    corner_radius = 4
     geometry = "350x5-20+54"
     indicate_hidden = yes
     shrink = yes

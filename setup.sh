@@ -5,12 +5,15 @@ source $HOME/dotfiles/helper.sh
 ./yay.sh
 
 PACKAGES=(
+  # Themes
+  breeze-obsidian-cursor-theme # Cursor theme, AUR
+
   # Fonts
   adobe-source-han-sans-jp-fonts # Font for kanji/hiragana/katakana
 
   # i3 setup
-  i3-gaps-rounded-git
-  i3exit
+  i3-gaps-rounded-git # i3 with gaps and rounded corners, AUR
+  i3exit # Suspend/lock etc. commands and screens
   polybar # Status bar
   rofi # Fancier dmenu
   dunst # Notification daemon

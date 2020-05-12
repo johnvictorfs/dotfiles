@@ -2,7 +2,7 @@
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "emmet.triggerExpansionOnTab": true,
   "workbench.colorTheme": "Ayu Mirage",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "ayu",
   "workbench.colorCustomizations": {},
   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.cursorBlinking": "phase",
@@ -92,7 +92,7 @@
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "files.maxMemoryForLargeFilesMB": 6096,
   "yaml.schemas": {
-    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.5.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.6.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
