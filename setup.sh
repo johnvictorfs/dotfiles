@@ -17,6 +17,7 @@ PACKAGES=(
   polybar # Status bar
   rofi # Fancier dmenu
   dunst # Notification daemon
+  arandr # Multi-monitor setup
 
   # Terminal Emulator
   kitty
