@@ -1,9 +1,12 @@
-" vim:fileencoding=utf-8:ft=conf:foldmethod=marker
+" vim:fileencoding=utf-8:foldmethod=marker
 
 " Plugin Installs {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'sbdchd/neoformat'
+
+" Colors besides hex/rgb codes "
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " Latex preview " 
 Plug 'lervag/vimtex'
@@ -99,6 +102,9 @@ call plug#end()
 set termguicolors
 let ayucolor="dark"
 colorscheme ayu
+
+" Hexokinase color hints "
+let g:Hexokinase_highlighters = [ 'virtual' ]
 
 set hidden
 set conceallevel=2

@@ -1,9 +1,21 @@
 {
+  "window.titleBarStyle": "native",
+  "window.zoomLevel": 0,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
-  "emmet.triggerExpansionOnTab": true,
   "workbench.colorTheme": "Ayu Mirage",
   "workbench.iconTheme": "ayu",
   "workbench.colorCustomizations": {},
+  "workbench.tips.enabled": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.maxMemoryForLargeFilesMB": 6096,
+  "files.autoSave": "off",
+  "files.exclude": {
+    "**/node_modules/": true,
+    "**/.mypy_cache": true,
+    "**/*.egg-info": true,
+    "**/__pycache__": true,
+    "**/.venv/": true
+  },
   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": true,
@@ -11,7 +23,10 @@
   "editor.minimap.enabled": false,
   "editor.fontLigatures": true,
   "editor.renderLineHighlight": "none",
-  "explorer.confirmDragAndDrop": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true,
+    "source.fixAll.eslint": true
+  },
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -52,9 +67,6 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "files.autoSave": "off",
-  "workbench.statusBar.feedback.visible": false,
-  "workbench.tips.enabled": false,
   "eslint.validate": [
     "vue",
     "html",
@@ -71,11 +83,6 @@
       "wrap_attributes": "auto"
     }
   },
-  "window.zoomLevel": 0,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true,
-    "source.fixAll.eslint": true
-  },
   "gitlens.mode.active": "zen",
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.views.repositories.location": "scm",
@@ -83,6 +90,7 @@
   "gitlens.views.lineHistory.location": "scm",
   "gitlens.views.compare.location": "scm",
   "gitlens.views.search.location": "scm",
+  "emmet.triggerExpansionOnTab": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "python.linting.flake8Enabled": true,
   "python.linting.mypyEnabled": true,
@@ -90,7 +98,6 @@
   "python.linting.enabled": true,
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
-  "files.maxMemoryForLargeFilesMB": 6096,
   "yaml.schemas": {
     "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.6.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
@@ -105,11 +112,4 @@
     }
   ],
   "latex-workshop.view.pdf.viewer": "tab",
-  "files.exclude": {
-    "**/node_modules/": true,
-    "**/.mypy_cache": true,
-    "**/*.egg-info": true,
-    "**/__pycache__": true,
-    "**/.venv/": true
-  }
 }

@@ -291,7 +291,7 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 # Restore/start wallpaper manager (nitrogen) and picom
-exec --no-startup-id nitrogen --restore; sleep 2; ~/dotfiles/picom/start_picom.sh
+exec --no-startup-id nitrogen --restore && sleep 2 && ~/dotfiles/picom/start_picom.sh
 
 # beep off
 exec xset b off

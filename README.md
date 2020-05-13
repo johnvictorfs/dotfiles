@@ -109,11 +109,11 @@ Keybinds
 
 ## Packages used
 
-- Terminal Emulator: [Kitty](https://github.com/kovidgoyal/kitty)
+- Terminal Emulator: [kitty](https://github.com/kovidgoyal/kitty)
 - Window Manager: [i3 (gaps + rounded fork)](https://github.com/resloved/i3)
 - Application Launcher, Power Menu etc.: [rofi](https://github.com/davatorium/rofi)
 - Status Bar: [polybar](https://github.com/polybar/polybar)
-- Wallpaper config: [feh](https://github.com/derf/feh)
+- Wallpaper manager: [nitrogen](https://wiki.archlinux.org/index.php/Nitrogen)
 - Compositor: [picom](https://github.com/yshui/picom)
 - Shell: [zsh](https://www.zsh.org/)
 - Shell manager: [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
