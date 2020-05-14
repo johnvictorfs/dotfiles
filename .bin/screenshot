@@ -23,7 +23,11 @@ else
     exit 1
 fi
 
+# Screenshot, copy to clipboard and save file to path
 maim -o $FLAG --quality 10 | xclip -selection clipboard -t image/png; xclip -selection clipboard -t image/png -o > $FULL_PATH
+
+# Delete image file if it's empty
+[ -s $FULL_PATH ] || rm $FULL_PATH
 
 if [ -f "$FULL_PATH" ]; then
     if [ ! $(command -v dunstify) ]; then
