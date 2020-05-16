@@ -1,7 +1,7 @@
 #!/bin/sh
 
 BLUE="%{F#44D1EF}"
-GRAY="%{F#b5b5b5}"
+GRAY="%{F#757575}"
 
 if [ $(bluetoothctl show | grep "Powered: yes" | wc -c) -eq 0 ]
 then
@@ -15,3 +15,4 @@ else
   DEVICES=$(bluetoothctl paired-devices | awk 'NF{print $NF; exit}')
   echo "$BLUE"
 fi
+

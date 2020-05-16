@@ -1,8 +1,10 @@
 #!/bin/sh
 
-GRAY="%{F#b5b5b5}"
+GRAY="%{F#757575}"
 
-if [ $(amixer get Capture | grep "off" | wc -c) -eq 0 ]
+MUTED=$(amixer get Capture | grep "off" | wc -c)
+
+if [ $MUTED -eq 0 ]
 then
     VOLUME=$(amixer get Capture | egrep -o -m1 '[0-9]*%')
     echo " $VOLUME"

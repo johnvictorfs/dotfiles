@@ -13,3 +13,4 @@ else
   CONNECTION="Disconnected"
 fi
 echo "$ICON  $CONNECTION"
+

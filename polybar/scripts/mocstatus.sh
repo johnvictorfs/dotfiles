@@ -1,12 +1,14 @@
 #!/bin/sh
 
+GRAY="%{F#757575}"
+
 if [ "$(mocp -Q %state)" != "STOP" ]; then
     SONG=$(mocp -Q %song)
     STATUS=$(mocp -Q "%ct / %tt")
     STATUS=" | $STATUS"
 
     ICON=
-    [ "$(mocp -Q %state)" = "PAUSE" ] && ICON="" && STATUS=""
+    [ "$(mocp -Q %state)" = "PAUSE" ] && ICON="$GRAY" && STATUS=""
 
     # Use polybar icon font for the icon
     ICON="%{T2}$ICON%{T-}"
