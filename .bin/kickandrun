@@ -1,5 +1,0 @@
-#!/bin/bash
-
-killall ${1} &
-kitty -e "${1}" &
-

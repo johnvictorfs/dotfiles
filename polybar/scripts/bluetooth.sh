@@ -1,18 +1,17 @@
 #!/bin/sh
 
-BLUE="%{F#44D1EF}"
+BLUE="%{u#44D1EF}"
 GRAY="%{F#757575}"
+
+INACTIVE_ICON=""
+ACTIVE_ICON=""
 
 if [ $(bluetoothctl show | grep "Powered: yes" | wc -c) -eq 0 ]
 then
-  echo ""
+  echo "$INACTIVE_ICON"
 else
-  if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
-  then 
-    echo "$GRAY"
-  fi
+  [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ] && echo "$GRAY"
 
-  DEVICES=$(bluetoothctl paired-devices | awk 'NF{print $NF; exit}')
-  echo "$BLUE"
+  # DEVICES=$(bluetoothctl paired-devices | awk 'NF{print $NF; exit}')
+  echo "$BLUE$ACTIVE_ICON"
 fi
-
