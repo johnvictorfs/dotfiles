@@ -7,6 +7,7 @@ source $HOME/dotfiles/helper.sh
 PACKAGES=(
   # Themes
   breeze-obsidian-cursor-theme # Cursor theme, AUR
+  papirus-icon-theme # Icons theme
 
   # Fonts
   adobe-source-han-sans-jp-fonts # Font for kanji/hiragana/katakana

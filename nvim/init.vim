@@ -156,6 +156,10 @@ set copyindent      " copy indent from the previous line
 " Set spacebar as leader key "
 let mapleader="\<space>"
 
+" Copy and paste from/to clipboard with Ctrl + C and Ctrl + V
+vnoremap <C-c> "+y
+map <C-v> "+p
+
 " Run current buffer with 'python' when F9 is pressed "
 nnoremap <F9> <Esc>:w<CR>:! clear; python %<CR>
 

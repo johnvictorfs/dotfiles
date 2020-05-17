@@ -1,0 +1,19 @@
+#!/bin/bash
+ICON="blueman-headset"
+
+# Set address to first argument if it exists
+[ "$*" == "" ] && ADDRESS="16:08:26:18:19:57" || ADDRESS=$1 
+
+BATTERY=$(bluetooth_battery "$ADDRESS")
+
+notify_level() {
+  DEVICE_NAME=$(bluetoothctl paired-devices | awk 'NF{print $NF; exit}')
+  notify-send -i $ICON "Bluetooth device battery" "$DEVICE_NAME: $BATTERY%"
+}
+
+notify_offline() {
+  notify-send -i $ICON "Device offline" "Address: $ADDRESS"
+}
+
+[ $(echo $BATTERY | wc -w) -eq 1 ] && notify_level || notify_offline
+
