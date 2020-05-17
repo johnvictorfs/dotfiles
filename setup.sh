@@ -38,11 +38,13 @@ PACKAGES=(
   highlight
 
   # PDF Viewer
-  evince
+  # evince # GTK pdf viewer
+  zathura
+  zathura-pdf-mupdf
 
   # Latex stuff
-  pdftk
-  texlive-most
+  pdftk # Latex compiler
+  texlive-most # Useful latex stuff like a bunch of optional packages
   texlive-lang # Other langauges support, accents, symbols etc.
   minted # Code syntax highlighting
 
@@ -60,6 +62,7 @@ PACKAGES=(
 
   # Audio Management
   pulseaudio
+  pavucontrol
 
   # Network Management
   netctl

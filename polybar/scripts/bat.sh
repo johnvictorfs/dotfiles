@@ -1,27 +1,18 @@
 #!/bin/bash
 
-STATUS=$(cat /sys/class/power_supply/BAT0/status);
-CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity);
+STATUS=$(cat /sys/class/power_supply/BAT0/status)
+CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
 
-if test "$STATUS" = "Charging" || test "$STATUS" = "Unknown" || test "$STATUS" = "Full";
+# Charging icon
+ICON=""
+
+if [ "$STATUS" = "Discharging" ];
 then
-	echo "$CAPACITY%";
-elif test "$STATUS" = "Discharging";
-then
-	if test "$CAPACITY" -gt "80";
-	then
-		echo "$CAPACITY%";
-	elif test "$CAPACITY" -gt "60" && test "$CAPACITY" -lt "80";
-	then
-		echo "$CAPACITY%";
-	elif test "$CAPACITY" -gt "40" && test "$CAPACITY" -lt "60";
-	then
-		echo "%{Feaff08}$CAPACITY%";
-	elif test $CAPACITY -gt 20 && test $CAPACITY -lt "40";
-	then
-		echo "%{Ffc0317}$CAPACITY%";
-	elif test $CAPACITY -lt 20 ;
-	then
-		echo "%{Ffc0317}$CAPACITY%";
-	fi
+  [ $CAPACITY -lt "20" ] && ICON="" && UNDERLINE="#e53935"
+	[ $CAPACITY -ge "20" ] && ICON="" && UNDERLINE="#ffb300"
+  [ $CAPACITY -ge "40" ] && ICON="" && UNDERLINE=""
+  [ $CAPACITY -ge "60" ] && ICON="" && UNDERLINE=""
+  [ $CAPACITY -ge "80" ] && ICON="" && UNDERLINE=""
 fi
+
+echo "%{u$UNDERLINE}$ICON$CAPACITY%"
