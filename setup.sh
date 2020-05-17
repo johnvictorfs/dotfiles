@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source $HOME/dotfiles/helper.sh
 
-# Install yay package manager
+# Install yay package manager if necessary
 ./yay.sh
 
 PACKAGES=(
@@ -71,6 +71,13 @@ PACKAGES=(
   dhcpcd
 )
 
+PYTHON_PACKAGES=(
+  bs4 # BeautifulSoup
+  html5lib # Html parser
+  i3ipc # i3 events stuff API
+  fontawesome # Fontawesome icon names API for python
+)
+
 # Install needed packages
 input "${ORANGE}Install/upgrade needed packages with yay and pip?"
 if [[ $ANSWER = true ]]; then
@@ -78,8 +85,9 @@ if [[ $ANSWER = true ]]; then
   PACKAGES_STR=( IFS=$' '; echo "${PACKAGES[*]}" )
   yay -Syu $PACKAGES_STR
 
-  # Needed for weather polybar script
-  pip install --user bs4 html5lib 
+  # Install Python packages
+  PACKAGES_PYTHON_STR=( IFS=$' '; echo "${PYTHON_PACKAGES[*]}" )
+  pip install --user $PACKAGES_PYTHON_STR
 fi
 
 ### i3-gaps
