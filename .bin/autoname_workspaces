@@ -58,7 +58,7 @@ WINDOW_ICONS = {
     'brave-browser': fa.icons['chrome'],
     'cura': fa.icons['cube'],
     'darktable': fa.icons['image'],
-    'discord': fa.icons['comment'],
+    'discord': '',
     'eclipse': fa.icons['code'],
     'emacs': fa.icons['code'],
     'eog': fa.icons['image'],
@@ -84,7 +84,7 @@ WINDOW_ICONS = {
     'kitty': fa.icons['terminal'],
     'libreoffice': fa.icons['file-alt'],
     'lua5.1': fa.icons['moon'],
-    'mpv': fa.icons['tv'],
+    'mpv': '',
     'mupdf': fa.icons['file-pdf'],
     'mysql-workbench-bin': fa.icons['database'],
     'nautilus': fa.icons['copy'],
@@ -96,7 +96,7 @@ WINDOW_ICONS = {
     'robo3t': fa.icons['database'],
     'slack': fa.icons['slack'],
     'slic3r.pl': fa.icons['cube'],
-    'spotify': fa.icons['music'],  # could also use the 'spotify' icon
+    'spotify': fa.icons['spotify'],  # could also use the 'spotify' icon
     'steam': fa.icons['steam'],
     'subl': fa.icons['file-alt'],
     'subl3': fa.icons['file-alt'],
@@ -110,10 +110,11 @@ WINDOW_ICONS = {
     'yelp': fa.icons['code'],
     'zenity': fa.icons['window-maximize'],
     'zoom': fa.icons['comment'],
+    'runescape': '',
 }
 
 # This icon is used for any application not in the list above
-DEFAULT_ICON = '*'
+DEFAULT_ICON = ''
 
 # Global setting that determines whether workspaces will be automatically
 # re-numbered in ascending order with a "gap" left on each monitor. This is
