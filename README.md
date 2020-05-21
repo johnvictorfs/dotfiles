@@ -2,8 +2,6 @@
 
 Configuration files for zshrc (`.zshrc` and `.aliases`), Neovim (`init.vim`), Vscode, i3-gaps and others
 
-Inspiration from [simrat39/dotfiles](https://github.com/simrat39/dotfiles), [LukeSmithxyz/voidrice](https://github.com/LukeSmithxyz/voidrice), [adi1090x/rofi](https://github.com/adi1090x/rofi) and a bunch of random posts from /r/unixporn I forgot about.
-
 ---
 
 ## Installation
@@ -80,18 +78,25 @@ Keybinds
 
 | Key | Action |
 |-----|--------|
+| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>i</kbd> | Open i3 config file in nvim |
+| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>p</kbd> | Open Polybar config file in nvim |
+| <kbd>$mod</kbd> + <kbd>h</kbd> | Switch to Horizontal tiling |
+| <kbd>$mod</kbd> + <kbd>v</kbd> | Switch to Vertical tiling |
 | <kbd>$mod</kbd> + <kbd><1-8></kbd> | Switch Workspace |
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd><1-8></kbd> | Move active Window to Workspace and switch to it |
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd> | Toggle floating on active Window |
+| <kbd>$mod</kbd> + <kbd>Space</kbd> | Toggle focus between floating or non-floating Window |
 | <kbd>$mod</kbd> + <kbd>Ctrl</kbd> + <kbd>m</kbd> | Open audio settings |
 | <kbd>$mod</kbd> + <kbd>f</kbd> | Toggle Active Window Full-screen |
 | <kbd>$mod</kbd> + <kbd>Return</kbd> | Open Terminal Window |
 | <kbd>$mod</kbd> + <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> <kbd>&darr;</kbd> | Switch Active Window |
-| <kbd>$mod</kbd> + <kbd>r</kbd> | Toggle resize Mode, resize with <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> <kbd>&darr;</kbd> then press <kbd>Return</kbd> to confirm |
-| <kbd>$mod</kbd> + <kbd>Ctrl</kbd> + <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> | Resize active window without resize mode |
+| <kbd>$mod</kbd> + <kbd>Ctrl</kbd> + <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> | Resize active window |
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> <kbd>&darr;</kbd> | Move Active Window |
 | <kbd>$mod</kbd> + <kbd>d</kbd> | Open Application Launcher |
 | <kbd>$mod</kbd> + <kbd>w</kbd> | Open Browser |
+| <kbd>$mod</kbd> + <kbd>F3</kbd> | Open File Manager |
+| <kbd>$mod</kbd> + <kbd>F2</kbd> | Open Music Player |
+| <kbd>$mod</kbd> + <kbd>c</kbd> | Open Windowed Terminal Calculator |
 | <kbd>$mod</kbd> + <kbd>q</kbd> | Close active Window |
 | <kbd>PrtScr</kbd> | Region selection Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
 | <kbd>$mod</kbd> + <kbd>PrtScr</kbd> | Monitor Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
