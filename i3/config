@@ -9,6 +9,8 @@ set $term kitty
 set $browser brave
 set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
+set $editor nvim
+set $music_player mocp 
 
 # Screenshot commands
 set $screenshot_selection ~/.bin/screenshot --selection
@@ -45,21 +47,17 @@ bindsym $mod+Ctrl+m exec pavucontrol
 # start program launcher (rofi)
 bindsym $mod+d exec --no-startup-id rofi -show drun -config ~/.config/rofi/app_launcher.rasi
 
-bindsym $mod+Ctrl+b exec $term -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+# Open browser
+bindsym $mod+w exec --no-startup-id brave &
+
+# Open graphical file manager
 bindsym $mod+F3 exec --no-startup-id $filemanager
-bindsym $mod+Shift+F3 exec zensu pcmanfm
-bindsym $mod+F5 exec $term -e 'mocp'
-bindsym $mod+Ctrl+t exec --no-startup-id ~/dotfiles/picom/start_picom.sh
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+# Open terminal music player
+bindsym $mod+F2 exec $term -e $music_player &
 # }}}
 
 # Window specific settings {{{
-# Open applications on specific workspaces
-assign [class="RuneScape"] $ws3
-assign [class="Discord"] $ws4
-
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="Network Connections"] floating enable border pixel 1
@@ -86,7 +84,6 @@ for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
-#for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 
@@ -119,12 +116,12 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Theme colors
-# class                 border  backgr. text    indicator child_border
+# class                   border  backgr. text    indicator child_border
   client.focused          #556064 #556064 #80FFF9 #556064
   client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #2F3D44
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #2F3D44
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #FDF6E3
-  client.placeholder      #000000 #0c0c0c #ffffff #0c0c0c 
+  client.placeholder      #000000 #0c0c0c #ffffff #0c0c0c
 
   client.background       #2B2C2B
 # }}}
@@ -150,6 +147,10 @@ border_radius 12
 # }}}
 
 # General Keybindings {{{
+# Open i3 config file
+bindsym $mod+Shift+i exec kitty -e $editor ~/.config/i3/config &
+# Open polybar config file
+bindsym $mod+Shift+p exec kitty -e $editor ~/.config/polybar/config.ini &
 
 # change focus
 bindsym $mod+Left focus left
@@ -163,13 +164,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# workspace back and forth (with/without active container)
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
-
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+h split h;exec notify-send 'Tiling horizontally'
+bindsym $mod+v split v;exec notify-send 'Tiling vertically'
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -185,13 +182,6 @@ bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
 
 # Go back and forth between workspaces when pressing the same one twice in a row 
 workspace_auto_back_and_forth yes
@@ -228,14 +218,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# Open browser
-bindsym $mod+w exec --no-startup-id brave &
-
 # Lock screen
 bindsym $mod+l exec --no-startup-id ~/.bin/screen-lock
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Open shut down, restart and locking menu
 bindsym $mod+0 exec --no-startup-id ~/.config/rofi/scripts/power_menu.sh
@@ -245,9 +229,6 @@ bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+q kill
-
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
 # }}}
 
 # Function Keybindings {{{
@@ -270,20 +251,12 @@ bindsym --release Print exec --no-startup-id $screenshot_selection
 # }}}
 
 # Startup apps {{{
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
-exec --no-startup-id start_conky_maia
-exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
+# Auto-name workspaces with app icons
 exec_always --no-startup-id ~/.bin/autoname_workspaces &
 
 # Restore/start wallpaper manager (nitrogen) and picom
-exec --no-startup-id nitrogen --restore && sleep 2 && ~/dotfiles/picom/start_picom.sh
+exec --no-startup-id ~/dotfiles/picom/start_picom.sh
+exec --no-startup-id nitrogen --restore
 
 # beep off
 exec xset b off
@@ -295,7 +268,7 @@ exec --no-startup-id xinput --disable "DELL0839:00 044E:120A Touchpad"
 exec --no-startup-id ~/.config/polybar/launch.sh
 
 # Start dunst (Notifications manager)
-exec_always --no-startup-id . ~/.config/dunst/launch.sh
+exec --no-startup-id . ~/.config/dunst/launch.sh
 
 # Second monitor setup
 exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1
