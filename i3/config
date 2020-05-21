@@ -143,9 +143,10 @@ new_float normal
 
 gaps inner 10
 gaps outer 5
+#gaps top 42 # Gap for polybar
 
 # rounded borders
-border_radius 6
+border_radius 12
 # }}}
 
 # General Keybindings {{{

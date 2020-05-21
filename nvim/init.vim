@@ -21,7 +21,19 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " ALE "
 Plug 'dense-analysis/ale'
-let b:ale_linters = ['mypy', 'flake8']
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\   'python': ['mypy', 'flake8']
+\}
+let g:ale_fixers = {
+\   'typescript': ['eslint'],
+\   'javascript': ['eslint'],
+\   'python': ['autopep8']
+\}
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_fix_on_save = 1
 
 " Status Line "
 Plug 'vim-airline/vim-airline'
@@ -74,9 +86,6 @@ endif
 
 " Intellisense "
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Linting "
-Plug 'w0rp/ale'
 
 Plug 'mattn/emmet-vim'
 

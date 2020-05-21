@@ -19,7 +19,8 @@ def focused_workspace(i3):
 # * 'icons' - the string that comes after the
 # Any field that's missing will be None in the returned dict
 def parse_workspace_name(name):
-    m = re.match('(?P<num>\d+):?(?P<shortname>\w+)? ?(?P<icons>.+)?',name).groupdict()
+    m = re.match(
+        '(?P<num>\d+):?(?P<shortname>\w+)? ?(?P<icons>.+)?', name).groupdict()
     return NameParts(**m)
 
 
@@ -32,6 +33,9 @@ def construct_workspace_name(parts):
         new_name += ':'
         # Only add first icon
         new_name += ' ' + parts.icons.split(' ')[0]
+    else:
+        new_name += ':'
+        new_name += ' '
 
     return new_name
 
@@ -52,6 +56,7 @@ def xprop(win_id, property):
 # Unicode subscript and superscript numbers
 _superscript = "⁰¹²³⁴⁵⁶⁷⁸⁹"
 _subscript = "₀₁₂₃₄₅₆₇₈₉"
+
 
 def _encode_base_10_number(n: int, symbols: str) -> str:
     """Write a number in base 10 using symbols from a given string.
@@ -77,7 +82,8 @@ def format_icon_list(icon_list, icon_list_format='default'):
         new_list = []
         for icon, count in Counter(icon_list).items():
             if count > 1:
-                new_list.append(icon + _encode_base_10_number(count, _superscript))
+                new_list.append(
+                    icon + _encode_base_10_number(count, _superscript))
             else:
                 new_list.append(icon)
         return ' '.join(new_list)
@@ -88,10 +94,12 @@ def format_icon_list(icon_list, icon_list_format='default'):
         new_list = []
         for icon, count in Counter(icon_list).items():
             if count > 1:
-                new_list.append(icon + _encode_base_10_number(count, _subscript))
+                new_list.append(
+                    icon + _encode_base_10_number(count, _subscript))
             else:
                 new_list.append(icon)
         return ' '.join(new_list)
 
     else:
-        raise ValueError("Unknown format name for the list of icons: ", icon_list_format)
+        raise ValueError(
+            "Unknown format name for the list of icons: ", icon_list_format)
