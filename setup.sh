@@ -49,6 +49,9 @@ PACKAGES=(
   texlive-lang # Other langauges support, accents, symbols etc.
   minted # Code syntax highlighting
 
+  # Video Player
+  mpv
+
   # Bluetooth
   bluez
   bluez-utils

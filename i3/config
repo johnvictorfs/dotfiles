@@ -53,18 +53,22 @@ bindsym $mod+w exec --no-startup-id brave &
 # Open graphical file manager
 bindsym $mod+F3 exec --no-startup-id $filemanager
 
+# Calculator
+bindsym $mod+c exec --no-startup-id $term -e calc -d
+
 # Open terminal music player
 bindsym $mod+F2 exec $term -e $music_player &
 # }}}
 
 # Window specific settings {{{
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [title="Network Connections"] floating enable border pixel 1
+for_window [title="alsamixer"] floating enable
+for_window [title="calc"] floating enable resize set 0 480 move position center
+for_window [title="Network Connections"] floating enable
 for_window [class="Calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="Galculator"] floating enable
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-settings"] floating enable
