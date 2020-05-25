@@ -169,8 +169,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'Tiling horizontally'
-bindsym $mod+v split v;exec notify-send 'Tiling vertically'
+bindsym $mod+h split h;exec notify-send 'Tiling horizontally' -i 'computer'
+bindsym $mod+v split v;exec notify-send 'Tiling vertically' -i 'computer'
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle

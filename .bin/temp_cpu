@@ -4,7 +4,7 @@
 DEVICE_NAME="CPU"
 
 # Temperature to send notification if it's above it
-BREAKPOINT="70"
+BREAKPOINT="90"
 
 # Get temperature (float)
 SEARCH="$DEVICE_NAME.*?\+\K[0-9.]+"
@@ -13,10 +13,9 @@ TEMP=$(sensors | grep -oP $SEARCH)
 # Notification settings
 TITLE="$DEVICE_NAME temperature too high!"
 DESCRIPTION="Temperature: $TEMP°"
-IMAGE="$HOME/dotfiles/images/shinobu_cropped.png"
 
 # Convert temperature to int for comparison
 TEMP=${TEMP%.*}
 
-[ "$TEMP" -gt "$BREAKPOINT" ] && notify-send "$TITLE" "$DESCRIPTION" -i $IMAGE
+[ "$TEMP" -gt "$BREAKPOINT" ] && notify-send "$TITLE" "$DESCRIPTION" -i 'cpu'
 

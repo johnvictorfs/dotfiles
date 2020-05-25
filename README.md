@@ -22,7 +22,7 @@ Instructions
 
 - **Zsh Setup:**
   ```bash
-  # (installation with pacman, config is distro-agnostic)
+  # Installation with pacman, config is distro-agnostic
   ./zsh.sh
 
   # Distro-agnostic, symlink .zshrc and .aliases files
@@ -99,7 +99,7 @@ Keybinds
 | <kbd>$mod</kbd> + <kbd>c</kbd> | Open Windowed Terminal Calculator |
 | <kbd>$mod</kbd> + <kbd>q</kbd> | Close active Window |
 | <kbd>PrtScr</kbd> | Region selection Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
-| <kbd>$mod</kbd> + <kbd>PrtScr</kbd> | Monitor Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
+| <kbd>$mod</kbd> + <kbd>PrtScr</kbd> | Full Display Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
 | <kbd>Volume Up/Down</kbd> | Increase/Decrease Volume with Fn keys |
 | <kbd>Volume Mute</kbd> | Mute/Unmute Volume with Fn keys |
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | Reload i3 config file |
@@ -112,7 +112,7 @@ Keybinds
 
 ---
 
-## Packages used
+## Main Packages used
 
 - Terminal Emulator: [kitty](https://github.com/kovidgoyal/kitty)
 - Window Manager: [i3 (gaps + rounded fork)](https://github.com/resloved/i3)

@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+# Exit if maim is not installed
+ifinstalled maim || exit 1
+
 DATE=$(date +%F_%H:%M:%S).png
 FOLDER=~/Pictures/Screenshots
 
