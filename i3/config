@@ -45,7 +45,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 # App Keybindings {{{
 # start program launcher (rofi)
-bindsym $mod+d exec --no-startup-id rofi -show drun -config ~/.config/rofi/app_launcher.rasi
+bindsym $mod+d exec --no-startup-id rofi -show drun -config ~/.config/rofi/app_launcher_blurry.rasi
 
 # Open browser
 bindsym $mod+w exec --no-startup-id brave &
@@ -226,7 +226,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+l exec --no-startup-id ~/.bin/screen-lock
 
 # Open shut down, restart and locking menu
-bindsym $mod+0 exec --no-startup-id ~/.config/rofi/scripts/power_menu.sh
+bindsym $mod+0 exec --no-startup-id ~/.config/rofi/scripts/power_menu.sh -no-fixed-num-lines
 
 # start a terminal
 bindsym $mod+Return exec $term 

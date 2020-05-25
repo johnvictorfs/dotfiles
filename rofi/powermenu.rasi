@@ -1,3 +1,6 @@
+/* vim:ft=css
+*/
+
 /*
  * Author : Aditya Shakya (adi1090x)
  * Mail : adi1090x@gmail.com
@@ -11,9 +14,9 @@
 
 * {
   /* General */
-  text-font:                            "Comfortaa 12";
-  icon-font:                            "Font Awesome 5 Free Solid 25.5";
-  icon-font-small:                      "Font Awesome 5 Free Solid 15.5";
+  text-font:                            "Fantasque Sans Mono 16";
+  icon-font:                            "Font Awesome 15.5";
+  icon-font-small:                      "Font Awesome 10.5";
 
   option-6-listview-spacing:            10px;
 
@@ -21,8 +24,14 @@
   menu-inputbar-margin:                  10px 0px;
   menu-prompt-padding:                   10px 20px 10px 20px;
   menu-prompt-margin:                    0px 0px 0px -2px;
-  menu-element-border:                   10px;
-  menu-element-padding:                  3px 4px 2px -35px;
+}
+
+element-text {
+	font:							"Font Awesome 28";
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    padding: 5px 15px 5px 15px;
 }
 
 /* ########### */
@@ -63,7 +72,7 @@
 #window {
   padding: @menu-window-padding;
   children: [ inputbar, horibox ];
-  border-radius: 8px;
+  border-radius: 10px;
 }
 #inputbar {
   children: [ prompt ];
@@ -93,7 +102,7 @@ prompt {
   border: @menu-element-border;
   padding: @menu-element-padding;
   border-color: @background-light;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 #element.selected {
   border-color: @accent;

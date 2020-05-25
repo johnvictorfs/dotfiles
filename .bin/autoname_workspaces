@@ -63,6 +63,7 @@ WINDOW_ICONS = {
     'emacs': fa.icons['code'],
     'eog': fa.icons['image'],
     'evince': fa.icons['file-pdf'],
+    'zathura': fa.icons['file-pdf'],
     'evolution': fa.icons['envelope'],
     'feh': fa.icons['image'],
     'file-roller': fa.icons['compress'],
@@ -135,7 +136,8 @@ def icon_for_window(window):
             cls = cls.lower()  # case-insensitive matching
             if cls in WINDOW_ICONS:
                 return WINDOW_ICONS[cls]
-    logging.info('No icon available for window with classes: %s' % str(classes))
+    logging.info('No icon available for window with classes: %s' %
+                 str(classes))
     return DEFAULT_ICON
 
 
@@ -164,11 +166,13 @@ def rename_workspaces(i3, icon_list_format='default'):
         n += 1
 
         new_name = construct_workspace_name(
-            NameParts(num=new_num, shortname=name_parts.shortname, icons=new_icons)
+            NameParts(num=new_num, shortname=name_parts.shortname,
+                      icons=new_icons)
         )
         if workspace.name == new_name:
             continue
-        i3.command('rename workspace "%s" to "%s"' % (workspace.name, new_name))
+        i3.command('rename workspace "%s" to "%s"' %
+                   (workspace.name, new_name))
 
 
 # Rename workspaces to just numbers and shortnames, removing the icons.
@@ -179,28 +183,26 @@ def on_exit(i3):
             NameParts(num=name_parts.num, shortname=name_parts.shortname, icons=None))
         if workspace.name == new_name:
             continue
-        i3.command('rename workspace "%s" to "%s"' % (workspace.name, new_name))
+        i3.command('rename workspace "%s" to "%s"' %
+                   (workspace.name, new_name))
     i3.main_quit()
     sys.exit(0)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description=
-        "Rename workspaces dynamically to show icons for running programs.")
+        description="Rename workspaces dynamically to show icons for running programs.")
     parser.add_argument(
         '--norenumber_workspaces',
         action='store_true',
         default=False,
-        help=
-        "Disable automatic workspace re-numbering. By default, workspaces are automatically re-numbered in ascending order."
+        help="Disable automatic workspace re-numbering. By default, workspaces are automatically re-numbered in ascending order."
     )
     parser.add_argument(
         '--icon_list_format',
         type=str,
         default='default',
-        help=
-        "The formatting of the list of icons."
+        help="The formatting of the list of icons."
         "Accepted values:"
         "    - default: no formatting,"
         "    - mathematician: factorize with superscripts (e.g. aababa -> a⁴b²),"
@@ -230,4 +232,3 @@ if __name__ == '__main__':
     i3.on('window', event_handler)
     i3.on('workspace::move', event_handler)
     i3.main()
-

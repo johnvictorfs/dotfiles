@@ -162,8 +162,10 @@ set copyindent      " copy indent from the previous line
 
 " Keybindings {{{
 
-" Set spacebar as leader key "
+" Set spacebar as leader  and localleader key "
 let mapleader="\<space>"
+
+autocmd FileType tex nnoremap <leader>ç :VimtexCompile<cr>
 
 " Copy and paste from/to clipboard with Ctrl + C and Ctrl + V
 vnoremap <C-c> "+y

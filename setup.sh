@@ -17,7 +17,7 @@ PACKAGES=(
   i3-gaps-rounded-git # i3 with gaps and rounded corners, AUR
   i3exit # Suspend/lock etc. commands and screens
   polybar # Status bar
-  rofi # Fancier dmenu
+  rofi-git # Fancier dmenu, AUR version
   dunst # Notification daemon
   arandr # Multi-monitor setup
 
@@ -45,6 +45,7 @@ PACKAGES=(
 
   # Latex stuff
   pdftk # Latex compiler
+  biber # Latex Bibliography
   texlive-most # Useful latex stuff like a bunch of optional packages
   texlive-lang # Other langauges support, accents, symbols etc.
   minted # Code syntax highlighting
