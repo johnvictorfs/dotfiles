@@ -9,5 +9,5 @@ then
 fi
 
 [ "$1" = "--inc" ] && light -A "$2"
-[ "$2" = "--dec" ] && light -U "$2"
+[ "$1" = "--dec" ] && light -U "$2"
 

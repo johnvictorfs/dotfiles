@@ -5,18 +5,16 @@ RED="%{u#e53935}"
 BLUE="%{u#00acc1}"
 
 if [ "$(mocp -Q %state)" != "STOP" ]; then
-    SONG=$(mocp -Q %song)
-    STATUS=$(mocp -Q "%ct / %tt")
-    STATUS=" | $STATUS"
+    STATUS=$(mocp -Q "%title | %ct / %tt")
 
     ICON="$BLUE"
-    [ "$(mocp -Q %state)" = "PAUSE" ] && ICON="$GRAY" && STATUS=""
+    [ "$(mocp -Q %state)" = "PAUSE" ] && ICON="$GRAY" && STATUS=$(mocp -Q "%title")
 
     # Use polybar icon font for the icon
     ICON="%{T2}$ICON%{T-}"
 
-    if [ -n "$SONG" ]; then
-      echo "$ICON  $SONG - $STATUS"
+    if [ -n "$STATUS" ]; then
+      echo "$ICON $STATUS"
     else
       # Get Song name from filename if song name is not available from moc
       SONG=$(mocp -Q %file)

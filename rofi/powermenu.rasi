@@ -14,7 +14,7 @@
 
 * {
   /* General */
-  text-font:                            "Fantasque Sans Mono 16";
+  text-font:                            "Fantasque Sans Mono 15";
   icon-font:                            "Font Awesome 15.5";
   icon-font-small:                      "Font Awesome 10.5";
 
@@ -37,7 +37,7 @@ element-text {
 /* ########### */
 
 #window {
-  width: 29%;
+  width: 30%;
   height: 24%;
 }
 

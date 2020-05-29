@@ -113,7 +113,7 @@ let ayucolor="dark"
 colorscheme ayu
 
 " Hexokinase color hints "
-let g:Hexokinase_highlighters = [ 'virtual' ]
+let g:Hexokinase_highlighters = [ 'foregroundfull' ]
 
 set hidden
 set conceallevel=2

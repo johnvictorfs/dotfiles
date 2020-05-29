@@ -4,7 +4,7 @@
 DEVICE_NAME="CPU"
 
 # Temperature to send notification if it's above it
-BREAKPOINT="90"
+BREAKPOINT="80"
 
 # Get temperature (float)
 SEARCH="$DEVICE_NAME.*?\+\K[0-9.]+"
