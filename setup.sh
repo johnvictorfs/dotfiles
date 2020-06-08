@@ -43,6 +43,9 @@ PACKAGES=(
   zathura
   zathura-pdf-mupdf
 
+  # e-Book reader
+  foliate
+
   # Latex stuff
   pdftk # Latex compiler
   biber # Latex Bibliography
@@ -86,11 +89,11 @@ PYTHON_PACKAGES=(
 input "${ORANGE}Install/upgrade needed packages with yay and pip?"
 if [[ $ANSWER = true ]]; then
   # Package list to space-separated string
-  PACKAGES_STR=( IFS=$' '; echo "${PACKAGES[*]}" )
+  PACKAGES_STR=$( IFS=$' '; echo "${PACKAGES[*]}" )
   yay -Syu $PACKAGES_STR
 
   # Install Python packages
-  PACKAGES_PYTHON_STR=( IFS=$' '; echo "${PYTHON_PACKAGES[*]}" )
+  PACKAGES_PYTHON_STR=$( IFS=$' '; echo "${PYTHON_PACKAGES[*]}" )
   pip install --user $PACKAGES_PYTHON_STR
 fi
 

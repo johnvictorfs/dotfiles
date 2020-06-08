@@ -24,11 +24,13 @@ Plug 'dense-analysis/ale'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
+\   'vue': ['eslint'],
 \   'python': ['mypy', 'flake8']
 \}
 let g:ale_fixers = {
 \   'typescript': ['eslint'],
 \   'javascript': ['eslint'],
+\   'vue': ['eslint'],
 \   'python': ['autopep8']
 \}
 let g:ale_sign_error = ''

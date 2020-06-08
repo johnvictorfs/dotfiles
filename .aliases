@@ -9,9 +9,13 @@ alias g='git'
 alias i3c='vim ~/dotfiles/i3/config'
 alias vimc='vim ~/dotfiles/nvim/init.vim'
 alias p='sudo pacman'
-alias v='vim'
-alias sv='sudo vim'
+alias v='nvim'
+alias sv='sudo nvim'
+alias se='sudoedit'
 alias SS='sudo systemctl'
+
+# Open apps 'swallowed' (without terminal window)
+alias mpv='swallow mpv'
 
 # cat with syntax highlighting
 alias ccat="highlight --out-format=ansi --force"
@@ -50,4 +54,4 @@ alias apps="cd /usr/share/applications"
 # Alias vi and vim to neovim
 [ -x "$(command -v nvim)" ] && alias vi=nvim && alias vim=nvim
 
-alias aoemaps="cd /home/$USER/.steam/steam/steamapps/common/Age2HD/resources_common/drs/gamedata_x2"
+alias aoemaps="cd $HOME/.steam/steam/steamapps/common/Age2HD/resources_common/drs/gamedata_x2"
