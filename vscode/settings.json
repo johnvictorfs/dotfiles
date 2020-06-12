@@ -1,6 +1,6 @@
 {
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -2,
+  "window.zoomLevel": 0,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "workbench.colorTheme": "Ayu Mirage",
   "workbench.iconTheme": "ayu",
@@ -14,7 +14,8 @@
     "**/.mypy_cache": true,
     "**/*.egg-info": true,
     "**/__pycache__": true,
-    "**/.venv/": true
+    "**/.venv/": true,
+    "**/.ipynb_checkpoints/": true
   },
   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.cursorBlinking": "phase",
