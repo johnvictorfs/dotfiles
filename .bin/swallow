@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 
 import argparse
-import i3ipc
 import subprocess
 import sys
 from threading import Timer
 from time import sleep
 
+import i3ipc
 
-class I3Swallow(object):
 
+class I3Swallow:
     def __init__(self):
         self.swallowed = False
         self.window_id = self.args = self.cmdargs = self.node = self.process = None

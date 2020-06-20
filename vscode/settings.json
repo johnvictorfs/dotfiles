@@ -3,7 +3,7 @@
   "window.zoomLevel": 0,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "workbench.colorTheme": "Ayu Mirage",
-  "workbench.iconTheme": "ayu",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
   "explorer.confirmDragAndDrop": false,
@@ -15,7 +15,9 @@
     "**/*.egg-info": true,
     "**/__pycache__": true,
     "**/.venv/": true,
-    "**/.ipynb_checkpoints/": true
+    "**/.ipynb_checkpoints/": true,
+    "**/dist/": true,
+    "**/yarn.lock": true,
   },
   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.cursorBlinking": "phase",
@@ -100,7 +102,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.6.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.6.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {

@@ -20,6 +20,7 @@ alias mpv='swallow mpv'
 alias zathura='swallow zathura'
 alias nautilus='swallow nautilus'
 alias kdenlive='swallow kdenlive'
+alias robo3t='swallow robo3t'
 
 # cat with syntax highlighting
 alias ccat="highlight --out-format=ansi --force"
