@@ -6,7 +6,7 @@ if [ ! -x "$(command -v zsh)" ]; then
   input "${ORANGE}Do you want to install it (with pacman)?"
 
   if [[ $ANSWER = true ]]; then
-    sudo pacman -Syu zsh 
+    sudo pacman -S zsh 
     echo
     echo "${GREEN}Zsh installed successfully.${NC}"
     echo
@@ -23,3 +23,4 @@ if [ -x "$(command -v zsh)" ]; then
   echo "${RED}Log out and log back in for changes to take place${NC}"
   echo
 fi
+

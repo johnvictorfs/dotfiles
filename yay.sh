@@ -3,7 +3,7 @@ source $HOME/dotfiles/helper.sh
 
 # Yay setup
 if [ ! -x "$(command -v yay)" ]; then
-  input "${ORANGE}Do you want to install and setup ${GREEN}Yay (AUR Package Manager)"
+  input "${ORANGE}Do you want to install and setup ${GREEN}Yay (AUR Package Manager)?"
 
   if [[ $ANSWER = true ]]; then
     git clone https://aur.archlinux.org/yay.git
