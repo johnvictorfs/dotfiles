@@ -13,9 +13,9 @@ separator_height = 2
 padding = 4
 horizontal_padding = 13
 frame_width = 8
-background = "#19232b"
-frame_color = "#19232b"
-separator_color = "#373e4d"
+background = "#17232e"
+frame_color = "#17232e"
+separator_color = "#27333d"
 sort = no
 idle_threshold = 120
 font = "mplus nerd font mono 9.3"
@@ -55,21 +55,21 @@ context = ctrl+shift+period
 # Low {{{
 [urgency_low]
 timeout = 3
-background = "#19232b"
+background = "#17232e"
 foreground = "#edfefe"
 # }}}
 
 # Normal {{{
 [urgency_normal]
 timeout = 6
-background = "#19232b"
+background = "#17232e"
 foreground = "#edfefe"
 # }}}
 
 # Critical {{{
 [urgency_critical]
 timeout = 0
-background = "#19232b"
+background = "#17232e"
 foreground = "#edfefe"
 # }}}
 
