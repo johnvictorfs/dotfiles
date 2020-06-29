@@ -23,6 +23,7 @@ PACKAGES=(
   i3-gaps-rounded-git # i3 with gaps and rounded corners, AUR
   i3exit # Suspend/lock etc. commands and screens
   polybar # Status bar
+  picom # Compositor
   rofi-git # Fancier dmenu, AUR version
   dunst # Notification daemon
   arandr # Multi-monitor setup
