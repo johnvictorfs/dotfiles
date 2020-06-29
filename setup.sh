@@ -9,6 +9,12 @@ PACKAGES=(
   breeze-obsidian-cursor-theme # Cursor theme, AUR
   papirus-icon-theme # Icons theme
 
+  # Alternative to ls
+  exa
+
+  # Python Package Manager
+  python-pip
+
   # Fonts
   adobe-source-han-sans-jp-fonts # Font for kanji/hiragana/katakana
   ttf-jetbrains-mono
@@ -26,8 +32,6 @@ PACKAGES=(
 
   # Display Manager (Login screen)
   lightdm
-  lightdm-gtk-greeter
-  lightdm-gtk-greeter-settings
 
   # Night light
   redshift
@@ -90,11 +94,12 @@ input "${ORANGE}Install/upgrade needed packages with yay and pip?"
 if [[ $ANSWER = true ]]; then
   # Package list to space-separated string
   PACKAGES_STR=$( IFS=$' '; echo "${PACKAGES[*]}" )
-  yay -Syu $PACKAGES_STR
+  echo $PACKAGES_STR
+  [ $(command -v yay) ] && yay -Syu $PACKAGES_STR || echo "${RED}Skipping installation. Yay not installed.${NC}"
 
   # Install Python packages
   PACKAGES_PYTHON_STR=$( IFS=$' '; echo "${PYTHON_PACKAGES[*]}" )
-  pip install --user $PACKAGES_PYTHON_STR
+  [ $(command -v pip) ] && pip install --user $PACKAGES_PYTHON_STR || echo "${RED}Skipping installation. Pip not installed.${NC}"
 fi
 
 ### i3-gaps
@@ -178,4 +183,7 @@ if [[ $ANSWER = true ]]; then
 
   ln -sf $HOME/dotfiles/neofetch/config.conf $HOME/.config/neofetch
 fi
+
+# Add images folder to nitrogen
+[ $(command -v nitrogen) ] && nitrogen --save $HOME/dotfiles/images
 

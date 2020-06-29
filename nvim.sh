@@ -29,7 +29,7 @@ ln -sf $HOME/dotfiles/nvim/init.vim $HOME/.config/nvim
 nvim +'PlugInstall --sync' +qa
 
 # Py-n-vim
-python3 -m pip install -q --user pynvim
+[ $(command -v pip) ] && pip install -q --user pynvim
 
 echo "${GREEN}Finished installation and setup of Neovim${NC}"
 echo
