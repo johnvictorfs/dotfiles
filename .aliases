@@ -21,6 +21,7 @@ alias zathura='swallow zathura'
 alias nautilus='swallow nautilus'
 alias kdenlive='swallow kdenlive'
 alias robo3t='swallow robo3t'
+alias sqlitebrowser='swallow sqlitebrowser'
 
 # cat with syntax highlighting
 alias ccat="highlight --out-format=ansi --force"

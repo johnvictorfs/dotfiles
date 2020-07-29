@@ -13,6 +13,15 @@ if [ "$(mocp -Q %state)" != "STOP" ]; then
     # Use polybar icon font for the icon
     ICON="%{T2}$ICON%{T-}"
 
+    # Get Song name from filename if song name is not available from moc
+    SONG=$(mocp -Q %file)
+
+    # Remove absolute path from filename
+    SONG=$(basename "$SONG")
+
+    # Remove extension from filename
+    SONG="${SONG%.*}"
+
     if [ -n "$STATUS" ]; then
       echo "$ICON $STATUS"
     else

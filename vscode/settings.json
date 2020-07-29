@@ -1,6 +1,6 @@
 {
   "window.titleBarStyle": "native",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -2,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "workbench.colorTheme": "Ayu Mirage",
   "workbench.iconTheme": "material-icon-theme",
@@ -102,7 +102,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.6.4/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.6.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -115,4 +115,8 @@
     }
   ],
   "latex-workshop.view.pdf.viewer": "tab",
+  "atlascode.jira.lastCreateSiteAndProject": {
+    "siteId": "f4532be3-450e-43e7-83d3-9cbb5761005b",
+    "projectKey": "FBDATA"
+  },
 }
