@@ -15,6 +15,8 @@ alias se='sudoedit'
 alias SS='sudo systemctl'
 alias cp='cp -iv'
 
+alias cemu='vblank_mode=0 mesa_glthread=true R600_DEBUG=nohyperz wine ~/cemu/Cemu.exe'
+
 # Open apps 'swallowed' (without terminal window)
 alias mpv='swallow mpv'
 alias zathura='swallow zathura'

@@ -86,6 +86,7 @@ WINDOW_ICONS = {
     'libreoffice': fa.icons['file-alt'],
     'lua5.1': fa.icons['moon'],
     'mpv': '',
+    'telegram-desktop': fa.icons['telegram'],
     'mupdf': fa.icons['file-pdf'],
     'mysql-workbench-bin': fa.icons['database'],
     'nautilus': fa.icons['copy'],

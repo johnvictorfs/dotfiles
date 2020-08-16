@@ -39,6 +39,8 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 if [ -x "$(command -v rbenv)" ]; then

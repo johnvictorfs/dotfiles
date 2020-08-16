@@ -147,7 +147,7 @@ gaps outer 5
 #gaps top 42 # Gap for polybar
 
 # rounded borders
-border_radius 12
+border_radius 10
 # }}}
 
 # General Keybindings {{{
