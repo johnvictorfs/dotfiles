@@ -39,6 +39,10 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+
+export GEM_HOME=$HOME/.ruby
+export PATH=$PATH:$HOME/.ruby/bin
+
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
