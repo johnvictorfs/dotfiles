@@ -5,11 +5,7 @@ if [ ! -x "$(command -v code)" ]; then
   echo "${RED}Vscode is not installed${NC}"
   input "${ORANGE}Do you want to install it (with pacman)?"
 
-  if [[ $ANSWER = true ]]; then
-    sudo pacman -Syu code
-  else
-    exit 1
-  fi
+  [ $ANSWER ] && sudo pacman -Syu code || exit 1
 fi
 
 declare -a extensions=(
@@ -55,7 +51,7 @@ declare -a extensions=(
 
 echo
 input "${ORANGE}Do you want to install all vscode extensions?"
-if [[ $ANSWER = true ]]; then
+if [ $ANSWER ]; then
   for extension in "${extensions[@]}"; do
     code --install-extension "${extension}"    
   done;
@@ -65,7 +61,7 @@ echo
 input "${ORANGE}Do you want your Vscode settings to be replaced? Backups will be made"
 CODE_PATH="$HOME/.config/Code - OSS"
 
-if [[ $ANSWER = true ]]; then
+if [ $ANSWER ]; then
   if [ -f "$CODE_PATH/User/keybindings.json" ]; then
     mv "$CODE_PATH/User/keybindings.json" "$CODE_PATH/User/keybindings.backup.json"
     echo -e "${ORANGE}Renamed current ${RED}$CODE_PATH/User/keybindings.json${NC} ${ORANGE}to ${GREEN}$CODE_PATH/User/keybindings.backup.json${NC}"

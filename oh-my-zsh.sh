@@ -3,7 +3,7 @@ source $HOME/dotfiles/helper.sh
 
 input "${ORANGE}Do you want to replace your current dotfiles with the new ones? (.aliases and .zshrc) Backups will be made"
 
-if [[ $ANSWER = true ]]; then
+if [ $ANSWER ]; then
   cd $HOME/dotfiles
   ZSH_FILE=$HOME/.zshrc
   ZSH_BACKUP=$HOME/.zshrc.backup
@@ -40,7 +40,7 @@ if [[ $ANSWER = true ]]; then
 fi
 
 input "${ORANGE}Do you wish to install Zgen and Zinit? (Zsh package managers)"
-if [[ $ANSWER = true ]]; then
+if [ $ANSWER ]; then
   # Zgen plugin manager for ZSH
   # https://github.com/tarjoilija/zgen
   git clone https://github.com/tarjoilija/zgen.git "$HOME/.zgen"

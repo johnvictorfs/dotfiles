@@ -142,9 +142,6 @@ fi
 # Symlink kitty config files from git repo to configs
 ln -sf $HOME/dotfiles/kitty/kitty.conf $HOME/.config/kitty
 
-# Rofi config
-[ -d $HOME/.config/rofi ] || ln -sf $HOME/dotfiles/rofi $HOME/.config
-
 ### Polybar
 if [ -d $HOME/.config/polybar ]; then
   rm -rf $HOME/.config/polybar.backup
@@ -161,11 +158,17 @@ if [ -d $HOME/.config/picom ]; then
   echo -e "${ORANGE}Renamed current ${RED}~/.config/picom${NC} ${ORANGE}to ${GREEN}~/.config/picom.backup${NC}"
 fi
 
+# Rofi config
+[ -d $HOME/.config/rofi ] && input "${ORANGE}Replace rofi config?"
+[ $ANSWER ] && [ -d $HOME/.config/rofi ] || ln -sf $HOME/dotfiles/rofi $HOME/.config
+
 ln -sf $HOME/dotfiles/picom $HOME/.config
 
 # Start tlp if installed
 if [ -x "$(command -v tlp)" ]; then
-  sudo tlp start
+  input "${ORANGE}Start tlp battery saver?"
+
+  [ $ANSWER ] && sudo tlp start
 fi
 
 # Add Flathub flatpak repository if flatpak is installed
@@ -185,6 +188,6 @@ if [ $ANSWER ]; then
 fi
 
 # Add images folder to nitrogen
-[ $command -v nitrogen ] && input "${ORANGE}Update wallpaper with nitrogen?"
+[ $(command -v nitrogen) ] && input "${ORANGE}Update wallpaper with nitrogen?"
 [ $ANSWER ] && [ $(command -v nitrogen) ] && nitrogen --save "$IMAGES_FOLDER"
 

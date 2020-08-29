@@ -5,7 +5,7 @@ if [ ! -x "$(command -v zsh)" ]; then
   echo "${RED}zsh is not installed${NC}"
   input "${ORANGE}Do you want to install it (with pacman)?"
 
-  if [[ $ANSWER = true ]]; then
+  if [ $ANSWER ]; then
     sudo pacman -S zsh 
     echo
     echo "${GREEN}Zsh installed successfully.${NC}"
