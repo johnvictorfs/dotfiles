@@ -23,6 +23,12 @@ PACKAGES=(
   # Fonts
   adobe-source-han-sans-jp-fonts # Font for kanji/hiragana/katakana
   ttf-jetbrains-mono
+  ttf-fantasque-sans-mono
+  ttf-font-awesome
+  ttf-google-sans # AUR
+  ttf-material-design-icons # AUR
+  noto-fonts
+  nerd-fonts-complete
 
   # i3 setup
   i3-gaps-rounded-git # i3 with gaps and rounded corners, AUR
@@ -109,9 +115,6 @@ if [ -f $HOME/.config/i3/config ]; then
   mv $HOME/.config/i3/config $HOME/.config/i3/config.backup
   echo -e "${ORANGE}Renamed current ${RED}~/.config/i3/config${NC} ${ORANGE}to ${GREEN}~/.config/i3/config.backup${NC}"
 fi
-
-# Symlink fonts folder
-[ -d $HOME/.local/share/fonts ] || ln -s $HOME/dotfiles/fonts $HOME/.local/share
 
 # Symlink binaries
 [ -d $HOME/.bin ] || ln -s $HOME/dotfiles/.bin $HOME/
