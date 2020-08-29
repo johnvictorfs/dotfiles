@@ -5,6 +5,9 @@ source $HOME/dotfiles/helper.sh
 ./yay.sh
 
 PACKAGES=(
+  # Browser
+  firefox
+
   # Themes
   breeze-obsidian-cursor-theme # Cursor theme, AUR
   papirus-icon-theme # Icons theme

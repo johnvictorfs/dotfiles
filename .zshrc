@@ -43,7 +43,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export GEM_HOME=$HOME/.ruby
 export PATH=$PATH:$HOME/.ruby/bin
 
-export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+[ "$(command -v ruby)" ] && export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 
