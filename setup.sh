@@ -43,7 +43,7 @@ PACKAGES=(
   redshift
 
   # GTK Theme Settings
-  lxappearance
+  lxappearance-gtk3
 
   # Syntax highlighting for ccat
   highlight
