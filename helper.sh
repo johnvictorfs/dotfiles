@@ -37,6 +37,6 @@ input() {
 
     # Default to 'Y' if input is nothing
     REPLY=${REPLY:-Y} 
-    [[ "$REPLY" =~ ^[Yy]$ ]] && ANSWER=true
+    [[ "$REPLY" =~ ^[Yy]$ ]] && ANSWER=true || ANSWER=""
 }
 

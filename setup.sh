@@ -4,6 +4,8 @@ source $HOME/dotfiles/helper.sh
 # Install yay package manager if necessary
 ./yay.sh
 
+IMAGES_FOLDER=$HOME/dotfiles/images
+
 PACKAGES=(
   # Browser
   firefox
@@ -41,7 +43,7 @@ PACKAGES=(
   redshift
 
   # GTK Theme Settings
-  lxappearence
+  lxappearance
 
   # Syntax highlighting for ccat
   highlight
@@ -79,11 +81,6 @@ PACKAGES=(
   # Audio Management
   pulseaudio
   pavucontrol
-
-  # Network Management
-  netctl
-  wpa_supplicant
-  dhcpcd
 )
 
 PYTHON_PACKAGES=(
@@ -95,10 +92,9 @@ PYTHON_PACKAGES=(
 
 # Install needed packages
 input "${ORANGE}Install/upgrade needed packages with yay and pip?"
-if [[ $ANSWER = true ]]; then
+if [ $ANSWER ]; then
   # Package list to space-separated string
   PACKAGES_STR=$( IFS=$' '; echo "${PACKAGES[*]}" )
-  echo $PACKAGES_STR
   [ $(command -v yay) ] && yay -Syu $PACKAGES_STR || echo "${RED}Skipping installation. Yay not installed.${NC}"
 
   # Install Python packages
@@ -178,7 +174,7 @@ if [ -x "$(command -v flatpak)" ]; then
 fi
 
 input "${ORANGE}Replace neofetch config?"
-if [[ $ANSWER = true ]]; then
+if [ $ANSWER ]; then
   NEOFETCH_PATH=$HOME/.config/neofetch/config.conf
   BACKUP_PATH=$HOME/.config/neofetch/config.conf.backup
   MESSAGE="${ORANGE}Backed up current neofetch config to '$BACKUP_PATH'${NC}"
@@ -188,9 +184,7 @@ if [[ $ANSWER = true ]]; then
   ln -sf $HOME/dotfiles/neofetch/config.conf $HOME/.config/neofetch
 fi
 
-input "${ORANGE}Update wallpaper with nitrogen?"
-if [[ $ANSWER = true ]]; then
-  # Add images folder to nitrogen
-  [ $(command -v nitrogen) ] && nitrogen --save $HOME/dotfiles/images || echo "nitrogen is not installed"
-fi
+# Add images folder to nitrogen
+[ $command -v nitrogen ] && input "${ORANGE}Update wallpaper with nitrogen?"
+[ $ANSWER ] && [ $(command -v nitrogen) ] && nitrogen --save "$IMAGES_FOLDER"
 
