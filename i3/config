@@ -48,7 +48,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 bindsym $mod+d exec --no-startup-id rofi -show drun -config ~/.config/rofi/app_launcher_blurry.rasi
 
 # Open browser
-bindsym $mod+w exec --no-startup-id brave &
+bindsym $mod+w exec --no-startup-id firefox &
 
 # Open graphical file manager
 bindsym $mod+F3 exec --no-startup-id $filemanager

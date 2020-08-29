@@ -17,5 +17,7 @@ DESCRIPTION="Temperature: $TEMP°"
 # Convert temperature to int for comparison
 TEMP=${TEMP%.*}
 
+echo $DESCRIPTION
+
 [ "$TEMP" -gt "$BREAKPOINT" ] && notify-send "$TITLE" "$DESCRIPTION" -i 'cpu'
 

@@ -55,7 +55,7 @@ PACKAGES=(
   pdftk # Latex compiler
   biber # Latex Bibliography
   texlive-most # Useful latex stuff like a bunch of optional packages
-  texlive-lang # Other langauges support, accents, symbols etc.
+  texlive-lang # Other languages support, accents, symbols etc.
   minted # Code syntax highlighting
 
   # Video Player
@@ -185,6 +185,9 @@ if [[ $ANSWER = true ]]; then
   ln -sf $HOME/dotfiles/neofetch/config.conf $HOME/.config/neofetch
 fi
 
-# Add images folder to nitrogen
-[ $(command -v nitrogen) ] && nitrogen --save $HOME/dotfiles/images
+input "${ORANGE}Update wallpaper with nitrogen?"
+if [[ $ANSWER = true ]]; then
+  # Add images folder to nitrogen
+  [ $(command -v nitrogen) ] && nitrogen --save $HOME/dotfiles/images || echo "nitrogen is not installed"
+fi
 
