@@ -32,6 +32,9 @@ font xft:URWGothic-Book 11
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
+
+# Default tiling orientation
+default_orientation horizontal
 # }}}
 
 # Sound {{{

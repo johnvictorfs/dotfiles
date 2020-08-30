@@ -28,7 +28,6 @@ PACKAGES=(
   ttf-google-sans # AUR
   ttf-material-design-icons # AUR
   noto-fonts
-  nerd-fonts-complete
 
   # i3 setup
   i3-gaps-rounded-git # i3 with gaps and rounded corners, AUR
