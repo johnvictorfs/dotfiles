@@ -27,9 +27,9 @@ endloading() {
 
 input() {
     # Usage:
-    # input "${RED}Is your answer yes?"
-    # [ $ANSWER = true ] && echo "yes, it is!"
-    # [ $ANSWER = true ] || echo "no, it is not!"
+    # input "Is your answer yes?"
+    # $ANSWER && echo "yes, it is!"
+    # $ANSWER || echo "no, it is not!"
 
     read -p "$1 (Y/n)${NC} " -n 1 -r
     echo

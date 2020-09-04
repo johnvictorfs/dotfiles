@@ -97,3 +97,4 @@ entry {
   background-color: @background-focus;
   text-color: @accent;
 }
+

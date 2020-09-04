@@ -59,7 +59,7 @@ WINDOW_ICONS = {
     'brave-browser': fa.icons['chrome'],
     'cura': fa.icons['cube'],
     'darktable': fa.icons['image'],
-    'discord': '',
+    'discord': 'ﭮ',
     'eclipse': fa.icons['code'],
     'emacs': fa.icons['code'],
     'eog': fa.icons['image'],

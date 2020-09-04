@@ -1,6 +1,6 @@
 {
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -1,
+  "window.zoomLevel": -3,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "workbench.colorTheme": "Ayu Mirage",
   "workbench.iconTheme": "material-icon-theme",
@@ -102,7 +102,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.7.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.7.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
