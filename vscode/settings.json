@@ -1,6 +1,6 @@
 {
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -3,
+  "window.zoomLevel": -1,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "workbench.colorTheme": "Ayu Mirage",
   "workbench.iconTheme": "material-icon-theme",
