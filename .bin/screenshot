@@ -6,6 +6,8 @@ ifinstalled maim || exit 1
 DATE=$(date +%F_%H:%M:%S).png
 FOLDER=~/Pictures/Screenshots
 
+mkdir -p $FOLDER
+
 FULL_PATH="$FOLDER/$DATE"
 
 SELECTION="--selection"

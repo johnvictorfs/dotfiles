@@ -1,5 +1,10 @@
 #!/bin/bash
-STATUS=$(cat /sys/class/power_supply/BAT0/status)
+
+BAT_PATH=/sys/class/power_supply/BAT0
+
+[ -d $BAT_PATH ] || exit 1
+
+STATUS=$(cat/status)
 CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity)
 
 RED="#e53935"

@@ -10,7 +10,7 @@ let g:NERDDefaultAlign = 'start'
 
 Plug 'sbdchd/neoformat'
 
-" Colors besides hex/rgb codes "
+" Colors preview for hex/rgb codes "
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " Latex preview " 
@@ -126,7 +126,7 @@ set hidden
 set conceallevel=2
 " }}}
 
-" Python Settings {{{
+" Python Settings {{
 
 " autopep8 with neoformat config "
 " https://github.com/sbdchd/neoformat#config-optional "

@@ -2,13 +2,16 @@
 
 GRAY="%{F#757575}"
 
-MUTED=$(amixer get Capture | grep "off" | wc -c)
+get_status_icon() {
+    `pactl list | sed -n '/^Source/,/^$/p' | grep Mute | grep yes > /dev/null`
 
-if [ $MUTED -eq 0 ]
-then
-    VOLUME=$(amixer get Capture | egrep -o -m1 '[0-9]*%')
-    echo " $VOLUME"
-else
-    echo "$GRAY"
-fi
+    if [ $? -eq 0 ]; then
+        echo "$GRAY"
+    else
+        VOLUME=$(pactl list | sed -n '/^Source/,/^$/p' | egrep -o -m1 '[0-9]*%')
+        echo " $VOLUME"
+    fi
+}
+
+get_status_icon
 

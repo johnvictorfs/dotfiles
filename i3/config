@@ -1,4 +1,4 @@
-# vim:fileencoding=utf-8:ft=conf:foldmethod=marker
+#exec_always vim:fileencoding=utf-8:ft=conf:foldmethod=marker
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -269,7 +269,7 @@ bindsym --release Print exec --no-startup-id $screenshot_selection
 exec_always --no-startup-id ~/.bin/autoname_workspaces &
 
 # Restore/start wallpaper manager (nitrogen) and picom
-exec --no-startup-id ~/dotfiles/picom/start_picom.sh
+exec --no-startup-id ~/dotfiles/picom/start_picom.sh &
 exec --no-startup-id nitrogen --restore
 
 # beep off
@@ -279,10 +279,10 @@ exec xset b off
 exec --no-startup-id xinput --disable "DELL0839:00 044E:120A Touchpad"
 
 # Start polybar (Status bar)
-exec --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Start dunst (Notifications manager)
-exec --no-startup-id . ~/.config/dunst/launch.sh
+exec_always --no-startup-id . ~/.config/dunst/launch.sh
 
 # Second monitor setup
 exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1

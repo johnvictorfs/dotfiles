@@ -10,9 +10,16 @@ PACKAGES=(
   # Browser
   firefox
 
+  # Node.js package manager
+  yarn
+
+  # Chat app
+  telegram-desktop
+
   # Themes
   breeze-obsidian-cursor-theme # Cursor theme, AUR
   papirus-icon-theme # Icons theme
+  nordic-theme-git # GTK theme, AUR
 
   # Alternative to ls
   exa
@@ -27,6 +34,7 @@ PACKAGES=(
   ttf-font-awesome
   ttf-google-sans # AUR
   ttf-material-design-icons # AUR
+  nerd-fonts-fira-code # AUR
   noto-fonts
 
   # i3 setup
