@@ -3,6 +3,11 @@
 " Plugin Installs {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Comment/uncomment "
+Plug 'preservim/nerdcommenter'
+
+let g:NERDDefaultAlign = 'start'
+
 Plug 'sbdchd/neoformat'
 
 " Colors besides hex/rgb codes "
