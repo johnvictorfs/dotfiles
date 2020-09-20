@@ -10,6 +10,9 @@ PACKAGES=(
   # Browser
   firefox
 
+  # Go programming language, peer dependency of some things
+  go
+
   # Node.js package manager
   yarn
 
@@ -20,6 +23,7 @@ PACKAGES=(
   breeze-obsidian-cursor-theme # Cursor theme, AUR
   papirus-icon-theme # Icons theme
   nordic-theme-git # GTK theme, AUR
+  materia-gtk-theme # GTK theme
 
   # Alternative to ls
   exa
@@ -188,6 +192,7 @@ fi
 
 input "${ORANGE}Replace neofetch config?"
 if [ $ANSWER ]; then
+  mkdir -p $HOME/.config/neofetch/
   NEOFETCH_PATH=$HOME/.config/neofetch/config.conf
   BACKUP_PATH=$HOME/.config/neofetch/config.conf.backup
   MESSAGE="${ORANGE}Backed up current neofetch config to '$BACKUP_PATH'${NC}"

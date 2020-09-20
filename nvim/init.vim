@@ -77,6 +77,7 @@ let g:vimtex_toc_config = {
       \ 'hotkeys_leader' : '',
       \ 'refresh_always' : 0,
       \}
+let g:tex_flavor = 'latex'
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_quickfix_autoclose_after_keystrokes = 3
 let g:vimtex_imaps_enabled = 0

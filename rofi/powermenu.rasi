@@ -15,8 +15,8 @@
 * {
   /* General */
   text-font:                            "Fantasque Sans Mono 15";
-  icon-font:                            "Font Awesome 15.5";
-  icon-font-small:                      "Font Awesome 10.5";
+  icon-font:                            "Font Awesome 15";
+  icon-font-small:                      "Font Awesome 10";
 
   option-6-listview-spacing:            10px;
 
