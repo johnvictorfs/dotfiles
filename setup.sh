@@ -10,6 +10,9 @@ PACKAGES=(
   # Browser
   firefox
 
+  # Godly CLI fuzzy-finder
+  fzf
+
   # Go programming language, peer dependency of some things
   go
 
@@ -78,6 +81,7 @@ PACKAGES=(
   biber # Latex Bibliography
   texlive-most # Useful latex stuff like a bunch of optional packages
   texlive-lang # Other languages support, accents, symbols etc.
+  texlive-fontsextra # Extra latex fonts
   minted # Code syntax highlighting
 
   # Video Player

@@ -15,6 +15,9 @@ alias se='sudoedit'
 alias SS='sudo systemctl'
 alias cp='cp -iv'
 
+# Browse pacman packages with fzf search
+alias psearch="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+
 alias cemu='vblank_mode=0 mesa_glthread=true R600_DEBUG=nohyperz wine ~/cemu/Cemu.exe'
 
 # Open apps 'swallowed' (without terminal window)

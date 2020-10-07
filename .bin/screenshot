@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+IMAGE_VIEWER="viewnior"
+
 # Exit if maim is not installed
 ifinstalled maim || exit 1
 
@@ -44,7 +46,7 @@ if [ -f "$FULL_PATH" ]; then
         # Open image with middle click on notification
         case "$ACTION" in
             "open")
-                feh $FULL_PATH &
+                $IMAGE_VIEWER $FULL_PATH &
                 ;;
         esac
     fi

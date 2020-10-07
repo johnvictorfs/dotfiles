@@ -71,6 +71,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable 
 for_window [window_type="menu"] floating enable
+for_window [window_type="launcher.exe"] floating enable
 
 for_window [title="alsamixer"] floating enable
 for_window [title="calc"] floating enable resize set 320 480 move position center
@@ -105,6 +106,10 @@ for_window [title="Microsoft Teams Notification"] floating enable
 for_window [urgent=latest] focus
 
 for_window [class=".*"] split toggle
+
+# Webcam video
+for_window [title="video0 - mpv"] floating enable
+for_window [title="video0 - mpv"] sticky enable
 # }}}
 
 # Color Settings {{{
@@ -241,6 +246,9 @@ bindsym $mod+0 exec --no-startup-id ~/.config/rofi/scripts/power_menu.sh -no-fix
 # start a terminal
 bindsym $mod+Return exec $term 
 
+# toggle webcam
+bindsym $mod+k exec ~/.bin/webcam
+
 # kill focused window
 bindsym $mod+q kill
 # }}}
@@ -269,7 +277,7 @@ bindsym --release Print exec --no-startup-id $screenshot_selection
 exec_always --no-startup-id ~/.bin/autoname_workspaces &
 
 # Restore/start wallpaper manager (nitrogen) and picom
-exec --no-startup-id ~/dotfiles/picom/start_picom.sh &
+exec_always --no-startup-id ~/dotfiles/picom/start_picom.sh &
 exec --no-startup-id nitrogen --restore
 
 # beep off

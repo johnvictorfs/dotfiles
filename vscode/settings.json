@@ -39,7 +39,8 @@
     "editor.defaultFormatter": "octref.vetur",
   },
   "[typescript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[typescriptreact]": {
     "editor.tabSize": 2
@@ -102,7 +103,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.8.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.8.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -118,5 +119,8 @@
   "atlascode.jira.lastCreateSiteAndProject": {
     "siteId": "f4532be3-450e-43e7-83d3-9cbb5761005b",
     "projectKey": "FBDATA"
+  },
+  "files.associations": {
+    "*.graphql": "graphql"
   },
 }
