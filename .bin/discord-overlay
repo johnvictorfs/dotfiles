@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pkill -f discover-overlay || ~/.local/bin/discover-overlay
+

@@ -110,6 +110,10 @@ Plug 'Raimondi/delimitMate'
 
 Plug 'christoomey/vim-tmux-navigator'
 
+" Fuzzy finder "
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Initialize plugin system "
 call plug#end()
 
@@ -211,6 +215,14 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.local/share/nvim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
+
+" Space + Space to open fzf search"
+nnoremap <silent> <Leader><Space> :Files<CR>
+" Space + m for fzf search but inside files "
+nnoremap <silent> <Leader>m :Rg<CR>
 
 " }}}
 

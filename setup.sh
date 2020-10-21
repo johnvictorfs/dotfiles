@@ -13,6 +13,9 @@ PACKAGES=(
   # Godly CLI fuzzy-finder
   fzf
 
+  # Alternative to 'find', to be used with fzf
+  fd
+
   # Go programming language, peer dependency of some things
   go
 
@@ -43,6 +46,7 @@ PACKAGES=(
   ttf-material-design-icons # AUR
   nerd-fonts-fira-code # AUR
   noto-fonts
+  noto-fonts-cjk
 
   # i3 setup
   i3-gaps-rounded-git # i3 with gaps and rounded corners, AUR

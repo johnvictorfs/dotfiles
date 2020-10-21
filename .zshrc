@@ -134,6 +134,9 @@ function killport() {
 
 export ANDROID_SDK="/home/john/Android/Sdk"
 
+# Ignore files/folders in .gitignore when searching with fzf 
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 # Oh-my-zsh plugins
 zgen oh-my-zsh plugins/sudo
 zgen oh-my-zsh plugins/git

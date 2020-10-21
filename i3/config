@@ -249,6 +249,9 @@ bindsym $mod+Return exec $term
 # toggle webcam
 bindsym $mod+k exec ~/.bin/webcam
 
+# toggle discord overlay
+bindsym $mod+p exec ~/.bin/discord-overlay
+
 # kill focused window
 bindsym $mod+q kill
 # }}}
@@ -291,6 +294,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Start dunst (Notifications manager)
 exec_always --no-startup-id . ~/.config/dunst/launch.sh
+
+# KDE Connect
+exec --no-startup-id /usr/lib/kdeconnectd
 
 # Second monitor setup
 exec --no-startup-id xrandr --output DP1 --auto --right-of eDP1
