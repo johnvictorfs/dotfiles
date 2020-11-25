@@ -94,6 +94,7 @@ for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [title="Picture-in-Picture"] floating enable sticky enable border none
 for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
@@ -288,6 +289,7 @@ exec xset b off
 
 # Disable touchpad
 exec --no-startup-id xinput --disable "DELL0839:00 044E:120A Touchpad"
+exec --no-startup-id xinput --disable "ELAN0504:01 04F3:312A Touchpad"
 
 # Start polybar (Status bar)
 exec_always --no-startup-id ~/.config/polybar/launch.sh

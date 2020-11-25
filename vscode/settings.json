@@ -1,8 +1,8 @@
 {
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -2,
+  "window.zoomLevel": -1,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
-  "workbench.colorTheme": "Ayu Mirage",
+  "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
@@ -103,7 +103,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.8.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.8.4/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -123,4 +123,5 @@
   "files.associations": {
     "*.graphql": "graphql"
   },
+  "todo-tree.tree.showScanModeButton": false,
 }
