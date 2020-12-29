@@ -102,6 +102,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
+for_window [title="john: flitter minecraft.scm"] floating enable sticky enable resize set 480 370
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
