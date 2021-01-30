@@ -57,6 +57,8 @@ export PATH="/var/lib/flatpak/exports/bin:$PATH"
 # Adds `~/.bin` to $PATH
 export PATH="$PATH:$(du "$HOME/.bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
@@ -125,7 +127,7 @@ function killport() {
   # Check if something is running at the port passed before trying to kill it
   if lsof -Pi ":$1" -sTCP:LISTEN -t >/dev/null; then
     echo "Killing process at port '$1'"
-    sudo kill $(lsof -t -i:"$1")
+    sudo kill -9 $(lsof -t -i:"$1")
     echo "Killed process at port '$1' successfully"
   else
     echo "There is nothing listening at port '$1'"

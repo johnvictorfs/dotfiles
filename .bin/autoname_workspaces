@@ -63,6 +63,7 @@ WINDOW_ICONS = {
     'eclipse': fa.icons['code'],
     'emacs': fa.icons['code'],
     'eog': fa.icons['image'],
+    'obs': '',
     'evince': fa.icons['file-pdf'],
     'zathura': fa.icons['file-pdf'],
     'evolution': fa.icons['envelope'],
@@ -79,7 +80,8 @@ WINDOW_ICONS = {
     'gpick': fa.icons['eye-dropper'],
     'imv': fa.icons['image'],
     'java': fa.icons['code'],
-    'jetbrains-idea': fa.icons['code'],
+    'jetbrains-idea': '',
+    'jetbrains-idea-ce': '',
     'jetbrains-studio': fa.icons['code'],
     'keepassxc': fa.icons['key'],
     'keybase': fa.icons['key'],
@@ -88,7 +90,7 @@ WINDOW_ICONS = {
     'libreoffice': fa.icons['file-alt'],
     'lua5.1': fa.icons['moon'],
     'mpv': '',
-    'telegram-desktop': fa.icons['telegram'],
+    'telegram-desktop': '',
     'mupdf': fa.icons['file-pdf'],
     'mysql-workbench-bin': fa.icons['database'],
     'org.gnome.Nautilus': fa.icons['folder'],
@@ -138,10 +140,13 @@ def icon_for_window(window):
     if classes != None and len(classes) > 0:
         for cls in classes:
             cls = cls.lower()  # case-insensitive matching
+            if 'minecraft' in cls:
+                return ''
             if cls in WINDOW_ICONS:
                 return WINDOW_ICONS[cls]
     logging.info('No icon available for window with classes: %s' %
                  str(classes))
+    
     return DEFAULT_ICON
 
 

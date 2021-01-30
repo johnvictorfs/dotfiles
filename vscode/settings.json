@@ -1,6 +1,10 @@
 {
   "window.titleBarStyle": "native",
   "window.zoomLevel": -1,
+  "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
+  "ruby.rubocop.useBundler": true,
+  "solargraph.bundlerPath": "/home/john/.rbenv/shims/bundle",
+  "solargraph.useBundler": true,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
@@ -18,6 +22,10 @@
     "**/.ipynb_checkpoints/": true,
     "**/dist/": true,
     "**/yarn.lock": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
   },
   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.cursorBlinking": "phase",
@@ -26,13 +34,13 @@
   "editor.minimap.enabled": false,
   "editor.fontLigatures": true,
   "editor.renderLineHighlight": "none",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true,
-    "source.fixAll.eslint": true
-  },
   "[javascript]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true,
+      "source.fixAll.eslint": true
+    }
   },
   "[ruby]": {
     "editor.tabSize": 2,
@@ -45,10 +53,18 @@
   },
   "[typescript]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true,
+      "source.fixAll.eslint": true
+    }
   },
   "[typescriptreact]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true,
+      "source.fixAll.eslint": true
+    }
   },
   "[json]": {
     "editor.quickSuggestions": {
@@ -93,11 +109,6 @@
   },
   "gitlens.mode.active": "zen",
   "gitlens.hovers.currentLine.over": "line",
-  "gitlens.views.repositories.location": "scm",
-  "gitlens.views.fileHistory.location": "scm",
-  "gitlens.views.lineHistory.location": "scm",
-  "gitlens.views.compare.location": "scm",
-  "gitlens.views.search.location": "scm",
   "emmet.triggerExpansionOnTab": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "python.linting.flake8Enabled": true,
@@ -121,7 +132,7 @@
     {
       "id": "a393566a-fe8a-477f-9d1a-bd9f7ad3638e",
       "enabled": true,
-      "name": "My jornadayu Issues",
+      "name": "YU",
       "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
       "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
       "monitor": true
@@ -137,8 +148,13 @@
   },
   "todo-tree.tree.showScanModeButton": false,
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true,
+      "source.fixAll.eslint": true
+    }
   },
+  "typescript.validate.enable": true,
   "git.autofetch": true,
   "ruby.rubocop.executePath": "/home/john/.rbenv/shims/",
   "ruby.useBundler": true, //run non-lint commands with bundle exec
@@ -152,5 +168,7 @@
     }
   },
   "ruby.format": "rubocop",
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
