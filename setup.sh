@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 source $HOME/dotfiles/helper.sh
 
-# Install yay package manager if necessary
-./yay.sh
+# Options: 'paru', 'yay'
+AUR_HELPER=paru
+
+# Install AUR helper if necessary
+./$AUR_HELPER.sh
 
 IMAGES_FOLDER=$HOME/dotfiles/images
 
@@ -116,11 +119,11 @@ PYTHON_PACKAGES=(
 )
 
 # Install needed packages
-input "${ORANGE}Install/upgrade needed packages with yay and pip?"
+input "${ORANGE}Install/upgrade needed packages with $AUR_HELPER and pip?"
 if [ $ANSWER ]; then
   # Package list to space-separated string
   PACKAGES_STR=$( IFS=$' '; echo "${PACKAGES[*]}" )
-  [ $(command -v yay) ] && yay -Syu $PACKAGES_STR || echo "${RED}Skipping installation. Yay not installed.${NC}"
+  [ $(command -v $AUR_HELPER) ] && $AUR_HELPER $PACKAGES_STR || echo "${RED}Skipping installation. $AUR_HELPER not installed.${NC}"
 
   # Install Python packages
   PACKAGES_PYTHON_STR=$( IFS=$' '; echo "${PYTHON_PACKAGES[*]}" )

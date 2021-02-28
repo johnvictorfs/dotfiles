@@ -9,7 +9,7 @@ if [ ! -x "$(command -v yay)" ]; then
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -sifi
-
+    cd ..
     rm -rf yay
   fi
 fi
