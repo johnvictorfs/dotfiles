@@ -1,12 +1,12 @@
 {
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -1,
+  "window.zoomLevel": -2,
   "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
   "ruby.rubocop.useBundler": true,
   "solargraph.bundlerPath": "/home/john/.rbenv/shims/bundle",
   "solargraph.useBundler": true,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Tokyo Night",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
@@ -20,8 +20,7 @@
     "**/__pycache__": true,
     "**/.venv/": true,
     "**/.ipynb_checkpoints/": true,
-    "**/dist/": true,
-    "**/yarn.lock": true,
+    "**/yarn.lock": false,
     "**/.classpath": true,
     "**/.project": true,
     "**/.settings": true,
@@ -45,7 +44,7 @@
   "[ruby]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "misogi.ruby-rubocop",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": false
   },
   "[vue]": {
     "editor.tabSize": 2,
@@ -161,7 +160,7 @@
   "ruby.useLanguageServer": true, // use the internal language server (see below)
   "ruby.lint": {
     "rubocop": {
-      "useBundler": true // enable rubocop via bundler
+      "useBundler": false // enable rubocop via bundler
     },
     "reek": {
       "useBundler": true // enable reek via bundler

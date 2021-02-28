@@ -16,6 +16,8 @@ alias SS='sudo systemctl'
 alias cp='cp -iv'
 alias ip='ip -c'
 
+alias revert_stash='git stash show -p | git apply -R'
+
 # Browse pacman packages with fzf search
 alias psearch="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 
