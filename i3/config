@@ -10,7 +10,7 @@ set $browser brave
 set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
 set $editor nvim
-set $music_player mocp 
+set $music_player cmus
 
 # Screenshot commands
 set $screenshot_selection ~/.bin/screenshot --selection
@@ -281,6 +281,9 @@ bindsym --release Print exec --no-startup-id $screenshot_selection
 # Startup apps {{{
 # Auto-name workspaces with app icons
 exec_always --no-startup-id ~/.bin/autoname_workspaces &
+
+# Japanese input
+exec --no-startup-id fcitx -d
 
 # Restore/start wallpaper manager (nitrogen) and picom
 exec_always --no-startup-id ~/dotfiles/picom/start_picom.sh &
