@@ -94,9 +94,12 @@ PACKAGES=(
   # Video Player
   mpv
 
+  # Music Player
+  cmus
+
   # Bluetooth
-  bluez
-  bluez-utils
+  # bluez
+  # bluez-utils
 
   # Misc. utils
   light # Brightness commands
@@ -216,4 +219,3 @@ fi
 # Add images folder to nitrogen
 [ $(command -v nitrogen) ] && input "${ORANGE}Update wallpaper with nitrogen?"
 [ $ANSWER ] && [ $(command -v nitrogen) ] && nitrogen --save "$IMAGES_FOLDER"
-
