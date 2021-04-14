@@ -2,7 +2,7 @@
 source $HOME/dotfiles/helper.sh
 
 # Paru setup
-if [ ! -x "$(command -v yay)" ]; then
+if [ ! -x "$(command -v paru)" ]; then
   input "${ORANGE}Do you want to install and setup ${GREEN}Paru (AUR Package Manager)?"
 
   if [[ $ANSWER = true ]]; then

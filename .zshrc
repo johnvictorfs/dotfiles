@@ -1,6 +1,6 @@
-# Load Zgen Plugin Manager for ZSH
-if [[ -f "${HOME}/.zgen/zgen.zsh" ]]; then
-  source "${HOME}/.zgen/zgen.zsh"
+# Load Zgenom Plugin Manager for ZSH
+if [[ -f "${HOME}/.zgenom/zgenom.zsh" ]]; then
+  source "${HOME}/.zgenom/zgenom.zsh"
 fi
 
 # Load Zinit Plugin Manager for ZSH
@@ -9,7 +9,7 @@ if [[ -f "${HOME}/.zinit/bin/zinit.zsh" ]]; then
 fi
 
 # Install and use oh-my-zsh
-zgen oh-my-zsh
+zgenom oh-my-zsh
 
 # Path to oh-my-zsh installation.
 export ZSH="/home/${USER}/.oh-my-zsh"
@@ -140,14 +140,19 @@ export ANDROID_SDK="/home/john/Android/Sdk"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 # Oh-my-zsh plugins
-zgen oh-my-zsh plugins/sudo
-zgen oh-my-zsh plugins/git
-zgen oh-my-zsh plugins/command-not-found
+zgenom oh-my-zsh plugins/sudo
+zgenom oh-my-zsh plugins/git
+zgenom oh-my-zsh plugins/command-not-found
+
+ZSH_THEME=""
 
 # Install and load Pure zsh theme
 # https://github.com/sindresorhus/pure
-zgen load mafredri/zsh-async
-zgen load sindresorhus/pure
+zgenom load mafredri/zsh-async
+
+fpath+=$HOME/.zsh/pure
+autoload -U promptinit; promptinit
+prompt pure
 
 PURE_PROMPT_SYMBOL=""
 

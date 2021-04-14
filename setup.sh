@@ -12,6 +12,10 @@ IMAGES_FOLDER=$HOME/dotfiles/images
 PACKAGES=(
   # Browser
   firefox
+  google-chrome
+
+  # Work messaging app
+  slack-electron
 
   # Godly CLI fuzzy-finder
   fzf
@@ -65,6 +69,24 @@ PACKAGES=(
 
   # Display Manager (Login screen)
   lightdm
+  lightdm-gtk-greeter
+
+  # File manager
+  nautilus
+
+  # Audio CLI
+  ffmpeg
+
+  # Ruby stuff
+  rbenv
+  ruby-build
+
+  # Telegram Client
+  telegram-desktop
+
+  # Development stuff
+  postgresql
+  heroku-cli 
 
   # Night light
   redshift
@@ -93,9 +115,6 @@ PACKAGES=(
 
   # Video Player
   mpv
-
-  # Music Player
-  cmus
 
   # Bluetooth
   # bluez
@@ -126,7 +145,7 @@ input "${ORANGE}Install/upgrade needed packages with $AUR_HELPER and pip?"
 if [ $ANSWER ]; then
   # Package list to space-separated string
   PACKAGES_STR=$( IFS=$' '; echo "${PACKAGES[*]}" )
-  [ $(command -v $AUR_HELPER) ] && $AUR_HELPER $PACKAGES_STR || echo "${RED}Skipping installation. $AUR_HELPER not installed.${NC}"
+  [ $(command -v $AUR_HELPER) ] && $AUR_HELPER -Syu $PACKAGES_STR || echo "${RED}Skipping installation. $AUR_HELPER not installed.${NC}"
 
   # Install Python packages
   PACKAGES_PYTHON_STR=$( IFS=$' '; echo "${PYTHON_PACKAGES[*]}" )
