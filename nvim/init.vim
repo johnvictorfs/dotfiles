@@ -114,6 +114,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Icons "
+Plug 'ryanoasis/vim-devicons'
+
 " Initialize plugin system "
 call plug#end()
 
