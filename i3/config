@@ -246,6 +246,8 @@ bindsym $mod+l exec --no-startup-id ~/.bin/screen-lock
 # Open shut down, restart and locking menu
 bindsym $mod+0 exec --no-startup-id ~/.config/rofi/scripts/power_menu.sh -no-fixed-num-lines
 
+bindsym $mod+j exec --no-startup-id ~/.config/rofi/scripts/yuri.sh -no-fixed-num-lines
+
 # start a terminal
 bindsym $mod+Return exec $term 
 
