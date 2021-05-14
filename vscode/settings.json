@@ -1,10 +1,8 @@
 {
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -2,
+  "window.zoomLevel": -1,
   "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
-  "ruby.rubocop.useBundler": true,
-  "solargraph.bundlerPath": "/home/john/.rbenv/shims/bundle",
-  "solargraph.useBundler": true,
+  "ruby.rubocop.useBundler": false,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "workbench.colorTheme": "Ayu Mirage",
   "workbench.iconTheme": "material-icon-theme",
@@ -106,7 +104,7 @@
       "wrap_attributes": "auto"
     }
   },
-  "gitlens.mode.active": "zen",
+  // "gitlens.mode.active":"zen",
   "gitlens.hovers.currentLine.over": "line",
   "emmet.triggerExpansionOnTab": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -155,7 +153,7 @@
   },
   "typescript.validate.enable": true,
   "git.autofetch": true,
-  "ruby.rubocop.executePath": "/home/john/.rbenv/shims/",
+  "ruby.rubocop.executePath": "/home/john/.ruby/bin/",
   "ruby.useBundler": true, //run non-lint commands with bundle exec
   "ruby.useLanguageServer": true, // use the internal language server (see below)
   "ruby.lint": {
@@ -172,5 +170,8 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
-  }
+  },
+  "solargraph.commandPath": "/home/john/.ruby/bin/solargraph",
+  // "solargraph.bundlerPath": "/home/john/.rbenv/shims/bundle",
+  // "solargraph.autoformat": true
 }
