@@ -34,6 +34,9 @@
 
 ;; -=-=- Packages configurations -=-=-
 
+;; Automatically install packages:
+;; https://stackoverflow.com/questions/10092322/how-to-automatically-install-emacs-packages-by-specifying-a-list-of-package-name
+
 ;; Packages sources
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -44,7 +47,8 @@
 		projectile-rails ace-window multiple-cursors inf-ruby
 		rainbow-delimiters slim-mode magit flycheck hl-todo
 		dtrt-indent ivy slime projectile move-text
-		indent-guide ws-butler))
+		indent-guide ws-butler golden-ratio diminish
+                typescript-mode))
 
 (package-initialize)
 
@@ -117,7 +121,7 @@
 (require 'slim-mode)
 
 ;; flycheck
-;; may need to install system dependencies depending on which language
+;; ATTENTION: may need to install system dependencies depending on which language
 ;; I am working with. e.g.: eslint, pylint etc.
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
@@ -133,7 +137,7 @@
 (setq enable-recursive-minibuffers t)
 
 ;; slime
-;; need to install corresponding compiler / interpreter
+;; ATTENTION: need to install corresponding compiler / interpreter
 (setq inferior-lisp-program "clisp")
 
 ;; move-text
@@ -148,10 +152,26 @@
 (require 'ws-butler)
 (add-hook 'prog-mode-hook #'ws-butler-mode)
 
+;; golden-ratio
+(require 'golden-ratio)
+(golden-ratio-mode 1)
+
+;; diminish
+(require 'diminish)
+(dolist (mode-to-diminish '(golden-ratio-mode ws-butler-mode rainbow-delimiters-mode
+                                              centaur-tabs-mode indent-guide-mode
+                                              which-key-mode))
+  (when (boundp mode-to-diminish)
+    (diminish mode-to-diminish)))
+
+;; typescript-mode
+(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode))
+
 ;; -=-=- Misc -=-=-
 
 ;; Custom functions, hooks and advices
 
+;; https://superuser.com/questions/131538/can-i-create-directories-that-dont-exist-while-creating-a-new-file-in-emacs
 (defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
   "Create parent directory if not exists while visiting file."
   (unless (file-exists-p filename)
@@ -163,14 +183,38 @@
   "Run webpack-dev-server after a rails server has been run."
   (async-shell-command (concat (projectile-rails-root) "bin/webpack-dev-server")))
 
+;; Adapted from: https://gist.github.com/ustun/73321bfcb01a8657e5b8
 (defun eslint-fix-file-and-revert ()
   "Fix a JavaScript file with eslint and then revert the buffer."
   (interactive)
   (when (eq major-mode 'js-mode)
     (progn
       (shell-command (concat "eslint --fix " (buffer-file-name)))
-      (revert-buffer t t))))
+      (revert-buffer t t)
+      (when (package-installed-p 'centaur-tabs)  ;; FIXME: Temporary solution. Find out why centaur-tabs is not unmarking the buffer as modified.
+        (centaur-tabs-after-modifying-buffer)))))
 
 (add-hook 'js-mode-hook
 	  (lambda ()
-	    (add-hook 'after-save-hook 'eslint-fix-file-and-revert)))
+	    (add-hook 'after-save-hook #'eslint-fix-file-and-revert)))
+
+(defun open-init-emacs-file ()
+  "Open the Emacs init file."
+  (interactive)
+  (find-file user-init-file))
+
+(global-set-key (kbd "C-c C-e") #'open-init-emacs-file)
+
+;; Adapted from 'delete-trailing-whitespace', which can be found at 'simple.el'
+(defun delete-trailing-lines-prog-mode ()
+  "Delete trailing lines in the end of buffer when using 'prog-mode'."
+  (save-match-data
+    (save-excursion
+      (and
+       (derived-mode-p 'prog-mode)
+       (= (goto-char (point-max)) (1+ (buffer-size)))
+       (<= (skip-chars-backward "\n") -2)
+       (region-modifiable-p (1+ (point)) (point-max))
+       (delete-region (1+ (point)) (point-max))))))
+
+(add-hook 'before-save-hook #'delete-trailing-lines-prog-mode)

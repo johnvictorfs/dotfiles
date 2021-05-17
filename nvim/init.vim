@@ -123,9 +123,16 @@ call plug#end()
 " }}}
 
 " Theme and Visual Settings {{{
-set termguicolors
 let ayucolor="dark"
 colorscheme ayu
+
+set termguicolors
+try
+    " Replace theme's background color to match terminal bg
+    hi Normal ctermbg=232 guibg=#192330
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme ayu
+endtry
 
 " Hexokinase color hints "
 let g:Hexokinase_highlighters = [ 'foregroundfull' ]

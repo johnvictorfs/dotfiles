@@ -1,0 +1,7 @@
+#!/bin/bash
+
+yuri_folder="~/projects/yuri"
+
+tmux \
+    new-session  "cd $yuri_folder && rails s -p 3000" \; \
+    split-window "cd $yuri_folder && bin/webpack-dev-server" \;

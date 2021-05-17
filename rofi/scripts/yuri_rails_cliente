@@ -1,0 +1,8 @@
+#!/bin/bash
+
+yuri_folder="~/projects/yuri"
+client_folder="~/projects/yu-client-area"
+
+tmux \
+    new-session  "cd $yuri_folder && rails s -p 3000" \; \
+    split-window "cd $client_folder && yarn serve" \;

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/projects/yuri
+rails s -p 3000
