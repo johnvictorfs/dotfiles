@@ -1,5 +1,5 @@
 ;; https://github.com/Guilherme-Vasconcelos/dot-emacs
-;; https://github.com/Guilherme-Vasconcelos/dot-emacs/blob/master/LICENSE
+;; https://github.com/Guilherme-Vasconcelos/dot-emacs/blob/94ed0587cde4bfddfad24132ea509b24fefde5d8/LICENSE
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
