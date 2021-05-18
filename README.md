@@ -55,9 +55,7 @@ Instructions
 
 ## i3-gaps (rounded) and Kitty Setup
 
-![image](images/screenshots/neofetch.png)
-
-![image](images/screenshots/power_menu.png)
+![image](images/screenshots/firefox.png)
 
 ![image](images/screenshots/app_launcher.png)
 
