@@ -38,7 +38,6 @@ if __name__ == '__main__':
             country_r = requests.get(country_endpoint)
             country_data: CountryResponse = country_r.json()
 
-
             yellow = '%{F#fffb1c}'
             red = '%{F#fc5549}'
 
