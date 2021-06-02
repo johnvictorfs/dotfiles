@@ -68,6 +68,32 @@
 (setq neo-theme 'nerd)
 
 ;; atom-one-dark-theme
+;; atom-one-dark-theme
+(defvar atom-one-dark-colors-alist
+  (let* ((256color  (eq (display-color-cells (selected-frame)) 256))
+         (colors `(("atom-one-dark-accent"   . "#528BFF")
+                   ("atom-one-dark-fg"       . (if ,256color "color-248" "#ABB2BF"))
+                   ("atom-one-dark-bg"       . (if ,256color "color-235" "#192330"))
+                   ("atom-one-dark-bg-1"     . (if ,256color "color-234" "#121417"))
+                   ("atom-one-dark-bg-hl"    . (if ,256color "color-236" "#2C323C"))
+                   ("atom-one-dark-gutter"   . (if ,256color "color-239" "#4B5363"))
+                   ("atom-one-dark-mono-1"   . (if ,256color "color-248" "#ABB2BF"))
+                   ("atom-one-dark-mono-2"   . (if ,256color "color-244" "#828997"))
+                   ("atom-one-dark-mono-3"   . (if ,256color "color-240" "#5C6370"))
+                   ("atom-one-dark-cyan"     . "#56B6C2")
+                   ("atom-one-dark-blue"     . "#61AFEF")
+                   ("atom-one-dark-purple"   . "#C678DD")
+                   ("atom-one-dark-green"    . "#98C379")
+                   ("atom-one-dark-red-1"    . "#E06C75")
+                   ("atom-one-dark-red-2"    . "#BE5046")
+                   ("atom-one-dark-orange-1" . "#D19A66")
+                   ("atom-one-dark-orange-2" . "#E5C07B")
+                   ("atom-one-dark-gray"     . (if ,256color "color-237" "#3E4451"))
+                   ("atom-one-dark-silver"   . (if ,256color "color-247" "#9DA5B4"))
+                   ("atom-one-dark-black"    . (if ,256color "color-233" "#21252B"))
+                   ("atom-one-dark-border"   . (if ,256color "color-232" "#181A1F")))))
+    colors)
+  "List of Atom One Dark colors.")
 (load-theme 'atom-one-dark t)
 
 ;; which-key
