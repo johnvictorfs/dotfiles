@@ -237,4 +237,5 @@ fi
 
 # Add images folder to nitrogen
 [ $(command -v nitrogen) ] && input "${ORANGE}Update wallpaper with nitrogen?"
-[ $ANSWER ] && [ $(command -v nitrogen) ] && nitrogen --save "$IMAGES_FOLDER"
+[ $ANSWER ] && [ $(command -v nitrogen) ] && nitrogen --set-auto $IMAGES_FOLDER/solid_wallpaper_2.png
+
