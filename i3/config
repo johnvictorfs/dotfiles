@@ -263,13 +263,21 @@ bindsym $mod+q kill
 
 # Function Keybindings {{{
 # Use amixer to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec "amixer set -q Master 1%+"
-bindsym XF86AudioLowerVolume exec "amixer set -q Master 1%-"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +1%"
+bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -1%"
+bindsym XF86AudioMute exec "pactl -- set-sink-mute @DEFAULT_SINK@ toggle"
 
 # Brightness controls
 bindsym XF86MonBrightnessUp exec ~/.bin/brightness --inc 5
 bindsym XF86MonBrightnessDown exec ~/.bin/brightness --dec 5
+
+bindsym XF86Search exec --no-startup-id rofi -show drun -config ~/.config/rofi/app_launcher_blurry.rasi
+bindsym XF86Calculator exec --no-startup-id $term -e calc -d
+bindsym XF86Tools exec $term -e $music_player &
+
+bindsym XF86AudioPrev exec --no-startup-id cmus-remote --prev
+bindsym XF86AudioNext exec --no-startup-id cmus-remote --next
+bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause
 # }}}
 
 # Screenshots {{{

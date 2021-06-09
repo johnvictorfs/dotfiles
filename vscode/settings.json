@@ -1,6 +1,6 @@
 {
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -2,
+  "window.zoomLevel": -1,
   "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
   "ruby.rubocop.useBundler": false,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
@@ -97,6 +97,7 @@
     "javascriptreact",
     "typescriptreact"
   ],
+  "vetur.experimental.templateInterpolationService": true,
   "vetur.format.defaultFormatter.ts": "vscode-typescript",
   "vetur.format.defaultFormatter.html": "prettyhtml",
   "vetur.format.defaultFormatterOptions": {
@@ -115,7 +116,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.8.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.9.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
