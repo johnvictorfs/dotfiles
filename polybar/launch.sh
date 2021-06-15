@@ -18,7 +18,13 @@ separate_bars() {
 
 one_bar() {
   # One bar to rule them all
-  polybar top -r -c $HOME/.config/polybar/config.ini &
+  if type "xrandr"; then
+    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+      MONITOR=$m polybar top -r -c $HOME/.config/polybar/config.ini &
+    done
+  else
+    polybar top -r -c $HOME/.config/polybar/config.ini &
+  fi
 }
 
 [ '$1' = 'multiple' ] && separate_bars || one_bar
