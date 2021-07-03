@@ -8,3 +8,5 @@ export PATH="$PATH:$(du "$HOME/.bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
+
+~/.screenlayout/notebook_monitor.sh

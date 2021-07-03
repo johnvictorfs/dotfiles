@@ -11,5 +11,20 @@
   {
     "key": "ctrl+k z",
     "command": "-workbench.action.toggleZenMode"
+  },
+  {
+    "key": "ctrl+f1",
+    "command": "-workbench.action.showErrorsWarnings",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+f1",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+space",
+    "command": "-editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   }
 ]
