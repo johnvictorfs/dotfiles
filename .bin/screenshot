@@ -15,8 +15,6 @@ FULL_PATH="$FOLDER/$DATE"
 SELECTION="--selection"
 FULL="--full"
 
-START="maim"
-END=""
 FLAG=""
 
 TITLE="Saved Screenshot"
