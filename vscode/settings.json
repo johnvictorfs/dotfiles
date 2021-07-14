@@ -175,4 +175,8 @@
   "redhat.telemetry.enabled": false,
   "terminal.external.linuxExec": "kitty",
   "python.sortImports.path": "isort",
+  "python.languageServer": "Pylance",
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.typeCheckingMode": "basic",
+  "window.zoomLevel": -1
 }
