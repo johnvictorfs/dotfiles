@@ -42,7 +42,13 @@ map("n", "<leader>zz", ":TZAtaraxis<CR>", opt)
 map("n", "<leader>zm", ":TZMinimalist<CR>", opt)
 map("n", "<leader>zf", ":TZFocus<CR>", opt)
 
+-- Save/Write
+map("n", "<leader>w", ":w <CR>", opt)
 map("n", "<C-s>", ":w <CR>", opt)
+
+-- Save/Write and Quit
+map("n", "<leader>wq", ":wq <CR>", opt)
+
 
 -- Commenter Keybinding
 map("n", "<leader>/", ":CommentToggle<CR>", opt)
@@ -110,7 +116,7 @@ map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("i", "<CR>", "v:lua.completions()", {expr = true})
 
 -- nvimtree
-map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
+map("n", "<Leader><Tab>", ":NvimTreeToggle<CR>", opt)
 
 -- format code
 map("n", "<Leader>fm", ":Neoformat<CR>", opt)
