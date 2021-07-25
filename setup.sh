@@ -183,6 +183,16 @@ if [ -f $HOME/.config/kitty/kitty.conf ]; then
   echo -e "${ORANGE}Renamed current ${RED}~/.config/kitty/kitty.conf${NC} ${ORANGE}to ${GREEN}~/.config/kitty/kitty.conf.backup${NC}"
 fi
 
+### xrdb
+if [ -f $HOME/.Xresources ]; then
+  # Backing up old .Xresources file
+  rm -rf $HOME/.Xresources.backup
+  mv $HOME/.Xresources $HOME/.Xresources.backup
+  echo -e "${ORANGE}Renamed current ${RED}~/Xresources${NC} ${ORANGE}to ${GREEN}~/Xresources.backup${NC}"
+fi
+ln -sf $HOME/dotfiles/.Xresources $HOME
+xrdb ~/.Xresources
+
 # Create kitty config dir if it doesn't exist already
 [ -d $HOME/.config/kitty ] || mkdir -p $HOME/.config/kitty
 
