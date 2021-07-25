@@ -60,7 +60,7 @@ def format_temperature(state, temp):
     return f"{image} {state} ({temperature} °C)"
 
 try:
-    url = "https://www.timeanddate.com/weather/brazil/fortaleza"
+    url = "https://www.timeanddate.com/weather/brazil/niteroi"
     soup = BeautifulSoup((requests.get(url)).text, 'html5lib')
     weather_test = soup.find(class_="h2")
 
