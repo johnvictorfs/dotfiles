@@ -6,31 +6,24 @@ if [ ! -x "$(command -v nvim)" ]; then
   echo "${GREEN}Installing and setting up neovim...${NC}"
   echo
 
-  sudo pacman -S neovim
+  paru -S neovim-bin
 fi
 
-# Plug package manager for Neovim/Vim: https://github.com/junegunn/vim-plug
-curl -sfLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if _NVIM="$(command -v nvim)"; then
+  # Backup current neovim config if it exists
+  if [ -d $HOME/.config/nvim ]; then
+    path="$HOME/.config/nvim"
+    backup="$HOME/.config/nvim_backup"
 
-# Backup current init.vim config if it exists
-if [ -f $HOME/.config/nvim/init.vim ]; then
-  path="$HOME/.config/nvim/init.vim"
-  backup="$HOME/.config/nvim/init.vim.backup"
+    mv $path $backup
+    echo -e "${ORANGE}Renamed current ${RED}${path}${NC} ${ORANGE}to ${GREEN}${backup}${NC}"
+  fi
 
-  mv $path $backup_path
-  echo -e "${ORANGE}Renamed current ${RED}${path}${NC} ${ORANGE}to ${GREEN}${backup}${NC}"
+  # Symlink neovim config files
+  mkdir $HOME/.config/nvim
+  ln -s $HOME/dotfiles/nvim/* $HOME/.config/nvim && \
+
+  "${_NVIM}" +"autocmd User PackerComplete ++once quitall" \
+          +":lua require 'pluginList' vim.cmd('PackerSync')"
+        "${_NVIM}"
 fi
-
-# Symlink $HOME/dotfiles init.vim
-[ -d $HOME/.config/nvim ] || mkdir -p $HOME/.config/nvim
-ln -sf $HOME/dotfiles/nvim/init.vim $HOME/.config/nvim
-
-# Open Vim, run 'PlugInstall --sync' and quit
-nvim +'PlugInstall --sync' +qa
-
-# Py-n-vim
-[ $(command -v pip) ] && pip install -q --user pynvim
-
-echo "${GREEN}Finished installation and setup of Neovim${NC}"
-echo
-
