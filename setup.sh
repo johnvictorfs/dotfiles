@@ -172,8 +172,14 @@ ln -sf $HOME/dotfiles/i3/config $HOME/.config/i3
 # Symlink .profile
 ln -sf $HOME/dotfiles/.profile $HOME
 
+# Symlink fonts
+ln -sf $HOME/.fonts $HOME
+
 # Symlink dunst settings
 ln -sf $HOME/dotfiles/dunst $HOME/.config
+
+# Create kitty config dir if it doesn't exist already
+[ -d $HOME/.config/kitty ] || mkdir -p $HOME/.config/kitty
 
 ### Kitty Terminal
 if [ -f $HOME/.config/kitty/kitty.conf ]; then
@@ -182,6 +188,9 @@ if [ -f $HOME/.config/kitty/kitty.conf ]; then
   mv $HOME/.config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf.backup
   echo -e "${ORANGE}Renamed current ${RED}~/.config/kitty/kitty.conf${NC} ${ORANGE}to ${GREEN}~/.config/kitty/kitty.conf.backup${NC}"
 fi
+
+# Symlink kitty config files from git repo to configs
+ln -sf $HOME/dotfiles/kitty/kitty.conf $HOME/.config/kitty
 
 ### xrdb
 if [ -f $HOME/.Xresources ]; then
@@ -193,11 +202,17 @@ fi
 ln -sf $HOME/dotfiles/.Xresources $HOME
 xrdb ~/.Xresources
 
-# Create kitty config dir if it doesn't exist already
-[ -d $HOME/.config/kitty ] || mkdir -p $HOME/.config/kitty
+### Zathura
+if [ -f $HOME/.config/zatura/zathurarc ]; then
+  # Backing up old zathura config file
+  rm -rf $HOME/.config/zathura/zathurarc.backup
+  mv $HOME/.config/zathura/zathurarc $HOME/.config/zathura/zathurarc.backup
+  echo -e "${ORANGE}Renamed current ${RED}~/.config/zathura/zathurarc${NC} ${ORANGE}to ${GREEN}~/.config/zathura/zathurarc.backup${NC}"
+fi
 
-# Symlink kitty config files from git repo to configs
-ln -sf $HOME/dotfiles/kitty/kitty.conf $HOME/.config/kitty
+# Create zathura config dir if it doesn't exist already
+[ -d $HOME/.config/zathura ] || mkdir -p $HOME/.config/zathura
+ln -sf $HOME/dotfiles/zathura/zathurarc $HOME/.config/zathura
 
 ### Polybar
 if [ -d $HOME/.config/polybar ]; then
