@@ -35,7 +35,7 @@ def construct_workspace_name(parts):
         new_name += ' ' + parts.icons.split(' ')[0]
     else:
         new_name += ':'
-        new_name += ' '
+        new_name += f' {parts.num}'
 
     return new_name
 
