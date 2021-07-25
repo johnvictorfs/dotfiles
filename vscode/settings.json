@@ -3,7 +3,7 @@
   "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
   "ruby.rubocop.useBundler": false,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
-  "workbench.colorTheme": "Ayu Mirage",
+  "workbench.colorTheme": "Atom One Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
@@ -115,7 +115,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode-oss/extensions/atlassian.atlascode-2.9.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode/extensions/atlassian.atlascode-2.9.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -137,8 +137,8 @@
   ],
   "latex-workshop.view.pdf.viewer": "tab",
   "atlascode.jira.lastCreateSiteAndProject": {
-    "siteId": "f4532be3-450e-43e7-83d3-9cbb5761005b",
-    "projectKey": "FBDATA"
+    "siteId": "",
+    "projectKey": ""
   },
   "files.associations": {
     "*.graphql": "graphql"
@@ -178,5 +178,15 @@
   "python.languageServer": "Pylance",
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.typeCheckingMode": "basic",
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
 }

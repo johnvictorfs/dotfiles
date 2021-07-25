@@ -53,7 +53,7 @@ fi
 
 echo
 input "${ORANGE}Do you want your Vscode settings to be replaced? Backups will be made"
-CODE_PATH="$HOME/.config/Code - OSS"
+CODE_PATH="$HOME/.config/Code"
 
 if [ $ANSWER ]; then
   if [ -f "$CODE_PATH/User/keybindings.json" ]; then
