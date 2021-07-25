@@ -14,14 +14,14 @@ GREEN="#21d121"
 
 CLEAR="%{U-}"
 
-[ $CAPACITY -lt "20" ] && ICON="" && UNDERLINE="$RED"
-[ $CAPACITY -ge "20" ] && ICON="" && UNDERLINE="$ORANGE"
-[ $CAPACITY -ge "40" ] && ICON="" && UNDERLINE=""
-[ $CAPACITY -ge "60" ] && ICON="" && UNDERLINE=""
-[ $CAPACITY -ge "80" ] && ICON="" && UNDERLINE=""
+[ $CAPACITY -lt "20" ] && ICON="" && UNDERLINE="$RED"
+[ $CAPACITY -ge "20" ] && ICON="" && UNDERLINE="$ORANGE"
+[ $CAPACITY -ge "40" ] && ICON="" && UNDERLINE=""
+[ $CAPACITY -ge "60" ] && ICON="" && UNDERLINE=""
+[ $CAPACITY -ge "80" ] && ICON="" && UNDERLINE=""
 
 # Full/Charging
-[ $STATUS != "Discharging" ] && ICON=""
+[ $STATUS != "Discharging" ] && ICON=""
 
-echo "%{u$UNDERLINE}$ICON $CAPACITY%$CLEAR"
+echo "%{u$UNDERLINE}%{T5}$ICON%{T-} $CAPACITY%$CLEAR"
 
