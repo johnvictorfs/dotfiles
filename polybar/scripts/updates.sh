@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BAR_ICON=""
+BAR_ICON=""
 NOTIFY_ICON="system-software-update"
 
 get_total_updates() { UPDATES=$(checkupdates 2>/dev/null | wc -l); }
@@ -26,9 +26,9 @@ while true; do
     # every 10 seconds another check for updates is done
     while (( UPDATES > 0 )); do
         if (( UPDATES == 1 )); then
-            echo " $UPDATES"
+            echo "$BAR_ICON $UPDATES"
         elif (( UPDATES > 1 )); then
-            echo " $UPDATES"
+            echo "$BAR_ICON $UPDATES"
         else
             echo ""
         fi
