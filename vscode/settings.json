@@ -60,7 +60,8 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.tslint": true,
       "source.fixAll.eslint": true
-    }
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
     "editor.quickSuggestions": {
@@ -119,19 +120,43 @@
   },
   "atlascode.jira.jqlList": [
     {
-      "id": "4a466684-675e-4ad3-a8a6-00c8f9859328",
-      "enabled": true,
-      "name": "FB",
-      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
-      "siteId": "f4532be3-450e-43e7-83d3-9cbb5761005b",
+      "id": "a393566a-fe8a-477f-9d1a-bd9f7ad3638e",
+      "enabled": false,
+      "name": "YU",
+      "query": "assignee = currentUser() AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"In Progress\", \"To Do\") ORDER BY lastViewed DESC",
+      "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
       "monitor": true
     },
     {
-      "id": "a393566a-fe8a-477f-9d1a-bd9f7ad3638e",
-      "enabled": true,
-      "name": "YU",
-      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+      "id": "06e90d91-a8cf-4594-8f45-758f73d76447",
       "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
+      "name": "YU - In Progress",
+      "query": "assignee = currentUser() AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"In Progress\") ORDER BY lastViewed DESC",
+      "enabled": true,
+      "monitor": true
+    },
+    {
+      "id": "9e92cde1-8a65-4e9b-8310-b1507310cce5",
+      "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
+      "name": "YU - To Do",
+      "query": "assignee = currentUser() AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"To Do\") ORDER BY lastViewed DESC",
+      "enabled": true,
+      "monitor": true
+    },
+    {
+      "id": "25e90455-f6a1-499c-b90d-144bb7f01d6d",
+      "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
+      "name": "YU (Freelance) - In Progress",
+      "query": "assignee =610c70164e8d8d0069a6cbb0 AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"In Progress\") ORDER BY lastViewed DESC",
+      "enabled": true,
+      "monitor": true
+    },
+    {
+      "id": "58a6462a-979e-4946-9169-b99eaa720c73",
+      "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
+      "name": "YU (Freelance) - To Do",
+      "query": "assignee =610c70164e8d8d0069a6cbb0 AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"To Do\") ORDER BY lastViewed DESC",
+      "enabled": true,
       "monitor": true
     }
   ],
@@ -141,7 +166,8 @@
     "projectKey": ""
   },
   "files.associations": {
-    "*.graphql": "graphql"
+    "*.graphql": "graphql",
+    "*.stg": "lua"
   },
   "todo-tree.tree.showScanModeButton": false,
   "[javascriptreact]": {
@@ -178,7 +204,6 @@
   "python.languageServer": "Pylance",
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.typeCheckingMode": "basic",
-  "window.zoomLevel": -1,
   "todo-tree.general.tags": [
     "BUG",
     "HACK",
@@ -188,5 +213,14 @@
     "[ ]",
     "[x]"
   ],
-  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "debug.javascript.usePreview": false,
+  "atlascode.jira.explorer.refreshInterval": 10,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  }
 }
