@@ -162,8 +162,8 @@
   ],
   "latex-workshop.view.pdf.viewer": "tab",
   "atlascode.jira.lastCreateSiteAndProject": {
-    "siteId": "",
-    "projectKey": ""
+    "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
+    "projectKey": "YURI"
   },
   "files.associations": {
     "*.graphql": "graphql",
@@ -222,5 +222,6 @@
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
-  }
+  },
+  "window.zoomLevel": -2
 }
