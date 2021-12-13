@@ -53,6 +53,7 @@ WINDOW_ICONS = {
     'alacritty': fa.icons['terminal'],
     'atom': fa.icons['code'],
     'code-oss': fa.icons['code'],
+    'code': fa.icons['code'],
     'banshee': fa.icons['play'],
     'blender': fa.icons['cube'],
     'chromium': fa.icons['chrome'],

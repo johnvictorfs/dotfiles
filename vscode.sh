@@ -3,9 +3,9 @@ source $HOME/dotfiles/helper.sh
 
 if [ ! -x "$(command -v code)" ]; then
   echo "${RED}Vscode is not installed${NC}"
-  input "${ORANGE}Do you want to install it (with pacman)?"
+  input "${ORANGE}Do you want to install it (with paru)?"
 
-  [ $ANSWER ] && sudo pacman -Syu code || exit 1
+  [ $ANSWER ] && paru -S visual-studio-code-bin || exit 1
 fi
 
 declare -a extensions=(

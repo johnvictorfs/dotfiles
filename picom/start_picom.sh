@@ -7,5 +7,5 @@ killall -q picom
 while pgrep -x picom >/dev/null; do sleep 1; done
 
 # Launch picom 
-picom -b --config ~/.config/picom/picom.conf &
+picom -b --config ~/.config/picom/picom.conf --experimental-backends &
 

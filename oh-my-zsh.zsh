@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 source $HOME/dotfiles/helper.sh
 
 input "${ORANGE}Do you want to replace your current dotfiles with the new ones? (.aliases and .zshrc) Backups will be made"
@@ -51,9 +50,10 @@ if [ $ANSWER ]; then
   git clone https://github.com/zdharma/zinit.git "$HOME/.zinit/bin"
 fi
 
-input "${ORANGE}Do you wish to install the pure prompt? (with yarn)"
+input "${ORANGE}Do you wish to install the pure prompt?"
 if [ $ANSWER ]; then
-  yarn global add pure-prompt
+  mkdir -p "$HOME/.zsh"
+  git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
   fpath+=$HOME/.zsh/pure
   autoload -U promptinit; promptinit
   prompt pure

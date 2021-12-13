@@ -129,8 +129,7 @@ PACKAGES=(
   maim # Screenshots
 
   # Audio Management
-  pulseaudio
-  pavucontrol
+  pipewire-pulse
 )
 
 PYTHON_PACKAGES=(

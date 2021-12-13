@@ -6,7 +6,7 @@ if [ ! -x "$(command -v nvim)" ]; then
   echo "${GREEN}Installing and setting up neovim...${NC}"
   echo
 
-  paru -S neovim-bin
+  paru -S neovim-nightly-bin
 fi
 
 if _NVIM="$(command -v nvim)"; then

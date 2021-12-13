@@ -11,7 +11,7 @@ set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
 set $editor nvim
 set $music_player cmus
-set $browser chromium
+set $browser firefox
 
 # Screenshot commands
 set $screenshot_selection ~/.bin/screenshot --selection
@@ -102,6 +102,7 @@ for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="livesplit-one"] floating enable sticky enable
+for_window [title="Yuri LinkedIn Importer"] floating enable sticky enable
 for_window [class="Xfburn"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [title="john: flitter minecraft.scm"] floating enable sticky enable resize set 480 370

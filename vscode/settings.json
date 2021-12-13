@@ -3,7 +3,6 @@
   "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
   "ruby.rubocop.useBundler": false,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
-  "workbench.colorTheme": "Atom One Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
@@ -116,7 +115,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode/extensions/atlassian.atlascode-2.9.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode/extensions/atlassian.atlascode-2.10.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -177,7 +176,6 @@
       "source.fixAll.eslint": true
     }
   },
-  "typescript.validate.enable": true,
   "git.autofetch": true,
   "ruby.rubocop.executePath": "/home/john/.ruby/bin/",
   "ruby.useBundler": true, //run non-lint commands with bundle exec
@@ -223,5 +221,12 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "window.zoomLevel": -2
+  "atlascode.jira.enabled": true,
+  "workbench.colorTheme": "Ayu Mirage",
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "typescript.validate.enable": true,
+  "editor.inlineSuggest.enabled": true,
+  "workWeek.times.endTime": "08:00pm",
+  "editor.linkedEditing": true,
+  "window.zoomLevel": -1
 }
