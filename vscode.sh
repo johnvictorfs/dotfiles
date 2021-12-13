@@ -24,7 +24,7 @@ declare -a extensions=(
   "esbenp.prettier-vscode"
   "Gruntfuggly.todo-tree"
   "James-Yu.latex-workshop"
-  "jpoissonnier.vscode-styled-components"
+  "styled-components.vscode-styled-components"
   "k--kato.intellij-idea-keybindings"
   "misogi.ruby-rubocop"
   "ms-python.python"
