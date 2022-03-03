@@ -37,8 +37,8 @@ element-text {
 /* ########### */
 
 #window {
-  width: 30%;
-  height: 24%;
+  width: 23%;
+  height: 17.5%;
 }
 
 /* ########### */
@@ -99,8 +99,7 @@ prompt {
 }
 #element {
   font: @icon-font;
-  border: @menu-element-border;
-  padding: @menu-element-padding;
+  padding: 6px;
   border-color: @background-light;
   border-radius: 8px;
 }

@@ -32,6 +32,13 @@ PACKAGES=(
   # Chat app
   telegram-desktop
 
+  # Japanese input
+  fcitx-im
+  fcitx-configtool
+  fcitx-mozc
+
+  ttf-vlgothic # Japanese font, AUR
+
   # Themes
   breeze-obsidian-cursor-theme # Cursor theme, AUR
   papirus-icon-theme # Icons theme
