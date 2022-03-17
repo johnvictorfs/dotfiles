@@ -269,6 +269,11 @@ bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +1%"
 bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -1%"
 bindsym XF86AudioMute exec "pactl -- set-sink-mute @DEFAULT_SINK@ toggle"
 
+# PageUp
+bindsym Prior exec "pactl -- set-sink-volume 0 +1%"
+# PageDown
+bindsym Next exec "pactl -- set-sink-volume 0 -1%"
+
 # Brightness controls
 bindsym XF86MonBrightnessUp exec ~/.bin/brightness --inc 5
 bindsym XF86MonBrightnessDown exec ~/.bin/brightness --dec 5
@@ -309,6 +314,9 @@ exec xset b off
 # Disable touchpad
 exec --no-startup-id xinput --disable "DELL0839:00 044E:120A Touchpad"
 exec --no-startup-id xinput --disable "ELAN0504:01 04F3:312A Touchpad"
+
+# Key remappings
+exec --no-startup-id keymapper
 
 # Start polybar (Status bar)
 exec_always --no-startup-id ~/.config/polybar/launch.sh
