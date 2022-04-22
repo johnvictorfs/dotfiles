@@ -270,6 +270,11 @@ bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +2%"
 bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -2%"
 bindsym XF86AudioMute exec "pactl -- set-sink-mute @DEFAULT_SINK@ toggle"
 
+bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym XF86AudioPause exec "playerctl play-pause"
+bindsym XF86AudioNext exec "playerctl next"
+bindsym XF86AudioPrev exec "playerctl previous"
+
 # PageUp
 #bindsym Prior exec "pactl -- set-sink-volume 0 +1%"
 # PageDown
@@ -282,10 +287,6 @@ bindsym XF86MonBrightnessDown exec ~/.bin/brightness --dec 5
 bindsym XF86Search exec --no-startup-id rofi -show drun -config ~/.config/rofi/app_launcher_blurry.rasi
 bindsym XF86Calculator exec --no-startup-id $term -e calc -d
 bindsym XF86Tools exec $term -e $music_player &
-
-bindsym XF86AudioPrev exec --no-startup-id cmus-remote --prev
-bindsym XF86AudioNext exec --no-startup-id cmus-remote --next
-bindsym XF86AudioPlay exec --no-startup-id cmus-remote --pause
 # }}}
 
 # Screenshots {{{
