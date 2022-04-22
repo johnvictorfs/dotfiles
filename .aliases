@@ -15,9 +15,10 @@ alias se='sudoedit'
 alias SS='sudo systemctl'
 alias cp='cp -iv'
 alias ip='ip -c'
+alias gc='gc -S'
 
 alias revert_stash='git stash show -p | git apply -R'
-
+alias gcan='git commit --amend --no-edit'
 # Browse pacman packages with fzf search
 alias psearch="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 

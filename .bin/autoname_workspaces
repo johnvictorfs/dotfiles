@@ -91,8 +91,9 @@ WINDOW_ICONS = {
     'kitty': fa.icons['terminal'],
     'libreoffice': fa.icons['file-alt'],
     'lua5.1': fa.icons['moon'],
-    'mpv': '',
+    'mpv': fa.icons['video'],
     'telegram-desktop': '',
+    'signal': fa.icons['comment'],
     'mupdf': fa.icons['file-pdf'],
     'mysql-workbench-bin': fa.icons['database'],
     'org.gnome.Nautilus': fa.icons['folder'],
@@ -120,6 +121,8 @@ WINDOW_ICONS = {
     'zenity': fa.icons['window-maximize'],
     'zoom': fa.icons['comment'],
     'runescape': '',
+    'runelite': 'ﲅ',
+    'net-runelite-client-RuneLite': 'ﲅ',
 }
 
 # This icon is used for any application not in the list above

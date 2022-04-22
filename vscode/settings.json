@@ -1,9 +1,6 @@
 {
   "window.titleBarStyle": "native",
-  "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
-  "ruby.rubocop.useBundler": false,
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
   "explorer.confirmDragAndDrop": false,
@@ -37,14 +34,30 @@
       "source.fixAll.eslint": true
     }
   },
+  "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": true // enable rubocop via bundler
+    },
+    "reek": {
+      "useBundler": true // enable reek via bundler
+    }
+  },
+  "ruby.format": "rubocop",
   "[ruby]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "misogi.ruby-rubocop",
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "rebornix.ruby",
+    "editor.formatOnSave": true
   },
   "[vue]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "octref.vetur",
+  },
+  "[sql]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "mtxr.sqltools",
   },
   "[typescript]": {
     "editor.tabSize": 2,
@@ -162,7 +175,7 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "atlascode.jira.lastCreateSiteAndProject": {
     "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
-    "projectKey": "YURI"
+    "projectKey": ""
   },
   "files.associations": {
     "*.graphql": "graphql",
@@ -177,18 +190,6 @@
     }
   },
   "git.autofetch": true,
-  "ruby.rubocop.executePath": "/home/john/.ruby/bin/",
-  "ruby.useBundler": true, //run non-lint commands with bundle exec
-  "ruby.useLanguageServer": true, // use the internal language server (see below)
-  "ruby.lint": {
-    "rubocop": {
-      "useBundler": false // enable rubocop via bundler
-    },
-    "reek": {
-      "useBundler": true // enable reek via bundler
-    }
-  },
-  "ruby.format": "rubocop",
   "editor.wordWrap": "on",
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -222,11 +223,53 @@
     "jupyter-notebook": "left"
   },
   "atlascode.jira.enabled": true,
-  "workbench.colorTheme": "Ayu Mirage",
+  "workbench.colorTheme": "Halcyon",
   "terminal.integrated.sendKeybindingsToShell": true,
   "typescript.validate.enable": true,
   "editor.inlineSuggest.enabled": true,
   "workWeek.times.endTime": "08:00pm",
   "editor.linkedEditing": true,
-  "window.zoomLevel": -1
+  "mocha.files.glob": "test/**/*.ts",
+  "mocha.env": {
+    "TS_NODE_PROJECT": "tsconfig.json",
+    "TS_NODE_COMPILER_OPTIONS": "{\"module\": \"commonjs\"}"
+  },
+  "mochaExplorer.files": "test/**/*.ts",
+  "mochaExplorer.require": "ts-node/register",
+  "mochaExplorer.env": {
+    "TS_NODE_PROJECT": "tsconfig.json",
+    "TS_NODE_COMPILER_OPTIONS": "{\"module\": \"commonjs\"}"
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": true
+  },
+  "atlascode.bitbucket.enabled": true,
+  "rubyTestExplorer.logfile":	"/home/john/rubytest.log",
+  "rubyTestExplorer.testFramework":	"rspec",
+  "rubyTestExplorer.rspecCommand": "bundle exec rspec",
+  "workbench.startupEditor": "none",
+  "rust-client.engine": "rust-analyzer",
+  "rust-analyzer.inlayHints.enable": true,
+  "powermode.enabled": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.rubocop.onSave": false,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "maptz.regionfolder": {
+    "[ini]": {
+      // https://marketplace.visualstudio.com/items?itemName=maptz.regionfolder
+      // "foldStartRegex": ";[\\s\\w]*{{{[\\s]*(.*)",
+      // "foldEndRegex": ";[\\s]*}}}",
+      "foldStartRegex": "\\s*;\\s* {{{\\s*.*",
+      "foldEndRegex": "\\s*; }}}\\s*.*", 
+      "foldStart": "; [NAME] {{{",
+      "foldEnd": "; }}}",
+      "disableFolding": false
+    }
+  }
 }

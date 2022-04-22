@@ -73,6 +73,7 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable 
 for_window [window_type="menu"] floating enable
 for_window [window_type="launcher.exe"] floating enable
+for_window [instance="origin.exe"] floating enable
 
 for_window [title="alsamixer"] floating enable
 for_window [title="calc"] floating enable resize set 320 480 move position center
@@ -108,7 +109,7 @@ for_window [title="Microsoft Teams Notification"] floating enable
 for_window [title="john: flitter minecraft.scm"] floating enable sticky enable resize set 480 370
 
 # switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
+# for_window [urgent=latest] focus
 
 for_window [class=".*"] split toggle
 
@@ -265,14 +266,14 @@ bindsym $mod+q kill
 
 # Function Keybindings {{{
 # Use amixer to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +1%"
-bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -1%"
+bindsym XF86AudioRaiseVolume exec "pactl -- set-sink-volume 0 +2%"
+bindsym XF86AudioLowerVolume exec "pactl -- set-sink-volume 0 -2%"
 bindsym XF86AudioMute exec "pactl -- set-sink-mute @DEFAULT_SINK@ toggle"
 
 # PageUp
-bindsym Prior exec "pactl -- set-sink-volume 0 +1%"
+#bindsym Prior exec "pactl -- set-sink-volume 0 +1%"
 # PageDown
-bindsym Next exec "pactl -- set-sink-volume 0 -1%"
+#bindsym Next exec "pactl -- set-sink-volume 0 -1%"
 
 # Brightness controls
 bindsym XF86MonBrightnessUp exec ~/.bin/brightness --inc 5
