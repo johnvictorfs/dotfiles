@@ -54,7 +54,7 @@ MIDDLE=" — "
 # Enable icon in front of text
 # Includes , ,  and 
 # 1 = enabled, 0 = disabled
-ICONS="1"
+ICONS="0"
 
 # The text will be updated every INTERVAL
 # rotations, i. e. if DELAY is set to 0.2
@@ -64,7 +64,7 @@ ICONS="1"
 # meant to reduce an unnecessary high
 # number of dbus requests and minimize
 # resource usage.
-INTERVAL="5"
+INTERVAL="3"
 
 # If you have the i3 workspaces module,
 # you can set the amount of characters
