@@ -3,7 +3,7 @@
 # Name of your polybar bar, which will
 # run this script. The default bar is
 # named "example".
-BAR="top"
+BAR="example"
 
 # Set the name of the module, which
 # contains the play/pause button.
@@ -12,17 +12,17 @@ BAR="top"
 # Leave blank to disable play/pause
 # button functionality.
 # MODULE=""
-MODULE="playerctl-play-pause"
+MODULE="spotify-play-pause"
 
 # Set the name of desired mpris player,
 # such as firefox, spotify, chromium,
 # vlc or simply just playerctl.
-PLAYER="firefox"
+PLAYER="playerctl"
 
 # Set delay (in seconds) between rotating 
 # a single character of text (lower
 # number correspons to faster scrolling).
-DELAY="1"
+DELAY="0.2"
 
 # if you get errors for an invalid parameter,
 # try the solution below
@@ -54,7 +54,7 @@ MIDDLE=" — "
 # Enable icon in front of text
 # Includes , ,  and 
 # 1 = enabled, 0 = disabled
-ICONS="0"
+ICONS="1"
 
 # The text will be updated every INTERVAL
 # rotations, i. e. if DELAY is set to 0.2
@@ -64,7 +64,7 @@ ICONS="0"
 # meant to reduce an unnecessary high
 # number of dbus requests and minimize
 # resource usage.
-INTERVAL="3"
+INTERVAL="5"
 
 # If you have the i3 workspaces module,
 # you can set the amount of characters

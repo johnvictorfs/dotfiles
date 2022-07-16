@@ -14,6 +14,12 @@ PACKAGES=(
   firefox
   google-chrome
 
+  # Media control CLI
+  playerctl
+
+  # Volume control CLI
+  pamixer
+
   # Work messaging app
   slack-electron
 
@@ -77,6 +83,9 @@ PACKAGES=(
   # Display Manager (Login screen)
   lightdm
   lightdm-gtk-greeter
+
+  # Display server
+  xorg-server
 
   # File manager
   nautilus
@@ -270,3 +279,15 @@ fi
 [ $(command -v nitrogen) ] && input "${ORANGE}Update wallpaper with nitrogen?"
 [ $ANSWER ] && [ $(command -v nitrogen) ] && nitrogen --set-auto $IMAGES_FOLDER/solid_wallpaper_2.png
 
+# Setup lightdm
+sudo systemctl enable lightdm
+
+# Setup playerctl-scroller for polybar media control
+git clone https://github.com/jan146/playerctl-scroller.git
+cd playerctl-scroller
+git checkout bcee4d9f01a3c2fb86250c74ccedef8f62009118
+sudo make
+sudo make config
+sudo mv playerctl-scroller /usr/local/bin
+cd ..
+rm -rf playerctl-scroller
