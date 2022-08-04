@@ -155,3 +155,7 @@ prompt pure
 
 PURE_PROMPT_SYMBOL=""
 setopt auto_cd
+
+export N_PREFIX="$HOME/.n"
+export PATH="$N_PREFIX/bin:$PATH"
+
