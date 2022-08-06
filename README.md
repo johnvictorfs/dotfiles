@@ -11,7 +11,7 @@ Configuration files for zshrc (`.zshrc` and `.aliases`), Neovim (`init.vim`), Vs
 Instructions
 </summary>
 
-- **Before Installing:** Most packages will attempt to be installed with `pacman` (Arch Repository Package Manager) or `yay` (AUR Package Manager), some Python (pip) packages will be installed as well in the setup script. Even then most configuration is distro-agnostic, and you can read below what you can and cannot run depending if you're running an Arch-based distro or not. You can just answer 'n' to every installation prompt when running the below scripts if you're not using an Arch-based distro, and install the needed packages manually with your preferred package manager if necessary.
+- **Before Installing:** Most packages will attempt to be installed with `pacman` (Arch Repository Package Manager) or [`paru`](https://github.com/Morganamilo/paru) (AUR helper), some Python (pip) packages will be installed as well in the setup script. Even then most configuration is distro-agnostic, and you can read below what you can and cannot run depending if you're running an Arch-based distro or not. You can just answer 'n' to every installation prompt when running the below scripts if you're not using an Arch-based distro, and install the needed packages manually with your preferred package manager if necessary.
 
 
 - **Clone repository dotfiles to `~/dotfiles`:**
@@ -37,7 +37,7 @@ Instructions
   ```
 
 - **i3-gaps/rofi/kitty and some others Setup:**
-  > Installation with yay, config is distro-agnostic
+  > Installation with paru, config is distro-agnostic
 
   ```bash
   ./setup.sh
