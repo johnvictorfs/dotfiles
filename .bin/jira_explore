@@ -1,0 +1,9 @@
+#!/bin/bash
+
+JIRA_KEY=$(jira issue list --jql "(status = 'In Progress' or status = 'To Do') and assignee = '$(jira me)'"  --plain | fzf --reverse | cut -f2 -d$'\t')
+
+# Copy Jira key to primary selection
+echo $JIRA_KEY | xsel -i
+
+#JIRA_CODE=$(echo $JIRA_KEY | sed 's/.*-//g')
+#jira issue view $JIRA_CODE

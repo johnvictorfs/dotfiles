@@ -1,0 +1,188 @@
+; Add the includes
+
+(include "variables.yuck")
+(include "controls.yuck")
+(include "listeners.yuck")
+(include "metrics.yuck")
+(include "pollers.yuck")
+(include "revealer.yuck")
+
+
+(defwidget bar []
+  (centerbox :orientation "h"
+    (box :orientation "h" :space-evenly false (workspaces) )
+    (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} |   ${date}") )
+    (sidestuff)
+  )
+)
+
+(defwidget secondary_bar []
+  (centerbox :orientation "h"
+    (box :orientation "h" :space-evenly false (workspace_second) )
+    (box)
+    (box)
+  )
+)
+
+(defwidget workspaces []
+  (literal :class "workspaces" :content "${workspace}")
+)
+
+(defwidget workspace_second []
+  (literal :class "workspaces" :content "${workspace_second}")
+)
+
+(defwidget icon-module [icon ?class ?visible]
+  (box :class "${class} icon-module"
+    :orientation "h"
+    :halign "start"
+    :space-evenly false
+    :visible {visible ?: true} ; because the argument is optional
+    (label :class "icon-module__icon" :text "${icon}")
+    (children)
+  )
+)
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :spacing 10
+    (box :orientation "h" :spacing 2 :space-evenly false :halign "end"
+      (memory)
+      (cpu)
+      (network)
+      (volume)
+      (jira)
+      (spotify)
+      ; (notifications)
+      (battery)
+    )
+  )
+)
+(defwidget memory []
+  (metric :icon "" :value {EWW_RAM.used_mem_perc} :command "htop" :width 1200)
+)
+
+(defwidget cpu []
+  (metric :icon "" :value {EWW_CPU.avg} :command "htop" :width 1200)
+)
+
+(defwidget storage []
+  (metric :icon ""
+    :onclick "nautilus"
+    :value "${round(EWW_DISK["/"].used_perc, 0)}"
+  )
+)
+
+(defwidget music []
+  (box :class "music"
+    :orientation "h"
+    :space-evenly false
+    :halign "center"
+    {music != "" ? "🎵${music}" : ""}
+  )
+)
+
+(defwidget battery []
+  (box :class "battery bar-item"
+    :orientation "h"
+    :space-evenly false
+    :halign "center"
+    {battery != "" ? " ${EWW_BATTERY[battery].capacity}%" : ""}
+  )
+)
+
+(defwidget jira []
+  (termbutton :command "source ~/.env_vars && jira_explore" :class "jira bar-item" :text "" :width 1700)
+)
+
+(defwidget volume [?class]
+  (box :space-evenly false
+    :class "hover-module ${class}"
+    (revealer-on-hover :class "hl-on-hover"
+      :var revealVolume
+      :varname "revealVolume"
+      :transition "slideleft"
+      :class "volume"
+      (hovered-sign :var revealVolume
+        (label :class "volume" :text "")
+      )
+      (metric :icon ""
+        :value volume
+      :onchange "pamixer --set-volume {}")
+    " 墳 ")
+  )
+)
+
+(defwidget notifications [?class]
+  (box :space-evenly false
+    :class "hover-module ${class}"
+    (revealer-on-hover :class "hl-on-hover"
+      :var revealNotify
+      :varname "revealNotify"
+      :transition "slideleft"
+      :class "notifications"
+
+      (hovered-sign :var revealNotify
+        (label :class "notifications" :text "")
+        (label :class "notifications" :text "${lastNotifSummary}: ${lastNotifBody}")
+      )
+      (button (label :class "notifications" :text ""))
+    "  ")
+  )
+)
+
+(defwidget spotify [?class]
+  (box :space-evenly false
+    :class "hover-module ${class}"
+    (revealer-on-hover :class "hl-on-hover"
+      :var revealSpotify
+      :varname "revealSpotify"
+      :transition "slideleft"
+      :class "spotify"
+      (hovered-sign :var revealSpotify
+        (label :class "spotify" :text "")
+        (label :class "spotify" :text "")
+      )
+      (button :onclick "playerctl play-pause" (label :class "spotify" :text " ${music} "))
+    "  ${ musicStatus == "Playing" ? "" : "" }  ")
+  )
+)
+
+(defwidget network [?class]
+  (box :space-evenly false
+    :class "hover-module ${class}"
+    (revealer-on-hover :class "hl-on-hover"
+      :var revealNetwork
+      :varname "revealNetwork"
+      :transition "slideleft"
+      :class "network"
+      (hovered-sign :var revealNetwork
+        (label :class "network" :text "${EWW_NET[interfaceId].NET_DOWN == 0 ? '睊' : '直'}")
+        (label :class "network" :text "  ${EWW_NET[interfaceId].NET_DOWN} |  ${EWW_NET[interfaceId].NET_UP} ")
+      )
+    "${interfaceId == '' ? '睊' : '直'}")
+  )
+)
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+    :y "0%"
+    :width "90%"
+    :height "10px"
+  :anchor "top center")
+  :reserve (struts :side "top" :distance "4%")
+  (bar)
+)
+
+(defwindow secondary_bar
+  :monitor 1
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+    :y "0%"
+    :width "90%"
+    :height "10px"
+  :anchor "top center")
+  :reserve (struts :side "top" :distance "4%")
+  (secondary_bar)
+)

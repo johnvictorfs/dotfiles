@@ -1,5 +1,5 @@
 {
-  "window.titleBarStyle": "native",
+  "window.titleBarStyle": "custom",
   "terminal.integrated.fontFamily": "'Fira Code', monospace",
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
@@ -95,7 +95,11 @@
   },
   "[markdown]": {
     "editor.wordWrap": "on",
-    "editor.quickSuggestions": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
     "editor.tabSize": 2
   },
   "[html]": {
@@ -128,7 +132,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode/extensions/atlassian.atlascode-2.10.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -160,7 +164,7 @@
       "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
       "name": "YU (Freelance) - In Progress",
       "query": "assignee =610c70164e8d8d0069a6cbb0 AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"In Progress\") ORDER BY lastViewed DESC",
-      "enabled": true,
+      "enabled": false,
       "monitor": true
     },
     {
@@ -168,7 +172,7 @@
       "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
       "name": "YU (Freelance) - To Do",
       "query": "assignee =610c70164e8d8d0069a6cbb0 AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"To Do\") ORDER BY lastViewed DESC",
-      "enabled": true,
+      "enabled": false,
       "monitor": true
     }
   ],
@@ -223,7 +227,6 @@
     "jupyter-notebook": "left"
   },
   "atlascode.jira.enabled": true,
-  "workbench.colorTheme": "Halcyon",
   "terminal.integrated.sendKeybindingsToShell": true,
   "typescript.validate.enable": true,
   "editor.inlineSuggest.enabled": true,
@@ -282,5 +285,14 @@
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.suggest.jsdoc.generateReturns": false,
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "workbench.colorTheme": "Copilot Theme",
+  "workbench.sideBar.location": "right",
+  "debug.inlineValues": "on",
+  "gitlens.advanced.messages": {
+    "suppressRebaseSwitchToTextWarning": true
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.smoothScrolling": true
 }

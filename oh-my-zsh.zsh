@@ -47,7 +47,7 @@ if [ $ANSWER ]; then
   # Zinit plugin manager for ZSH
   # https://github.com/zdharma/zinit
   mkdir -p "$HOME/.zinit"
-  git clone https://github.com/zdharma/zinit.git "$HOME/.zinit/bin"
+  git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin"
 fi
 
 input "${ORANGE}Do you wish to install the pure prompt?"

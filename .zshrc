@@ -102,7 +102,7 @@ function cd() {
   # If env folder is found then activate the vitualenv
   function activate_venv() {
     if [[ -f "${DEFAULT_ENV_PATH}/bin/activate" ]]; then 
-      source "${DEFAULT_ENV_PATH}/bin/activate"
+# source "${DEFAULT_ENV_PATH}/bin/activate"  # commented out by conda initialize
       echo "Activating ${VIRTUAL_ENV}"
     fi
   }
@@ -133,7 +133,7 @@ function killport() {
   fi
 }
 
-export ANDROID_SDK="/home/john/Android/Sdk"
+export ANDROID_SDK="$HOME/Android/Sdk"
 
 # Ignore files/folders in .gitignore when searching with fzf 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -158,4 +158,20 @@ setopt auto_cd
 
 export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

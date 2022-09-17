@@ -136,3 +136,4 @@ dmypy.json
 
 *.out
 
+packer_compiled.lua

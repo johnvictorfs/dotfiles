@@ -1,6 +1,7 @@
 #!/bin/bash
 
-BAT_PATH=/sys/class/power_supply/BAT1
+BAT=$(/usr/bin/ls /sys/class/power_supply | grep BAT | head -n 1)
+BAT_PATH=/sys/class/power_supply/$BAT
 
 [ -d $BAT_PATH ] || exit 1
 

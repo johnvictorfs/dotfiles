@@ -1,0 +1,13 @@
+(defwidget metric [icon value ?onchange ?command ?class ?height ?width]
+  (box :orientation "h"
+    :class "metric"
+    :space-evenly false
+    (termbutton :command "${command}" :height "1000" :width "1000"  :text "${icon}")
+    (scale :class {class != "" ? class : value > 50 ? value > 75 ? "error" : "warning" : "normal"}
+      :min 0
+      :max 101
+      :active {onchange != ""}
+      :value value
+    :onchange onchange)
+  )
+)

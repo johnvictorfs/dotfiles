@@ -10,6 +10,9 @@ AUR_HELPER=paru
 IMAGES_FOLDER=$HOME/dotfiles/images
 
 PACKAGES=(
+  # CLI json processor
+  jq
+
   # Browser
   firefox
   google-chrome
@@ -32,8 +35,9 @@ PACKAGES=(
   # Go programming language, peer dependency of some things
   go
 
-  # Node.js package manager
-  yarn
+  # Node.js
+  yarn # Package manager
+  nodejs-n # Node.js version manager
 
   # Chat app
   telegram-desktop
@@ -142,10 +146,11 @@ PACKAGES=(
   calc # Terminal calculator
   python-dbus # Python API for dbus
   xclip # Clipboard utils
+  xsel # Clipboard utils
   maim # Screenshots
 
   # Audio Management
-  pipewire-pulse
+  # pipewire-pulse
 )
 
 PYTHON_PACKAGES=(
@@ -250,6 +255,7 @@ fi
 [ $ANSWER ] && [ -d $HOME/.config/rofi ] || ln -sf $HOME/dotfiles/rofi $HOME/.config
 
 ln -sf $HOME/dotfiles/picom $HOME/.config
+ln -sf $HOME/dotfiles/eww $HOME/.config
 
 # Start tlp if installed
 if [ -x "$(command -v tlp)" ]; then
@@ -281,13 +287,3 @@ fi
 
 # Setup lightdm
 sudo systemctl enable lightdm
-
-# Setup playerctl-scroller for polybar media control
-git clone https://github.com/jan146/playerctl-scroller.git
-cd playerctl-scroller
-git checkout bcee4d9f01a3c2fb86250c74ccedef8f62009118
-sudo make
-sudo make config
-sudo mv playerctl-scroller /usr/local/bin
-cd ..
-rm -rf playerctl-scroller

@@ -1,0 +1,12 @@
+(defpoll volume :interval "1s"  "scripts/getvol")
+
+(defpoll battery :interval "60s"  "/usr/bin/ls /sys/class/power_supply | grep BAT | head -n 1")
+
+(defpoll time :interval "10s"  "date '+%H:%M'")
+
+(defpoll date :interval "10s"  "date '+%b %d, %Y'")
+
+(defpoll interfaceId :interval "60s" "/usr/bin/ip -o link show | grep 'state UP' | awk -F': ' '{print $2}'")
+
+(defpoll lastNotifSummary :interval "5s" "dunstctl history | jq '.data[0][0].summary.data' -r || echo ''")
+(defpoll lastNotifBody :interval "5s" "dunstctl history | jq '.data[0][0].body.data' -r || echo ''")

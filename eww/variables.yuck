@@ -1,0 +1,5 @@
+(defvar revealSpotify false)
+(defvar revealGithub false)
+(defvar revealVolume false)
+(defvar revealNotify false)
+(defvar revealNetwork false)

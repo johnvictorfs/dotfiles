@@ -1,0 +1,214 @@
+@import "jvfs.scss";
+
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+}
+
+//Global Styles
+.bar {
+  background-color: $background;
+  color: $foreground;
+  padding: 5px;
+  font-size: 1em;
+  font-family: Hack Regular;
+}
+
+.bottombar {
+  background-color: $background;
+  color: $foreground;
+  padding: 5px;
+  font-size: 1em;
+  font-family: Hack Regular;
+}
+
+.icon-module {
+  margin: 0 5px;
+  & > &__icon {
+    margin-right: 5px;
+    font-family: "FiraCode Nerd Font Mono Font Awesome 5 Free Solid";
+  }
+}
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+.metric scale trough highlight {
+  all: unset;
+  background-color: $green;
+  color: $black;
+  border-radius: 10px;
+}
+
+.metric scale.warning trough highlight {
+  all: unset;
+  background-color: $yellow;
+  color: $black;
+  border-radius: 10px;
+}
+
+.metric scale.error trough highlight {
+  all: unset;
+  background-color: $error;
+  color: $black;
+  border-radius: 10px;
+}
+
+.metric scale.volume trough highlight {
+  all: unset;
+  background-color: $lightmagenta;
+  color: $black;
+  border-radius: 10px;
+}
+
+.metric scale trough {
+  all: unset;
+  background-color: $background-alt;
+  border-radius: 50px;
+  min-height: 5px;
+  min-width: 100px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.label-ram {
+  font-size: large;
+}
+
+.workspaces {
+  margin-left: 5px;
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 5px;
+  margin-right: 20px;
+
+  button {
+    font-family: "FiraCode Nerd Font Mono";
+    font-size: 1.5rem;
+    color: #a89984;
+    margin-left: 2px;
+    margin-right: 2px;
+
+    &.urgent {
+      color: #a87132;
+    }
+
+    &.focused {
+      color: $blue;
+
+      &.urgent {
+        color: $blue;
+      }
+    }
+  }
+}
+
+.datetime {
+  font-size: 1.15rem;
+  font-family: "FiraCode Nerd Font Mono JetBrains Mono";
+}
+
+.bar-item {
+  font-size: 1em;
+  color: $background;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+.battery {
+  background-color: $green;
+  padding: 4px;
+  margin: 2px;
+}
+
+.jira {
+  background-color: $blue;
+  border-radius: 4px;
+  padding: 4px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.spotify {
+  font-size: 1em;
+  background-color: $green;
+  color: $background;
+  border-radius: 4px;
+  padding: 1px;
+  margin: 2px;
+  font-family: "Font Awesome 5 Free Solid FiraCode Nerd Font Mono JetBrains Mono";
+}
+
+.spotify-text {
+  font-size: 1em;
+  background-color: $green;
+  color: $green;
+}
+
+.notifications {
+  border-radius: 4px;
+  padding: 1px;
+  margin: 2px;
+  font-size: 1em;
+  background-color: red;
+  color: $background;
+}
+
+.notifications-text {
+  font-size: 1em;
+  background-color: red;
+  color: $green;
+}
+
+.volume {
+  border-radius: 4px;
+  padding: 1px;
+  margin: 2px;
+  font-size: 1em;
+  background-color: $lightblue;
+  color: $background;
+}
+
+.network {
+  border-radius: 4px;
+  padding: 1px;
+  padding-left: 4px;
+  padding-right: 2px;
+  margin: 2px;
+  font-size: 1em;
+  background-color: $lightblue;
+  color: $background;
+}
+
+.uplink {
+  color: $lightmagenta;
+}
+
+.veryuplink {
+  color: $red;
+}
+
+.noactive {
+  color: $white;
+}
+
+.downlink {
+  color: $lightcyan;
+}
+
+.verydownlink {
+  color: $green;
+}
+
+.close {
+  background-color: $red;
+  color: $background;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+button:hover {
+  text-decoration: underline;
+  color: $foreground;
+}

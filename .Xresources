@@ -50,7 +50,7 @@ Xft.lcdfilter: lcddefault
 *backgroundContrastLight: #354b5e
 
 !! Background contrast (dark)
-*backgroundContrastDark: #243340
+*backgroundContrastDark: #0b0f10
 
 !! Disabled text
 *disabledText: #707070
