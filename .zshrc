@@ -16,8 +16,8 @@ export ZSH="/home/${USER}/.oh-my-zsh"
 
 alias src="source $HOME/.zshrc"
 
-export VISUAL="nvim"
-export EDITOR="vim"
+export VISUAL="helix"
+export EDITOR="helix"
 
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
 
@@ -39,18 +39,12 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-export GEM_HOME=$HOME/.ruby
-export PATH=$PATH:$HOME/.ruby/bin
-
-[ "$(command -v ruby)" ] && export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
-
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 if [ -x "$(command -v rbenv)" ]; then
     eval "$(rbenv init -)"
 fi
 
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 export PATH="/var/lib/flatpak/exports/bin:$PATH"
 
 # Adds `~/.bin` to $PATH

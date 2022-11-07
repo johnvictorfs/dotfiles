@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Misc aliases
 alias ls='exa --icons --group-directories-first'
 alias lst='ls -T'
@@ -9,7 +11,7 @@ alias g='git'
 alias i3c='vim ~/dotfiles/i3/config'
 alias vimc='vim ~/dotfiles/nvim/init.vim'
 alias p='sudo pacman'
-alias v='nvim'
+alias v='helix' # don't question it
 alias sv='sudo nvim'
 alias se='sudoedit'
 alias SS='sudo systemctl'
@@ -68,5 +70,5 @@ alias apps="cd /usr/share/applications"
 
 # Alias vi and vim to neovim
 [ -x "$(command -v nvim)" ] && alias vi=nvim && alias vim=nvim
-
+alias h="helix"
 alias aoemaps="cd $HOME/.steam/steam/steamapps/common/Age2HD/resources_common/drs/gamedata_x2"

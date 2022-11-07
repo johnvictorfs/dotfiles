@@ -20,7 +20,7 @@
   (centerbox :orientation "h"
     (box :orientation "h" :space-evenly false (workspace_second) )
     (box)
-    (box)
+    (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} |   ${date}") )
   )
 )
 
@@ -50,6 +50,7 @@
       (cpu)
       (network)
       (volume)
+      (notes)
       (jira)
       (spotify)
       ; (notifications)
@@ -91,7 +92,15 @@
 )
 
 (defwidget jira []
-  (termbutton :command "source ~/.env_vars && jira_explore" :class "jira bar-item" :text "" :width 1700)
+  (termbutton :command "source ~/.env_vars && jira_explore" :class "jira bar-item" :text "")
+)
+
+(defwidget notes []
+    (button
+      :class "notes bar-item"
+      :onclick "~/.bin/notes &"
+      (label :text "")
+    )
 )
 
 (defwidget volume [?class]

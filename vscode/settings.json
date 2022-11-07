@@ -220,7 +220,8 @@
   "debug.javascript.usePreview": false,
   "atlascode.jira.explorer.refreshInterval": 10,
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+    "*.ipynb": "jupyter-notebook",
+    "git-rebase-todo": "default"
   },
   "notebook.cellToolbarLocation": {
     "default": "right",
@@ -294,5 +295,7 @@
   },
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.stickyScroll.enabled": true,
-  "editor.smoothScrolling": true
+  "editor.smoothScrolling": true,
+  "editor.renderWhitespace": "trailing",
+  "githubPullRequests.pullBranch": "never"
 }
