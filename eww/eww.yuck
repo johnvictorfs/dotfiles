@@ -96,11 +96,11 @@
 )
 
 (defwidget notes []
-    (button
-      :class "notes bar-item"
-      :onclick "~/.bin/notes &"
-      (label :text "")
-    )
+  (button
+    :class "notes bar-item"
+    :onclick "~/.bin/notes &"
+    (label :text "")
+  )
 )
 
 (defwidget notifications [?class]
@@ -111,7 +111,7 @@
       :varname "revealNotify"
       :transition "slideleft"
       :class "notifications"
-
+      
       (hovered-sign :var revealNotify
         (label :class "notifications" :text "")
         (label :class "notifications" :text "${lastNotifSummary}: ${lastNotifBody}")
@@ -140,7 +140,7 @@
 )
 
 (defwidget volume [?class]
-  (box :space-evenly false
+  (eventbox :space-evenly false :onscroll "pamixer $([[ ${{}} = 'up' ]] && echo '-i' || echo '-d' ) 1"
     :class "hover-module ${class}"
     (revealer-on-hover :class "hl-on-hover"
       :onclick "pavucontrol &"
@@ -155,7 +155,7 @@
         :value volume
         :onchange "pamixer --set-volume {}"
       )
-    " 墳 ")
+    "墳")
   )
 )
 
