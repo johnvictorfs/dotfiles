@@ -106,24 +106,24 @@
 
 .datetime {
   font-size: 1.15rem;
+  color: $white;
   font-family: "FiraCode Nerd Font Mono JetBrains Mono";
 }
 
 .bar-item {
   font-size: 1em;
-  color: $background;
-  border-radius: 4px;
+  color: $white;
+  border-radius: 6px;
   margin: 2px;
+  // border: 0.01em solid $lightgray;
 }
 
 .battery {
-  background-color: $green;
   padding: 4px;
   margin: 2px;
 }
 
 .jira {
-  background-color: $blue;
   border-radius: 4px;
   padding: 4px;
   padding-left: 14px;
@@ -131,7 +131,6 @@
 }
 
 .notes {
-  background-color: $cyan;
   border-radius: 4px;
   padding: 4px;
   padding-left: 14px;
@@ -139,10 +138,9 @@
 }
 
 .spotify {
-  font-size: 1em;
-  background-color: $green;
-  color: $background;
+  font-size: 0.89em;
   border-radius: 4px;
+  color: $white;
   padding: 1px;
   margin: 2px;
   font-family: "Font Awesome 5 Free Solid FiraCode Nerd Font Mono JetBrains Mono";
@@ -159,13 +157,11 @@
   padding: 1px;
   margin: 2px;
   font-size: 1em;
-  background-color: red;
   color: $background;
 }
 
 .notifications-text {
   font-size: 1em;
-  background-color: red;
   color: $green;
 }
 
@@ -174,8 +170,7 @@
   padding: 1px;
   margin: 2px;
   font-size: 1em;
-  background-color: $lightblue;
-  color: $background;
+  color: $white;
 }
 
 .network {
@@ -185,8 +180,7 @@
   padding-right: 2px;
   margin: 2px;
   font-size: 1em;
-  background-color: $lightblue;
-  color: $background;
+  color: $white;
 }
 
 .uplink {

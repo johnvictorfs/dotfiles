@@ -8,6 +8,7 @@
       :max 101
       :active {onchange != ""}
       :value value
-    :onchange onchange)
+      :onchange onchange
+    )
   )
 )

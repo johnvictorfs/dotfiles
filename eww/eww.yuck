@@ -50,9 +50,9 @@
       (cpu)
       (network)
       (volume)
+      (spotify)
       (notes)
       (jira)
-      (spotify)
       ; (notifications)
       (battery)
     )
@@ -103,24 +103,6 @@
     )
 )
 
-(defwidget volume [?class]
-  (box :space-evenly false
-    :class "hover-module ${class}"
-    (revealer-on-hover :class "hl-on-hover"
-      :var revealVolume
-      :varname "revealVolume"
-      :transition "slideleft"
-      :class "volume"
-      (hovered-sign :var revealVolume
-        (label :class "volume" :text "")
-      )
-      (metric :icon ""
-        :value volume
-      :onchange "pamixer --set-volume {}")
-    " 墳 ")
-  )
-)
-
 (defwidget notifications [?class]
   (box :space-evenly false
     :class "hover-module ${class}"
@@ -147,12 +129,33 @@
       :varname "revealSpotify"
       :transition "slideleft"
       :class "spotify"
+      :onclick "playerctl play-pause"
       (hovered-sign :var revealSpotify
         (label :class "spotify" :text "")
         (label :class "spotify" :text "")
       )
       (button :onclick "playerctl play-pause" (label :class "spotify" :text " ${music} "))
     "  ${ musicStatus == "Playing" ? "" : "" }  ")
+  )
+)
+
+(defwidget volume [?class]
+  (box :space-evenly false
+    :class "hover-module ${class}"
+    (revealer-on-hover :class "hl-on-hover"
+      :onclick "pavucontrol &"
+      :var revealVolume
+      :varname "revealVolume"
+      :transition "slideleft"
+      :class "volume"
+      (hovered-sign :var revealVolume
+        (label :class "volume" :text "")
+      )
+      (metric :icon ""
+        :value volume
+        :onchange "pamixer --set-volume {}"
+      )
+    " 墳 ")
   )
 )
 
@@ -164,8 +167,12 @@
       :varname "revealNetwork"
       :transition "slideleft"
       :class "network"
+      :onclick "kitty -- sh -c 'i3-msg floating enable && nmtui' &"
       (hovered-sign :var revealNetwork
-        (label :class "network" :text "${EWW_NET[interfaceId].NET_DOWN == 0 ? '睊' : '直'}")
+        (label :class "network" :text "")
+      )
+      (hovered-sign :var revealNetwork
+        (termbutton :command "nmtui" :class "bar-item" :text "${EWW_NET[interfaceId].NET_DOWN == 0 ? '睊' : '直'}" :width "1200" :height "900")
         (label :class "network" :text "  ${EWW_NET[interfaceId].NET_DOWN} |  ${EWW_NET[interfaceId].NET_UP} ")
       )
     "${interfaceId == '' ? '睊' : '直'}")
