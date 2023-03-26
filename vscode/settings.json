@@ -21,7 +21,7 @@
   },
   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.cursorBlinking": "phase",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontSize": 17,
   "editor.minimap.enabled": false,
   "editor.fontLigatures": true,
@@ -48,7 +48,7 @@
   "ruby.format": "rubocop",
   "[ruby]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "rebornix.ruby",
+    "editor.defaultFormatter": "misogi.ruby-rubocop",
     "editor.formatOnSave": true
   },
   "[vue]": {
@@ -73,25 +73,26 @@
       "source.fixAll.tslint": true,
       "source.fixAll.eslint": true
     },
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[json]": {
     "editor.quickSuggestions": {
       "strings": true
     },
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[jsonc]": {
     "editor.quickSuggestions": {
       "strings": true
     },
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[python]": {
     "editor.tabSize": 4,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
   },
   "[markdown]": {
     "editor.wordWrap": "on",
@@ -132,7 +133,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -250,7 +251,7 @@
     "plaintext": false,
     "markdown": true
   },
-  "atlascode.bitbucket.enabled": true,
+  "atlascode.bitbucket.enabled": false,
   "rubyTestExplorer.logfile":	"/home/john/rubytest.log",
   "rubyTestExplorer.testFramework":	"rspec",
   "rubyTestExplorer.rspecCommand": "bundle exec rspec",
@@ -296,6 +297,12 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.stickyScroll.enabled": true,
   "editor.smoothScrolling": true,
-  "editor.renderWhitespace": "trailing",
-  "githubPullRequests.pullBranch": "never"
+  "githubPullRequests.pullBranch": "never",
+  "errorLens.gutterIconsEnabled": true,
+  "editor.renderWhitespace": "boundary",
+  "react-native-tools.showUserTips": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "atlascode.bitbucket.contextMenus.enabled": false,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "rubyLsp.formatter": "none"
 }

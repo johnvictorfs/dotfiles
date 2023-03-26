@@ -10,3 +10,6 @@
 
 (defpoll lastNotifSummary :interval "5s" "dunstctl history | jq '.data[0][0].summary.data' -r || echo ''")
 (defpoll lastNotifBody :interval "5s" "dunstctl history | jq '.data[0][0].body.data' -r || echo ''")
+
+; 'true' if audio input is muted, 'false' if not
+(defpoll microphoneMuted :interval "1s" "pamixer --source $(pamixer --list-sources | grep input | head -n1 | awk '{print $1;}') --get-mute")

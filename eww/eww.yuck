@@ -49,6 +49,7 @@
       (memory)
       (cpu)
       (network)
+      (microphone)
       (volume)
       (spotify)
       (notes)
@@ -128,7 +129,7 @@
       :var revealSpotify
       :varname "revealSpotify"
       :transition "slideleft"
-      :class "spotify"
+      :class "spotify spotify-${musicStatus}"
       :onclick "playerctl play-pause"
       (hovered-sign :var revealSpotify
         (label :class "spotify" :text "")
@@ -136,6 +137,14 @@
       )
       (button :onclick "playerctl play-pause" (label :class "spotify" :text " ${music} "))
     "  ${ musicStatus == "Playing" ? "" : "" }  ")
+  )
+)
+
+(defwidget microphone [?class]
+  (button
+    :class "microphone microphone-muted-${microphoneMuted} bar-item"
+    :onclick "pamixer --source $(pamixer --list-sources | grep input | head -n1 | awk '{print $1;}') -t"
+    (label :text "${microphoneMuted == 'true' ? '' : ''}")
   )
 )
 
@@ -163,10 +172,10 @@
   (box :space-evenly false
     :class "hover-module ${class}"
     (revealer-on-hover :class "hl-on-hover"
-      :var revealNetwork
+      :var revealNetwork 
       :varname "revealNetwork"
       :transition "slideleft"
-      :class "network"
+      :class "network network-${interfaceId == '' ? 'offline' : 'online'}"
       :onclick "kitty -- sh -c 'i3-msg floating enable && nmtui' &"
       (hovered-sign :var revealNetwork
         (label :class "network" :text "")

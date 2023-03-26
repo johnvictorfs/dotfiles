@@ -7,9 +7,9 @@
 set $mod Mod4
 set $term kitty
 set $browser brave
-set $filemanager nautilus
+set $filemanager thunar
 set $i3resize ~/.bin/i3cmds/i3resize
-set $editor helix
+set $editor lvim
 set $music_player cmus
 set $browser firefox
 
@@ -104,6 +104,8 @@ for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="livesplit-one"] floating enable sticky enable
 for_window [title="Yuri LinkedIn Importer"] floating enable sticky enable
 for_window [class="Xfburn"] floating enable
+for_window [title="Android Emulator"] floating enable
+for_window [title="File Operation Progress"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [title="john: flitter minecraft.scm"] floating enable sticky enable resize set 480 370
 for_window [class="obsidian"] floating enable resize set 1280 720 move position center sticky enable
@@ -168,7 +170,7 @@ gaps outer 5
 #gaps top 42 # Gap for polybar
 
 # rounded borders
-border_radius 10
+border_radius 16
 # }}}
 
 # General Keybindings {{{
@@ -294,8 +296,9 @@ bindsym XF86Tools exec $term -e $music_player &
 
 # Screenshots {{{
 # Desktop screenshot
-bindsym --release $mod+Print exec --no-startup-id $screenshot_fullscreen
 bindsym --release $mod+Shift+Print exec --no-startup-id sleep 2 && $screenshot_fullscreen # delay screenshot
+bindsym --release $mod+Print exec --no-startup-id $screenshot_fullscreen
+bindsym --release Ctrl+Print exec flameshot gui --region 3840x1080+0+0
 bindsym --release $mod+Insert exec --no-startup-id $screenshot_fullscreen
 
 # Selection screenshot

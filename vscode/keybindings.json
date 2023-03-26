@@ -5,6 +5,13 @@
     "command": "workbench.action.terminal.new"
   },
   {
+    "key": "ctrl+f8",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "docker attach $(docker ps | grep yuri-yuri | head -n1 | awk '{print $1;}')"
+    }
+  },
+  {
     "key": "ctrl+alt+z",
     "command": "workbench.action.toggleZenMode"
   },

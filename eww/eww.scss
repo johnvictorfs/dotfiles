@@ -120,18 +120,21 @@
 .battery {
   padding: 4px;
   margin: 2px;
+  margin-right: 4px;
 }
 
 .jira {
   border-radius: 4px;
   padding: 4px;
+  margin: -4px;
   padding-left: 14px;
   padding-right: 14px;
 }
 
 .notes {
   border-radius: 4px;
-  padding: 4px;
+  padding: 1px;
+  margin: -4px;
   padding-left: 14px;
   padding-right: 14px;
 }
@@ -143,6 +146,10 @@
   padding: 1px;
   margin: 2px;
   font-family: "Font Awesome 5 Free Solid FiraCode Nerd Font Mono JetBrains Mono";
+}
+
+.spotify-Playing {
+  color: $green;
 }
 
 .spotify-text {
@@ -172,6 +179,20 @@
   color: $white;
 }
 
+.microphone {
+  border-radius: 4px;
+  font-size: 0.8em;
+  margin: 6px;
+}
+
+.microphone-muted-true {
+  color: $red;
+}
+
+.microphone-muted-false {
+  color: $white;
+}
+
 .network {
   border-radius: 4px;
   padding: 1px;
@@ -180,6 +201,10 @@
   margin: 2px;
   font-size: 1em;
   color: $white;
+}
+
+.network-offline {
+  color: $red;
 }
 
 .uplink {

@@ -16,8 +16,8 @@ export ZSH="/home/${USER}/.oh-my-zsh"
 
 alias src="source $HOME/.zshrc"
 
-export VISUAL="helix"
-export EDITOR="helix"
+export VISUAL="lvim"
+export EDITOR="lvim"
 
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt
 
