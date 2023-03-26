@@ -148,8 +148,12 @@
   font-family: "Font Awesome 5 Free Solid FiraCode Nerd Font Mono JetBrains Mono";
 }
 
+.spotify-open {
+  padding-top: 4px;
+}
+
 .spotify-Playing {
-  color: $green;
+  color: $secondaryblue;
 }
 
 .spotify-text {

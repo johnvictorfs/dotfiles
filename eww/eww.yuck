@@ -10,7 +10,7 @@
 
 (defwidget bar []
   (centerbox :orientation "h"
-    (box :orientation "h" :space-evenly false (workspaces) )
+    (box :orientation "h" :space-evenly false (workspaces) (spotify-open) )
     (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} |   ${date}") )
     (sidestuff)
   )
@@ -51,7 +51,6 @@
       (network)
       (microphone)
       (volume)
-      (spotify)
       (notes)
       (jira)
       ; (notifications)
@@ -119,6 +118,14 @@
       )
       (button (label :class "notifications" :text ""))
     "  ")
+  )
+)
+
+(defwidget spotify-open [?class]
+  (box
+    :class "spotify spotify-open spotify-${musicStatus}"
+    :onclick "playerctl play-pause"
+    (button :onclick "playerctl play-pause" (label :class "spotify spotify-${musicStatus}" :text "${ musicStatus == "Playing" ? "" : "" }   ${music}"))
   )
 )
 
