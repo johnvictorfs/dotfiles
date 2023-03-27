@@ -5,4 +5,8 @@
   foreground:       #bdbdbd;
   on:               #66bb6a;
   off:              #ef5350;
+  background-alt: #282B31FF;
+  selected:       #61AFEFFF;
+  active:         #98C379FF;
+  urgent:         #E06C75FF;
 }

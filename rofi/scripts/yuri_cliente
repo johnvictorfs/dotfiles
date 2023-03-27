@@ -1,4 +1,0 @@
-#!/bin/bash
-
-cd ~/projects/yu-client-area
-yarn serve
