@@ -1,6 +1,7 @@
 {
   "window.titleBarStyle": "custom",
-  "terminal.integrated.fontFamily": "'Fira Code', monospace",
+  "terminal.integrated.fontFamily": "'Fantasque Sans Mono', 'FiraCode Nerd Font Mono', 'Fira Code', monospace",
+  "editor.fontFamily": "'Fantasque Sans Mono', 'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
   "explorer.confirmDragAndDrop": false,
@@ -19,7 +20,6 @@
     "**/.settings": true,
     "**/.factorypath": true
   },
-  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontSize": 17,
@@ -48,7 +48,6 @@
   "ruby.format": "rubocop",
   "[ruby]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "misogi.ruby-rubocop",
     "editor.formatOnSave": true
   },
   "[vue]": {
@@ -57,7 +56,6 @@
   },
   "[sql]": {
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "mtxr.sqltools",
   },
   "[typescript]": {
     "editor.tabSize": 2,
@@ -133,7 +131,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -204,7 +202,6 @@
   "solargraph.commandPath": "/home/john/.ruby/bin/solargraph",
   "redhat.telemetry.enabled": false,
   "terminal.external.linuxExec": "kitty",
-  "python.sortImports.path": "isort",
   "python.languageServer": "Pylance",
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.typeCheckingMode": "basic",
@@ -248,12 +245,13 @@
   "github.copilot.enable": {
     "*": true,
     "yaml": true,
-    "plaintext": false,
-    "markdown": true
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false
   },
   "atlascode.bitbucket.enabled": false,
-  "rubyTestExplorer.logfile":	"/home/john/rubytest.log",
-  "rubyTestExplorer.testFramework":	"rspec",
+  "rubyTestExplorer.logfile": "/home/john/rubytest.log",
+  "rubyTestExplorer.testFramework": "rspec",
   "rubyTestExplorer.rspecCommand": "bundle exec rspec",
   "workbench.startupEditor": "none",
   "rust-client.engine": "rust-analyzer",
@@ -271,7 +269,7 @@
       // "foldStartRegex": ";[\\s\\w]*{{{[\\s]*(.*)",
       // "foldEndRegex": ";[\\s]*}}}",
       "foldStartRegex": "\\s*;\\s* {{{\\s*.*",
-      "foldEndRegex": "\\s*; }}}\\s*.*", 
+      "foldEndRegex": "\\s*; }}}\\s*.*",
       "foldStart": "; [NAME] {{{",
       "foldEnd": "; }}}",
       "disableFolding": false
@@ -288,7 +286,6 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.suggest.jsdoc.generateReturns": false,
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "workbench.colorTheme": "Copilot Theme",
   "workbench.sideBar.location": "right",
   "debug.inlineValues": "on",
   "gitlens.advanced.messages": {
@@ -304,5 +301,9 @@
   "security.workspace.trust.untrustedFiles": "open",
   "atlascode.bitbucket.contextMenus.enabled": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "rubyLsp.formatter": "none"
+  "rubyLsp.formatter": "none",
+  "rubyLsp.rubyVersionManager": "none",
+  "workbench.colorTheme": "Dracula Soft",
+  "window.zoomLevel": 1,
+  "vim.smartRelativeLine": true
 }

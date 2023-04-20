@@ -20,6 +20,10 @@
     "command": "-workbench.action.toggleZenMode"
   },
   {
+    "key": "ctrl+shift+e",
+    "command": "cursorLineEndSelect"
+  },
+  {
     "key": "ctrl+f1",
     "command": "-workbench.action.showErrorsWarnings",
     "when": "editorTextFocus"
