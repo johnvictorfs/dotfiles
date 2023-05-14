@@ -1,3 +1,5 @@
+export PATH="$(pyenv root)/shims:$PATH"
+
 # Load Zgenom Plugin Manager for ZSH
 if [[ -f "${HOME}/.zgenom/zgenom.zsh" ]]; then
   source "${HOME}/.zgenom/zgenom.zsh"
@@ -147,7 +149,7 @@ fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 
-PURE_PROMPT_SYMBOL=""
+PURE_PROMPT_SYMBOL=""
 setopt auto_cd
 
 export N_PREFIX="$HOME/.n"
@@ -169,3 +171,13 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# pnpm
+export PNPM_HOME="/home/john/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+alias pnpx='pnpm dlx'

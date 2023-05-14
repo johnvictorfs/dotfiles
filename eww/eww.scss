@@ -78,7 +78,7 @@
 
 .workspaces {
   margin-left: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
   padding-left: 10px;
   padding-right: 5px;
   margin-right: 20px;
@@ -86,9 +86,15 @@
   button {
     font-family: "FiraCode Nerd Font Mono";
     font-size: 1.5rem;
-    color: #a89984;
     margin-left: 2px;
     margin-right: 2px;
+    color: $card-foreground;
+    background-color: $card-background;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-bottom: 9px;
+    margin-top: 3px;
+    border-radius: 8px;
 
     &.urgent {
       color: #a87132;
@@ -120,7 +126,7 @@
 .battery {
   padding: 4px;
   margin: 2px;
-  margin-right: 4px;
+  margin-right: 10px;
 }
 
 .jira {
@@ -140,20 +146,22 @@
 }
 
 .spotify {
-  font-size: 0.89em;
   border-radius: 4px;
-  color: $white;
-  padding: 1px;
+  background-color: $card-background;
   margin: 2px;
+  padding-left: 6px;
   font-family: "Font Awesome 5 Free Solid FiraCode Nerd Font Mono JetBrains Mono";
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-right: 6px;
 }
 
 .spotify-open {
-  padding-top: 4px;
+  padding-top: 0px;
 }
 
 .spotify-Playing {
-  color: $secondaryblue;
+  color: $green;
 }
 
 .spotify-text {
@@ -203,6 +211,7 @@
   padding-left: 4px;
   padding-right: 2px;
   margin: 2px;
+  margin-right: 4px;
   font-size: 1em;
   color: $white;
 }

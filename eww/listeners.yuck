@@ -1,9 +1,9 @@
 (deflisten music
   :initial ""
   :onchange "eww update revealSpotify=true && sleep 5 && eww update revealSpotify=false"
-"playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+"playerctl --follow metadata -p spotify --format '{{ artist }} - {{ title }}' || true")
 
-(deflisten musicStatus "playerctl --follow status || true")
+(deflisten musicStatus "playerctl --follow status  -p spotify || true")
 
 (deflisten workspace "cd $HOME/.config/eww/src/workspaces && /usr/bin/go run main.go 0")
 (deflisten workspace_second "cd $HOME/.config/eww/src/workspaces && /usr/bin/go run main.go 2")

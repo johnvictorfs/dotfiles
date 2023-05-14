@@ -1,7 +1,7 @@
 {
   "window.titleBarStyle": "custom",
   "terminal.integrated.fontFamily": "'Fantasque Sans Mono', 'FiraCode Nerd Font Mono', 'Fira Code', monospace",
-  "editor.fontFamily": "'Fantasque Sans Mono', 'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontFamily": "'Fantasque Sans Mono', 'FiraCode Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
   "explorer.confirmDragAndDrop": false,
@@ -244,10 +244,10 @@
   },
   "github.copilot.enable": {
     "*": true,
-    "yaml": true,
     "plaintext": true,
     "markdown": true,
-    "scminput": false
+    "scminput": false,
+    "yaml": true
   },
   "atlascode.bitbucket.enabled": false,
   "rubyTestExplorer.logfile": "/home/john/rubytest.log",

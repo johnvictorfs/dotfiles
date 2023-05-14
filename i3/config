@@ -7,7 +7,7 @@
 set $mod Mod4
 set $term kitty
 set $browser brave
-set $filemanager thunar
+set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
 set $editor lvim
 set $music_player cmus
@@ -302,13 +302,13 @@ bindsym --release Ctrl+Print exec flameshot gui --region 3840x1080+0+0
 bindsym --release $mod+Insert exec --no-startup-id $screenshot_fullscreen
 
 # Selection screenshot
-bindsym --release Print exec --no-startup-id $screenshot_selection
-bindsym --release Insert exec --no-startup-id $screenshot_selection
+bindsym --release Print exec --no-startup-id flameshot gui # --no-startup-id $screenshot_selection
+bindsym --release Insert exec --no-startup-id flameshot gui # --no-startup-id $screenshot_selection
 # }}}
 
 # Startup apps {{{
 # Auto-name workspaces with app icons
-exec_always --no-startup-id ~/.bin/autoname_workspaces &
+exec_always --no-startup-id ~/.bin/autoname_workspaces --icon_list_format mathematician &
 
 # Japanese input
 exec --no-startup-id fcitx -d

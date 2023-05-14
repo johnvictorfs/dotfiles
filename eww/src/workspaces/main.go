@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"strings"
 
 	"go.i3wm.org/i3/v4"
 )
@@ -67,13 +66,13 @@ func updateWorkspaces(outputIndex int) {
 			class = "focused"
 		}
 
-		var names = strings.Split(workspace.Name, ":")
-		var name_only = names[len(names)-1]
+		// var names = strings.Split(workspace.Name, ":")
+		// var name_only = names[len(names)-1]
 
 		// If workspace doesn't have an icon, just use the workspace number instead
-		if strings.TrimSpace(name_only) == "" {
-			name_only = fmt.Sprint(workspace.Num)
-		}
+		// if strings.TrimSpace(name_only) == "" {
+		// 	name_only = fmt.Sprint(workspace.Num)
+		// }
 
 		fmt.Printf(
 			`(button `+
@@ -82,7 +81,7 @@ func updateWorkspaces(outputIndex int) {
 				`(label :text '%s'))`,
 			workspace.Name,
 			class,
-			name_only,
+			workspace.Name,
 		)
 	}
 

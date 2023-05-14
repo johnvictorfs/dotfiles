@@ -11,7 +11,7 @@
 (defwidget bar []
   (centerbox :orientation "h"
     (box :orientation "h" :space-evenly false (workspaces) (spotify-open) )
-    (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} |   ${date}") )
+    (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} | 󰸗  ${date}") )
     (sidestuff)
   )
 )
@@ -20,7 +20,7 @@
   (centerbox :orientation "h"
     (box :orientation "h" :space-evenly false (workspace_second) )
     (box)
-    (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} |   ${date}") )
+    (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} | 󰸗  ${date}") )
   )
 )
 
@@ -87,19 +87,19 @@
     :orientation "h"
     :space-evenly false
     :halign "center"
-    {battery != "" ? " ${EWW_BATTERY[battery].capacity}%" : ""}
+    {battery != "" ? "󰁹 ${EWW_BATTERY[battery].capacity}%" : ""}
   )
 )
 
 (defwidget jira []
-  (termbutton :command "source ~/.env_vars && jira_explore" :class "jira bar-item" :text "")
+  (termbutton :command "source ~/.env_vars && jira_explore" :class "jira bar-item" :text "󰌃")
 )
 
 (defwidget notes []
   (button
     :class "notes bar-item"
     :onclick "~/.bin/notes &"
-    (label :text "")
+    (label :text "")
   )
 )
 
@@ -124,8 +124,8 @@
 (defwidget spotify-open [?class]
   (box
     :class "spotify spotify-open spotify-${musicStatus}"
-    :onclick "playerctl play-pause"
-    (button :onclick "playerctl play-pause" (label :class "spotify spotify-${musicStatus}" :text "${ musicStatus == "Playing" ? "" : "" }   ${music}"))
+    :onclick "playerctl play-pause -p spotify"
+    (button :onclick "playerctl play-pause -p spotify" (label :class "spotify spotify-${musicStatus}" :text "${ musicStatus == "Playing" ? "" : "" }  ${music}"))
   )
 )
 
@@ -171,7 +171,7 @@
         :value volume
         :onchange "pamixer --set-volume {}"
       )
-    "墳")
+    "󰕾")
   )
 )
 
@@ -191,7 +191,7 @@
         (termbutton :command "nmtui" :class "bar-item" :text "${EWW_NET[interfaceId].NET_DOWN == 0 ? '睊' : '直'}" :width "1200" :height "900")
         (label :class "network" :text "  ${EWW_NET[interfaceId].NET_DOWN} |  ${EWW_NET[interfaceId].NET_UP} ")
       )
-    "${interfaceId == '' ? '睊' : '直'}")
+    "${interfaceId == '' ? '󰖪' : '󰖩'}")
   )
 )
 

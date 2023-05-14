@@ -30,11 +30,11 @@ def construct_workspace_name(parts):
     new_name = str(parts.num)
 
     if parts.icons:
-        new_name += ':'
+        new_name += '' # or ':'
         # Only add first icon
         new_name += ' ' + parts.icons.split(' ')[0]
     else:
-        new_name += ':'
+        new_name += '' # or ':'
         new_name += f' {parts.num}'
 
     return new_name
