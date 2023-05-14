@@ -1,6 +1,8 @@
 # My Dotfiles
 
-Configuration files for zshrc (`.zshrc` and `.aliases`), Neovim (`init.vim`), Vscode, i3-gaps and others
+Configuration files for zshrc, Neovim, Vscode, i3-gaps, eww and others
+
+![image](images/screenshots/nvim.png)
 
 ---
 
@@ -53,18 +55,6 @@ Instructions
 
 ---
 
-## i3-gaps (rounded) and Kitty Setup
-
-![image](images/screenshots/firefox.png)
-
-![image](images/screenshots/app_launcher.png)
-
-## Neovim setup ([ayu-theme (dark)](https://github.com/ayu-theme/ayu-vim))
-
-![image](images/screenshots/nvim.png)
-
----
-
 ## i3 Keybinds
 
 <details>
@@ -77,7 +67,6 @@ Keybinds
 | Key | Action |
 |-----|--------|
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>i</kbd> | Open i3 config file in nvim |
-| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>p</kbd> | Open Polybar config file in nvim |
 | <kbd>$mod</kbd> + <kbd>h</kbd> | Switch to Horizontal tiling |
 | <kbd>$mod</kbd> + <kbd>v</kbd> | Switch to Vertical tiling |
 | <kbd>$mod</kbd> + <kbd><1-8></kbd> | Switch Workspace |
@@ -87,6 +76,7 @@ Keybinds
 | <kbd>$mod</kbd> + <kbd>Ctrl</kbd> + <kbd>m</kbd> | Open audio settings |
 | <kbd>$mod</kbd> + <kbd>f</kbd> | Toggle Active Window Full-screen |
 | <kbd>$mod</kbd> + <kbd>Return</kbd> | Open Terminal Window |
+| <kbd>$mod</kbd> + <kbd>n</kbd> | Open Notes |
 | <kbd>$mod</kbd> + <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> <kbd>&darr;</kbd> | Switch Active Window |
 | <kbd>$mod</kbd> + <kbd>Ctrl</kbd> + <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> | Resize active window |
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd> <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> <kbd>&darr;</kbd> | Move Active Window |
@@ -96,8 +86,7 @@ Keybinds
 | <kbd>$mod</kbd> + <kbd>F2</kbd> | Open Music Player |
 | <kbd>$mod</kbd> + <kbd>c</kbd> | Open Windowed Terminal Calculator |
 | <kbd>$mod</kbd> + <kbd>q</kbd> | Close active Window |
-| <kbd>PrtScr</kbd> | Region selection Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
-| <kbd>$mod</kbd> + <kbd>PrtScr</kbd> | Full Display Screenshot (Saved to `~/Pictures/Screenshots` and copied to clipboard) |
+| <kbd>PrtScr</kbd> | Region selection Screenshot with Flameshot |
 | <kbd>Volume Up/Down</kbd> | Increase/Decrease Volume with Fn keys |
 | <kbd>Volume Mute</kbd> | Mute/Unmute Volume with Fn keys |
 | <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | Reload i3 config file |
@@ -115,9 +104,8 @@ Keybinds
 - Terminal Emulator: [kitty](https://github.com/kovidgoyal/kitty)
 - Window Manager: [i3 (gaps + rounded fork)](https://github.com/resloved/i3)
 - Application Launcher, Power Menu etc.: [rofi](https://github.com/davatorium/rofi)
-- Status Bar: [polybar](https://github.com/polybar/polybar)
+- Status Bar: [eww](https://github.com/elkowar/eww)
 - Wallpaper manager: [nitrogen](https://wiki.archlinux.org/index.php/Nitrogen)
 - Compositor: [picom](https://github.com/yshui/picom)
 - Shell: [zsh](https://www.zsh.org/)
 - Shell manager: [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
-

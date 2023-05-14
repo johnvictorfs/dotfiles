@@ -39,9 +39,6 @@ PACKAGES=(
   yarn # Package manager
   nodejs-n # Node.js version manager
 
-  # Chat app
-  telegram-desktop
-
   # Japanese input
   fcitx-im
   fcitx-configtool
@@ -148,6 +145,7 @@ PACKAGES=(
   xclip # Clipboard utils
   xsel # Clipboard utils
   maim # Screenshots
+  flameshot # Screenshots, breaks less often than maim
 
   # Audio Management
   # pipewire-pulse
