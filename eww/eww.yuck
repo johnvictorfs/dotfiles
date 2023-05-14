@@ -11,8 +11,8 @@
 (defwidget bar []
   (centerbox :orientation "h"
     (box :orientation "h" :space-evenly false (workspaces) (spotify-open) )
-    (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} | 󰸗  ${date}") )
-    (sidestuff)
+    (box :orientation "h" :space-evenly false (label :class "datetime" :text "󱑏  ${time}     󰸗  ${date}") )
+    (applets)
   )
 )
 
@@ -43,11 +43,10 @@
   )
 )
 
-(defwidget sidestuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :spacing 10
-    (box :orientation "h" :spacing 2 :space-evenly false :halign "end"
+(defwidget applets []
+  (box :class "applets" :orientation "h" :space-evenly false :halign "end" :spacing 10
+    (box :orientation "h" :spacing 2 :space-evenly false :halign "end" :class "applets"
       (memory)
-      (cpu)
       (network)
       (microphone)
       (volume)

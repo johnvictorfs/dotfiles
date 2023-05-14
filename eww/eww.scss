@@ -13,6 +13,13 @@
   font-family: Hack Regular;
 }
 
+.applets {
+  background-color: $card-background;
+  margin: 6px;
+  padding-left: 4px;
+  border-radius: 8px;
+}
+
 .bottombar {
   background-color: $background;
   color: $foreground;
@@ -29,7 +36,7 @@
   }
 }
 
-.sidestuff slider {
+.applets slider {
   all: unset;
   color: #ffd5cd;
 }
@@ -133,6 +140,7 @@
   border-radius: 4px;
   padding: 4px;
   margin: -4px;
+  margin-left: -5px;
   padding-left: 14px;
   padding-right: 14px;
 }
