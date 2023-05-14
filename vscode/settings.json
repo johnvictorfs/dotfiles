@@ -52,7 +52,7 @@
   },
   "[vue]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "octref.vetur",
+    "editor.defaultFormatter": "Vue.volar",
   },
   "[sql]": {
     "editor.tabSize": 4,
