@@ -120,9 +120,9 @@ WINDOW_ICONS = {
     'yelp': fa.icons['code'],
     'zenity': fa.icons['window-maximize'],
     'zoom': fa.icons['comment'],
-    'runescape': '',
-    'runelite': 'ﲅ',
-    'net-runelite-client-RuneLite': 'ﲅ',
+    'runescape': 'ﲅ',
+    'runelite': '󰓥',
+    'net-runelite-client-RuneLite': '󰓥',
 }
 
 # This icon is used for any application not in the list above
