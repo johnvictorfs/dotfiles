@@ -296,6 +296,14 @@ if [ $ANSWER ]; then
   ln -sf $HOME/dotfiles/neofetch/config.conf $HOME/.config/neofetch
 fi
 
+if [ -d $HOME/.config/hypr ]; then
+  rm -rf $HOME/.config/hypr.backup
+  mv $HOME/.config/hypr $HOME/.config/hypr.backup
+  echo -e "${ORANGE}Renamed current ${RED}~/.config/hypr${NC} ${ORANGE}to ${GREEN}~/.config/hypr.backup${NC}"
+fi
+
+ln -sf $HOME/dotfiles/hypr $HOME/.config
+
 # Add images folder to nitrogen
 [ $(command -v nitrogen) ] && input "${ORANGE}Update wallpaper with nitrogen?"
 [ $ANSWER ] && [ $(command -v nitrogen) ] && nitrogen --set-auto $IMAGES_FOLDER/solid_wallpaper_2.png
