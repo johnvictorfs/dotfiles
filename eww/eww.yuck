@@ -9,18 +9,45 @@
 
 
 (defwidget bar []
-  (centerbox :orientation "h"
-    (box :orientation "h" :space-evenly false (workspaces) (spotify-open) )
+  (centerbox :orientation "h" :class "bar"
+    (box :orientation "h" :space-evenly false (hypr_workspaces1) )
     (box :orientation "h" :space-evenly false (label :class "datetime" :text "󱑏  ${time}     󰸗  ${date}") )
     (applets)
   )
 )
 
 (defwidget secondary_bar []
-  (centerbox :orientation "h"
-    (box :orientation "h" :space-evenly false (workspace_second) )
+  (centerbox :orientation "h" :class "bar"
+    (box :orientation "h" :space-evenly false (hypr_workspaces0) )
     (box)
     (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} | 󰸗  ${date}") )
+  )
+)
+
+(deflisten hypr_workspaces_data_0 "~/.config/eww/scripts/hyprland-workspaces.mjs 0")
+(defwidget hypr_workspaces0 []
+  (literal :content hypr_workspaces_data_0)
+)
+
+(deflisten hypr_workspaces_data_1 "~/.config/eww/scripts/hyprland-workspaces.mjs 1")
+(defwidget hypr_workspaces1 []
+  (literal :content hypr_workspaces_data_1)
+)
+
+(deflisten hypr_workspaces :initial "[]" "bash ~/.config/eww/scripts/get-hyprland-workspaces")
+(deflisten hypr_current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-hyprland-workspace")
+(defwidget hypr_workspaces []
+  (eventbox :onscroll "bash ~/.config/eww/scripts/change-hyprland-active-workspace {} ${hypr_current_workspace}" :class "workspaces"
+    (box :space-evenly true
+      (label :text "${hypr_workspaces}${hypr_current_workspace}" :visible false)
+      (for workspace in hypr_workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible "${workspace.windows > 0}"
+          (box :class "workspace ${workspace.id == hypr_current_workspace ? "focused" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+            (label :text "${workspace.id}")
+          )
+        )
+      )
+    )
   )
 )
 
@@ -47,11 +74,11 @@
   (box :class "applets" :orientation "h" :space-evenly false :halign "end" :spacing 10
     (box :orientation "h" :spacing 2 :space-evenly false :halign "end" :class "applets"
       (memory)
-      (network)
+      ; (network)
       (microphone)
       (volume)
       (notes)
-      (jira)
+      ; (jira)
       ; (notifications)
       (battery)
     )
@@ -182,7 +209,7 @@
       :varname "revealNetwork"
       :transition "slideleft"
       :class "network network-${interfaceId == '' ? 'offline' : 'online'}"
-      :onclick "kitty -- sh -c 'i3-msg floating enable && nmtui' &"
+      :onclick "kitty -- sh -c 'nmtui' &"
       (hovered-sign :var revealNetwork
         (label :class "network" :text "")
       )
@@ -194,25 +221,27 @@
   )
 )
 
-(defwindow bar
-  :monitor 0
+(defwindow bar1
+  :monitor 1
   :windowtype "dock"
+  :exclusive true
   :geometry (geometry :x "0%"
-    :y "0%"
-    :width "90%"
-    :height "10px"
+    :y "1%"
+    :width "99%"
+    :height "8px"
   :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
   (bar)
 )
 
-(defwindow secondary_bar
-  :monitor 1
+(defwindow bar0
+  :monitor 0
   :windowtype "dock"
+  :exclusive true
   :geometry (geometry :x "0%"
-    :y "0%"
-    :width "90%"
-    :height "10px"
+    :y "1%"
+    :width "99%"
+    :height "8px"
   :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
   (secondary_bar)

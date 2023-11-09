@@ -191,7 +191,7 @@ ln -sf $HOME/dotfiles/i3/config $HOME/.config/i3
 ln -sf $HOME/dotfiles/.profile $HOME
 
 # Symlink fonts
-ln -sf $HOME/.fonts $HOME
+ln -sf $HOME/dotfiles/.fonts $HOME
 
 # Symlink dunst settings
 ln -sf $HOME/dotfiles/dunst $HOME/.config

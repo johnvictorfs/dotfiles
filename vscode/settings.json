@@ -34,6 +34,7 @@
       "source.fixAll.eslint": true
     }
   },
+  "vite.autoStart": false,
   "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
   "ruby.useBundler": true,
   "ruby.useLanguageServer": true,
@@ -78,7 +79,7 @@
       "strings": true
     },
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
     "editor.quickSuggestions": {
@@ -131,7 +132,7 @@
   "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
   "yaml.schemas": {
-    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -175,14 +176,14 @@
       "monitor": true
     }
   ],
-  "latex-workshop.view.pdf.viewer": "tab",
   "atlascode.jira.lastCreateSiteAndProject": {
     "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
-    "projectKey": ""
+    "projectKey": "YURI"
   },
   "files.associations": {
     "*.graphql": "graphql",
-    "*.stg": "lua"
+    "*.stg": "lua",
+    ".gcloudignore": "ignore"
   },
   "todo-tree.tree.showScanModeButton": false,
   "[javascriptreact]": {
@@ -219,7 +220,8 @@
   "atlascode.jira.explorer.refreshInterval": 10,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
-    "git-rebase-todo": "default"
+    "git-rebase-todo": "default",
+    "*.pdf": "default"
   },
   "notebook.cellToolbarLocation": {
     "default": "right",
@@ -302,8 +304,11 @@
   "atlascode.bitbucket.contextMenus.enabled": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "rubyLsp.formatter": "none",
-  "rubyLsp.rubyVersionManager": "none",
+  "rubyLsp.rubyVersionManager": "rbenv",
   "workbench.colorTheme": "Dracula Soft",
+  "vim.smartRelativeLine": true,
+  "workbench.editor.untitled.hint": "hidden",
+  "typescript.tsserver.log": "off",
+  "debug.javascript.autoAttachFilter": "disabled",
   "window.zoomLevel": 1,
-  "vim.smartRelativeLine": true
 }

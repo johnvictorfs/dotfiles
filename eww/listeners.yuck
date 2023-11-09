@@ -5,5 +5,5 @@
 
 (deflisten musicStatus "playerctl --follow status  -p spotify || true")
 
-(deflisten workspace "cd $HOME/.config/eww/src/workspaces && /usr/bin/go run main.go 0")
+(deflisten workspace "cd $HOME/.config/eww/src/workspaces && /usr/bin/go run main.go 0") ; TODO change back
 (deflisten workspace_second "cd $HOME/.config/eww/src/workspaces && /usr/bin/go run main.go 2")
