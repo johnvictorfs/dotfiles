@@ -1,6 +1,6 @@
 # My Dotfiles
 
-Configuration files for zshrc, Neovim, Vscode, i3-gaps, eww and others
+Configuration files for zshrc, Neovim, Vscode, hyprland, eww and others
 
 ![image](images/screenshots/nvim.png)
 
@@ -38,7 +38,7 @@ Instructions
   ./nvim.sh
   ```
 
-- **i3-gaps/rofi/kitty and some others Setup:**
+- **hyprland/rofi/kitty and some others Setup:**
   > Installation with paru, config is distro-agnostic
 
   ```bash
@@ -55,7 +55,7 @@ Instructions
 
 ---
 
-## i3 Keybinds
+## Keybinds
 
 <details>
 <summary>
@@ -66,7 +66,7 @@ Keybinds
 
 | Key | Action |
 |-----|--------|
-| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>i</kbd> | Open i3 config file in nvim |
+| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>i</kbd> | Open config file in nvim |
 | <kbd>$mod</kbd> + <kbd>h</kbd> | Switch to Horizontal tiling |
 | <kbd>$mod</kbd> + <kbd>v</kbd> | Switch to Vertical tiling |
 | <kbd>$mod</kbd> + <kbd><1-8></kbd> | Switch Workspace |
@@ -89,8 +89,6 @@ Keybinds
 | <kbd>PrtScr</kbd> | Region selection Screenshot with Flameshot |
 | <kbd>Volume Up/Down</kbd> | Increase/Decrease Volume with Fn keys |
 | <kbd>Volume Mute</kbd> | Mute/Unmute Volume with Fn keys |
-| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | Reload i3 config file |
-| <kbd>$mod</kbd> + <kbd>Shift</kbd> + <kbd>r</kbd> | Restart i3 (maintains session) |
 | <kbd>$mod</kbd> + <kbd>0</kbd> | System Mode to lock/suspend/restart/shutdown etc. |
 | <kbd>$mod</kbd> + <kbd>l</kbd> | Lock Screen |
 | <kbd>$mod</kbd> + Click + Drag Window | Move floating window with the mouse |
@@ -102,10 +100,8 @@ Keybinds
 ## Main Packages used
 
 - Terminal Emulator: [kitty](https://github.com/kovidgoyal/kitty)
-- Window Manager: [i3 (gaps + rounded fork)](https://github.com/resloved/i3)
-- Application Launcher, Power Menu etc.: [rofi](https://github.com/davatorium/rofi)
+- Window Manager/compositor [hyprland](https://hyprland.org)
 - Status Bar: [eww](https://github.com/elkowar/eww)
-- Wallpaper manager: [nitrogen](https://wiki.archlinux.org/index.php/Nitrogen)
-- Compositor: [picom](https://github.com/yshui/picom)
-- Shell: [zsh](https://www.zsh.org/)
+- Wallpaper manager: [swaybg](https://github.com/swaywm/swaybg)
+- Shell: [zsh](https://www.zsh.org)
 - Shell manager: [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
