@@ -16,7 +16,6 @@ PACKAGES=(
   wireplumber # screen sharing
   xdg-desktop-portal-hyprland-git # screen sharing
   xdg-desktop-portal-gtk # file picker
-  wofi # drun-like
   grim # no idea
   slurp # no idea
   grimblast # screenshotting

@@ -10,7 +10,7 @@
 
 (defwidget bar []
   (centerbox :orientation "h" :class "bar"
-    (box :orientation "h" :space-evenly false (hypr_workspaces1) )
+    (box :orientation "h" :space-evenly false :spacing 10 (hypr_workspaces1) (spotify-open) )
     (box :orientation "h" :space-evenly false (label :class "datetime" :text "󱑏  ${time}     󰸗  ${date}") )
     (applets)
   )
@@ -22,6 +22,11 @@
     (box)
     (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} | 󰸗  ${date}") )
   )
+)
+
+(deflisten lights_data "~/.config/eww/scripts/hass/lights.js")
+(defwidget lights []
+  (literal :content lights_data)
 )
 
 (deflisten hypr_workspaces_data_0 "~/.config/eww/scripts/hyprland-workspaces.mjs 0")
@@ -73,7 +78,9 @@
 (defwidget applets []
   (box :class "applets" :orientation "h" :space-evenly false :halign "end" :spacing 10
     (box :orientation "h" :spacing 2 :space-evenly false :halign "end" :class "applets"
+      ; (lights)
       (memory)
+      (bluetooth)
       ; (network)
       (microphone)
       (volume)
@@ -150,8 +157,8 @@
 (defwidget spotify-open [?class]
   (box
     :class "spotify spotify-open spotify-${musicStatus}"
-    :onclick "playerctl play-pause -p spotify"
-    (button :onclick "playerctl play-pause -p spotify" (label :class "spotify spotify-${musicStatus}" :text "${ musicStatus == "Playing" ? "" : "" }  ${music}"))
+    :onclick "playerctl play-pause -p chromium"
+    (button :onclick "playerctl play-pause -p chromium" (label :class "spotify spotify-${musicStatus}" :text "${ musicStatus == "Playing" ? "" : "" }  ${music}"))
   )
 )
 
@@ -163,7 +170,7 @@
       :varname "revealSpotify"
       :transition "slideleft"
       :class "spotify spotify-${musicStatus}"
-      :onclick "playerctl play-pause"
+      :onclick "playerctl play-pause -p chromium"
       (hovered-sign :var revealSpotify
         (label :class "spotify" :text "")
         (label :class "spotify" :text "")
@@ -224,6 +231,7 @@
 (defwindow bar1
   :monitor 1
   :windowtype "dock"
+  :namespace "bar"
   :exclusive true
   :geometry (geometry :x "0%"
     :y "1%"
@@ -237,6 +245,7 @@
 (defwindow bar0
   :monitor 0
   :windowtype "dock"
+  :namespace "bar"
   :exclusive true
   :geometry (geometry :x "0%"
     :y "1%"
@@ -245,4 +254,26 @@
   :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
   (secondary_bar)
+)
+
+(deflisten bluetooth_data "~/.config/eww/scripts/bluetooth.mjs")
+
+(defwidget bluetoothPopupWidget []
+  (literal :content bluetooth_data)
+)
+
+(defwidget bluetooth []
+  (box :space-evenly false
+    (button :onclick "eww open --toggle bluetoothPopup" :class "bluetooth bar-item" (label :text ""))
+  )
+)
+
+(defwindow bluetoothPopup
+  :monitor 1
+  :windowtype "dialog"
+  :exclusive true
+  :namespace "bar"
+  :geometry (geometry :width "80px"
+  :anchor "top right")
+  (bluetoothPopupWidget)
 )

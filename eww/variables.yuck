@@ -3,3 +3,4 @@
 (defvar revealVolume false)
 (defvar revealNotify false)
 (defvar revealNetwork false)
+(defvar revealBluetooth false)

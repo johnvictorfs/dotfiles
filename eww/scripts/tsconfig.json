@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+      "target": "ES2022",
+      "module": "ES2022",
+      "lib": [
+        "ES2022"
+      ],
+      "types": [
+        "node"
+      ],
+      "moduleResolution": "node",
+      "noEmit": true,
+      "allowJs": true,
+      "checkJs": true,
+      "strict": true,
+      "noImplicitAny": false,
+      "esModuleInterop": true,
+      "baseUrl": ".",
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+  }
+}

@@ -80,46 +80,76 @@
   margin-right: 20px;
 }
 
+.bluetooth-popup {
+  background-color: $card-background;
+  color: $card-foreground;
+  border-radius: 8px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 10px;
+  font-size: 1em;
+  font-family: Hack Regular;
+
+  .scan-button {
+    border: 1px solid $card-foreground;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+
+  .bluetooth-device {
+    margin-top: 8px;
+    padding-bottom: 8px;
+
+    .device-state {
+      margin-top: 4px;
+
+      .device-action {
+        border: 1px solid $card-foreground;
+        border-radius: 6px;
+        padding: 8px;
+
+        .action-label {
+          padding: 4px;
+        }
+      }
+    }
+
+    .device-name {
+      color: $red;
+
+      &.connected {
+        color: $green;
+      }
+    }
+  }
+}
+
 .label-ram {
   font-size: large;
 }
 
 .workspaces {
-  margin-left: 5px;
-  margin-top: 0px;
-  padding-left: 10px;
-  padding-right: 5px;
-  margin-right: 20px;
+  padding-left: 15px;
 
   .workspace {
     font-family: "FiraCode Nerd Font Mono";
     font-size: 1.5rem;
-    margin-left: 2px;
-    margin-right: 2px;
     color: $card-foreground;
     background-color: $card-background;
-    padding: 14px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-    margin-bottom: 9px;
-    margin-top: 10px;
+    padding: 20px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    margin-top: 8px;
     border-radius: 8px;
-
-    &.empty {
-      color: red;
-      opacity: 0;
-    }
 
     &.urgent {
       color: #a87132;
     }
 
     &.focused {
-      color: $blue;
-
-      &.urgent {
-        color: $blue;
-      }
+      background-color: $card-foreground;
+      color: $card-background;
     }
   }
 }
@@ -163,12 +193,9 @@
 .spotify {
   border-radius: 4px;
   background-color: $card-background;
-  margin: 2px;
   padding-left: 6px;
-  font-family: "Font Awesome 5 Free Solid FiraCode Nerd Font Mono JetBrains Mono";
-  margin-top: 8px;
-  margin-bottom: 8px;
   padding-right: 6px;
+  font-family: "Font Awesome 5 Free Solid FiraCode Nerd Font Mono JetBrains Mono";
 }
 
 .spotify-open {

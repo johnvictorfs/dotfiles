@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync } from "child_process";
+import { run } from "./shared.mjs";
 
 /**
  * @typedef {{
@@ -39,58 +40,55 @@ import { execSync } from "child_process";
 
 let cacheText = "";
 
-const run = async () => {
-  while (true) {
-    const monitor = Number.parseInt(process.argv[2]);
+const workspaces = () => {
+  const monitor = Number.parseInt(process.argv[2]);
 
-    /**
-     * @type {Monitor[]}
-     */
-    const monitors = JSON.parse(execSync("hyprctl monitors -j"));
+  /**
+   * @type {Monitor[]}
+   */
+  const monitors = JSON.parse(execSync("hyprctl monitors -j").toString());
 
-    /**
-     * @type {Workspace[]}
-     */
-    const workspaces = JSON.parse(execSync("hyprctl workspaces -j"));
+  /**
+   * @type {Workspace[]}
+   */
+  const workspaces = JSON.parse(execSync("hyprctl workspaces -j").toString());
 
-    const monitorWorkspaces = workspaces.filter(
-      (w) => w.monitor === monitors[monitor].name
-    );
+  const monitorWorkspaces = workspaces.filter(
+    (w) => w.monitor === monitors[monitor].name
+  );
 
-    let workspacesText = "";
-    monitorWorkspaces.forEach((workspace) => {
-      if (workspace.windows === 0 && !workspace.focused) {
-        return;
-      }
+  let workspacesText = "";
+  monitorWorkspaces.forEach((workspace) => {
+    // Don't show workspace if the there are no windows in it, but show if it's the active workspace
+    if (
+      workspace.windows === 0 &&
+      monitors[monitor].activeWorkspace.id !== workspace.id
+    ) {
+      return;
+    }
 
-      workspacesText += `
+    workspacesText += `
         (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
           (box :class "workspace ${
-            workspace.id == monitors[monitor].activeWorkspace.id ? "focused" : ""
+            workspace.id == monitors[monitor].activeWorkspace.id
+              ? "focused"
+              : ""
           }"
             (label :text "${workspace.id}")
           )
         )
       `.trim();
-    });
+  });
 
-    const message = `
+  const message = `
       (eventbox
         (box :class "workspaces" :space-evenly true :spacing 5
           ${workspacesText}
         )
       )
     `
-      .trim()
-      .replaceAll("\n", " ");
 
-    if (cacheText !== message) {
-      cacheText = message;
-      console.log(message);
-    }
-
-    await new Promise((resolve) => setTimeout(resolve, 50));
-  }
+  return message;
 };
 
-run();
+run(workspaces, 50);
