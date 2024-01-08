@@ -27,12 +27,12 @@ alias psearch="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bi
 alias cemu='vblank_mode=0 mesa_glthread=true R600_DEBUG=nohyperz wine ~/cemu/Cemu.exe'
 
 # Open apps 'swallowed' (without terminal window)
-alias mpv='swallow mpv'
-alias zathura='swallow zathura'
-alias nautilus='swallow nautilus'
-alias kdenlive='swallow kdenlive'
-alias robo3t='swallow robo3t'
-alias sqlitebrowser='swallow sqlitebrowser'
+#alias mpv='swallow mpv'
+#alias zathura='swallow zathura'
+#alias nautilus='swallow nautilus'
+#alias kdenlive='swallow kdenlive'
+#alias robo3t='swallow robo3t'
+#alias sqlitebrowser='swallow sqlitebrowser'
 
 # cat with syntax highlighting
 alias ccat="highlight --out-format=ansi --force"

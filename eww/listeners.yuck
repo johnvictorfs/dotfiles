@@ -1,7 +1,7 @@
 (deflisten music
   :initial ""
   :onchange "eww update revealSpotify=true && sleep 5 && eww update revealSpotify=false"
-"playerctl --follow metadata -p chromium --format '{{ artist }} - {{ title }}' || true")
+  "playerctl --follow metadata -p chromium --format '{{ artist }} - {{ title }}' || true")
 
 (deflisten musicStatus "playerctl --follow status  -p chromium || true")
 
