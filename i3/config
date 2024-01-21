@@ -11,7 +11,7 @@ set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
 set $editor lvim
 set $music_player cmus
-set $browser firefox
+set $browser chromium
 
 # Screenshot commands
 set $screenshot_selection ~/.bin/screenshot --selection
@@ -108,6 +108,7 @@ for_window [title="Android Emulator"] floating enable
 for_window [title="File Operation Progress"] floating enable
 for_window [title="Microsoft Teams Notification"] floating enable
 for_window [title="Slack - devs - Huddle"] floating enable
+for_window [class="eww"] floating enable
 for_window [title="john: flitter minecraft.scm"] floating enable sticky enable resize set 480 370
 for_window [class="obsidian"] floating enable resize set 1280 720 move position center sticky enable
 
@@ -324,12 +325,14 @@ exec xset b off
 # Displays setup
 exec --no-startup-id ~/.screenlayout/main.sh
 
+exec --no-startup-id $browser
+
 # Start polybar (Status bar)
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Start eww status bar
-exec_always --no-startup-id eww open bar
-exec_always --no-startup-id eww open secondary_bar
+exec_always --no-startup-id eww open bar1
+exec_always --no-startup-id eww open bar0
 
 # Start dunst (Notifications manager)
 exec_always --no-startup-id . ~/.config/dunst/launch.sh

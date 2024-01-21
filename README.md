@@ -1,6 +1,6 @@
 # My Dotfiles
 
-Configuration files for zshrc, Neovim, Vscode, hyprland, eww and others
+Configuration files for zshrc, Neovim, Vscode, i3wm, hyprland, eww and others
 
 ![image](images/screenshots/nvim.png)
 
@@ -38,7 +38,7 @@ Instructions
   ./nvim.sh
   ```
 
-- **hyprland/rofi/kitty and some others Setup:**
+- **i3/rofi/kitty and some others Setup:**
   > Installation with paru, config is distro-agnostic
 
   ```bash
@@ -100,7 +100,8 @@ Keybinds
 ## Main Packages used
 
 - Terminal Emulator: [kitty](https://github.com/kovidgoyal/kitty)
-- Window Manager/compositor [hyprland](https://hyprland.org)
+- ~~Window Manager/compositor [hyprland](https://hyprland.org)~~
+- Window Manager: i3wm
 - Status Bar: [eww](https://github.com/elkowar/eww)
 - Wallpaper manager: [swaybg](https://github.com/swaywm/swaybg)
 - Shell: [zsh](https://www.zsh.org)

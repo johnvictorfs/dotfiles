@@ -52,7 +52,7 @@ func updateWorkspaces(outputIndex int) {
 	}
 
 	// open box
-	fmt.Printf(`(box 	:orientation "h"	:space-evenly false  :spacing 10`)
+	fmt.Printf(`(box :class "workspaces"	:orientation "h"	:space-evenly false  :spacing 10`)
 	for _, workspace := range workspaces {
 
 		if workspace.Output != outputName {
@@ -77,7 +77,7 @@ func updateWorkspaces(outputIndex int) {
 		fmt.Printf(
 			`(button `+
 				`:onclick "i3-msg workspace '%s'"`+
-				`:class '%s'`+
+				`:class '%s workspace'`+
 				`(label :text '%s'))`,
 			workspace.Name,
 			class,

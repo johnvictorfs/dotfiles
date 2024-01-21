@@ -10,7 +10,7 @@
 
 (defwidget bar []
   (centerbox :orientation "h" :class "bar"
-    (box :orientation "h" :space-evenly false :spacing 10 (hypr_workspaces1) (spotify-open) )
+    (box :orientation "h" :space-evenly false :spacing 10 (workspaces) (spotify-open) )
     (box :orientation "h" :space-evenly false (label :class "datetime" :text "󱑏  ${time}     󰸗  ${date}") )
     (applets)
   )
@@ -18,43 +18,43 @@
 
 (defwidget secondary_bar []
   (centerbox :orientation "h" :class "bar"
-    (box :orientation "h" :space-evenly false (hypr_workspaces0) )
+    (box :orientation "h" :space-evenly false (workspace_second) )
     (box)
     (box :orientation "h" :space-evenly false (label :class "datetime" :text "  ${time} | 󰸗  ${date}") )
   )
 )
 
-(deflisten lights_data "~/.config/eww/scripts/hass/lights.js")
-(defwidget lights []
-  (literal :content lights_data)
-)
+; (deflisten lights_data "~/.config/eww/scripts/hass/lights.js")
+; (defwidget lights []
+;   (literal :content lights_data)
+; )
 
-(deflisten hypr_workspaces_data_0 "~/.config/eww/scripts/hyprland-workspaces.mjs 0")
-(defwidget hypr_workspaces0 []
-  (literal :content hypr_workspaces_data_0)
-)
+; (deflisten hypr_workspaces_data_0 "~/.config/eww/scripts/hyprland-workspaces.mjs 0")
+; (defwidget hypr_workspaces0 []
+;   (literal :content hypr_workspaces_data_0)
+; )
 
-(deflisten hypr_workspaces_data_1 "~/.config/eww/scripts/hyprland-workspaces.mjs 1")
-(defwidget hypr_workspaces1 []
-  (literal :content hypr_workspaces_data_1)
-)
+; (deflisten hypr_workspaces_data_1 "~/.config/eww/scripts/hyprland-workspaces.mjs 1")
+; (defwidget hypr_workspaces1 []
+;   (literal :content hypr_workspaces_data_1)
+; )
 
-(deflisten hypr_workspaces :initial "[]" "bash ~/.config/eww/scripts/get-hyprland-workspaces")
-(deflisten hypr_current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-hyprland-workspace")
-(defwidget hypr_workspaces []
-  (eventbox :onscroll "bash ~/.config/eww/scripts/change-hyprland-active-workspace {} ${hypr_current_workspace}" :class "workspaces"
-    (box :space-evenly true
-      (label :text "${hypr_workspaces}${hypr_current_workspace}" :visible false)
-      (for workspace in hypr_workspaces
-        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible "${workspace.windows > 0}"
-          (box :class "workspace ${workspace.id == hypr_current_workspace ? "focused" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
-            (label :text "${workspace.id}")
-          )
-        )
-      )
-    )
-  )
-)
+; (deflisten hypr_workspaces :initial "[]" "bash ~/.config/eww/scripts/get-hyprland-workspaces")
+; (deflisten hypr_current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-hyprland-workspace")
+; (defwidget hypr_workspaces []
+;   (eventbox :onscroll "bash ~/.config/eww/scripts/change-hyprland-active-workspace {} ${hypr_current_workspace}" :class "workspaces"
+;     (box :space-evenly true
+;       (label :text "${hypr_workspaces}${hypr_current_workspace}" :visible false)
+;       (for workspace in hypr_workspaces
+;         (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}" :visible "${workspace.windows > 0}"
+;           (box :class "workspace ${workspace.id == hypr_current_workspace ? "focused" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+;             (label :text "${workspace.id}")
+;           )
+;         )
+;       )
+;     )
+;   )
+; )
 
 (defwidget workspaces []
   (literal :class "workspaces" :content "${workspace}")
@@ -80,7 +80,7 @@
     (box :orientation "h" :spacing 2 :space-evenly false :halign "end" :class "applets"
       ; (lights)
       (memory)
-      (bluetooth)
+      ; (bluetooth)
       ; (network)
       (microphone)
       (volume)
@@ -229,7 +229,7 @@
 )
 
 (defwindow bar1
-  :monitor 1
+  :monitor 0 ; 1 on wayland
   :windowtype "dock"
   :namespace "bar"
   :exclusive true
@@ -243,7 +243,7 @@
 )
 
 (defwindow bar0
-  :monitor 0
+  :monitor 1 ; 0 on wayland
   :windowtype "dock"
   :namespace "bar"
   :exclusive true
@@ -252,21 +252,20 @@
     :width "99%"
     :height "8px"
   :anchor "top center")
-  :reserve (struts :side "top" :distance "4%")
   (secondary_bar)
 )
 
-(deflisten bluetooth_data "~/.config/eww/scripts/bluetooth.mjs")
+; (deflisten bluetooth_data "~/.config/eww/scripts/bluetooth.mjs")
 
-(defwidget bluetoothPopupWidget []
-  (literal :content bluetooth_data)
-)
+; (defwidget bluetoothPopupWidget []
+;   (literal :content bluetooth_data)
+; )
 
-(defwidget bluetooth []
-  (box :space-evenly false
-    (button :onclick "eww open --toggle bluetoothPopup" :class "bluetooth bar-item" (label :text ""))
-  )
-)
+; (defwidget bluetooth []
+;   (box :space-evenly false
+;     (button :onclick "eww open --toggle bluetoothPopup" :class "bluetooth bar-item" (label :text ""))
+;   )
+; )
 
 (defwindow bluetoothPopup
   :monitor 1
