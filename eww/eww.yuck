@@ -7,7 +7,6 @@
 (include "pollers.yuck")
 (include "revealer.yuck")
 
-
 (defwidget bar []
   (centerbox :orientation "h" :class "bar"
     (box :orientation "h" :space-evenly false :spacing 10 (workspaces) (spotify-open) )
@@ -189,7 +188,7 @@
 )
 
 (defwidget volume [?class]
-  (eventbox :space-evenly false :onscroll "pamixer $([[ ${{}} = 'up' ]] && echo '-i' || echo '-d' ) 1"
+  (eventbox :onscroll "pamixer $([[ ${{}} = 'up' ]] && echo '-i' || echo '-d' ) 1"
     :class "hover-module ${class}"
     (revealer-on-hover :class "hl-on-hover"
       :onclick "pavucontrol &"
@@ -232,7 +231,7 @@
   :monitor 0 ; 1 on wayland
   :windowtype "dock"
   :namespace "bar"
-  :exclusive true
+  ; :exclusive true
   :geometry (geometry :x "0%"
     :y "1%"
     :width "99%"
@@ -246,7 +245,7 @@
   :monitor 1 ; 0 on wayland
   :windowtype "dock"
   :namespace "bar"
-  :exclusive true
+  ; :exclusive true
   :geometry (geometry :x "0%"
     :y "1%"
     :width "99%"
@@ -267,12 +266,12 @@
 ;   )
 ; )
 
-(defwindow bluetoothPopup
-  :monitor 1
-  :windowtype "dialog"
-  :exclusive true
-  :namespace "bar"
-  :geometry (geometry :width "80px"
-  :anchor "top right")
-  (bluetoothPopupWidget)
-)
+; (defwindow bluetoothPopup
+;   :monitor 1
+;   :windowtype "dialog"
+;   :exclusive true
+;   :namespace "bar"
+;   :geometry (geometry :width "80px"
+;   :anchor "top right")
+;   (bluetoothPopupWidget)
+; )
