@@ -79,6 +79,7 @@
     (box :orientation "h" :spacing 2 :space-evenly false :halign "end" :class "applets"
       ; (lights)
       (memory)
+      (cpu)
       (keyboard_layout)
       ; (bluetooth)
       ; (network)
