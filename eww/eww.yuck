@@ -79,6 +79,7 @@
     (box :orientation "h" :spacing 2 :space-evenly false :halign "end" :class "applets"
       ; (lights)
       (memory)
+      (keyboard_layout)
       ; (bluetooth)
       ; (network)
       (microphone)
@@ -90,6 +91,17 @@
     )
   )
 )
+
+(defwidget keyboard_layout []
+  (button
+    :class "bar-item keyboard_layout"
+    :orientation "h"
+    :halign "center"
+    :onclick "$HOME/.bin/keyboard.js toggle &"
+    {keyboard_layout != "" ? "󰌌  ${keyboard_layout}" : ""}
+  )
+)
+
 (defwidget memory []
   (metric :icon "" :value {EWW_RAM.used_mem_perc} :command "htop" :width 1200)
 )

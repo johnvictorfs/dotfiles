@@ -165,12 +165,24 @@
   color: $white;
   border-radius: 6px;
   margin: 2px;
-}
 
-.battery {
-  padding: 4px;
-  margin: 2px;
-  margin-right: 10px;
+  &.keyboard_layout {
+    padding-right: 4px;
+  }
+
+  &.battery {
+    padding: 4px;
+    margin: 2px;
+    margin-right: 10px;
+    margin-top: 0px;
+  }
+
+  &.microphone {
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin: 6px;
+    margin-right: 0px;
+  }
 }
 
 .jira {
@@ -231,12 +243,6 @@
   margin: 2px;
   font-size: 1em;
   color: $white;
-}
-
-.microphone {
-  border-radius: 4px;
-  font-size: 0.8em;
-  margin: 6px;
 }
 
 .microphone-muted-true {
