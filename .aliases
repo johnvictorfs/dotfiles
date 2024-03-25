@@ -19,7 +19,9 @@ alias cp='cp -iv'
 alias ip='ip -c'
 #alias gc='gc -S'
 
-alias revert_stash='git stash show -p | git apply -R'
+# git search 
+alias gsearch='f() { git log --all -S"$1" --pretty=format:"%C(yellow)%h %Creset%s%Cblue [%cn] %Cgreen%cr %Cred%d" --decorate | fzf --preview "git show --color {1}" --preview-window=down:50%; }; f'
+alias gdd='git diff --word-diff'
 alias gcan='git commit --amend --no-edit'
 # Browse pacman packages with fzf search
 alias psearch="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"

@@ -13,6 +13,7 @@ fi
 # Install and use oh-my-zsh
 zgenom oh-my-zsh
 
+export DISABLE_AUTO_UPDATE=true
 # Path to oh-my-zsh installation.
 export ZSH="/home/${USER}/.oh-my-zsh"
 
@@ -200,3 +201,12 @@ PERL5LIB="/home/john/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/john/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/john/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/john/perl5"; export PERL_MM_OPT;
+
+# The next line updates PATH for the Google Cloud SDK.
+#if [ -f '/home/john/google-cloud-sdk/path.zsh.inc' ]; then . '/home/john/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+#if [ -f '/home/john/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/john/google-cloud-sdk/completion.zsh.inc'; fi
+#export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+PATH=~/.console-ninja/.bin:$PATH

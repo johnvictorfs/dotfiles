@@ -5,6 +5,7 @@
 # Variables and Settings {{{
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+set $mod2 Mod4
 set $term kitty
 set $browser brave
 set $filemanager nautilus
@@ -224,6 +225,10 @@ bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
+bindsym $mod+Tab workspace back_and_forth
+
+# bindcode 133 exec rofi -show run
+# bindcode --release 133 exec pkill rofi
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace number $ws1; workspace $ws1

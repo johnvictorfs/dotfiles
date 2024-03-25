@@ -10,6 +10,7 @@
 (defwidget bar []
   (centerbox :orientation "h" :class "bar"
     (box :orientation "h" :space-evenly false :spacing 10 (workspaces) (spotify-open) )
+    ;; (box :orientation "h" :space-evenly false :spacing 10 (workspace_single_monitor) (spotify-open) )
     (box :orientation "h" :space-evenly false (label :class "datetime" :text "󱑏  ${time}     󰸗  ${date}") )
     (applets)
   )
@@ -61,6 +62,10 @@
 
 (defwidget workspace_second []
   (literal :class "workspaces" :content "${workspace_second}")
+)
+
+(defwidget workspace_single_monitor []
+  (literal :class "workspaces" :content "${workspace_single_monitor}")
 )
 
 (defwidget icon-module [icon ?class ?visible]

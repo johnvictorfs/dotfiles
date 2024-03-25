@@ -91,5 +91,19 @@
     "key": "ctrl+l ctrl+m",
     "command": "-editor.action.toggleTabFocusMode",
     "when": "textInputFocus && editorLangId =~ /^latex$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
-  }
+  },
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.experimental.quickTextSearch"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.debug.panel.action.clearReplAction"
+  },
+  {
+    "key": "ctrl+/",
+    "command": "vscode-neovim.send",
+    "when": "editorTextFocus && neovim.init",
+    "args": "<C-/>"
+  },
 ]

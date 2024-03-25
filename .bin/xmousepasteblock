@@ -1,0 +1,5 @@
+#!/bin/bash
+export DISPLAY=:0
+export XAUTHORITY=$(find /tmp -maxdepth 1 -name 'xauth_*' -user $(whoami) | head -n 1)
+exec /usr/bin/xmousepasteblock
+

@@ -5,7 +5,8 @@
 
 (deflisten musicStatus "playerctl --follow status  -p chromium || true")
 
-(deflisten workspace "cd $HOME/.config/eww/src/workspaces && /usr/bin/go run main.go 0") ; TODO change back
+(deflisten workspace "cd $HOME/.config/eww/src/workspaces && /usr/bin/go run main.go 0")
 (deflisten workspace_second "cd $HOME/.config/eww/src/workspaces && /usr/bin/go run main.go 2")
+(deflisten workspace_single_monitor "cd $HOME/.config/eww/src/workspaces && /usr/bin/go run main.go 1")
 
 (deflisten keyboard_layout "$HOME/.bin/keyboard.js watch 200")
