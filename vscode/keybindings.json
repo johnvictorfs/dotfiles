@@ -106,4 +106,9 @@
     "when": "editorTextFocus && neovim.init",
     "args": "<C-/>"
   },
+  {
+    "key": "ctrl+.",
+    "command": "-editor.toggleFold",
+    "when": "editorFocus && foldingEnabled"
+  },
 ]
