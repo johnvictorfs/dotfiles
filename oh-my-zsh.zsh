@@ -38,23 +38,10 @@ if [ $ANSWER ]; then
   echo
 fi
 
-input "${ORANGE}Do you wish to install Zgen and Zinit? (Zsh package managers)"
+input "${ORANGE}Do you wish to install Zgenom? (Zsh plugin manager)"
 if [ $ANSWER ]; then
   # Zgenom plugin manager for ZSH
   # https://github.com/jandamm/zgenom
   git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
-
-  # Zinit plugin manager for ZSH
-  # https://github.com/zdharma/zinit
-  mkdir -p "$HOME/.zinit"
-  git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin"
 fi
 
-input "${ORANGE}Do you wish to install the pure prompt?"
-if [ $ANSWER ]; then
-  mkdir -p "$HOME/.zsh"
-  git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-  fpath+=$HOME/.zsh/pure
-  autoload -U promptinit; promptinit
-  prompt pure
-fi
