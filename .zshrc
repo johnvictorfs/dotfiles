@@ -21,9 +21,6 @@ if [[ -f "${HOME}/.zgenom/zgenom.zsh" ]]; then
 
   # Install and use oh-my-zsh
   zgenom oh-my-zsh
-
-  # Path to oh-my-zsh installation.
-  export ZSH="/home/${USER}/.oh-my-zsh"
 fi
 
 # personal aliases
