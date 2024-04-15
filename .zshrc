@@ -6,8 +6,6 @@ export VISUAL=$EDITOR
 # Ignore files/folders in .gitignore when searching with fzf 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-ZSH_THEME="refined"
-
 # Load Zgenom Plugin Manager for ZSH
 if [[ -f "${HOME}/.zgenom/zgenom.zsh" ]]; then
   source "${HOME}/.zgenom/zgenom.zsh"
@@ -21,6 +19,9 @@ if [[ -f "${HOME}/.zgenom/zgenom.zsh" ]]; then
 
   # Install and use oh-my-zsh
   zgenom oh-my-zsh
+
+  # prompt theme
+  source ~/dotfiles/zsh/jvfs.zsh-theme
 fi
 
 # personal aliases
