@@ -94,7 +94,7 @@
   },
   {
     "key": "ctrl+shift+f",
-    "command": "workbench.action.experimental.quickTextSearch"
+    "command": "workbench.action.quickTextSearch"
   },
   {
     "key": "ctrl+l",
