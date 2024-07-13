@@ -111,4 +111,16 @@
     "command": "-editor.toggleFold",
     "when": "editorFocus && foldingEnabled"
   },
+  {
+    "key": "ctrl+enter",
+    "command": "calva.evaluateCurrentTopLevelForm"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+f4",
+    "command": "-workbench.action.closeActiveEditor"
+  }
 ]

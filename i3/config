@@ -12,7 +12,7 @@ set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
 set $editor lvim
 set $music_player cmus
-set $browser chromium
+set $browser org.chromium.Chromium
 
 # Screenshot commands
 set $screenshot_selection ~/.bin/screenshot --selection
@@ -336,8 +336,8 @@ exec --no-startup-id $browser
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Start eww status bar
-exec_always --no-startup-id eww open bar1
-exec_always --no-startup-id eww open bar0
+# exec_always --no-startup-id eww open bar1
+# exec_always --no-startup-id eww open bar0
 
 # Start dunst (Notifications manager)
 exec_always --no-startup-id . ~/.config/dunst/launch.sh

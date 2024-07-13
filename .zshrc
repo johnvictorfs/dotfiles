@@ -58,6 +58,10 @@ export PATH="/var/lib/flatpak/exports/bin:$PATH"
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# go
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+
 # pyenv
 if [[ -d "${HOME}/.pyenv/bin" ]]; then
   export PATH="$(pyenv root)/shims:$PATH"
