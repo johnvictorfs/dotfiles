@@ -1,11 +1,65 @@
 {
   "window.titleBarStyle": "custom",
+  "window.menuBarVisibility": "toggle",
+  "window.zoomLevel": 1,
+  "window.customTitleBarVisibility": "never",
+  "workbench.colorTheme": "GitHub Dark",
+  "terminal.integrated.fontSize": 18,
+  "terminal.external.linuxExec": "kitty",
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.stickyScroll.enabled": false,
+  "terminal.integrated.env.linux": {},
   "terminal.integrated.fontFamily": "'Fantasque Sans Mono', 'FiraCode Nerd Font Mono', 'Fira Code', monospace",
   "editor.fontFamily": "'Fantasque Sans Mono', 'FiraCode Nerd Font Mono', 'JetBrains Mono', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.stickyScroll.enabled": true,
+  "editor.smoothScrolling": true,
+  "editor.renderWhitespace": "selection",
+  "editor.guides.indentation": false,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontSize": 18,
+  "editor.minimap.enabled": false,
+  "editor.fontLigatures": true,
+  "editor.renderLineHighlight": "none",
+  "editor.wordWrap": "on",
+  "editor.suggestSelection": "first",
+  "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
+  // "editor.lineNumbers": "relative",
+  "apc.activityBar": {
+    "size": 0,
+  },
+  "apc.statusBar": {
+    "height": 0
+  },
+  "apc.parts.font.family": {
+    "titlebar": "Fantasque Sans Mono",
+    "auxiliarybar": "Fantasque Sans Mono",
+    "banner": "Fantasque Sans Mono",
+    "extension-editor": "Fantasque Sans Mono",
+    "monaco-menu": "Fantasque Sans Mono",
+    "panel": "Fantasque Sans Mono",
+    "settings-body": "Fantasque Sans Mono",
+    "sidebar": "Fantasque Sans Mono",
+    "statusbar": "Fantasque Sans Mono",
+    "tabs": "Fantasque Sans Mono",
+  },
+  "apc.stylesheet": {
+    ".editor .title": "background: transparent !important",
+    ".editor .scrollbar .slider": "visibility: hidden",
+    ".titlebar-container": "height: 400px",
+    ".actions-container .action-item": "visibility: hidden",
+    ".window-icon": "visibility: hidden",
+    ".title.tabs": "display: none",
+    ".tabs-container": "display: none !important",
+    ".editor .scrollbar:hover .slider": "visibility: initial",
+    "body > .file-icons-enabled.enable-motion.monaco-workbench.sidebar-right > .monaco-grid-view > div > div > .monaco-scrollable-element > .split-view-container > div:nth-child(1)": "display: none !important;",
+    "body > .file-icons-enabled.enable-motion.monaco-workbench.sidebar-right > .monaco-grid-view > div > div > .monaco-scrollable-element > .split-view-container > div:nth-child(3)": "top: 12px !important;",
+  },
   "workbench.colorCustomizations": {},
   "workbench.tips.enabled": false,
   "explorer.confirmDragAndDrop": false,
-  "files.maxMemoryForLargeFilesMB": 6096,
   "files.autoSave": "off",
   "files.exclude": {
     "**/node_modules/": true,
@@ -20,59 +74,41 @@
     "**/.settings": true,
     "**/.factorypath": true
   },
-  "editor.cursorBlinking": "phase",
-  "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontSize": 17,
-  "editor.minimap.enabled": false,
-  "editor.fontLigatures": true,
-  "editor.renderLineHighlight": "none",
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-      "source.fixAll.tslint": true,
-      "source.fixAll.eslint": true
+      "source.fixAll.tslint": "explicit",
+      "source.fixAll.eslint": "explicit"
     }
   },
   "vite.autoStart": false,
-  "ruby.pathToBundler": "/home/john/.rbenv/shims/bundle",
-  "ruby.useBundler": true,
-  "ruby.useLanguageServer": true,
-  "ruby.lint": {
-    "rubocop": {
-      "useBundler": true // enable rubocop via bundler
-    },
-    "reek": {
-      "useBundler": true // enable reek via bundler
-    }
-  },
-  "ruby.format": "rubocop",
   "[ruby]": {
     "editor.tabSize": 2,
     "editor.formatOnSave": true
   },
   "[vue]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "Vue.volar",
+    "editor.defaultFormatter": "Vue.volar"
   },
   "[sql]": {
-    "editor.tabSize": 4,
+    "editor.tabSize": 4
   },
   "[typescript]": {
     "editor.tabSize": 2,
-    "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.codeActionsOnSave": {
-      "source.fixAll.tslint": true,
-      "source.fixAll.eslint": true
-    }
+      "source.fixAll.tslint": "explicit",
+      "source.fixAll.eslint": "explicit"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.tabSize": 2,
     "editor.codeActionsOnSave": {
-      "source.fixAll.tslint": true,
-      "source.fixAll.eslint": true
+      "source.fixAll.tslint": "explicit",
+      "source.fixAll.eslint": "explicit"
     },
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[json]": {
     "editor.quickSuggestions": {
@@ -90,8 +126,9 @@
   },
   "[python]": {
     "editor.tabSize": 4,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true
+    // "editor.formatOnSave": true,
+    // "editor.formatOnType": true,
+    "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[markdown]": {
     "editor.wordWrap": "on",
@@ -105,6 +142,28 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": "explicit",
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[gdscript]": {
+    "editor.defaultFormatter": "EddieDover.gdscript-formatter-linter"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": "explicit",
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+ "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   "eslint.validate": [
     "vue",
     "html",
@@ -113,111 +172,20 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "vetur.experimental.templateInterpolationService": true,
-  "vetur.format.defaultFormatter.ts": "vscode-typescript",
-  "vetur.format.defaultFormatter.html": "prettyhtml",
-  "vetur.format.defaultFormatterOptions": {
-    "js-beautify-html": {
-      "wrap_attributes": "auto"
-    }
-  },
-  // "gitlens.mode.active":"zen",
   "gitlens.hovers.currentLine.over": "line",
   "emmet.triggerExpansionOnTab": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "python.linting.flake8Enabled": true,
-  "python.linting.pylintEnabled": false,
-  "python.linting.enabled": true,
-  "python.linting.mypyEnabled": true,
-  "C_Cpp.updateChannel": "Insiders",
   "emulator.emulatorPath": "~/Android/Sdk/emulator",
-  "yaml.schemas": {
-    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.6/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
-  "atlascode.jira.jqlList": [
-    {
-      "id": "a393566a-fe8a-477f-9d1a-bd9f7ad3638e",
-      "enabled": false,
-      "name": "YU",
-      "query": "assignee = currentUser() AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"In Progress\", \"To Do\") ORDER BY lastViewed DESC",
-      "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
-      "monitor": true
-    },
-    {
-      "id": "06e90d91-a8cf-4594-8f45-758f73d76447",
-      "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
-      "name": "YU - In Progress",
-      "query": "assignee = currentUser() AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"In Progress\") ORDER BY lastViewed DESC",
-      "enabled": true,
-      "monitor": true
-    },
-    {
-      "id": "9e92cde1-8a65-4e9b-8310-b1507310cce5",
-      "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
-      "name": "YU - To Do",
-      "query": "assignee = currentUser() AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"To Do\") ORDER BY lastViewed DESC",
-      "enabled": true,
-      "monitor": true
-    },
-    {
-      "id": "25e90455-f6a1-499c-b90d-144bb7f01d6d",
-      "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
-      "name": "YU (Freelance) - In Progress",
-      "query": "assignee =610c70164e8d8d0069a6cbb0 AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"In Progress\") ORDER BY lastViewed DESC",
-      "enabled": false,
-      "monitor": true
-    },
-    {
-      "id": "58a6462a-979e-4946-9169-b99eaa720c73",
-      "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
-      "name": "YU (Freelance) - To Do",
-      "query": "assignee =610c70164e8d8d0069a6cbb0 AND resolution = Unresolved AND Sprint in openSprints() AND status in (\"To Do\") ORDER BY lastViewed DESC",
-      "enabled": false,
-      "monitor": true
-    }
-  ],
-  "atlascode.jira.lastCreateSiteAndProject": {
-    "siteId": "932eec9f-8c19-43b4-89e0-dbcbabd2cd8d",
-    "projectKey": "YURI"
-  },
   "files.associations": {
     "*.graphql": "graphql",
     "*.stg": "lua",
     ".gcloudignore": "ignore"
   },
-  "todo-tree.tree.showScanModeButton": false,
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.tslint": true,
-      "source.fixAll.eslint": true
-    }
-  },
   "git.autofetch": true,
-  "editor.wordWrap": "on",
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
-  "solargraph.commandPath": "/home/john/.ruby/bin/solargraph",
   "redhat.telemetry.enabled": false,
-  "terminal.external.linuxExec": "kitty",
   "python.languageServer": "Pylance",
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.typeCheckingMode": "basic",
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]"
-  ],
-  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-  "debug.javascript.usePreview": false,
-  "atlascode.jira.explorer.refreshInterval": 10,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
     "git-rebase-todo": "default",
@@ -227,41 +195,18 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "atlascode.jira.enabled": true,
-  "terminal.integrated.sendKeybindingsToShell": true,
   "typescript.validate.enable": true,
-  "editor.inlineSuggest.enabled": true,
-  "workWeek.times.endTime": "08:00pm",
-  "editor.linkedEditing": true,
-  "mocha.files.glob": "test/**/*.ts",
-  "mocha.env": {
-    "TS_NODE_PROJECT": "tsconfig.json",
-    "TS_NODE_COMPILER_OPTIONS": "{\"module\": \"commonjs\"}"
-  },
-  "mochaExplorer.files": "test/**/*.ts",
-  "mochaExplorer.require": "ts-node/register",
-  "mochaExplorer.env": {
-    "TS_NODE_PROJECT": "tsconfig.json",
-    "TS_NODE_COMPILER_OPTIONS": "{\"module\": \"commonjs\"}"
-  },
   "github.copilot.enable": {
     "*": true,
     "plaintext": true,
     "markdown": true,
     "scminput": false,
-    "yaml": true
+    "yaml": true,
+    "python": false,
+    "clojure": true
   },
-  "atlascode.bitbucket.enabled": false,
-  "rubyTestExplorer.logfile": "/home/john/rubytest.log",
-  "rubyTestExplorer.testFramework": "rspec",
-  "rubyTestExplorer.rspecCommand": "bundle exec rspec",
   "workbench.startupEditor": "none",
-  "rust-client.engine": "rust-analyzer",
-  "rust-analyzer.inlayHints.enable": true,
-  "powermode.enabled": false,
   "workbench.iconTheme": "material-icon-theme",
-  "ruby.intellisense": "rubyLocate",
-  "ruby.rubocop.onSave": false,
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -288,27 +233,32 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.suggest.jsdoc.generateReturns": false,
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "workbench.sideBar.location": "right",
   "debug.inlineValues": "on",
   "gitlens.advanced.messages": {
     "suppressRebaseSwitchToTextWarning": true
   },
-  "diffEditor.ignoreTrimWhitespace": false,
-  "editor.stickyScroll.enabled": true,
-  "editor.smoothScrolling": true,
   "githubPullRequests.pullBranch": "never",
   "errorLens.gutterIconsEnabled": true,
-  "editor.renderWhitespace": "boundary",
   "react-native-tools.showUserTips": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "atlascode.bitbucket.contextMenus.enabled": false,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
-  "rubyLsp.formatter": "none",
-  "rubyLsp.rubyVersionManager": "rbenv",
-  "workbench.colorTheme": "Dracula Soft",
-  "vim.smartRelativeLine": true,
-  "workbench.editor.untitled.hint": "hidden",
   "typescript.tsserver.log": "off",
-  "debug.javascript.autoAttachFilter": "disabled",
-  "window.zoomLevel": 1,
+  "debug.javascript.autoAttachFilter": "smart",
+  "workbench.editor.empty.hint": "hidden",
+  "debug.toolBarLocation": "commandCenter",
+  "workbench.editor.pinnedTabsOnSeparateRow": true,
+  "workbench.sideBar.location": "right",
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "workbench.tree.enableStickyScroll": true,
+  "explorer.confirmDelete": false,
+  "console-ninja.featureSet": "Community",
+  "excalidraw.theme": "auto",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "svelte.enable-ts-plugin": true,
+  "calva.paredit.defaultKeyMap": "strict",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "yaml.schemas": {
+    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
 }
