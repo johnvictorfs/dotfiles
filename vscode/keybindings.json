@@ -35,7 +35,7 @@
   },
   {
     "key": "ctrl+space",
-    "command": "-editor.action.triggerSuggest",
+    "command": "editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   },
   {
@@ -92,10 +92,10 @@
     "command": "-editor.action.toggleTabFocusMode",
     "when": "textInputFocus && editorLangId =~ /^latex$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
   },
-  {
-    "key": "ctrl+shift+f",
-    "command": "workbench.action.quickTextSearch"
-  },
+  // {
+  //   "key": "ctrl+shift+f",
+  //   "command": "workbench.action.quickTextSearch"
+  // },
   {
     "key": "ctrl+l",
     "command": "workbench.debug.panel.action.clearReplAction"
@@ -122,5 +122,105 @@
   {
     "key": "ctrl+f4",
     "command": "-workbench.action.closeActiveEditor"
-  }
+  },
+  /**************************************************
+        calva:
+    **************************************************/
+  {
+    "key": "alt+t t",
+    "command": "calva.runCustomREPLCommand",
+    "when": "calva:connected && editorLangId == 'clojure'",
+    "args": "t"
+  },
+  {
+    "key": "alt+t ctrl+shift",
+    "command": "calva.runCustomREPLCommand",
+    "when": "calva:connected && editorLangId == 'clojure'",
+    "args": "t-"
+  },
+  /**************************************************
+      calva: repl
+  **************************************************/
+  {
+    "key": "alt+r r",
+    "command": "calva.jackIn",
+    "when": "calva:keybindingsEnabled && workspaceFolderCount > 0"
+  },
+  {
+    "key": "alt+r s",
+    "command": "calva.disconnect"
+  },
+  {
+    "key": "alt+r q",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "calva.showOutputWindow",
+        "workbench.action.closeEditorsAndGroup"
+      ]
+    },
+    "when": "calva:connected && calva:keybindingsEnabled"
+  },
+  {
+    "key": "alt+r o",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "calva.showOutputWindow",
+        "workbench.action.lockEditorGroup"
+      ]
+    },
+    "when": "calva:connected && calva:keybindingsEnabled"
+  },
+  {
+    "key": "alt+r backspace",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "calva.showOutputWindow",
+        "workbench.action.focusLastEditorGroup",
+        "editor.action.selectAll",
+        "editor.action.deleteLines"
+      ]
+    },
+    "when": "calva:connected && calva:keybindingsEnabled"
+  },
+  {
+    "key": "alt+r z",
+    "command": "calva.runCustomREPLCommand",
+    "when": "calva:connected && editorLangId == 'clojure'",
+    "args": "ns-"
+  },
+  {
+    "key": "alt+r x",
+    "command": "calva.runCustomREPLCommand",
+    "when": "calva:connected && editorLangId == 'clojure'",
+    "args": "x"
+  },
+  {
+    "key": "alt+r ctrl+shift",
+    "command": "calva.runCustomREPLCommand",
+    "when": "calva:connected && editorLangId == 'clojure'",
+    "args": "x+"
+  },
+  {
+    "key": "alt+r l",
+    "command": "calva.loadFile",
+    "when": "calva:connected && calva:keybindingsEnabled && editorLangId == 'clojure'"
+  },
+  {
+    "key": "alt+r c",
+    "command": "calva.interruptAllEvaluations",
+    "when": "calva:connected && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure'"
+  },
+  {
+    "key": "alt+cmd+enter",
+    "command": "calva.evaluateToCursor",
+    "when": "calva:connected && calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure'"
+  },
+  {
+    "key": "alt+r f",
+    "command": "calva-fmt.alignCurrentForm",
+    "when": "calva:keybindingsEnabled && editorTextFocus && !editorReadOnly && !hasOtherSuggestions && !suggestWidgetVisible && editorLangId == 'clojure'"
+  },
 ]

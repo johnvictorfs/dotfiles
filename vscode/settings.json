@@ -3,7 +3,6 @@
   "window.menuBarVisibility": "toggle",
   "window.zoomLevel": 1,
   "window.customTitleBarVisibility": "never",
-  "workbench.colorTheme": "GitHub Dark",
   "terminal.integrated.fontSize": 18,
   "terminal.external.linuxExec": "kitty",
   "terminal.integrated.sendKeybindingsToShell": true,
@@ -161,7 +160,7 @@
       "source.fixAll.eslint": "explicit"
     }
   },
- "[yaml]": {
+  "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "eslint.validate": [
@@ -259,6 +258,7 @@
   "calva.paredit.defaultKeyMap": "strict",
   "github.copilot.editor.enableAutoCompletions": true,
   "yaml.schemas": {
-    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
+  "workbench.colorTheme": "GitHub Dark"
 }
