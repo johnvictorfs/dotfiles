@@ -25,6 +25,9 @@ PACKAGES=(
   # wl-clipboard # clipboard stuff
   # libpipewire
 
+  bluez # Bluetooth
+  blueman # Bluetooth frontend
+
   # CLI json processor
   jq
 
@@ -62,7 +65,7 @@ PACKAGES=(
   # ttf-vlgothic # Japanese font, AUR
 
   # Themes
-  breeze-obsidian-cursor-theme # Cursor theme, AUR
+  # breeze-obsidian-cursor-theme # Cursor theme, AUR
   papirus-icon-theme # Icons theme
   nordic-theme-git # GTK theme, AUR
   materia-gtk-theme # GTK theme
@@ -80,12 +83,12 @@ PACKAGES=(
   ttf-font-awesome
   ttf-google-sans # AUR
   ttf-material-design-icons # AUR
-  nerd-fonts-fira-code # AUR
+  ttf-firacode-nerd
   noto-fonts
   noto-fonts-cjk
 
   # i3 setup
-  i3-gaps-rounded-git # i3 with gaps and rounded corners, AUR
+  i3
   i3exit # Suspend/lock etc. commands and screens
   picom # Compositor
   rofi # Fancier dmenu
@@ -148,10 +151,6 @@ PACKAGES=(
   # Video Player
   mpv
 
-  # Bluetooth
-  # bluez
-  # bluez-utils
-
   # Misc. utils
   light # Brightness commands
   nitrogen # Wallpaper manager
@@ -163,7 +162,7 @@ PACKAGES=(
   flameshot # Screenshots, breaks less often than maim
 
   # Audio Management
-  # pipewire-pulse
+  pipewire-pulse
 )
 
 PYTHON_PACKAGES=(
@@ -308,3 +307,10 @@ ln -sf $HOME/dotfiles/hypr $HOME/.config
 
 # Setup lightdm
 sudo systemctl enable lightdm
+
+# Setup bluetooth
+sudo systemctl enable --now bluetooth.service
+
+# Setup pipewire
+sudo systemctl enable --global pipewire-pulse
+systemctl enable --now --user pipewire-pulse
