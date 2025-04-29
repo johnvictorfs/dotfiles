@@ -1,5 +1,3 @@
-#exec_always vim:fileencoding=utf-8:ft=conf:foldmethod=marker
-# i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Variables and Settings {{{
@@ -7,12 +5,11 @@
 set $mod Mod4
 set $mod2 Mod4
 set $term kitty
-set $browser brave
 set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
 set $editor lvim
 set $music_player cmus
-set $browser org.chromium.Chromium
+set $browser firefox
 
 # Screenshot commands
 set $screenshot_selection ~/.bin/screenshot --selection
@@ -173,7 +170,7 @@ gaps outer 5
 #gaps top 42 # Gap for polybar
 
 # rounded borders
-border_radius 16
+# border_radius 16
 # }}}
 
 # General Keybindings {{{
@@ -181,6 +178,9 @@ border_radius 16
 bindsym $mod+Shift+i exec kitty -e $editor ~/.config/i3/config &
 # Open polybar config file
 bindsym $mod+Shift+p exec kitty -e $editor ~/.config/polybar/config.ini &
+
+# Toggle keyboard layout
+bindsym $mod+space exec --no-startup-id bash -c "~/.bin/keyboard.js toggle"
 
 # change focus
 bindsym $mod+Left focus left
@@ -205,7 +205,8 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# $mod + Alt + space
+bindsym $mod+Mod1+space focus mode_toggle
 
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
@@ -342,9 +343,8 @@ exec --no-startup-id $browser
 # Start dunst (Notifications manager)
 exec_always --no-startup-id . ~/.config/dunst/launch.sh
 
-# Switch Keyboard layouts
-bindsym --release $mod+F11 exec setxkbmap -model abnt2 -layout br && dunstify "Switched Keyboard Layout" "ABNT2"
-bindsym --release $mod+F12 exec setxkbmap -model pc104 -layout us&& dunstify "Switched Keyboard Layout" "US"
+# Disable mouse acceleration
+exec --no-startup-id xinput set-prop "Logitech G203 LIGHTSYNC Gaming Mouse" "libinput Accel Profile Enabled" 0 1 0
 
 # KDE Connect
 exec --no-startup-id /usr/lib/kdeconnectd
