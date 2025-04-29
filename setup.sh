@@ -11,27 +11,26 @@ IMAGES_FOLDER=$HOME/dotfiles/images
 
 PACKAGES=(
   # most of the random stuff hyprland needs to work
-  hyprland-nvidia-git
-  wlrobs-hg # obs plugin
-  wireplumber # screen sharing
-  xdg-desktop-portal-hyprland-git # screen sharing
-  xdg-desktop-portal-gtk # file picker
-  grim # no idea
-  slurp # no idea
-  grimblast # screenshotting
-  wl-clipboard # clipboard stuff
-  libpipewire
-  socat # relay
-  
+  # hyprland-nvidia-git
+  # xdg-desktop-portal-hyprland-git # screen sharing
   # Wallpaper (wayland)
-  swagbg
+  # swagbg
+  # socat # relay
+  # xdg-desktop-portal-gtk # file picker
+  # wlrobs-hg # obs plugin
+  # wireplumber # screen sharing
+  # grim # no idea
+  # slurp # no idea
+  # grimblast # screenshotting
+  # wl-clipboard # clipboard stuff
+  # libpipewire
 
   # CLI json processor
   jq
 
   # Browser
   firefox
-  google-chrome
+  # google-chrome
 
   # Media control CLI
   playerctl
@@ -40,7 +39,7 @@ PACKAGES=(
   pamixer
 
   # Work messaging app
-  slack-electron
+  # slack-electron
 
   # Godly CLI fuzzy-finder
   fzf
@@ -56,11 +55,11 @@ PACKAGES=(
   nodejs-n # Node.js version manager
 
   # Japanese input
-  fcitx-im
-  fcitx-configtool
-  fcitx-mozc
+  # fcitx-im
+  # fcitx-configtool
+  # fcitx-mozc
 
-  ttf-vlgothic # Japanese font, AUR
+  # ttf-vlgothic # Japanese font, AUR
 
   # Themes
   breeze-obsidian-cursor-theme # Cursor theme, AUR
@@ -111,18 +110,18 @@ PACKAGES=(
   ffmpeg
 
   # Ruby stuff
-  rbenv
-  ruby-build
+  # rbenv
+  # ruby-build
 
   # Telegram Client
-  telegram-desktop
+  # telegram-desktop
 
   # Development stuff
-  postgresql
-  heroku-cli 
+  # postgresql
+  # heroku-cli 
 
   # Night light
-  redshift
+  # redshift
 
   # GTK Theme Settings
   lxappearance-gtk3
@@ -139,12 +138,12 @@ PACKAGES=(
   foliate
 
   # Latex stuff
-  pdftk # Latex compiler
-  biber # Latex Bibliography
-  texlive-most # Useful latex stuff like a bunch of optional packages
-  texlive-lang # Other languages support, accents, symbols etc.
-  texlive-fontsextra # Extra latex fonts
-  minted # Code syntax highlighting
+  # pdftk # Latex compiler
+  # biber # Latex Bibliography
+  # texlive-most # Useful latex stuff like a bunch of optional packages
+  # texlive-lang # Other languages support, accents, symbols etc.
+  # texlive-fontsextra # Extra latex fonts
+  # minted # Code syntax highlighting
 
   # Video Player
   mpv
