@@ -12,7 +12,7 @@ declare -a extensions=(
   # "James-Yu.latex-workshop"
   # "rangav.vscode-thunder-client"
   # "ms-toolsai.jupyter"
-  "bung87.vscode-gemfile"
+  # "bung87.vscode-gemfile"
   "dbaeumer.vscode-eslint"
   "eamodio.gitlens"
   "GitHub.github-vscode-theme"
@@ -21,8 +21,8 @@ declare -a extensions=(
   "ms-python.python"
   "ms-python.vscode-pylance"
   "PKief.material-icon-theme"
-  "redhat.vscode-commons"
-  "redhat.vscode-yaml"
+  # "redhat.vscode-commons"
+  # "redhat.vscode-yaml"
 )
 
 echo
