@@ -35,7 +35,7 @@ Instructions
   > Installation with pacman, config is distro-agnostic
 
   ```bash
-  ./nvim.sh
+  nvim/setup.sh
   ```
 
 - **i3/rofi/kitty and some others Setup:**

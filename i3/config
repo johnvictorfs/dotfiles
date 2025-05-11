@@ -7,7 +7,7 @@ set $mod2 Mod4
 set $term kitty
 set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
-set $editor lvim
+set $editor nvim
 set $music_player cmus
 set $browser firefox
 
@@ -331,7 +331,7 @@ exec xset b off
 # Displays setup
 exec --no-startup-id ~/.screenlayout/main.sh
 
-exec --no-startup-id $browser
+# exec --no-startup-id $browser
 
 # Start polybar (Status bar)
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
@@ -343,9 +343,9 @@ exec --no-startup-id $browser
 # Start dunst (Notifications manager)
 exec_always --no-startup-id . ~/.config/dunst/launch.sh
 
-# Disable mouse acceleration
-exec --no-startup-id xinput set-prop "Logitech G203 LIGHTSYNC Gaming Mouse" "libinput Accel Profile Enabled" 0 1 0
-
 # KDE Connect
 exec --no-startup-id /usr/lib/kdeconnectd
+
+# Top dock
+exec --no-startup-id bash -c "cd ~/dev/linux-web-widgets && bun dev"
 # }}}
