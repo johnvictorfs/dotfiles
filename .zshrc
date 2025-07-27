@@ -1,7 +1,8 @@
 export DISABLE_AUTO_UPDATE=true
 
-export EDITOR="lvim"
+export EDITOR="nvim"
 export VISUAL=$EDITOR
+export SUDO_EDITOR=$EDITOR
 
 # Ignore files/folders in .gitignore when searching with fzf 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
