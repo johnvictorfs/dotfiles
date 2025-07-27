@@ -92,10 +92,10 @@
     "command": "-editor.action.toggleTabFocusMode",
     "when": "textInputFocus && editorLangId =~ /^latex$|^latex-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
   },
-  // {
-  //   "key": "ctrl+shift+f",
-  //   "command": "workbench.action.quickTextSearch"
-  // },
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.quickTextSearch"
+  },
   {
     "key": "ctrl+l",
     "command": "workbench.debug.panel.action.clearReplAction"
