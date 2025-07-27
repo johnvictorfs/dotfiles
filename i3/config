@@ -9,7 +9,7 @@ set $filemanager nautilus
 set $i3resize ~/.bin/i3cmds/i3resize
 set $editor nvim
 set $music_player cmus
-set $browser firefox
+set $browser zen-browser
 
 # Screenshot commands
 set $screenshot_selection ~/.bin/screenshot --selection
@@ -334,7 +334,7 @@ exec --no-startup-id ~/.screenlayout/main.sh
 # exec --no-startup-id $browser
 
 # Start polybar (Status bar)
-# exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Start eww status bar
 # exec_always --no-startup-id eww open bar1
