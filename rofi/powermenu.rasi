@@ -27,7 +27,7 @@
 }
 
 element-text {
-	font:							"Font Awesome 28";
+    font:                           "Font Awesome 28";
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
@@ -37,8 +37,8 @@ element-text {
 /* ########### */
 
 #window {
-  width: 23%;
-  height: 17.5%;
+  width: 30%;
+  height: 20%;
 }
 
 /* ########### */
