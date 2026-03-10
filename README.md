@@ -8,50 +8,19 @@ Configuration files for zshrc, Neovim, Vscode, i3wm, hyprland, eww and others
 
 ## Installation
 
-<details>
-<summary>
-Instructions
-</summary>
+**Requirements:** Node.js 24+
 
-- **Before Installing:** Most packages will attempt to be installed with `pacman` (Arch Repository Package Manager) or [`paru`](https://github.com/Morganamilo/paru) (AUR helper), some Python (pip) packages will be installed as well in the setup script. Even then most configuration is distro-agnostic, and you can read below what you can and cannot run depending if you're running an Arch-based distro or not. You can just answer 'n' to every installation prompt when running the below scripts if you're not using an Arch-based distro, and install the needed packages manually with your preferred package manager if necessary.
+1. Clone the repository to `~/dotfiles`:
+   ```bash
+   git clone https://github.com/johnvictorfs/dotfiles.git $HOME/dotfiles
+   ```
 
+2. Run the wizard and select the modules you want to set up:
+   ```bash
+   node $HOME/dotfiles/wizard/init.ts
+   ```
 
-- **Clone repository dotfiles to `~/dotfiles`:**
-  ```bash
-  git clone https://github.com/johnvictorfs/dotfiles.git $HOME/dotfiles
-  cd $HOME/dotfiles
-  ```
-
-- **Zsh Setup:**
-  ```bash
-  # Installation with pacman, config is distro-agnostic
-  ./zsh.sh
-
-  # Distro-agnostic, symlink .zshrc and .aliases files
-  ./oh-my-zsh.sh
-  ```
-
-- **Neovim Setup:**
-  > Installation with pacman, config is distro-agnostic
-
-  ```bash
-  nvim/setup.sh
-  ```
-
-- **i3/rofi/kitty and some others Setup:**
-  > Installation with paru, config is distro-agnostic
-
-  ```bash
-  ./setup.sh
-  ```
-
-- **VsCode Setup:**
-  > Installation with pacman, config is distro-agnostic
-
-  ```bash
-  ./vscode.sh
-  ```
-</details>
+The wizard installs packages via `pacman`/[`paru`](https://github.com/Morganamilo/paru) (Arch-based distros only) and sets up symlinks for the selected configurations.
 
 ---
 
@@ -100,9 +69,11 @@ Keybinds
 ## Main Packages used
 
 - Terminal Emulator: [kitty](https://github.com/kovidgoyal/kitty)
-- ~~Window Manager/compositor [hyprland](https://hyprland.org)~~
-- Window Manager: i3wm
-- Status Bar: [eww](https://github.com/elkowar/eww)
-- Wallpaper manager: [swaybg](https://github.com/swaywm/swaybg)
 - Shell: [zsh](https://www.zsh.org)
 - Shell manager: [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+- Wayland setup:
+  - Window Manager/compositor: [MangoWM](https://mangowm.github.io/)
+  - Status bar: [waybar](https://github.com/Alexays/Waybar)
+- Xorg setup:
+  - Window Manager: i3wm
+  - Status Bar: [polybar](https://github.com/polybar/polybar)
