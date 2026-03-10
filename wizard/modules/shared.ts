@@ -22,7 +22,6 @@ export const SYSTEM_PACKAGES: Package[] = [
   { name: 'eza',                            source: 'pacman', description: 'Alternative to ls' },
   { name: 'python-pip',                     source: 'pacman', description: 'Python package manager' },
   { name: 'python-dbus',                    source: 'pacman', description: 'Python dbus API' },
-  { name: 'lxappearance-gtk3',              source: 'aur',    description: 'GTK theme settings GUI' },
   { name: 'adobe-source-han-sans-jp-fonts', source: 'pacman', description: 'Japanese (kanji/hiragana/katakana) font' },
   { name: 'ttf-jetbrains-mono',             source: 'pacman', description: 'JetBrains Mono font' },
   { name: 'ttf-fantasque-sans-mono',        source: 'aur',    description: 'Fantasque Sans Mono font' },
