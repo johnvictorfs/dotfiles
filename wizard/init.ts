@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import { spawnSync } from 'child_process';
-import { log } from './lib/utils.ts';
+import { log, setVerbose } from './lib/utils.ts';
 import type { WizardModule, SymlinkSpec } from './lib/utils.ts';
 import { ensurePacman, ensureParu } from './lib/packages.ts';
 import { confirm, selectModules, closeReadline } from './lib/prompt.ts';
@@ -90,24 +90,37 @@ const modules: WizardModule[] = [
 ];
 
 function getInstalledPackages(): Set<string> {
+  log.debug('Running pacman -Qq...');
   const result = spawnSync('pacman', ['-Qq'], { encoding: 'utf8' });
-  return new Set(result.stdout.split('\n').filter(Boolean));
+  const set = new Set(result.stdout.split('\n').filter(Boolean));
+  log.debug(`pacman reports ${set.size} installed packages.`);
+  return set;
 }
 
 async function isSymlinkCorrect(spec: SymlinkSpec): Promise<boolean> {
   try {
     const stat = await fs.lstat(spec.dest);
-    if (!stat.isSymbolicLink()) return false;
-    return (await fs.readlink(spec.dest)) === spec.src;
+    if (!stat.isSymbolicLink()) {
+      log.debug(`  symlink ${spec.dest}: exists but is not a symlink`);
+      return false;
+    }
+    const current = await fs.readlink(spec.dest);
+    const ok = current === spec.src;
+    log.debug(`  symlink ${spec.dest}: ${ok ? 'ok' : `wrong target → ${current}`}`);
+    return ok;
   } catch {
+    log.debug(`  symlink ${spec.dest}: missing`);
     return false;
   }
 }
 
 async function checkModule(mod: WizardModule, installed: Set<string>): Promise<boolean> {
+  log.debug(`Checking module "${mod.label}":`);
   if (mod.packages) {
     for (const pkg of mod.packages.system) {
-      if (!installed.has(pkg.name)) return false;
+      const found = installed.has(pkg.name);
+      log.debug(`  package ${pkg.name}: ${found ? 'installed' : 'missing'}`);
+      if (!found) return false;
     }
   }
   if (mod.symlinks) {
@@ -119,10 +132,6 @@ async function checkModule(mod: WizardModule, installed: Set<string>): Promise<b
 }
 
 function printPackagePreview(selected: WizardModule[]): void {
-  const DIM = '\x1b[2m';
-  const YELLOW_LOCAL = '\x1b[33m';
-  const RESET_LOCAL = '\x1b[0m';
-
   console.log(`\n${COLORS.BOLD}Packages to install:${COLORS.RESET}\n`);
   for (const mod of selected) {
     if (!mod.packages) continue;
@@ -131,18 +140,19 @@ function printPackagePreview(selected: WizardModule[]): void {
     console.log(`  ${COLORS.CYAN}${mod.label}${COLORS.RESET}`);
     if (system.length > 0) {
       const formatted = system
-        .map((p) => p.source === 'aur' ? `${p.name}${YELLOW_LOCAL}[aur]${RESET_LOCAL}` : p.name)
+        .map((p) => p.source === 'aur' ? `${p.name}${COLORS.YELLOW}[aur]${COLORS.RESET}` : p.name)
         .join(', ');
-      console.log(`    ${DIM}system:${RESET_LOCAL} ${formatted}`);
+      console.log(`    ${COLORS.DIM}system:${COLORS.RESET} ${formatted}`);
     }
     if (pip.length > 0) {
-      console.log(`    ${DIM}pip:${RESET_LOCAL}    ${pip.map((p) => p.name).join(', ')}`);
+      console.log(`    ${COLORS.DIM}pip:${COLORS.RESET}    ${pip.map((p) => p.name).join(', ')}`);
     }
     console.log();
   }
 }
 
 async function main(): Promise<void> {
+  setVerbose(process.argv.includes('-v'));
   printBanner();
 
   await ensurePacman();

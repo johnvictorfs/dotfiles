@@ -5,11 +5,12 @@ import type { Package } from '../lib/utils.ts';
 import { installPackages } from '../lib/packages.ts';
 import { symlinkAll, promptSymlinks } from '../lib/symlink.ts';
 import { confirm } from '../lib/prompt.ts';
+import { COLORS } from '../lib/colors.ts';
 
 const HOME = os.homedir();
 
 export const SYSTEM_PACKAGES: Package[] = [
-  { name: 'code', source: 'pacman', description: 'Visual Studio Code' },
+  { name: 'visual-studio-code-bin', source: 'pacman', description: 'Visual Studio Code' },
 ];
 
 export const SYMLINKS = [
@@ -35,12 +36,9 @@ const EXTENSIONS = [
 ];
 
 async function promptExtensions(): Promise<void> {
-  const DIM = '\x1b[2m';
-  const RESET = '\x1b[0m';
-
   console.log('\nExtensions to install:\n');
   for (const ext of EXTENSIONS) {
-    console.log(`  ${ext.id}  ${DIM}${ext.description}${RESET}`);
+    console.log(`  ${ext.id}  ${COLORS.DIM}${ext.description}${COLORS.RESET}`);
   }
   console.log();
 

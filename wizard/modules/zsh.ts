@@ -10,8 +10,7 @@ import { symlinkAll, promptSymlinks } from '../lib/symlink.ts';
 const HOME = os.homedir();
 
 export const SYSTEM_PACKAGES: Package[] = [
-  { name: 'zsh',          source: 'pacman', description: 'Z shell' },
-  { name: 'oh-my-zsh-git', source: 'aur',   description: 'Oh My Zsh zsh framework' },
+  { name: 'zsh', source: 'pacman', description: 'Z shell' },
 ];
 
 export const SYMLINKS = [
@@ -23,12 +22,8 @@ export const SYMLINKS = [
     src:  path.join(DOTFILES_ROOT, '.aliases'),
     dest: path.join(HOME, '.aliases'),
   },
-  {
-    // oh-my-zsh-git (AUR) uses /usr/share/oh-my-zsh; user-level custom dir
-    // is controlled by $ZSH_CUSTOM, defaulting to ~/.oh-my-zsh/custom
-    src:  path.join(DOTFILES_ROOT, 'zsh/jvfs.zsh-theme'),
-    dest: path.join(HOME, '.oh-my-zsh/custom/themes/jvfs.zsh-theme'),
-  },
+  // jvfs.zsh-theme is sourced directly from the dotfiles path in .zshrc —
+  // no symlink needed.
 ];
 
 async function installZgenom(): Promise<void> {

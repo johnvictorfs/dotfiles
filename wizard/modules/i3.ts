@@ -30,7 +30,6 @@ export const SYMLINKS = [
   { src: path.join(DOTFILES_ROOT, 'i3/config'),    dest: path.join(HOME, '.config/i3/config') },
   { src: path.join(DOTFILES_ROOT, 'polybar'),      dest: path.join(HOME, '.config/polybar') },
   { src: path.join(DOTFILES_ROOT, 'picom'),        dest: path.join(HOME, '.config/picom') },
-  { src: path.join(DOTFILES_ROOT, 'eww'),          dest: path.join(HOME, '.config/eww') },
   { src: path.join(DOTFILES_ROOT, '.Xresources'),  dest: path.join(HOME, '.Xresources') },
 ];
 
