@@ -26,7 +26,7 @@ export const PIP_PACKAGES = [
   { name: 'i3ipc', description: 'i3 IPC events API' },
 ];
 
-const SYMLINKS = [
+export const SYMLINKS = [
   { src: path.join(DOTFILES_ROOT, 'i3/config'),    dest: path.join(HOME, '.config/i3/config') },
   { src: path.join(DOTFILES_ROOT, 'polybar'),      dest: path.join(HOME, '.config/polybar') },
   { src: path.join(DOTFILES_ROOT, 'picom'),        dest: path.join(HOME, '.config/picom') },

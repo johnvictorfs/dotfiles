@@ -14,7 +14,7 @@ export const SYSTEM_PACKAGES: Package[] = [
   { name: 'oh-my-zsh-git', source: 'aur',   description: 'Oh My Zsh zsh framework' },
 ];
 
-const SYMLINKS = [
+export const SYMLINKS = [
   {
     src:  path.join(DOTFILES_ROOT, '.zshrc'),
     dest: path.join(HOME, '.zshrc'),

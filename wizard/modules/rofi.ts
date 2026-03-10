@@ -8,21 +8,18 @@ import { symlinkAll, promptSymlinks } from '../lib/symlink.ts';
 const HOME = os.homedir();
 
 export const SYSTEM_PACKAGES: Package[] = [
-  { name: 'waywall-working-git', source: 'aur', description: 'waywall Wayland compositor' },
+  { name: 'rofi', source: 'pacman', description: 'Application launcher / dmenu replacement' },
 ];
 
 export const SYMLINKS = [
   {
-    src: path.join(DOTFILES_ROOT, 'waywall'),
-    dest: path.join(HOME, '.config/waywall'),
+    src:  path.join(DOTFILES_ROOT, 'rofi'),
+    dest: path.join(HOME, '.config/rofi'),
   },
 ];
 
-export async function runWaywall(): Promise<void> {
-  log.info('Installing waywall packages...');
+export async function runRofi(): Promise<void> {
   await installPackages({ system: SYSTEM_PACKAGES, pip: [] });
-
   await symlinkAll(await promptSymlinks(SYMLINKS));
-
-  log.ok('waywall setup complete.');
+  log.ok('rofi setup complete.');
 }

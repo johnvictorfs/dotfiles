@@ -56,7 +56,7 @@ export const PIP_PACKAGES = [
   { name: 'fontawesome', description: 'Font Awesome icon names API' },
 ];
 
-const SYMLINKS = [
+export const SYMLINKS = [
   { src: path.join(DOTFILES_ROOT, '.bin'),            dest: path.join(HOME, '.bin') },
   { src: path.join(DOTFILES_ROOT, '.profile'),        dest: path.join(HOME, '.profile') },
   { src: path.join(DOTFILES_ROOT, '.fonts'),          dest: path.join(HOME, '.fonts') },

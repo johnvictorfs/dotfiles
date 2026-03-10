@@ -15,7 +15,7 @@ export const SYSTEM_PACKAGES: Package[] = [
   { name: 'xdg-desktop-portal-wlr', source: 'pacman', description: 'Screensharing + screen recording for wlroots compositors' },
 ];
 
-const SYMLINKS = [
+export const SYMLINKS = [
   {
     src: path.join(DOTFILES_ROOT, 'mango/config.conf'),
     dest: path.join(HOME, '.config/mango/config.conf'),
