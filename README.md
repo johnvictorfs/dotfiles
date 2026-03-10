@@ -1,8 +1,11 @@
 # My Dotfiles
 
-Configuration files for zshrc, Neovim, Vscode, i3wm, hyprland, eww and others
+Configuration files for zshrc, Neovim, Vscode, i3wm or mangowm, eww or polybar, and others.
 
-![image](images/screenshots/nvim.png)
+| | |
+|--------|-------------|
+| I3 setup | ![image](images/screenshots/nvim.png) |
+| MangoWM setup | <img width="1920" height="1078" alt="Image" src="https://github.com/user-attachments/assets/7c06be49-e10c-49fd-aeda-9d80898db65f" /> |
 
 ---
 
