@@ -201,8 +201,8 @@
     "markdown": true,
     "scminput": false,
     "yaml": true,
-    "python": false,
-    "clojure": true
+    "python": true,
+    "clojure": false
   },
   "workbench.startupEditor": "none",
   "workbench.iconTheme": "material-icon-theme",
@@ -241,7 +241,7 @@
   "react-native-tools.showUserTips": false,
   "security.workspace.trust.untrustedFiles": "open",
   "typescript.tsserver.log": "off",
-  "debug.javascript.autoAttachFilter": "smart",
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
   "workbench.editor.empty.hint": "hidden",
   "debug.toolBarLocation": "commandCenter",
   "workbench.editor.pinnedTabsOnSeparateRow": true,
@@ -256,9 +256,52 @@
   },
   "svelte.enable-ts-plugin": true,
   "calva.paredit.defaultKeyMap": "strict",
+  // "calva.autoEvaluateCode": {
+  //   // "onConnect": {
+  //   //   "clj": "(require '[clojure.test] '[clojure.tools.namespace.repl])(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))",
+  //   //   "cljs": "(try (require '[cljs.repl :refer [apropos dir doc find-doc print-doc pst source]]) (catch :default e (js/console.warn \"Failed to require cljs.repl utilities:\" (.-message e))))"
+  //   // },
+  //   "onFileLoaded": {
+  //     "clj": null,
+  //     "cljs": null
+  //   }
+  // },
+  "calva.autoConnectRepl": true,
+  "calva.prettyPrintingOptions": {
+    "printEngine": "pprint",
+    "enabled": true,
+    "width": 120,
+    "maxLength": 50
+  },
+  "calva.replConnectSequences": [
+    {
+      "name": "Lein REPL",
+      "projectType": "Leiningen",
+      "autoSelectForJackIn": false,
+      "menuSelections": {
+        "leinAlias": null,
+        "leinProfiles": []
+      },
+      "afterCLJReplJackInCode": [
+        // "(clojure.tools.namespace.repl/refresh)"
+        // "(require 'clojure.tools.namespace.repl)",
+      ]
+    },
+  ],
+  "calva.outputDestinations": {
+    "evalResults": "terminal",
+    "evalOutput": "terminal",
+    "otherOutput": "terminal"
+  },
   "github.copilot.editor.enableAutoCompletions": true,
   "yaml.schemas": {
-    "file:///home/john/.vscode/extensions/atlassian.atlascode-3.0.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/john/.vscode-server/extensions/atlassian.atlascode-3.8.2/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
-  "workbench.colorTheme": "GitHub Dark"
+  "workbench.colorTheme": "Palenight (Mild Contrast)",
+  "github.copilot.selectedCompletionModel": "",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "python.defaultInterpreterPath": "/bin/python",
+  "chat.viewSessions.orientation": "stacked"
 }

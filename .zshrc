@@ -150,3 +150,4 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # console-ninja vscode extension
 PATH=~/.console-ninja/.bin:$PATH
+
