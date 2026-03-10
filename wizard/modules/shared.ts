@@ -32,13 +32,8 @@ export const SYSTEM_PACKAGES: Package[] = [
   { name: 'ttf-firacode-nerd',              source: 'pacman', description: 'Fira Code Nerd Font' },
   { name: 'noto-fonts',                     source: 'pacman', description: 'Google Noto fonts' },
   { name: 'noto-fonts-cjk',                 source: 'pacman', description: 'Noto CJK fonts' },
-  { name: 'kitty',                          source: 'pacman', description: 'Terminal emulator' },
-  { name: 'dunst',                          source: 'pacman', description: 'Notification daemon' },
-  { name: 'rofi',                           source: 'pacman', description: 'Application launcher / dmenu replacement' },
   { name: 'nautilus',                       source: 'pacman', description: 'File manager' },
   { name: 'network-manager-applet',         source: 'pacman', description: 'NetworkManager tray applet' },
-  { name: 'zathura',                        source: 'pacman', description: 'PDF viewer' },
-  { name: 'zathura-pdf-mupdf',              source: 'pacman', description: 'MuPDF backend for zathura' },
   { name: 'foliate',                        source: 'pacman', description: 'e-Book reader' },
   { name: 'mpv',                            source: 'pacman', description: 'Video player' },
   { name: 'playerctl',                      source: 'pacman', description: 'Media control CLI' },
@@ -59,13 +54,9 @@ export const PIP_PACKAGES = [
 ];
 
 export const SYMLINKS = [
-  { src: path.join(DOTFILES_ROOT, '.bin'),            dest: path.join(HOME, '.bin') },
-  { src: path.join(DOTFILES_ROOT, '.profile'),        dest: path.join(HOME, '.profile') },
-  { src: path.join(DOTFILES_ROOT, '.fonts'),          dest: path.join(HOME, '.fonts') },
-  { src: path.join(DOTFILES_ROOT, 'kitty/kitty.conf'),dest: path.join(HOME, '.config/kitty/kitty.conf') },
-  { src: path.join(DOTFILES_ROOT, 'dunst'),           dest: path.join(HOME, '.config/dunst') },
-  { src: path.join(DOTFILES_ROOT, 'zathura/zathurarc'),dest: path.join(HOME, '.config/zathura/zathurarc') },
-  { src: path.join(DOTFILES_ROOT, 'rofi'),            dest: path.join(HOME, '.config/rofi') },
+  { src: path.join(DOTFILES_ROOT, '.bin'),     dest: path.join(HOME, '.bin') },
+  { src: path.join(DOTFILES_ROOT, '.profile'), dest: path.join(HOME, '.profile') },
+  { src: path.join(DOTFILES_ROOT, '.fonts'),   dest: path.join(HOME, '.fonts') },
 ];
 
 export async function runShared(): Promise<void> {

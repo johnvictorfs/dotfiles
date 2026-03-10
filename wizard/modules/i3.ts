@@ -8,7 +8,7 @@ import { symlinkAll, promptSymlinks } from '../lib/symlink.ts';
 const HOME = os.homedir();
 
 export const SYSTEM_PACKAGES: Package[] = [
-  { name: 'i3',                  source: 'pacman', description: 'i3 window manager' },
+  { name: 'i3-wm',               source: 'pacman', description: 'i3 window manager' },
   { name: 'i3exit',              source: 'aur',    description: 'Suspend/lock/logout commands for i3' },
   { name: 'picom',               source: 'pacman', description: 'Compositor' },
   { name: 'polybar',             source: 'pacman', description: 'Status bar' },
