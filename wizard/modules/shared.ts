@@ -48,6 +48,8 @@ export const SYSTEM_PACKAGES: Package[] = [
   { name: 'flameshot',                      source: 'pacman', description: 'Screenshot tool' },
   { name: 'highlight',                      source: 'pacman', description: 'Syntax highlighting (for ccat)' },
   { name: 'pipewire-pulse',                 source: 'pacman', description: 'PulseAudio-compatible PipeWire backend' },
+  { name: 'ffmpeg',                         source: 'pacman', description: 'Audio/video processing' },
+  { name: 'zen-browser-bin',                source: 'aur',    description: 'Zen browser' },
 ];
 
 export const PIP_PACKAGES = [

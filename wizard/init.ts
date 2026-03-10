@@ -14,6 +14,7 @@ import { runZsh, SYSTEM_PACKAGES as ZSH_SYS, SYMLINKS as ZSH_LINKS } from './mod
 import { runZathura, SYSTEM_PACKAGES as ZATHURA_SYS, SYMLINKS as ZATHURA_LINKS } from './modules/zathura.ts';
 import { runRofi, SYSTEM_PACKAGES as ROFI_SYS, SYMLINKS as ROFI_LINKS } from './modules/rofi.ts';
 import { runNvim, SYSTEM_PACKAGES as NVIM_SYS, SYMLINKS as NVIM_LINKS } from './modules/nvim.ts';
+import { runTlp, SYSTEM_PACKAGES as TLP_SYS } from './modules/tlp.ts';
 
 function printBanner(): void {
   console.log(`
@@ -86,6 +87,12 @@ const modules: WizardModule[] = [
     packages: { system: NVIM_SYS, pip: [] },
     symlinks: NVIM_LINKS,
     run: runNvim,
+  },
+  {
+    id: 10,
+    label: 'tlp (laptop power management)',
+    packages: { system: TLP_SYS, pip: [] },
+    run: runTlp,
   },
 ];
 
