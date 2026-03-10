@@ -19,7 +19,7 @@ export const SYSTEM_PACKAGES: Package[] = [
   { name: 'papirus-icon-theme',             source: 'pacman', description: 'Icon theme' },
   { name: 'nordic-theme-git',               source: 'aur',    description: 'GTK theme' },
   { name: 'materia-gtk-theme',              source: 'pacman', description: 'GTK theme' },
-  { name: 'exa',                            source: 'pacman', description: 'Alternative to ls' },
+  { name: 'eza',                            source: 'pacman', description: 'Alternative to ls' },
   { name: 'python-pip',                     source: 'pacman', description: 'Python package manager' },
   { name: 'python-dbus',                    source: 'pacman', description: 'Python dbus API' },
   { name: 'lxappearance-gtk3',              source: 'aur',    description: 'GTK theme settings GUI' },
