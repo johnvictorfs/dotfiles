@@ -56,7 +56,7 @@ bindsym $mod+w exec --no-startup-id $browser &
 bindsym $mod+F3 exec --no-startup-id $filemanager
 
 # Calculator
-bindsym $mod+c exec --no-startup-id $term -e calc -d
+# bindsym $mod+c exec --no-startup-id $term -e calc -d
 
 # Open terminal music player
 bindsym $mod+F2 exec $term -e $music_player &
@@ -118,6 +118,11 @@ for_window [class=".*"] split toggle
 # Webcam video
 for_window [title="video0 - mpv"] floating enable
 for_window [title="video0 - mpv"] sticky enable
+# }}}
+
+# Minecraft stuff
+for_window [class="Minecraft\* 1.16.1"] floating enable
+for_window [class="ninjabrainbot-Main"] floating enable
 # }}}
 
 # Color Settings {{{
@@ -314,6 +319,10 @@ bindsym --release Print exec --no-startup-id flameshot gui # --no-startup-id $sc
 bindsym --release Insert exec --no-startup-id flameshot gui # --no-startup-id $screenshot_selection
 # }}}
 
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+
 # Startup apps {{{
 # Auto-name workspaces with app icons
 exec_always --no-startup-id ~/.bin/autoname_workspaces --icon_list_format mathematician &
@@ -346,6 +355,8 @@ exec_always --no-startup-id . ~/.config/dunst/launch.sh
 # KDE Connect
 exec --no-startup-id /usr/lib/kdeconnectd
 
+exec --no-startup-id nm-applet
+
 # Top dock
-exec --no-startup-id bash -c "cd ~/dev/linux-web-widgets && bun dev"
+# exec --no-startup-id bash -c "cd ~/dev/linux-web-widgets && bun dev"
 # }}}

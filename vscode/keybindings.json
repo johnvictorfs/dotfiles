@@ -112,10 +112,6 @@
     "when": "editorFocus && foldingEnabled"
   },
   {
-    "key": "ctrl+enter",
-    "command": "calva.evaluateCurrentTopLevelForm"
-  },
-  {
     "key": "ctrl+w",
     "command": "workbench.action.closeActiveEditor"
   },
@@ -127,16 +123,39 @@
         calva:
     **************************************************/
   {
-    "key": "alt+t t",
-    "command": "calva.runCustomREPLCommand",
-    "when": "calva:connected && editorLangId == 'clojure'",
-    "args": "t"
+    "key": "alt+t", //Run only the test the cursor is in
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.terminal.clear",
+        "calva.runTestUnderCursor"
+      ],
+    },
+    "when": "calva:connected"
   },
+  // {
+  //   "key": "alt+t t",
+  //   "command": "calva.runCustomREPLCommand",
+  //   "when": "calva:connected && editorLangId == 'clojure'",
+  //   "args": "t"
+  // },
   {
     "key": "alt+t ctrl+shift",
     "command": "calva.runCustomREPLCommand",
     "when": "calva:connected && editorLangId == 'clojure'",
     "args": "t-"
+  },
+  {
+    "key": "ctrl+s", // Save and reload when REPL is on
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.files.saveFiles",
+        "calva.refresh",
+        "workbench.action.terminal.scrollToBottom"
+      ],
+    },
+    "when": "calva:connected && !(resourceDirname =~ /(crypto-bdc|baba-is-bdc)/)"
   },
   /**************************************************
       calva: repl
@@ -223,4 +242,34 @@
     "command": "calva-fmt.alignCurrentForm",
     "when": "calva:keybindingsEnabled && editorTextFocus && !editorReadOnly && !hasOtherSuggestions && !suggestWidgetVisible && editorLangId == 'clojure'"
   },
+  {
+    "key": "alt+enter",
+    "command": "-calva.evaluateCurrentTopLevelForm",
+    "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure'"
+  },
+  {
+    "key": "ctrl+shift+enter",
+    "command": "-calva.evaluateEnclosingForm",
+    "when": "calva:keybindingsEnabled && editorTextFocus && editorLangId == 'clojure'"
+  },
+  {
+    "key": "alt+enter",
+    "command": "calva.evaluateSelection",
+    "when": "calva:keybindingsEnabled && editorTextFocus && !suggestWidgetVisible && editorLangId == 'clojure'"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-calva.evaluateSelection",
+    "when": "calva:keybindingsEnabled && editorTextFocus && !suggestWidgetVisible && editorLangId == 'clojure'"
+  },
+  {
+    "key": "alt+down",
+    "command": "paredit.forwardSexp",
+    "when": "editorLangId == 'clojure'"
+  },
+  {
+    "key": "alt+up",
+    "command": "paredit.backwardSexp",
+    "when": "editorLangId == 'clojure'"
+  }
 ]

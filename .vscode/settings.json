@@ -1,0 +1,9 @@
+{
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.removeUnusedImports": "always"
+    },
+    "editor.formatOnSave": true
+  }
+}
