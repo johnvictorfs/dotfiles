@@ -14,7 +14,7 @@ local tall_overlay_path = waywall_config_path .. "resources/overlay_tall.png"
 local thin_overlay_path = waywall_config_path .. "resources/overlay_thin.png"
 local wide_overlay_path = waywall_config_path .. "resources/overlay_wide.png"
 
-local pacem_path = waywall_config_path .. "resources/paceman-tracker-0.7.2.jar"
+-- local pacem_path = waywall_config_path .. "resources/paceman-tracker-0.7.2.jar"
 local nb_path = waywall_config_path .. "resources/Ninjabrain-Bot-1.5.1.jar"
 local overlay_path = waywall_config_path .. "resources/measuring_overlay.png"
 local stretched_overlay_path = waywall_config_path .. "resources/stretched_overlay.png"
@@ -340,14 +340,14 @@ config.actions = {
 
     [cfg.toggle_fullscreen_key] = waywall.toggle_fullscreen,
 
-    [cfg.launch_paceman_key] = function()
-        if is_pacem_running() then
-            print("Paceman Already Running")
-        else
-            waywall.exec("java -jar " .. pacem_path .. " --nogui")
-            print("Paceman Running")
-        end
-    end,
+    -- [cfg.launch_paceman_key] = function()
+    --     if is_pacem_running() then
+    --         print("Paceman Already Running")
+    --     else
+    --         waywall.exec("java -jar " .. pacem_path .. " --nogui")
+    --         print("Paceman Running")
+    --     end
+    -- end,
 
     [cfg.toggle_ninbot_key] = function()
         if not is_ninb_running() then
@@ -410,7 +410,7 @@ config.actions = {
             "Wide = " .. cfg.wide.key .. "\n" ..
             "Tall = " .. cfg.tall.key .. "\n" ..
             "Toggle Ninbot = " .. cfg.toggle_ninbot_key .. "\n" ..
-            "Launch paceman = " .. cfg.launch_paceman_key .. "\n" ..
+            -- "Launch paceman = " .. cfg.launch_paceman_key .. "\n" ..
             "Fullscreen = " .. cfg.toggle_fullscreen_key .. "\n" ..
             "  "
 

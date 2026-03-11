@@ -6,7 +6,7 @@
 - Toggleable mirrors for E-counter, pie chart, and percentages (for both thin and tall resolutions), with optional color keying
 - Configurable hotkeys for resolution changes and ninjabrain bot visibility
 - Toggleable and configurable keyboard remaps
-- Integrated Ninjabrain Bot and Paceman for easy setup
+- Integrated Ninjabrain Bot for easy setup
 - Stretched and normal measuring overlays
 - Compatible with Char's resize animations https://github.com/char3210/resize_animation/blob/main/resize_animation_waywall.py
 - Support for resolution specific overlays for borders and more

@@ -45,7 +45,7 @@ return {
 
 	-- startup actions
 	toggle_fullscreen_key = "Shift-O",
-	launch_paceman_key = "Shift-H",
+	-- launch_paceman_key = "Shift-H",
 
 	-- during game actions
 	toggle_ninbot_key = "*-apostrophe",
