@@ -184,38 +184,31 @@ if cfg.thin_pie.enabled then
     end
 end
 
--- Glowdar mirror
--- helpers.res_mirror({
---     src = {
---         x = 1827,
---         y = 858,
---         w = 34,
---         h = 36
---     },
---     dst = {
---         x = 1667,
---         y = 678,
---         w = 169,
---         h = 179
---     },
---     shader = 'glowdar'
--- }, cfg.resolution[1], cfg.resolution[2])
+-- Glowdar mirror (dynamic: created/destroyed based on resize state)
+local glowdar_fg = nil
+local glowdar_bg = nil
 
--- helpers.res_mirror({
---     src = {
---         x = 1827,
---         y = 858,
---         w = 34,
---         h = 36
---     },
---     dst = {
---         x = 1672,
---         y = 683,
---         w = 169,
---         h = 179
---     },
---     shader = 'glowdar_bg'
--- }, cfg.resolution[1], cfg.resolution[2])
+local function glowdar_show()
+    if not glowdar_fg then
+        glowdar_fg = waywall.mirror({
+            src = { x = 1820, y = 865, w = 50, h = 30 },
+            dst = { x = 1735, y = 700, w = 230, h = 130 },
+            color_key = { input = "#4DE1CA", output = "#4DE1CA" }
+        })
+    end
+    if not glowdar_bg then
+        glowdar_bg = waywall.mirror({
+            src = { x = 1820, y = 865, w = 50, h = 30 },
+            dst = { x = 1740, y = 705, w = 230, h = 130 },
+            color_key = { input = "#4DE1CA", output = "#054078" }
+        })
+    end
+end
+
+local function glowdar_hide()
+    if glowdar_fg then glowdar_fg:close(); glowdar_fg = nil end
+    if glowdar_bg then glowdar_bg:close(); glowdar_bg = nil end
+end
 
 if cfg.thin_percent.enabled then
     for _, ck in ipairs(percentage_colors) do
@@ -360,6 +353,8 @@ helpers.res_image(thin_overlay_path, {
 
 -- ==== DEBUG TEXT ====
 waywall.listen("load", function()
+    glowdar_show()
+
     if cfg.debug_text then
         debug_text1 = waywall.text(debug_text, {
             x = 10,
@@ -391,6 +386,7 @@ end)
 -- ==== RESIZING STATES ====
 local thin_enable = function()
     thin_active = true
+    glowdar_hide()
     if cfg.sens_change.enabled then
         waywall.set_sensitivity(cfg.sens_change.normal)
     end
@@ -400,18 +396,21 @@ local tall_enable = function()
         waywall.set_sensitivity(cfg.sens_change.tall)
     end
     thin_active = false
+    glowdar_hide()
 end
 local wide_enable = function()
     if cfg.sens_change.enabled then
         waywall.set_sensitivity(cfg.sens_change.normal)
     end
     thin_active = false
+    glowdar_hide()
 end
 local res_disable = function()
     if cfg.sens_change.enabled then
         waywall.set_sensitivity(cfg.sens_change.normal)
     end
     thin_active = false
+    glowdar_show()
 end
 
 -- ==== RESOLUTIONS ====
@@ -585,16 +584,6 @@ local read_file = function(name)
     end
 end
 
--- config.shaders = {
---     ["glowdar"] = {
---         vertex = read_file(waywall_config_path .. "resources/shaders/general.vert"),
---         fragment = read_file(waywall_config_path .. "resources/shaders/frag/glow.frag")
---     },
---     ["glowdar_bg"] = {
---         vertex = read_file(waywall_config_path .. "resources/shaders/general.vert"),
---         fragment = read_file(waywall_config_path .. "resources/shaders/frag/glowbg.frag")
---     }
--- }
 
 require("extras")(config)
 
