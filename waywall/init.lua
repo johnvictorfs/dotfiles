@@ -28,10 +28,9 @@ local debug_text1 = nil
 local debug_text2 = nil
 local debug_text3 = nil
 local debug_text4 = nil
-local debug_text = "Press Shift + I to show keybinds.\n\n" ..
-    "Look at the Github's README for a guide to config.\n\n" ..
-    "disable this message by setting\n" ..
-    "\'debug_text\' to false in ~/.config/waywall/config.lua\n"
+local debug_text =
+    "Press Shift + I to show keybinds.\n\n" .. "Look at the Github's README for a guide to config.\n\n" ..
+        "disable this message by setting\n" .. "\'debug_text\' to false in ~/.config/waywall/config.lua\n"
 
 -- ==== CONFIG TABLE ====
 local config = {
@@ -45,22 +44,22 @@ local config = {
         repeat_delay = 300,
         remaps = keyboard_remaps,
         sensitivity = (cfg.sens_change.enabled and cfg.sens_change.normal) or 1.0,
-        confine_pointer = false,
+        confine_pointer = false
     },
     theme = {
         background = cfg.bg_col,
         background_png = cfg.toggle_bg_picture and bg_path or nil,
         ninb_anchor = cfg.ninbot_anchor,
-        ninb_opacity = cfg.ninbot_opacity,
+        ninb_opacity = cfg.ninbot_opacity
     },
     experimental = {
         debug = false,
         jit = false,
-        tearing = false,
+        tearing = false
     },
     window = {
         fullscreen_width = cfg.resolution[1],
-        fullscreen_height = cfg.resolution[2],
+        fullscreen_height = cfg.resolution[2]
     }
 }
 
@@ -80,82 +79,162 @@ end
 
 -- ==== MIRRORS ====
 -- colors
-local pie_colors = {
-    { input = "#EC6E4E", output = cfg.pie_chart_1 },
-    { input = "#46CE66", output = cfg.pie_chart_2 },
-    { input = "#CC6C46", output = cfg.pie_chart_2 },
-    { input = "#464C46", output = cfg.pie_chart_2 },
-    { input = "#E446C4", output = cfg.pie_chart_3 }
-}
-local percentage_colors = {
-    { input = "#E96D4D", output = cfg.percentages_match_text and cfg.text_col or cfg.pie_chart_1 },
-    { input = "#45CB65", output = cfg.percentages_match_text and cfg.text_col or cfg.pie_chart_2 },
-}
+local pie_colors = {{
+    input = "#EC6E4E",
+    output = cfg.pie_chart_1
+}, {
+    input = "#46CE66",
+    output = cfg.pie_chart_2
+}, {
+    input = "#CC6C46",
+    output = cfg.pie_chart_2
+}, {
+    input = "#464C46",
+    output = cfg.pie_chart_2
+}, {
+    input = "#E446C4",
+    output = cfg.pie_chart_3
+}}
+local percentage_colors = {{
+    input = "#E96D4D",
+    output = cfg.percentages_match_text and cfg.text_col or cfg.pie_chart_1
+}, {
+    input = "#45CB65",
+    output = cfg.percentages_match_text and cfg.text_col or cfg.pie_chart_2
+}}
 
 -- thin mirrors
 if cfg.e_count.enabled then
-    helpers.res_mirror(
-        {
-            src = { x = 13, y = 37, w = 37, h = 9 },
-            dst = { x = cfg.e_count.x, y = cfg.e_count.y, w = 37 * cfg.e_count.size, h = 9 * cfg.e_count.size },
-            depth = 2,
-            color_key = cfg.e_count.colorkey and {
-                input = "#DDDDDD",
-                output = cfg.text_col,
-            } or nil,
+    helpers.res_mirror({
+        src = {
+            x = 13,
+            y = 37,
+            w = 37,
+            h = 9
         },
-        cfg.thin_res[1], cfg.thin_res[2]
-    )
-    helpers.res_mirror(
-        {
-            src = { x = 13, y = 37, w = 37, h = 9 },
-            dst = { x = cfg.e_count.x, y = cfg.e_count.y, w = 37 * cfg.e_count.size, h = 9 * cfg.e_count.size },
-            depth = 2,
-            color_key = cfg.e_count.colorkey and {
-                input = "#DDDDDD",
-                output = cfg.text_col,
-            } or nil,
+        dst = {
+            x = cfg.e_count.x,
+            y = cfg.e_count.y,
+            w = 37 * cfg.e_count.size,
+            h = 9 * cfg.e_count.size
         },
-        cfg.tall_res[1], cfg.tall_res[2]
-    )
+        depth = 2,
+        color_key = cfg.e_count.colorkey and {
+            input = "#DDDDDD",
+            output = cfg.text_col
+        } or nil
+    }, cfg.thin_res[1], cfg.thin_res[2])
+    helpers.res_mirror({
+        src = {
+            x = 13,
+            y = 37,
+            w = 37,
+            h = 9
+        },
+        dst = {
+            x = cfg.e_count.x,
+            y = cfg.e_count.y,
+            w = 37 * cfg.e_count.size,
+            h = 9 * cfg.e_count.size
+        },
+        depth = 2,
+        color_key = cfg.e_count.colorkey and {
+            input = "#DDDDDD",
+            output = cfg.text_col
+        } or nil
+    }, cfg.tall_res[1], cfg.tall_res[2])
 end
 
 if cfg.thin_pie.enabled then
     if cfg.thin_pie.colorkey then
         for _, ck in ipairs(pie_colors) do
-            helpers.res_mirror(
-                {
-                    src = { x = cfg.thin_res[1] - 340, y = cfg.thin_res[2] - 406, w = 340, h = 178 },
-                    dst = { x = cfg.thin_pie.x, y = cfg.thin_pie.y, w = 420 * cfg.thin_pie.size / 4, h = 423 * cfg.thin_pie.size / 4 },
-                    depth = 2,
-                    color_key = ck,
+            helpers.res_mirror({
+                src = {
+                    x = cfg.thin_res[1] - 340,
+                    y = cfg.thin_res[2] - 406,
+                    w = 340,
+                    h = 178
                 },
-                cfg.thin_res[1], cfg.thin_res[2]
-            )
+                dst = {
+                    x = cfg.thin_pie.x,
+                    y = cfg.thin_pie.y,
+                    w = 420 * cfg.thin_pie.size / 4,
+                    h = 423 * cfg.thin_pie.size / 4
+                },
+                depth = 2,
+                color_key = ck
+            }, cfg.thin_res[1], cfg.thin_res[2])
         end
     else
-        helpers.res_mirror(
-            {
-                src = { x = cfg.thin_res[1] - 340, y = cfg.thin_res[2] - 406, w = 340, h = 221 },
-                dst = { x = cfg.thin_pie.x, y = cfg.thin_pie.y, w = 420 * cfg.thin_pie.size / 4, h = 273 * cfg.thin_pie.size / 4 },
-                depth = 2,
+        helpers.res_mirror({
+            src = {
+                x = cfg.thin_res[1] - 340,
+                y = cfg.thin_res[2] - 406,
+                w = 340,
+                h = 221
             },
-            cfg.thin_res[1], cfg.thin_res[2]
-        )
+            dst = {
+                x = cfg.thin_pie.x,
+                y = cfg.thin_pie.y,
+                w = 420 * cfg.thin_pie.size / 4,
+                h = 273 * cfg.thin_pie.size / 4
+            },
+            depth = 2
+        }, cfg.thin_res[1], cfg.thin_res[2])
     end
 end
 
+-- Glowdar mirror
+-- helpers.res_mirror({
+--     src = {
+--         x = 1827,
+--         y = 858,
+--         w = 34,
+--         h = 36
+--     },
+--     dst = {
+--         x = 1667,
+--         y = 678,
+--         w = 169,
+--         h = 179
+--     },
+--     shader = 'glowdar'
+-- }, cfg.resolution[1], cfg.resolution[2])
+
+-- helpers.res_mirror({
+--     src = {
+--         x = 1827,
+--         y = 858,
+--         w = 34,
+--         h = 36
+--     },
+--     dst = {
+--         x = 1672,
+--         y = 683,
+--         w = 169,
+--         h = 179
+--     },
+--     shader = 'glowdar_bg'
+-- }, cfg.resolution[1], cfg.resolution[2])
+
 if cfg.thin_percent.enabled then
     for _, ck in ipairs(percentage_colors) do
-        helpers.res_mirror(
-            {
-                src = { x = cfg.thin_res[1] - 93, y = cfg.thin_res[2] - 221, w = 33, h = 25 },
-                dst = { x = cfg.thin_percent.x, y = cfg.thin_percent.y, w = 33 * cfg.thin_percent.size, h = 25 * cfg.thin_percent.size },
-                depth = 3,
-                color_key = ck,
+        helpers.res_mirror({
+            src = {
+                x = cfg.thin_res[1] - 93,
+                y = cfg.thin_res[2] - 221,
+                w = 33,
+                h = 25
             },
-            cfg.thin_res[1], cfg.thin_res[2]
-        )
+            dst = {
+                x = cfg.thin_percent.x,
+                y = cfg.thin_percent.y,
+                w = 33 * cfg.thin_percent.size,
+                h = 25 * cfg.thin_percent.size
+            },
+            depth = 3,
+            color_key = ck
+        }, cfg.thin_res[1], cfg.thin_res[2])
     end
 end
 
@@ -163,98 +242,149 @@ end
 if cfg.tall_pie.enabled then
     if cfg.tall_pie.colorkey then
         for _, ck in ipairs(pie_colors) do
-            helpers.res_mirror(
-                {
-                    src = { x = 44, y = 15978, w = 340, h = 178 },
-                    dst = { x = cfg.tall_pie.x, y = cfg.tall_pie.y, w = 420 * cfg.tall_pie.size / 4, h = 423 * cfg.tall_pie.size / 4 },
-                    depth = 2,
-                    color_key = ck,
+            helpers.res_mirror({
+                src = {
+                    x = 44,
+                    y = 15978,
+                    w = 340,
+                    h = 178
                 },
-                cfg.tall_res[1], cfg.tall_res[2]
-            )
+                dst = {
+                    x = cfg.tall_pie.x,
+                    y = cfg.tall_pie.y,
+                    w = 420 * cfg.tall_pie.size / 4,
+                    h = 423 * cfg.tall_pie.size / 4
+                },
+                depth = 2,
+                color_key = ck
+            }, cfg.tall_res[1], cfg.tall_res[2])
         end
     else
-        helpers.res_mirror(
-            {
-                src = { x = 44, y = 15978, w = 340, h = 221 },
-                dst = { x = cfg.tall_pie.x, y = cfg.tall_pie.y, w = 420 * cfg.tall_pie.size / 4, h = 273 * cfg.tall_pie.size / 4 },
-                depth = 2,
+        helpers.res_mirror({
+            src = {
+                x = 44,
+                y = 15978,
+                w = 340,
+                h = 221
             },
-            cfg.tall_res[1], cfg.tall_res[2]
-        )
+            dst = {
+                x = cfg.tall_pie.x,
+                y = cfg.tall_pie.y,
+                w = 420 * cfg.tall_pie.size / 4,
+                h = 273 * cfg.tall_pie.size / 4
+            },
+            depth = 2
+        }, cfg.tall_res[1], cfg.tall_res[2])
     end
 end
 
 if cfg.tall_percent.enabled then
     for _, ck in ipairs(percentage_colors) do
-        helpers.res_mirror(
-            {
-                src = { x = 291, y = 16163, w = 33, h = 25 },
-                dst = { x = cfg.tall_percent.x, y = cfg.tall_percent.y, w = 33 * cfg.tall_percent.size, h = 25 * cfg.tall_percent.size },
-                depth = 3,
-                color_key = ck,
+        helpers.res_mirror({
+            src = {
+                x = 291,
+                y = 16163,
+                w = 33,
+                h = 25
             },
-            cfg.tall_res[1], cfg.tall_res[2]
-        )
+            dst = {
+                x = cfg.tall_percent.x,
+                y = cfg.tall_percent.y,
+                w = 33 * cfg.tall_percent.size,
+                h = 25 * cfg.tall_percent.size
+            },
+            depth = 3,
+            color_key = ck
+        }, cfg.tall_res[1], cfg.tall_res[2])
     end
 end
 
-helpers.res_mirror(
-    {
-        src = cfg.stretched_measure
-            and { x = (cfg.tall_res[1] - 30) / 2, y = (cfg.tall_res[2] - 580) / 2, w = 30, h = 580 }
-            or { x = (cfg.tall_res[1] - 60) / 2, y = (cfg.tall_res[2] - 580) / 2, w = 60, h = 580 },
-        dst = { x = cfg.measuring_window.x, y = cfg.measuring_window.y, w = 70 * cfg.measuring_window.size, h = 40 * cfg.measuring_window.size },
-        depth = 2,
+helpers.res_mirror({
+    src = cfg.stretched_measure and {
+        x = (cfg.tall_res[1] - 30) / 2,
+        y = (cfg.tall_res[2] - 580) / 2,
+        w = 30,
+        h = 580
+    } or {
+        x = (cfg.tall_res[1] - 60) / 2,
+        y = (cfg.tall_res[2] - 580) / 2,
+        w = 60,
+        h = 580
     },
-    cfg.tall_res[1], cfg.tall_res[2]
-)
+    dst = {
+        x = cfg.measuring_window.x,
+        y = cfg.measuring_window.y,
+        w = 70 * cfg.measuring_window.size,
+        h = 40 * cfg.measuring_window.size
+    },
+    depth = 2
+}, cfg.tall_res[1], cfg.tall_res[2])
 
 -- ==== IMAGES ====
-helpers.res_image(
-    cfg.stretched_measure and stretched_overlay_path or overlay_path,
-    {
-        dst = { x = cfg.measuring_window.x, y = cfg.measuring_window.y, w = 70 * cfg.measuring_window.size, h = 40 * cfg.measuring_window.size },
-        depth = 3,
+helpers.res_image(cfg.stretched_measure and stretched_overlay_path or overlay_path, {
+    dst = {
+        x = cfg.measuring_window.x,
+        y = cfg.measuring_window.y,
+        w = 70 * cfg.measuring_window.size,
+        h = 40 * cfg.measuring_window.size
     },
-    cfg.tall_res[1], cfg.tall_res[2]
-)
-helpers.res_image(
-    tall_overlay_path,
-    {
-        dst = { x = 0, y = 0, w = cfg.resolution[1], h = cfg.resolution[2] },
-        depth = 1,
+    depth = 3
+}, cfg.tall_res[1], cfg.tall_res[2])
+helpers.res_image(tall_overlay_path, {
+    dst = {
+        x = 0,
+        y = 0,
+        w = cfg.resolution[1],
+        h = cfg.resolution[2]
     },
-    cfg.tall_res[1], cfg.tall_res[2]
-)
-helpers.res_image(
-    wide_overlay_path,
-    {
-        dst = { x = 0, y = 0, w = cfg.resolution[1], h = cfg.resolution[2] },
-        depth = 1,
+    depth = 1
+}, cfg.tall_res[1], cfg.tall_res[2])
+helpers.res_image(wide_overlay_path, {
+    dst = {
+        x = 0,
+        y = 0,
+        w = cfg.resolution[1],
+        h = cfg.resolution[2]
     },
-    cfg.wide_res[1], cfg.wide_res[2]
-)
-helpers.res_image(
-    thin_overlay_path,
-    {
-        dst = { x = 0, y = 0, w = cfg.resolution[1], h = cfg.resolution[2] },
-        depth = 1,
+    depth = 1
+}, cfg.wide_res[1], cfg.wide_res[2])
+helpers.res_image(thin_overlay_path, {
+    dst = {
+        x = 0,
+        y = 0,
+        w = cfg.resolution[1],
+        h = cfg.resolution[2]
     },
-    cfg.thin_res[1], cfg.thin_res[2]
-)
+    depth = 1
+}, cfg.thin_res[1], cfg.thin_res[2])
 
 -- ==== DEBUG TEXT ====
 waywall.listen("load", function()
     if cfg.debug_text then
-        debug_text1 = waywall.text(debug_text,
-            { x = 10, y = 10, color = "#FFFF00", size = 3 })
-        debug_text2 = waywall.text(debug_text,
-            { x = 11, y = 11, color = "#FFFF00", size = 3 })
-        debug_text3 = waywall.text(debug_text,
-            { x = 13, y = 13, color = "#000000", size = 3 })
-        debug_text4 = waywall.text(debug_text,
-            { x = 14, y = 14, color = "#000000", size = 3 })
+        debug_text1 = waywall.text(debug_text, {
+            x = 10,
+            y = 10,
+            color = "#FFFF00",
+            size = 3
+        })
+        debug_text2 = waywall.text(debug_text, {
+            x = 11,
+            y = 11,
+            color = "#FFFF00",
+            size = 3
+        })
+        debug_text3 = waywall.text(debug_text, {
+            x = 13,
+            y = 13,
+            color = "#000000",
+            size = 3
+        })
+        debug_text4 = waywall.text(debug_text, {
+            x = 14,
+            y = 14,
+            color = "#000000",
+            size = 3
+        })
     end
 end)
 
@@ -310,7 +440,7 @@ end
 local resolutions = {
     thin = make_res(cfg.thin_res[1], cfg.thin_res[2], thin_enable, res_disable),
     tall = make_res(cfg.tall_res[1], cfg.tall_res[2], tall_enable, res_disable),
-    wide = make_res(cfg.wide_res[1], cfg.wide_res[2], wide_enable, res_disable),
+    wide = make_res(cfg.wide_res[1], cfg.wide_res[2], wide_enable, res_disable)
 }
 
 local function resize_helper(mode, run, ingame_only)
@@ -329,6 +459,23 @@ local function resize_helper(mode, run, ingame_only)
     end
 
     return resize
+end
+
+local function open_ninbot()
+    if not is_ninb_running() then
+        waywall.exec("java -Dawt.useSystemAAFontSettings=on -jar " .. nb_path)
+    end
+
+    waywall.show_floating(true)
+end
+
+local function toggle_ninbot()
+    if not is_ninb_running() then
+        waywall.exec("java -Dawt.useSystemAAFontSettings=on -jar " .. nb_path)
+        waywall.show_floating(true)
+    else
+        helpers.toggle_floating()
+    end
 end
 
 -- ==== KEYBINDS ====
@@ -350,11 +497,15 @@ config.actions = {
     -- end,
 
     [cfg.toggle_ninbot_key] = function()
-        if not is_ninb_running() then
-            waywall.exec("java -Dawt.useSystemAAFontSettings=on -jar " .. nb_path)
-            waywall.show_floating(true)
+        toggle_ninbot()
+    end,
+
+    ["*-C"] = function()
+        if waywall.get_key("F3") then
+            waywall.press_key("C")
+            open_ninbot()
         else
-            helpers.toggle_floating()
+            return false
         end
     end,
 
@@ -372,17 +523,16 @@ config.actions = {
                     layout = nil,
                     rules = nil,
                     variant = nil,
-                    options = nil,
+                    options = nil
                 })
             end
 
-            rebind_text = waywall.text(cfg.remaps_text_config.text,
-                {
-                    x = cfg.remaps_text_config.x,
-                    y = cfg.remaps_text_config.y,
-                    color = cfg.remaps_text_config.color,
-                    size = cfg.remaps_text_config.size
-                })
+            rebind_text = waywall.text(cfg.remaps_text_config.text, {
+                x = cfg.remaps_text_config.x,
+                y = cfg.remaps_text_config.y,
+                color = cfg.remaps_text_config.color,
+                size = cfg.remaps_text_config.size
+            })
         else
             remaps_active = true
             waywall.set_remaps(keyboard_remaps)
@@ -404,19 +554,15 @@ config.actions = {
             keybinds_text = nil
             return false
         end
-        keybinds_text = waywall.text(
-            "KEYBINDS:\n" ..
-            "Thin = " .. cfg.thin.key .. "\n" ..
-            "Wide = " .. cfg.wide.key .. "\n" ..
-            "Tall = " .. cfg.tall.key .. "\n" ..
-            "Toggle Ninbot = " .. cfg.toggle_ninbot_key .. "\n" ..
-            -- "Launch paceman = " .. cfg.launch_paceman_key .. "\n" ..
-            "Fullscreen = " .. cfg.toggle_fullscreen_key .. "\n" ..
-            "  "
-
-
-            ,
-            { x = 10, y = 10, color = "#FFFFFF", size = 3 })
+        keybinds_text = waywall.text("KEYBINDS:\n" .. "Thin = " .. cfg.thin.key .. "\n" .. "Wide = " .. cfg.wide.key ..
+                                         "\n" .. "Tall = " .. cfg.tall.key .. "\n" .. "Toggle Ninbot = " ..
+                                         cfg.toggle_ninbot_key .. "\n" .. -- "Launch paceman = " .. cfg.launch_paceman_key .. "\n" ..
+        "Fullscreen = " .. cfg.toggle_fullscreen_key .. "\n" .. "  ", {
+            x = 10,
+            y = 10,
+            color = "#FFFFFF",
+            size = 3
+        })
         if debug_text1 and debug_text2 and debug_text3 and debug_text4 then
             debug_text1:close()
             debug_text1 = nil
@@ -428,8 +574,27 @@ config.actions = {
             debug_text4 = nil
         end
     end
-
 }
+
+local read_file = function(name)
+    local file = io.open(name, "r")
+    if file then
+        local data = file:read("*a")
+        file:close()
+        return data
+    end
+end
+
+-- config.shaders = {
+--     ["glowdar"] = {
+--         vertex = read_file(waywall_config_path .. "resources/shaders/general.vert"),
+--         fragment = read_file(waywall_config_path .. "resources/shaders/frag/glow.frag")
+--     },
+--     ["glowdar_bg"] = {
+--         vertex = read_file(waywall_config_path .. "resources/shaders/general.vert"),
+--         fragment = read_file(waywall_config_path .. "resources/shaders/frag/glowbg.frag")
+--     }
+-- }
 
 require("extras")(config)
 
