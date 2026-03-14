@@ -191,14 +191,14 @@ local glowdar_bg = nil
 local function glowdar_show()
     if not glowdar_fg then
         glowdar_fg = waywall.mirror({
-            src = { x = 1820, y = 865, w = 50, h = 30 },
+            src = { x = 1820, y = 865, w = 42, h = 30 },
             dst = { x = 1735, y = 700, w = 230, h = 130 },
             color_key = { input = "#4DE1CA", output = "#4DE1CA" }
         })
     end
     if not glowdar_bg then
         glowdar_bg = waywall.mirror({
-            src = { x = 1820, y = 865, w = 50, h = 30 },
+            src = { x = 1820, y = 865, w = 42, h = 30 },
             dst = { x = 1740, y = 705, w = 230, h = 130 },
             color_key = { input = "#4DE1CA", output = "#054078" }
         })
