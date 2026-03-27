@@ -97,10 +97,10 @@ local pie_colors = {{
 }}
 local percentage_colors = {{
     input = "#E96D4D",
-    output = cfg.percentages_match_text and cfg.text_col or cfg.pie_chart_1
+    output = cfg.percentages_match_text and cfg.text_col or "#f3a95a"
 }, {
     input = "#45CB65",
-    output = cfg.percentages_match_text and cfg.text_col or cfg.pie_chart_2
+    output = cfg.percentages_match_text and cfg.text_col or "#72e895"
 }}
 
 -- thin mirrors
@@ -109,13 +109,13 @@ if cfg.e_count.enabled then
         src = {
             x = 13,
             y = 37,
-            w = 37,
+            w = 24,
             h = 9
         },
         dst = {
             x = cfg.e_count.x,
             y = cfg.e_count.y,
-            w = 37 * cfg.e_count.size,
+            w = 24 * cfg.e_count.size,
             h = 9 * cfg.e_count.size
         },
         depth = 2,
@@ -128,13 +128,13 @@ if cfg.e_count.enabled then
         src = {
             x = 13,
             y = 37,
-            w = 37,
+            w = 24,
             h = 9
         },
         dst = {
             x = cfg.e_count.x,
             y = cfg.e_count.y,
-            w = 37 * cfg.e_count.size,
+            w = 24 * cfg.e_count.size,
             h = 9 * cfg.e_count.size
         },
         depth = 2,
@@ -211,22 +211,40 @@ local function glowdar_hide()
 end
 
 if cfg.thin_percent.enabled then
-    for _, ck in ipairs(percentage_colors) do
+    for i, ck in ipairs(percentage_colors) do
+        local y_off = (i - 1) * 80
+        local src_y = cfg.thin_res[2] - 221 + (i - 1) * 9
         helpers.res_mirror({
             src = {
                 x = cfg.thin_res[1] - 93,
-                y = cfg.thin_res[2] - 221,
-                w = 33,
-                h = 25
+                y = src_y,
+                w = 13,
+                h = 25*13/12
             },
             dst = {
                 x = cfg.thin_percent.x,
-                y = cfg.thin_percent.y,
-                w = 33 * cfg.thin_percent.size,
+                y = cfg.thin_percent.y + y_off,
+                w = 14 * cfg.thin_percent.size,
                 h = 25 * cfg.thin_percent.size
             },
             depth = 3,
             color_key = ck
+        }, cfg.thin_res[1], cfg.thin_res[2])
+        helpers.res_mirror({
+            src = {
+                x = cfg.thin_res[1] - 93,
+                y = src_y,
+                w = 13,
+                h = 25*13/12
+            },
+            dst = {
+                x = cfg.thin_percent.x + 5,
+                y = cfg.thin_percent.y + y_off + 5,
+                w = 14 * cfg.thin_percent.size,
+                h = 25 * cfg.thin_percent.size
+            },
+            depth = 3,
+            color_key = { input = ck.input, output = "#000000" }
         }, cfg.thin_res[1], cfg.thin_res[2])
     end
 end
@@ -272,22 +290,40 @@ if cfg.tall_pie.enabled then
 end
 
 if cfg.tall_percent.enabled then
-    for _, ck in ipairs(percentage_colors) do
+    for i, ck in ipairs(percentage_colors) do
+        local y_off = (i - 1) * 80
+        local src_y = 16163 + (i - 1) * 9
         helpers.res_mirror({
             src = {
                 x = 291,
-                y = 16163,
-                w = 33,
-                h = 25
+                y = src_y,
+                w = 13,
+                h = 25*13/12
             },
             dst = {
                 x = cfg.tall_percent.x,
-                y = cfg.tall_percent.y,
-                w = 33 * cfg.tall_percent.size,
+                y = cfg.tall_percent.y + y_off,
+                w = 14 * cfg.tall_percent.size,
                 h = 25 * cfg.tall_percent.size
             },
             depth = 3,
             color_key = ck
+        }, cfg.tall_res[1], cfg.tall_res[2])
+        helpers.res_mirror({
+            src = {
+                x = 291,
+                y = src_y,
+                w = 13,
+                h = 25*13/12
+            },
+            dst = {
+                x = cfg.tall_percent.x + 5,
+                y = cfg.tall_percent.y + y_off + 5,
+                w = 14 * cfg.tall_percent.size,
+                h = 25 * cfg.tall_percent.size
+            },
+            depth = 3,
+            color_key = { input = ck.input, output = "#000000" }
         }, cfg.tall_res[1], cfg.tall_res[2])
     end
 end
