@@ -48,6 +48,7 @@ window#waybar {
 }
 
 #custom-notification,
+#custom-keyboard-layout,
 #window,
 #clock,
 #battery,
@@ -113,6 +114,12 @@ window#waybar {
   color: #a6adc8;
   border-left: 0px;
   border-right: 0px;
+}
+
+#custom-keyboard-layout {
+  color: #a6adc8;
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 10px;
 }
 
 #pulseaudio.microphone {

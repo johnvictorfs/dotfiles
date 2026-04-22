@@ -7,8 +7,7 @@
     "gtk-layer-shell": true,
     "height": 0,
     "modules-left": [
-        "ext/workspaces",
-        "dwl/window"
+        "ext/workspaces"
     ],
     "modules-center": [
         "clock"
@@ -18,7 +17,8 @@
         "custom/notification",
         "network",
         "battery",
-        "pulseaudio"
+        "pulseaudio",
+        "custom/keyboard-layout"
     ],
     "tray": {
         "icon-size": 13,
@@ -62,6 +62,13 @@
         // scroll
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    },
+    "custom/keyboard-layout": {
+        "format": "⌨ {}",
+        "exec": "mmsg -g -k | awk '{print toupper($3)}'",
+        "interval": 60,
+        "signal": 1,
+        "tooltip": false
     },
     "memory": {
         "interval": 10,
