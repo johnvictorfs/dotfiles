@@ -23,6 +23,11 @@ import {
   SYMLINKS as MANGO_LINKS,
 } from "./modules/mango.ts";
 import {
+  runNiri,
+  SYSTEM_PACKAGES as NIRI_SYS,
+  SYMLINKS as NIRI_LINKS,
+} from "./modules/niri.ts";
+import {
   runWaywall,
   SYSTEM_PACKAGES as WAYWALL_SYS,
   SYMLINKS as WAYWALL_LINKS,
@@ -155,6 +160,13 @@ const modules: WizardModule[] = [
     label: "tlp (laptop power management)",
     packages: { system: TLP_SYS },
     run: runTlp,
+  },
+  {
+    id: 13,
+    label: "niri",
+    packages: { system: NIRI_SYS },
+    symlinks: NIRI_LINKS,
+    run: runNiri,
   },
 ];
 
