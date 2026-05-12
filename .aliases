@@ -42,7 +42,7 @@ alias ccat="highlight --out-format=ansi --force"
 alias music-dl="youtube-dl --add-metadata -f 'bestaudio[ext=m4a]' -o '%(title)s.%(ext)s'"
 
 # Ssh with kitty terminfo available
-alias ssh="kitty +kitten ssh"
+#alias ssh="kitty +kitten ssh"
 
 # Open ranger with xterm for pdf/img preview support
 alias ra="xterm -fa 'Fira Code Medium' -fs 14 -bg gray15 -e ranger"

@@ -64,14 +64,9 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # pyenv
-if [[ -d "${HOME}/.pyenv/bin" ]]; then
-  export PATH="$(pyenv root)/shims:$PATH"
-  export PATH="${HOME}/.pyenv/bin:$PATH"
-  export PYENV_ROOT="$HOME/.pyenv"
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 # poetry
 if [[ -f "${HOME}/.poetry/env" ]]; then

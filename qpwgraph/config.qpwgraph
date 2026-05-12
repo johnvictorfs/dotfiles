@@ -1,53 +1,49 @@
 <!DOCTYPE patchbay>
-<patchbay name="config" version="0.9.8">
+<patchbay name="config" version="0.9.9">
  <items>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="OBS/OBS-Monitor" port="OBS-Monitor:output_FL"/>
-   <input node="virtual-input-1" port="virtual-input-1:playback_FL"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="Zen" port="Zen:output_FL"/>
+   <output node="Zen-1" port="Zen:output_FR"/>
    <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FR"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="OBS/OBS-Monitor" port="OBS-Monitor:output_FL"/>
+   <output node="Zen" port="Zen:output_FR"/>
+   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="PlagueIncEvolved.exe" port="PlagueIncEvolved.exe:output_FL"/>
    <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="java" port="java:output_FR"/>
-   <input node="virtual-input-1" port="virtual-input-1:playback_FR"/>
+   <output node="Zen-1" port="Zen:output_FL"/>
+   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="OBS/OBS-Monitor-1" port="OBS-Monitor:output_FR"/>
+   <output node="JBL TUNE710BT-1" port="JBL TUNE710BT:monitor_FL"/>
+   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Zen" port="Zen:output_FR"/>
+   <input node="virtual-input-2" port="virtual-input-2:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Zen" port="Zen:output_FL"/>
+   <input node="virtual-input-2" port="virtual-input-2:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="JBL TUNE710BT-1" port="JBL TUNE710BT:monitor_FR"/>
    <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FR"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="OBS/OBS-Monitor" port="OBS-Monitor:output_FR"/>
-   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FR"/>
+   <input node="virtual-input-1" port="virtual-input-1:playback_FR"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="OBS/OBS-Monitor-1" port="OBS-Monitor:output_FL"/>
-   <input node="virtual-input-2" port="virtual-input-2:playback_FL"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="JBL TUNE710BT" port="JBL TUNE710BT:monitor_FR"/>
-   <input node="OBS" port="OBS:input_FR"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="Zen" port="Zen:output_FL"/>
    <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="OBS/OBS-Monitor-1" port="OBS-Monitor:output_FR"/>
-   <input node="virtual-input-2" port="virtual-input-2:playback_FR"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="java" port="java:output_FL"/>
-   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FL"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="java" port="java:output_FL"/>
-   <input node="virtual-input-1" port="virtual-input-1:playback_FL"/>
+   <output node="PlagueIncEvolved.exe" port="PlagueIncEvolved.exe:output_FR"/>
+   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FR"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="java" port="java:output_FR"/>
@@ -62,32 +58,52 @@
    <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="Zen-1" port="Zen:output_FL"/>
+   <output node="java" port="java:output_FL"/>
    <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="Zen" port="Zen:output_FR"/>
+   <output node="java" port="java:output_FL"/>
+   <input node="virtual-input-1" port="virtual-input-1:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="JBL TUNE710BT" port="JBL TUNE710BT:monitor_FR"/>
+   <input node="OBS" port="OBS:input_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="OBS/OBS-Monitor-1" port="OBS-Monitor:output_FL"/>
+   <input node="virtual-input-2" port="virtual-input-2:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="OBS/OBS-Monitor-1" port="OBS-Monitor:output_FR"/>
    <input node="virtual-input-2" port="virtual-input-2:playback_FR"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
    <output node="Zen" port="Zen:output_FL"/>
-   <input node="virtual-input-2" port="virtual-input-2:playback_FL"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="OBS/OBS-Monitor" port="OBS-Monitor:output_FR"/>
-   <input node="virtual-input-1" port="virtual-input-1:playback_FR"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="Zen-1" port="Zen:output_FR"/>
-   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FR"/>
-  </item>
-  <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="OBS/OBS-Monitor-1" port="OBS-Monitor:output_FL"/>
    <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FL"/>
   </item>
   <item node-type="pipewire" port-type="pipewire-audio">
-   <output node="Zen" port="Zen:output_FR"/>
+   <output node="OBS/OBS-Monitor" port="OBS-Monitor:output_FR"/>
    <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="OBS/OBS-Monitor-1" port="OBS-Monitor:output_FR"/>
+   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="OBS/OBS-Monitor" port="OBS-Monitor:output_FL"/>
+   <input node="virtual-input-1" port="virtual-input-1:playback_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Zen" port="Zen:output_FL"/>
+   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="java" port="java:output_FR"/>
+   <input node="virtual-input-1" port="virtual-input-1:playback_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="OBS/OBS-Monitor" port="OBS-Monitor:output_FL"/>
+   <input node="JBL TUNE710BT" port="JBL TUNE710BT:playback_FL"/>
   </item>
  </items>
 </patchbay>

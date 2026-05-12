@@ -238,8 +238,8 @@ if cfg.thin_percent.enabled then
                 h = 25*13/12
             },
             dst = {
-                x = cfg.thin_percent.x + 5,
-                y = cfg.thin_percent.y + y_off + 5,
+                x = cfg.thin_percent.x + 6,
+                y = cfg.thin_percent.y + y_off + 6,
                 w = 14 * cfg.thin_percent.size,
                 h = 25 * cfg.thin_percent.size
             },
@@ -317,8 +317,8 @@ if cfg.tall_percent.enabled then
                 h = 25*13/12
             },
             dst = {
-                x = cfg.tall_percent.x + 5,
-                y = cfg.tall_percent.y + y_off + 5,
+                x = cfg.tall_percent.x + 6,
+                y = cfg.tall_percent.y + y_off + 6,
                 w = 14 * cfg.tall_percent.size,
                 h = 25 * cfg.tall_percent.size
             },

@@ -1,0 +1,60 @@
+[font]
+size = 18.0
+
+[font.normal]
+family = "Fantasque Sans Mono"
+style = "Regular"
+
+[font.bold]
+family = "Fantasque Sans Mono"
+style = "Bold"
+
+[font.italic]
+family = "Fantasque Sans Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "Fantasque Sans Mono"
+style = "Bold Italic"
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+
+[scrolling]
+history = 2000
+
+[window]
+padding = { x = 20, y = 20 }
+
+# Colors from kitty/colors.conf
+[colors.primary]
+background = "#192230"
+foreground = "#afc0d5"
+
+[colors.cursor]
+text    = "#0e1419"
+cursor  = "#D8DEE9"
+
+[colors.selection]
+text       = "#0e1419"
+background = "#243340"
+
+[colors.normal]
+black   = "#000000"
+red     = "#ff3333"
+green   = "#b8cc52"
+yellow  = "#e6c446"
+blue    = "#36a3d9"
+magenta = "#f07078"
+cyan    = "#95e5cb"
+white   = "#ffffff"
+
+[colors.bright]
+black   = "#7d7c7c"
+red     = "#ff6565"
+green   = "#e9fe83"
+yellow  = "#fff778"
+blue    = "#68d4ff"
+magenta = "#ffa3aa"
+cyan    = "#c7fffc"
+white   = "#ffffff"

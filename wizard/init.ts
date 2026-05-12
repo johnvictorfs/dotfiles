@@ -68,6 +68,11 @@ import {
   SYMLINKS as DUNST_LINKS,
 } from "./modules/dunst.ts";
 import { runTlp, SYSTEM_PACKAGES as TLP_SYS } from "./modules/tlp.ts";
+import {
+  runAlacritty,
+  SYSTEM_PACKAGES as ALACRITTY_SYS,
+  SYMLINKS as ALACRITTY_LINKS,
+} from "./modules/alacritty.ts";
 
 function printBanner(): void {
   console.log(`
@@ -167,6 +172,13 @@ const modules: WizardModule[] = [
     packages: { system: NIRI_SYS },
     symlinks: NIRI_LINKS,
     run: runNiri,
+  },
+  {
+    id: 14,
+    label: "alacritty",
+    packages: { system: ALACRITTY_SYS },
+    symlinks: ALACRITTY_LINKS,
+    run: runAlacritty,
   },
 ];
 
